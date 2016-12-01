@@ -127,3 +127,33 @@ def create_proposals_document():
         print('###\n### Did not process all proposals, {} expected, dealt with {}.'.format(total_proposals, proposals_processed))
     else:
         print('Processed {} proposals.'.format(total_proposals))
+
+
+@app.cli.command()
+@click.argument('amendment_file_name')
+def replace_proposal_abstract(amendment_file_name):
+    """
+    Read an amendment file and replace the proposal abstract specified with the given text.
+    An amendment file comprises two sections separated by a line with just four dashes.
+    The upper half is metadata specifying the proposer (email address) and title, the lower
+    half is the text to replace what is currently in the database.
+    """
+    with open(amendment_file_name) as amendment_file:
+        amendment_metadata, amendment_text = [x.strip() for x in amendment_file.read().split('----')]
+        amendment_metadata = {k.strip(): v.strip() for k, v in [item.split(':') for item in amendment_metadata.splitlines()]}
+        if 'Email' not in amendment_metadata or len(amendment_metadata['Email']) == 0:
+            print('Email of proposer not specified.')
+            return
+        if 'Title' not in amendment_metadata or len(amendment_metadata['Title']) == 0:
+            print('Title of proposal not specified.')
+            return
+        if len(amendment_text) == 0:
+            print('Replacement text not specified')
+            return
+        proposals = Proposal.query.filter_by(proposer=amendment_metadata['Email'], title=amendment_metadata['Title']).all()
+        if len(proposals) != 1:
+            print('Query delivers no or more than one proposal object.')
+            return
+        proposals[0].text = amendment_text
+        db.session.commit()
+        print('Update apparently completed.')
