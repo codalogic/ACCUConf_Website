@@ -31,7 +31,7 @@ class MaintenanceTestConfig(TestConfig):
     MAINTENANCE = True
 
 
-# Config = ProductionConfig
-Config = MaintenanceProductionConfig
+Config = ProductionConfig
+# Config = MaintenanceProductionConfig
 # Config = TestConfig
 # Config = MaintenanceTestConfig
