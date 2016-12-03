@@ -7,6 +7,8 @@ from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 
+from statistics import mean, median
+
 # This must be imported here even though it may not be explicitly used in this file.
 import click
 
@@ -56,11 +58,12 @@ def create_proposal_sheets():
     document = SimpleDocTemplate(file_path, pagesize=A4, rightMargin=30, leftMargin=30, topMargin=30, bottomMargin=18)
     elements = []
     for p in Proposal.query.all():
+        scores = tuple(r.score for r in p.reviews if r.score != 0)
         table = Table([
             [Paragraph(p.title, style_sheet), p.session_type],
             [', '.join('{} {}'.format(pp.first_name, pp.last_name) for pp in p.presenters),
-             ', '.join(str(r.score) for r in p.reviews)],
-        ], colWidths=(400, 150), spaceAfter=36)
+             ', '.join(str(r.score) for r in p.reviews) + ' — {:.2f}, {}'.format(mean(scores), median(scores)) if len(scores) > 0 else ''],
+        ], colWidths=(380, 180), spaceAfter=36)
         table.setStyle(TableStyle([
             ('FONTSIZE', (0, 0), (-1, -1), 12),
         ]))
@@ -87,7 +90,8 @@ def create_proposals_document():
             proposals_file.write('<<<\n\n=== {}\n\n'.format(p.title))
             proposals_file.write(', '.join('{} {}'.format(pp.first_name, pp.last_name) for pp in p.presenters) + '\n\n')
             proposals_file.write(cleanup_text(p.text.strip()) + '\n\n')
-            proposals_file.write("'''\n\n*{}*\n\n".format(', '.join(str(review.score) for review in p.reviews)))
+            scores = tuple(r.score for r in p.reviews if r.score != 0)
+            proposals_file.write("'''\n\n*{}{}*\n\n".format(', '.join(str(review.score) for review in p.reviews), ' — {:.2f}, {}'.format(mean(scores), median(scores)) if len(scores) > 0 else ''))
             for comment in p.comments:
                 c = comment.comment.strip()
                 if c:
@@ -157,3 +161,46 @@ def replace_proposal_abstract(amendment_file_name):
         proposals[0].text = amendment_text
         db.session.commit()
         print('Update apparently completed.')
+
+
+@app.cli.command()
+@click.argument('email_address')
+def expunge_user(email_address):
+    """
+    Relationships have the wrong cascade settings and so we cannot just delete the user and have all
+    the user related objects removed, we thus have to follow all the relationship entries in a class
+    to perform a deep removal.
+
+    User has user_info, location and proposals. user_info and location are simple things
+    and can just be deleted. proposals is a list and each elements has presenters, status, reviews,
+    comments, categories – only status is not a list.
+    """
+    user = User.query.filter_by(user_id=email_address).all()
+    if len(user) == 0:
+        print('Identifier {} not found.'.format(email_address))
+        return
+    elif len(user) > 1:
+        print('Multiple instances of identifier {} found.'.format(email_address))
+        return
+    user = user[0]
+    db.session.delete(user.user_info)
+    db.session.delete(user.location)
+    if user.proposals is not None:
+        for proposal in user.proposals:
+            if proposal.presenters is not None:
+                for presenter in proposal.presenters:
+                    db.session.delete(presenter)
+            if proposal.status is not None:
+                db.session.delete(proposal.status)
+            if proposal.reviews is not None:
+                for review in proposal.reviews:
+                    db.session.delete(review)
+            if proposal.comments is not None:
+                for comment in proposal.comments:
+                    db.session.delete(comment)
+            if proposal.categories is not None:
+                for category in proposal.categories:
+                    db.session.delete(category)
+            db.session.delete(proposal)
+    db.session.delete(user)
+    db.session.commit()
