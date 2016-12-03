@@ -3,9 +3,11 @@ import sys
 
 from pathlib import Path
 
+from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, KeepTogether
+from reportlab.platypus.flowables import HRFlowable
 
 from statistics import mean, median
 
@@ -55,7 +57,7 @@ def create_proposal_sheets():
     style_sheet = getSampleStyleSheet()['BodyText']
     style_sheet.fontSize = 18
     style_sheet.leading = 22
-    document = SimpleDocTemplate(file_path, pagesize=A4, rightMargin=30, leftMargin=30, topMargin=30, bottomMargin=18)
+    document = SimpleDocTemplate(file_path, pagesize=A4, rightMargin=30, leftMargin=30, topMargin=10, bottomMargin=30)
     elements = []
     for p in Proposal.query.all():
         scores = tuple(r.score for r in p.reviews if r.score != 0)
@@ -63,11 +65,12 @@ def create_proposal_sheets():
             [Paragraph(p.title, style_sheet), p.session_type],
             [', '.join('{} {}'.format(pp.first_name, pp.last_name) for pp in p.presenters),
              ', '.join(str(r.score) for r in p.reviews) + ' — {:.2f}, {}'.format(mean(scores), median(scores)) if len(scores) > 0 else ''],
-        ], colWidths=(380, 180), spaceAfter=36)
+        ], colWidths=(380, 180), spaceAfter=64)
         table.setStyle(TableStyle([
             ('FONTSIZE', (0, 0), (-1, -1), 12),
         ]))
-        elements.append(table)
+        elements.append(HRFlowable(width="100%", thickness=1, lineCap='round', color=colors.darkgrey, spaceBefore=1, spaceAfter=1, hAlign='CENTER', vAlign='BOTTOM', dash=None))
+        elements.append(KeepTogether(table))
     document.build(elements)
 
 
