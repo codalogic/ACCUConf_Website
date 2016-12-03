@@ -25,6 +25,7 @@ class Proposal(db.Model):
             raise TypeError("session_type should be of type accuconf.proposals.ProposalType")
         self.text = text
 
+
 class ProposalPresenter(db.Model):
     __tablename__ = "proposal_presenters"
     id = db.Column(db.Integer, primary_key=True)
