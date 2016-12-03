@@ -1,0 +1,22 @@
+////
+.. title: Call for Sessions Now Closed
+.. date: 2016-12-03T08:47+00:00
+.. type: text
+////
+
+So the Call for Sessions for ACCU 2017 is now closed. After a few initial hiccups with the website, things
+appear to have gone relatively smoothly. Certainly we have many more excellent session proposals than
+sessions we are going to be able to put on. The programme committee are busy reviewing the proposals, we
+will soon be having to take some very hard decisions.  We have to try and avoid having multiple sessions on
+the same topic, and having people do more than one 90 minute session, amongst other constraints.
+
+The submission web application has now been put into maintenance mode, it currently says it will be back
+shortly. This is actually a bit of a fib, it will be back sometime in 2017-10.  During its apparent hiatus
+it will undergo significant reworking: the data model needs to change quite a lot, and the UI needs
+to change quite a lot. The intention is that the submission experience for ACCU 2018 will be significantly
+better that the last eight weeks.
+
+However, for the moment it is down to review and selection for ACCU 2017 so to make it a really good
+conference, and a great experience for all attenders. Given the quality of the proposals, this is actually
+more or less assured. The problem is selecting from the collection of excellent proposals… hummm…  this may
+take a while…
