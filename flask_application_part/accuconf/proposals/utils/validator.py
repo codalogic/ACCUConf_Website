@@ -2,8 +2,8 @@ import re
 
 
 def validate_email(email):
-    emailPattern = re.compile("^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-_])+\.)+([a-zA-Z0-9])+$")
-    if emailPattern.search(email):
+    email_pattern = re.compile("^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-_])+\.)+([a-zA-Z0-9])+$")
+    if email_pattern.search(email):
         from accuconf.models import User
         u = User.query.filter_by(user_id=email).first()
         if u:
@@ -14,59 +14,54 @@ def validate_email(email):
         return False
 
 
-def validate_password(passwd):
-    if (re.search("\\d", passwd) and re.search("[a-z]", passwd) and
-        re.search("[A-Z]", passwd) and len(passwd) >= 8):
-        return True
-    else:
-        return False
+def validate_password(password):
+    return re.search("\\d", password) and re.search("[a-z]", password) and re.search("[A-Z]", password) and len(password) >= 8
 
 
-def validate_proposal_data(proposalData):
-    mandatoryKeys = ["title", "abstract", "proposalType", "presenters"]
-    for key in mandatoryKeys:
-        if key not in proposalData:
-            return False, "%s information is not present in proposal" % (key)
+def validate_proposal_data(proposal_data):
+    mandatory_keys = ["title", "abstract", "session_type", "presenters"]
+    for key in mandatory_keys:
+        if key not in proposal_data:
+            return False, "{} information is not present in proposal".format(key)
 
-        if proposalData[key] is None:
-            return False, "%s information should not be empty" % (key)
-    if type(proposalData["presenters"]) != list:
+        if proposal_data[key] is None:
+            return False, "{} information should not be empty".format(key)
+    if type(proposal_data["presenters"]) != list:
         return False, "presenters data is malformed"
 
-    if len(proposalData["presenters"]) < 1:
+    if len(proposal_data["presenters"]) < 1:
         return False, "At least one presenter needed"
 
-    if len(proposalData.get("title")) < 5:
+    if len(proposal_data.get("title")) < 5:
         return False, "Title is too short"
 
-    if len(proposalData.get("abstract")) < 50:
+    if len(proposal_data.get("abstract")) < 50:
         return False, "Proposal too short"
 
-    (result, message) = validatePresenters(proposalData["presenters"])
+    (result, message) = validate_presenters(proposal_data["presenters"])
     if not result:
         return result, message
 
     return True, "validated"
 
 
-def validatePresenters(presenters):
-    mandatoryKeys = ["lead", "email", "fname", "lname", "country", "state"]
-    leadFound = False
-    leadPresenter = ""
+def validate_presenters(presenters):
+    mandatory_keys = ["lead", "email", "fname", "lname", "country", "state"]
+    lead_found = False
+    lead_presenter = ""
     for presenter in presenters:
-        for key in mandatoryKeys:
+        for key in mandatory_keys:
             if key not in presenter:
-                return False, "%s attribute is mandatory for Presenters" % (key)
+                return False, "{} attribute is mandatory for Presenters".format(key)
 
             if presenter[key] is None:
-                return False, "%s attribute should have valid data" % (key)
+                return False, "{} attribute should have valid data".format(key)
 
         if "lead" in presenter and "email" in presenter:
-            if presenter["lead"] and leadFound:
-                return False, "%s and %s are both marked as lead presenters" \
-                       % (presenter["email"], leadPresenter)
-            elif presenter["lead"] and not leadFound:
-                leadFound = True
-                leadPresenter = presenter["email"]
+            if presenter["lead"] and lead_found:
+                return False, "{} and {} are both marked as lead presenters".format(presenter["email"], lead_presenter)
+            elif presenter["lead"] and not lead_found:
+                lead_found = True
+                lead_presenter = presenter["email"]
 
     return True, "validated"

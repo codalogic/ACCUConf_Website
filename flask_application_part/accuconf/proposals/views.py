@@ -2,9 +2,8 @@ from flask import render_template, jsonify, redirect, url_for, session, request
 from flask import send_from_directory, g
 from datetime import datetime
 from accuconf import db
-from accuconf.models import MathPuzzle, Proposal, ProposalComment, ProposalPresenter, ProposalReview, User, UserInfo, UserLocation
-from accuconf.proposals.utils.roles import Role
-from accuconf.proposals.utils.proposals import get_proposal_type
+from accuconf.models import MathPuzzle, Proposal, ProposalComment, ProposalPresenter, ProposalReview, User
+from accuconf.proposals.utils.proposals import SessionType
 from accuconf.proposals.utils.validator import validate_email, validate_password, validate_proposal_data
 import hashlib
 from random import randint
@@ -12,6 +11,7 @@ from . import proposals
 
 _proposal_static_path = None
 _end_of_call_for_session = datetime(2016,12,2,23,58,00)
+
 
 @proposals.record
 def init_blueprint(context):
@@ -48,10 +48,10 @@ def index():
     #     "when_where": when_where,
     #     "committee": committee.get("members", [])
     # }
-    # if 'user_id' in session:
-    #     user = User.query.filter_by(user_id=session["user_id"]).first()
+    # if 'id' in session:
+    #     user = User.query.filter_by(id=session["id"]).first()
     #     if not user:
-    #         proposals.logger.error("user_id key present in session, but no user")
+    #         proposals.logger.error("id key present in session, but no user")
     #         return redirect(url_for('proposals.logout'))
     #     else:
     #         frontpage["user_name"] = "%s %s" % (user.user_info.first_name,
@@ -76,8 +76,8 @@ def login():
         if not user:
             return redirect(url_for('index'))
         password_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
-        if user.user_pass == password_hash:
-            session['user_id'] = user.user_id
+        if user.password == password_hash:
+            session['id'] = user.user_id
             proposals.logger.info("Auth successful")
             g.user = user_id
             return redirect(url_for("nikola.index"))
@@ -85,13 +85,12 @@ def login():
             proposals.logger.info("Auth failed")
             return redirect(url_for("proposals.login"))
     elif request.method == "GET":
-        page = {"title": "Login Page"}
-        return render_template("login.html", page=page)
+        return render_template("login.html", page={"title": "Login Page"})
 
 
 @proposals.route("/logout")
 def logout():
-    session.pop('user_id', None)
+    session.pop('id', None)
     return redirect(url_for('index'))
 
 
@@ -102,20 +101,20 @@ def register():
 
     edit_mode = False
     user = None
-    if session.get("user_id", False):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+    if session.get("id", False):
+        user = User.query.filter_by(user_id=session["id"]).first()
         if user is not None:
             edit_mode = True
 
     if request.method == "POST":
         # Process registration data
         if not edit_mode: # it is not allowed to change the email address at the moment, because this is used as key
-            user_email = request.form["email"]
+            user_email = request.form["usermail"]
 
         # In case that no user pass was provided, we don't update the field
         user_pass = None
-        if len(request.form["user_pass"].strip()) > 0:
-            user_pass = request.form["user_pass"]
+        if len(request.form["password"].strip()) > 0:
+            user_pass = request.form["password"]
 
         cpassword = request.form["cpassword"]
         first_name = request.form["firstname"]
@@ -135,32 +134,30 @@ def register():
 
         page = {}
         if edit_mode:
-            user.user_info.first_name = first_name
-            user.user_info.last_name = last_name
+            user.first_name = first_name
+            user.last_name = last_name
             if encoded_pass:
-                user.user_pass = encoded_pass
-            user.user_info.phone = phone
-            user.user_info.bio = bio
+                user.password = encoded_pass
+            user.phone = phone
+            user.bio = bio
 
-            user.location.country = country
-            user.location.state = state
-            user.location.postal_code = postal_code
-            user.location.town_city = town_city
-            user.location.street_address = street_address
+            user.country = country
+            user.state = state
+            user.postal_code = postal_code
+            user.town_city = town_city
+            user.street_address = street_address
 
             if encoded_pass:
-                User.query.filter_by(user_id=user.user_id).update({ 'user_pass': encoded_pass })
+                User.query.filter_by(user_id=user.user_id).update({ 'password': encoded_pass })
 
-            UserInfo.query.filter_by(user_id=user.user_id).update(
-                {
+            UserInfo.query.filter_by(user_id=user.user_id).update({
                     'first_name': first_name,
                     'last_name': last_name,
                     'phone': phone,
                     'bio': bio
                 })
             UserLocation.query.filter_by(
-                user_id=user.user_id).update(
-                {
+                user_id=user.user_id).update({
                     'country': country,
                     'state': state,
                     'postal_code': postal_code,
@@ -217,25 +214,20 @@ def register():
                 return render_template("registration_failure.html", page=page)
 
             else:
-                new_user = User(user_email, encoded_pass)
-                user_info = UserInfo(new_user.user_id,
-                                    first_name,
-                                    last_name,
-                                    phone,
-                                    bio,
-                                    Role.user.get("name", "user")
-                                    )
-                user_location = UserLocation(new_user.user_id,
-                                            country,
-                                            state,
-                                            postal_code,
-                                            town_city,
-                                            street_address)
-                new_user.user_info = user_info
-                new_user.location = user_location
+                new_user = User(
+                    user_email,
+                    encoded_pass,
+                    first_name,
+                    last_name,
+                    phone,
+                    bio,
+                    country,
+                    state,
+                    postal_code,
+                    town_city,
+                    street_address,
+                )
                 db.session.add(new_user)
-                db.session.add(user_info)
-                db.session.add(user_location)
             page["title"] = "Registration successful"
             page["data"] = "You have successfully registered for submitting "
             page["data"] += "proposals for the ACCU Conf. Please login and "
@@ -248,16 +240,16 @@ def register():
         page["mode"] = "edit_mode" if edit_mode else "register"
 
         page["email"] = user.user_id if edit_mode else ""
-        page["first_name"] = user.user_info.first_name if edit_mode else ""
-        page["last_name"] = user.user_info.last_name if edit_mode else ""
-        page["phone"] = user.user_info.phone if edit_mode else ""
-        page["bio"] = user.user_info.bio if edit_mode else ""
+        page["first_name"] = user.first_name if edit_mode else ""
+        page["last_name"] = user.last_name if edit_mode else ""
+        page["phone"] = user.phone if edit_mode else ""
+        page["bio"] = user.bio if edit_mode else ""
 
-        page["country"] = user.location.country if edit_mode else "GBR" # UK shall be the default
-        page["state"] = user.location.state if edit_mode else "GB-ENG"
-        page["postal_code"] = user.location.postal_code if edit_mode else ""
-        page["town_city"] = user.location.town_city if edit_mode else ""
-        page["street_address"] = user.location.street_address if edit_mode else ""
+        page["country"] = user.country if edit_mode else "GBR" # UK shall be the default
+        page["state"] = user.state if edit_mode else "GB-ENG"
+        page["postal_code"] = user.postal_code if edit_mode else ""
+        page["town_city"] = user.town_city if edit_mode else ""
+        page["street_address"] = user.street_address if edit_mode else ""
 
         num_a = randint(10, 99)
         num_b = randint(10, 99)
@@ -273,12 +265,13 @@ def register():
         page["submit_button"] = "Save" if edit_mode else "Register"
         return render_template("register.html", page=page)
 
+
 @proposals.route("/show_proposals", methods=["GET"])
 def show_proposals():
     if proposals.config.get("MAINTENANCE"):
         return redirect(url_for("proposals.maintenance"))
-    if session.get("user_id", False):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+    if session.get("id", False):
+        user = User.query.filter_by(user_id=session["id"]).first()
         if not user:
             return render_template("not_logged_in.html", page={"name": "Submit proposal"})
         page = {"subpages": []}
@@ -287,8 +280,8 @@ def show_proposals():
                 "proposal": {
                     "title": proposal.title,
                     "abstract": proposal.text,
-                    "proposaltype": get_proposal_type(proposal.session_type).proposalType(),
-                    "presenters": proposal.presenters
+                    "session_type": proposal.session_type,
+                    "presenters": proposal.presenters,
                 }
             }
             page["subpages"].append(subpage)
@@ -301,19 +294,19 @@ def show_proposals():
 def submit_proposal():
     if proposals.config.get("MAINTENANCE"):
         return redirect(url_for("proposals.maintenance"))
-    if session.get("user_id", False):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+    if session.get("id", False):
+        user = User.query.filter_by(user_id=session["id"]).first()
         if not user:
             return render_template("not_logged_in.html", page={"name": "Submit proposal"})
         return render_template("submit_proposal.html", page={
             "title": "Submit a proposal for ACCU Conference",
-            "user_name": "%s %s".format(user.user_info.first_name, user.user_info.last_name),
+            "user_name": "%s %s".format(user.first_name, user.last_name),
             "proposer": {
                 "email": user.user_id,
-                "first_name": user.user_info.first_name,
-                "last_name": user.user_info.last_name,
-                "country": user.location.country,
-                "state": user.location.state
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "country": user.country,
+                "state": user.state
             }
         })
     else:
@@ -324,8 +317,8 @@ def submit_proposal():
 def upload_proposal():
     if proposals.config.get("MAINTENANCE"):
         return redirect(url_for("proposals.maintenance"))
-    if session.get("user_id", False):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+    if session.get("id", False):
+        user = User.query.filter_by(user_id=session["id"]).first()
         if not user:
             return render_template("not_logged.html", page={"name": "Proposal Submission"})
         else:
@@ -336,7 +329,7 @@ def upload_proposal():
             if status:
                 proposal = Proposal(proposal_data.get("proposer"),
                                     proposal_data.get("title").rstrip(),
-                                    get_proposal_type(proposal_data.get("proposalType")),
+                                    SessionType(proposal_data.get('session_type')),
                                     proposal_data.get("abstract").rstrip())
                 user.proposals.append(proposal)
                 db.session.add(proposal)
@@ -367,14 +360,14 @@ def upload_proposal():
 def review_proposal():
     if proposals.config.get("MAINTENANCE"):
         return redirect(url_for("proposals.maintenance"))
-    if session.get("user_id", False):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+    if session.get("id", False):
+        user = User.query.filter_by(user_id=session["id"]).first()
         if not user:
             return render_template("not_logged_in.html", page={"name": "Submit proposal"})
         page = {"Title": "Review Proposal"}
         proposal_to_show_next = None
-        all_proposals = Proposal.query.filter(Proposal.proposer != session["user_id"]).order_by(Proposal.id)
-        all_proposals_reverse = Proposal.query.filter(Proposal.proposer != session["user_id"]).order_by(Proposal.id.desc())
+        all_proposals = Proposal.query.filter(Proposal.proposer != session["id"]).order_by(Proposal.id)
+        all_proposals_reverse = Proposal.query.filter(Proposal.proposer != session["id"]).order_by(Proposal.id.desc())
         if session.get("review_button_pressed", False):
             if session["review_button_pressed"] == "next_proposal":
                 proposal_to_show_next = find_next_element(all_proposals, session["review_id"])
@@ -418,7 +411,7 @@ def review_proposal():
             "title": proposal_to_show_next.title,
             "abstract": proposal_to_show_next.text,
             "bio": speakers_bio,
-            "proposaltype": get_proposal_type(proposal_to_show_next.session_type).proposalType(),
+            "session_type": proposal_to_show_next.session_type,
             "presenters": proposal_to_show_next.presenters,
             "score": 0,
             "comment": "",
@@ -441,8 +434,8 @@ def review_proposal():
 def upload_review():
     if proposals.config.get("MAINTENANCE"):
         return redirect(url_for("proposals.maintenance"))
-    if session.get("user_id", False):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+    if session.get("id", False):
+        user = User.query.filter_by(user_id=session["id"]).first()
         if not user:
             return render_template("not_logged_in.html", page={"name": "Submit proposal"})
         if session.get("review_id", False):
@@ -538,10 +531,10 @@ def navlinks():
     number_of_proposals = 0
     my_proposals_text = ""
     call_for_session_is_over = _end_of_call_for_session < datetime.now()
-    if session.get("user_id", False):
+    if session.get("id", False):
         logged_in = True
         logged_out = False
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+        user = User.query.filter_by(user_id=session["id"]).first()
         number_of_proposals = len(user.proposals)
         can_review = user.user_info.role == "reviewer"
         my_proposals_text = "My Proposal" if number_of_proposals == 1 else "My Proposals"
@@ -561,11 +554,11 @@ def navlinks():
 
 @proposals.route('/current_user', methods=["GET"])
 def current_user():
-    user_info = {"user_id": ""}
-    if session.get("user_id", False):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
+    user_info = {"id": ""}
+    if session.get("id", False):
+        user = User.query.filter_by(user_id=session["id"]).first()
         if user:
-            user_info["user_id"] = user.user_id
+            user_info["id"] = user.user_id
             user_info["first_name"] = user.user_info.first_name
             user_info["last_name"] = user.user_info.last_name
     return jsonify(**user_info)

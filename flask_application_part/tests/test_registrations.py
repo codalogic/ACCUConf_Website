@@ -6,8 +6,8 @@ from common import client, post_and_check_content
 @pytest.fixture
 def registrant():
     return {
-        'email': 'a@b.c',
-        'user_pass': 'Password1',
+        'usermail': 'a@b.c',
+        'password': 'Password1',
         'cpassword': 'Password1',
         'firstname': 'User',
         'lastname': 'Name',
@@ -34,8 +34,8 @@ def test_user_reg_dup(client, registrant):
 
 def test_password_short(client):
     post_and_check_content(client, '/proposals/register', {
-        'email': 'test@std.dom',
-        'user_pass': 'Pass1',
+        'usermail': 'test@std.dom',
+        'password': 'Pass1',
         'cpassword': 'Pass1',
         'firstname': 'User2',
         'lastname': 'Name2',
@@ -45,7 +45,7 @@ def test_password_short(client):
         'state': 'TamilNadu',
         'towncity' : 'Chennai',
         'streetaddress': 'Chepauk',
-        'bio': 'An indivual of the world.',
+        'bio': 'An individual of the world.',
         'captcha': '1',
         'question': '12',
     }, values=('Password did not meet checks',))
@@ -53,8 +53,8 @@ def test_password_short(client):
 
 def test_password_invalid(client):
     post_and_check_content(client, '/proposals/register', {
-        'email': 'test@std.dom',
-        'user_pass': 'password',
+        'usermail': 'test@std.dom',
+        'password': 'password',
         'cpassword': 'password',
         'firstname': 'User2',
         'lastname': 'Name2',
@@ -64,7 +64,7 @@ def test_password_invalid(client):
         'state': 'TamilNadu',
         'towncity' : 'Chennai',
         'streetaddress': 'Chepauk',
-        'bio': 'An indivual of the world.',
+        'bio': 'An individual of the world.',
         'captcha': '1',
         'question': '12'
     }, values=('Password did not meet checks',))
@@ -72,8 +72,8 @@ def test_password_invalid(client):
 
 def test_username_invalid(client):
     post_and_check_content(client, '/proposals/register', {
-        'email': 'testing.test.dom',
-        'user_pass': 'passworD13',
+        'usermail': 'testing.test.dom',
+        'password': 'passworD13',
         'cpassword': 'passworD13',
         'firstname': 'User2',
         'lastname': 'Name2',
@@ -83,7 +83,7 @@ def test_username_invalid(client):
         'state': 'TamilNadu',
         'towncity' : 'Chennai',
         'streetaddress': 'Chepauk',
-        'bio': 'An indivual of the world.',
+        'bio': 'An individual of the world.',
         'captcha': '1',
         'question': '12',
     }, values=('Invalid/Duplicate user id',))

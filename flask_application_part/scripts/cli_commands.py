@@ -18,7 +18,7 @@ file_directory = Path(__file__).absolute().parent
 sys.path.insert(0, str(file_directory.parent))
 
 from accuconf import app, db
-from accuconf.models import User, UserInfo, UserLocation, Proposal, ProposalPresenter, ProposalReview, ProposalComment
+from accuconf.models import User, Proposal, ProposalPresenter, ProposalReview, ProposalComment
 
 
 @app.cli.command()
@@ -41,7 +41,7 @@ def committee_are_reviewers():
     try:
         with open(str(file_directory / file_name)) as committee_email_file:
             committee_emails = {s.strip() for s in committee_email_file.read().split()}
-            reviewer_emails = {u.user_id for u in UserInfo.query.filter_by(role='reviewer').all()}
+            reviewer_emails = {u.user_id for u in User.query.filter_by(role='reviewer').all()}
             committee_not_reviewer = {c for c in committee_emails if c not in reviewer_emails}
             reviewers_not_committee = {r for r in reviewer_emails if r not in committee_emails}
             print('Committee members not reviewers:', committee_not_reviewer)
@@ -176,7 +176,7 @@ def expunge_user(email_address):
 
     User has user_info, location and proposals. user_info and location are simple things
     and can just be deleted. proposals is a list and each elements has presenters, status, reviews,
-    comments, categories – only status is not a list.
+    comments, category – only status is not a list.
     """
     user = User.query.filter_by(user_id=email_address).all()
     if len(user) == 0:

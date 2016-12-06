@@ -10,8 +10,8 @@ __licence__ = 'GPLv3'
 @pytest.fixture
 def registrant():
     return {
-        'email': 'a@b.c',
-        'user_pass': 'Password1',
+        'usermail': 'a@b.c',
+        'password': 'Password1',
         'cpassword': 'Password1',
         'firstname': 'User',
         'lastname': 'Name',

@@ -9,6 +9,7 @@ import pytest
 from common import client, get_and_check_content, post_and_check_content
 
 from accuconf.models import User, Proposal
+from accuconf.proposals.utils.proposals import SessionType
 
 __author__ = 'Balachandran Sivakumar, Russel Winder'
 __copyright__ = '© 2016  Balachandran Sivakumar, Russel Winder'
@@ -18,8 +19,8 @@ __licence__ = 'GPLv3'
 @pytest.fixture(scope='function')
 def registration_data():
     return {
-        'email': 'a@b.c',
-        'user_pass': 'Password1',
+        'usermail': 'a@b.c',
+        'password': 'Password1',
         'cpassword': 'Password1',
         'firstname': 'User',
         'lastname': 'Name',
@@ -43,7 +44,7 @@ def proposal_single_presenter():
     return {
         'proposer': 'a@b.c',
         'title': 'ACCU Proposal',
-        'proposalType': 'quick',
+        'session_type': 'quickie',
         'abstract': '''This is a test proposal that will have
 dummy data. Also this is not a very
 lengthy proposal''',
@@ -65,7 +66,7 @@ def proposal_multiple_presenters_single_lead():
     return {
         'proposer': 'a@b.c',
         'title': 'ACCU Proposal',
-        'proposalType': 'miniworkshop',
+        'session_type': 'miniworkshop',
         'abstract': ''' This is a test proposal that will have
 dummy data. Also this is not a very
 lengthy proposal''',
@@ -95,7 +96,7 @@ def proposal_multiple_presenters_and_leads():
     return {
         'proposer': 'a@b.c',
         'title': 'ACCU Proposal',
-        'proposalType': 'workshop',
+        'session_type': 'workshop',
         'abstract': ''' This is a test proposal that will have
 dummy data. Also this is not a very
 lengthy proposal''',
@@ -131,7 +132,7 @@ def test_user_cannot_register_twice(client, registration_data):
 
 def test_registered_user_can_login(client, registration_data):
     test_user_can_register(client, registration_data)
-    post_and_check_content(client, '/proposals/login', {'usermail': registration_data['email'], 'password': registration_data['user_pass']}, code=302, values=('Redirecting',))
+    post_and_check_content(client, '/proposals/login', {'usermail': registration_data['usermail'], 'password': registration_data['password']}, code=302, values=('Redirecting',))
     get_and_check_content(client, '/site/index.html', values=('ACCU Conference',))
     # TODO How to check in the above that the left-side menu now has the proposals links?
 
@@ -156,7 +157,7 @@ def test_logged_in_user_can_submit_a_single_presenter_proposal(client, registrat
     p = user.proposals[0]
     assert p.proposer == user.user_id
     assert len(p.presenters) == 1
-    assert proposal.session_type == 'quick'
+    assert proposal.session_type == SessionType.quickie
 
 
 def test_logged_in_user_can_submit_multipresenter_single_lead_proposal(client, registration_data, proposal_multiple_presenters_single_lead):
@@ -174,7 +175,7 @@ def test_logged_in_user_can_submit_multipresenter_single_lead_proposal(client, r
     p = user.proposals[0]
     assert p.proposer == user.user_id
     assert len(p.presenters) == 2
-    assert proposal.session_type == 'miniworkshop'
+    assert proposal.session_type == SessionType.miniworkshop
 
 
 def test_logged_in_user_user_can_submit_multipresenter_multilead_proposal(client, registration_data, proposal_multiple_presenters_and_leads):
@@ -192,5 +193,5 @@ def test_logged_in_user_user_can_submit_multipresenter_multilead_proposal(client
     assert user is not None
     assert len(user.proposals) == 0
     #p = user.proposal
-    #assert p.proposer == user.user_id
+    #assert p.proposer == user.id
     #assert len(p.presenters) == 2
