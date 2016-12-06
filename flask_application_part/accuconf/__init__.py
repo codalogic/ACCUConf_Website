@@ -19,23 +19,6 @@ app.register_blueprint(proposals, url_prefix='/proposals')
 app.logger.info(app.url_map)
 
 
-@event.listens_for(db.get_engine(app), "connect")
-def enable_fkey(dbcon, con_rec):
-    cursor = dbcon.cursor()
-    cursor.execute('PRAGMA foreign_keys=ON;')
-    cursor.close()
-
-
-# TODO Is this used?
-def drop_db():
-    db.drop_all()
-
-
-# TODO Is this used?
-def create_db():
-    db.create_all()
-
-
 @app.route('/')
 def index():
     return redirect(url_for('nikola.index'))
