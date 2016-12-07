@@ -21,17 +21,9 @@
 </div>
 <!-- End of banner -->
 <!-- Banner logo -->
-<!--
-<div class="row">
-    <div class="jumbotron">
-        <img src="/assets/bristol.jpg" class="img-responsive center-block" alt="Bristol"/>
-    </div>
-</div>
--->
-<!-- Banner logo -->
 <div class="row">
     <!-- Menubar -->
-    <div class="col-sm-3 col-md-3 col-lg-3 ">
+    <div class="col-sm-3 col-md-3 col-lg-3">
         <div class="row">
             <nav class="navbar navbar-default accuconf-menu" role="navigation">
                 <div class="navbar-header">
@@ -51,14 +43,14 @@
             </nav>
         </div> <!-- End div.row for nav -->
         <div class="hidden-xs">
-            <div class="row hide">
+            <div class="row">
                 <div class="container-fluid">
                     {{ accuconf.sponsors() }}
                 </div>
             </div>
         </div>
         <!-- End of Menubar -->
-    </div> <!-- End of div.col-sm-3 -->
+    </div> <!-- End of col-sm-3 col-md-3 col-lg-3 -->
 
     <!-- For single column rendering - In mobiles and tablets -->
     <div class="visible-xs-block">
@@ -128,41 +120,11 @@
                 </div>
             </div>
         </div>
-        <div class="row hide">
-            {{ accuconf.sponsors() }}
+        <div class="row">
+          {{ accuconf.committee() }}
         </div>
         <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Programme Committee</h3>
-                </div>
-                <div class="panel-body">
-                    <ul class="nolist">
-                        {{ accuconf.committee() }}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Organisation</h3>
-                </div>
-                <div class="panel-body">
-                  <a href="http://www.archer-yates.co.uk/"><h4> Archer Yates Ltd </h4></a>
-                  <img src="/assets/images/AYA_holding.png" width="50" align="right" alt="AYALogo"/>
-                  <ul class="nolist">
-                    <li> 7 Threshers Yard </li>
-                    <li> West Street </li>
-                    <li> Kingham </li>
-                    <li> Oxfordshire OX7 6YF  </li>
-                    <li> </li>
-                    <li> Telephone: +44 1608 659900  </li>
-                    <li> Fax: +44 1608 659911  </li>
-                    <li> Email: julie@archer-yates.co.uk </li>
-                  </ul>
-                </div>
-            </div>
+            {{ accuconf.organiser() }}
         </div>
     </div>
 </div> <!--  End of div.row -->
