@@ -4,6 +4,7 @@ Various bits of code used in various places. It is assumed this file is imported
 
 import pytest
 import sys
+
 from pathlib import PurePath
 
 path_to_add = str(PurePath(__file__).parent.parent)
