@@ -10,6 +10,8 @@ class Proposal(db.Model):
     text = db.Column(db.Text, nullable=False)
     category = db.Column(db.Enum(SessionCategory), nullable=False)
     status = db.Column(db.Enum(ProposalState), nullable=False)
+    slides_pdf = db.Column(db.String(80))
+    video_url = db.Column(db.String(128))
     presenters = db.relationship('ProposalPresenter', uselist=True)
     scores = db.relationship('ProposalScore', uselist=True)
     comments = db.relationship('ProposalComment', uselist=True)

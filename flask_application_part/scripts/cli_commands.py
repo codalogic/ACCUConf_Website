@@ -18,7 +18,7 @@ file_directory = Path(__file__).absolute().parent
 sys.path.insert(0, str(file_directory.parent))
 
 from accuconf import app, db
-from accuconf.models import User, Proposal, ProposalPresenter, ProposalReview, ProposalComment
+from accuconf.models import User, Proposal, ProposalPresenter, ProposalScore, ProposalComment
 
 
 @app.cli.command()
