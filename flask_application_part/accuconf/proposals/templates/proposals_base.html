@@ -24,7 +24,7 @@
         <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
         <!--  Banner -->
         <div class="container-fluid banner">
-            <a href="/site/"><img class="img-responsive"
+            <a href="/"><img class="img-responsive"
                              src="/proposals/assets/images/accu2017_363x124.png" align="left"
                              alt="ACCU 2017 Logo"/></a>
             <a href="http://www.accu.org"><img class="img-responsive"
@@ -58,7 +58,7 @@
                     </nav>
                 </div> <!-- End div.row for nav -->
                 <div class="hidden-xs">
-                    <div class="row hide">
+                    <div class="row">
                         <div class="container-fluid">
                             {{ accuconf.sponsors() }}
                         </div>
@@ -102,13 +102,6 @@
             <!-- End of main content -->
             <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="hidden-xs">
-                    <div class="row" id="greeter-row">
-                        <div class="panel panel-default" id="greeter-panel">
-                            <h4 id="greeter"></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden-xs">
                     <h4>
                       <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
                       <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
@@ -130,9 +123,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row hide">
-                    {{ accuconf.sponsors() }}
                 </div>
                 <div class="row">
                     <div class="panel panel-default">
@@ -169,10 +159,10 @@
                 </div>
             </div>
         </div> <!--  End of div.row -->
-        <script type="text/template" id="navlinks-template">
+        <!--script type="text/template" id="navlinks-template">
             <li> <a href="<%= href %>"><%= title %></a> </li>
-        </script>
-        <script type="text/javascript">
+        </script-->
+        <!--script type="text/javascript">
             $(document).ready(function() {
                 $("#greeter-row").hide();
                 var navlinksTemplate = _.template($("#navlinks-template").html());
@@ -203,6 +193,6 @@
                     }
                 });
             });
-        </script>
+        </script-->
     </body>
 </html>
