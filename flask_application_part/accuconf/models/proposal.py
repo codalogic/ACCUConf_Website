@@ -11,40 +11,16 @@ class Proposal(db.Model):
     category = db.Column(db.Enum(SessionCategory), nullable=False)
     status = db.Column(db.Enum(ProposalState), nullable=False)
     presenters = db.relationship('ProposalPresenter', uselist=True)
-    reviews = db.relationship('ProposalReview', uselist=True)
+    scores = db.relationship('ProposalScore', uselist=True)
     comments = db.relationship('ProposalComment', uselist=True)
 
     def __init__(self, proposer, title, session_type, text, category=SessionCategory.not_sure, status=ProposalState.submitted):
-        if isinstance(proposer, str):
-            if proposer == '':
-                raise ValueError('proposer cannot be an empty string.')
-            self.proposer = proposer
-        else:
-            raise TypeError('proposer must be a string value.')
-        if isinstance(title, str):
-            if title == '':
-                raise ValueError('title cannot be an empty string.')
-            self.title = title
-        else:
-            raise TypeError('title must be a string value.')
-        if isinstance(session_type, SessionType):
-            self.session_type = session_type
-        else:
-            raise TypeError('session_type must be a SessionType value.')
-        if isinstance(text, str):
-            if text == '':
-                raise ValueError('text cannot be an empty string.')
-            self.text = text
-        else:
-            raise TypeError('text must be a string value.')
-        if isinstance(category, SessionCategory):
-            self.category = SessionCategory.not_sure
-        else:
-            raise TypeError('category must be a SessionCategory value.')
-        if isinstance(status, ProposalState):
-            self.status = ProposalState.submitted
-        else:
-            raise TypeError('status must be a ProposalState value.')
+        self.proposer = proposer
+        self.title = title
+        self.session_type = session_type
+        self.text = text
+        self.category = SessionCategory.not_sure
+        self.status = ProposalState.submitted
 
 
 class ProposalPresenter(db.Model):
@@ -57,25 +33,25 @@ class ProposalPresenter(db.Model):
     country = db.Column(db.String(100), nullable=True)
     state = db.Column(db.String(100), nullable=True)
 
-    def __init__(self, proposal_id, email, lead, fname, lname, country, state):
+    def __init__(self, proposal_id, email, lead, first_name, last_name, country, state):
         self.proposal_id = proposal_id
         self.email = email
         self.is_lead = lead
-        self.first_name = fname
-        self.last_name = lname
+        self.first_name = first_name
+        self.last_name = last_name
         self.country = country
         self.state = state
 
 
-class ProposalReview(db.Model):
+class ProposalScore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
-    reviewer = db.Column(db.String(100), db.ForeignKey('user.user_id'))
+    scorer = db.Column(db.String(100), db.ForeignKey('user.user_id'))
     score = db.Column(db.Integer)
 
-    def __init__(self, proposal_id, reviewer, score):
+    def __init__(self, proposal_id, scorer, score):
         self.proposal_id = proposal_id
-        self.reviewer = reviewer
+        self.scorer = scorer
         self.score = score
 
 

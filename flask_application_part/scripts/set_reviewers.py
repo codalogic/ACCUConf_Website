@@ -17,25 +17,25 @@ def set_user_as_reviewer(db_path, emails_path):
     """
     engine = create_engine('sqlite:///' + str(db_path.absolute()))
     tables = engine.table_names()
-    table_name = 'user_infos'
+    table_name = 'user'
     if table_name not in tables:
         print('Database file, {}, does not contain a {} table.'.format(db_path, table_name))
         sys.exit(2)
-    user_infos = Table(table_name, MetaData(), autoload=True, autoload_with=engine)
+    users = Table(table_name, MetaData(), autoload=True, autoload_with=engine)
     emails = open(str(emails_path.absolute())).read().split()
-    search_clause = and_(or_(user_infos.c.user_id == email for email in emails), user_infos.c.role == 'user')
-    for_amendment = tuple(engine.execute(select([user_infos.c.user_id]).where(search_clause)))
+    search_clause = and_(or_(users.c.user_id == email for email in emails), users.c.role == 'user')
+    for_amendment = tuple(engine.execute(select([users.c.user_id]).where(search_clause)))
     if for_amendment:
         print('Amending the following records:')
         for name in for_amendment:
             print('\t' + name[0])
-        engine.execute(user_infos.update().where(search_clause).values(role='reviewer'))
+        engine.execute(users.update().where(search_clause).values(role='reviewer'))
 
 
 def main(args):
     if len(args) != 2:
         name = Path(__file__).name
-        print('Usage: {} <db-to-update> <file-of-reviewer-emails>'.format(name))
+        print('Usage: {} <db-to-update> <file-of-scorer-emails>'.format(name))
         sys.exit(1)
     db_path = Path(args[0])
     db_exists = db_path.is_file()

@@ -2,7 +2,7 @@ from flask import render_template, jsonify, redirect, url_for, session, request
 from flask import send_from_directory, g
 from datetime import datetime
 from accuconf import db
-from accuconf.models import MathPuzzle, Proposal, ProposalComment, ProposalPresenter, ProposalReview, User
+from accuconf.models import MathPuzzle, User, Proposal, ProposalPresenter, ProposalScore, ProposalComment
 from accuconf.proposals.utils.proposals import SessionType
 from accuconf.proposals.utils.validator import validate_email, validate_password, validate_proposal_data
 import hashlib
@@ -10,7 +10,7 @@ from random import randint
 from . import proposals
 
 _proposal_static_path = None
-_end_of_call_for_session = datetime(2016,12,2,23,58,00)
+_end_of_call_for_session = datetime(2016, 12, 2, 23, 58, 00)
 
 
 @proposals.record
@@ -31,32 +31,6 @@ def init_blueprint(context):
 def index():
     if proposals.config.get("MAINTENANCE"):
         return redirect(url_for("proposals.maintenance"))
-
-    # when_where = {}
-    # committee = {}
-    # venuefile = proposals.config.get('VENUE')
-    # committeefile = proposals.config.get('COMMITTEE')
-    # if venuefile.exists():
-    #     when_where = json.loads(venuefile.open().read())
-    #
-    # if committeefile.exists():
-    #     committee = json.loads(committeefile.open().read())
-    #
-    # frontpage = {
-    #     "title": "ACCU Conference 2017",
-    #     "data": "Welcome to ACCU Conf 2017",
-    #     "when_where": when_where,
-    #     "committee": committee.get("members", [])
-    # }
-    # if 'id' in session:
-    #     user = User.query.filter_by(id=session["id"]).first()
-    #     if not user:
-    #         proposals.logger.error("id key present in session, but no user")
-    #         return redirect(url_for('proposals.logout'))
-    #     else:
-    #         frontpage["user_name"] = "%s %s" % (user.user_info.first_name,
-    #                                             user.user_info.last_name)
-    # return render_template("proposals/index.html", page=frontpage)
     return redirect(url_for('nikola.index'))
 
 
@@ -65,7 +39,7 @@ def maintenance():
     return render_template("maintenance.html", page={})
 
 
-@proposals.route("/login", methods = ['GET', 'POST'])
+@proposals.route("/login", methods=['GET', 'POST'])
 def login():
     if proposals.config.get("MAINTENANCE"):
         return redirect(url_for("proposals.maintenance"))
@@ -203,14 +177,15 @@ def register():
                     (postal_code, 'pin code'),
                     (street_address, 'street address'),):
                 if not field.strip():
-                    errors.append("The %s field was not filled in." % field_name)
+                    errors.append("The {} field was not filled in.".format(field_name))
 
             if errors:
                 errors.append('')
                 errors.append("Please register again")
-                page = {}
-                page["title"] = "Registration failed"
-                page["data"] = ' '.join(errors)
+                page = {
+                    "title": "Registration failed",
+                    "data": ' '.join(errors),
+                }
                 return render_template("registration_failure.html", page=page)
 
             else:
@@ -384,7 +359,7 @@ def review_proposal():
         session["review_button_pressed"] = ""
         if not proposal_to_show_next:
             return render_template("review_success.html", page={
-                "title": "All reviews done",
+                "title": "All scores done",
                 "data": "You have finished reviewing all proposals!",
             })
         next_available = False
@@ -401,10 +376,10 @@ def review_proposal():
         previous_potential_not_read = find_next_not_reviewed_element(all_proposals_reverse, proposal_to_show_next.id, user.user_id)
         if previous_potential_not_read is not None:
             previous_not_read_available = True
-        proposal_review = ProposalReview.query.filter_by(proposal_id=proposal_to_show_next.id, reviewer=user.user_id).first()
+        proposal_review = ProposalScore.query.filter_by(proposal_id=proposal_to_show_next.id, reviewer=user.user_id).first()
         proposal_comment = ProposalComment.query.filter_by(proposal_id=proposal_to_show_next.id, commenter=user.user_id).first()
 
-        speakers_info = UserInfo.query.filter_by(user_id=proposal_to_show_next.proposer).first()
+        speakers_info = User.query.filter_by(user_id=proposal_to_show_next.proposer).first()
         speakers_bio = speakers_info.bio if speakers_info is not None else ""
 
         page["proposal"] = {
@@ -443,12 +418,12 @@ def upload_review():
             if proposal is not None:
                 review_data = request.json
                 proposals.logger.info(review_data)
-                proposal_review = ProposalReview.query.filter_by(proposal_id=proposal.id, reviewer=user.user_id).first()
+                proposal_review = ProposalScore.query.filter_by(proposal_id=proposal.id, reviewer=user.user_id).first()
                 if proposal_review:
                     proposal_review.score = review_data["score"]
-                    ProposalReview.query.filter_by(proposal_id=proposal.id, reviewer=user.user_id).update({'score': proposal_review.score})
+                    ProposalScore.query.filter_by(proposal_id=proposal.id, reviewer=user.user_id).update({'score': proposal_review.score})
                 else:
-                    proposal_review = ProposalReview(proposal.id, user.user_id, review_data["score"])
+                    proposal_review = ProposalScore(proposal.id, user.user_id, review_data["score"])
                     proposal.reviews.append(proposal_review)
                     db.session.add(proposal_review)
                 proposal_comment = ProposalComment.query.filter_by(proposal_id=proposal.id, commenter=user.user_id).first()
@@ -536,12 +511,12 @@ def navlinks():
         logged_out = False
         user = User.query.filter_by(user_id=session["id"]).first()
         number_of_proposals = len(user.proposals)
-        can_review = user.user_info.role == "reviewer"
+        can_review = user.user_info.role == 'reviewer'
         my_proposals_text = "My Proposal" if number_of_proposals == 1 else "My Proposals"
     links = {
         "0": ("Home", url_for("nikola.index"), True),
-        "1": ("Login", url_for("proposals.login"), logged_out),
-        "2": ("Register", url_for("proposals.register"), logged_out),
+        "1": ("Login", url_for("proposals.login"), logged_out and not proposals.config.get("MAINTENANCE")),
+        "2": ("Register", url_for("proposals.register"), logged_out and not proposals.config.get("MAINTENANCE")),
         "3": ("Account", url_for("proposals.register"), logged_in),
         "4": (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals>0),
         "5": ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not call_for_session_is_over),
@@ -588,8 +563,8 @@ def find_next_not_reviewed_element(data, identifier, user_id):
     found = False
     for it in data:
         if found:
-            review = ProposalReview.query.filter_by(proposal_id=it.id, reviewer=user_id).first()
-            if review is None or review.score == 0:
+            score = ProposalScore.query.filter_by(proposal_id=it.id, reviewer=user_id).first()
+            if score is None or score.score == 0:
                 return it
         if it.id == identifier:
             found = True

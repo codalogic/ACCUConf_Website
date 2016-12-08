@@ -19,13 +19,6 @@ class User(db.Model):
     proposals = db.relationship('Proposal', uselist=True, backref=db.backref('proposed_by'), foreign_keys="Proposal.proposer")
 
     def __init__(self, user_id, password, first_name, last_name, phone, bio, country, state, postal_code, town_city, street_address):
-        local_variables = locals()
-        for item in ('user_id', 'password', 'first_name', 'last_name', 'phone', 'bio', 'country', 'state', 'postal_code', 'town_city', 'street_address'):
-            value = local_variables[item]
-            if not isinstance(value, str):
-                raise TypeError('{} must be a string value.'.format(item))
-            if value == '':
-                raise ValueError('{} cannot be an empty string.'.format(item))
         self.user_id = user_id
         self.password = password
         self.first_name = first_name
