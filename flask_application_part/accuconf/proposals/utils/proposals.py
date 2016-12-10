@@ -25,6 +25,7 @@ class ProposalState(Enum):
     accepted = 'accepted'
     rejected = 'rejected'
     backup = 'backup'
+    withdrawn = 'withdrawn'
 
 
 class SessionCategory(Enum):
@@ -32,3 +33,4 @@ class SessionCategory(Enum):
     agile = 'agile'
     tools = 'tools'
     not_sure = 'not_sure'
+

@@ -1,5 +1,6 @@
 from accuconf import db
 from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState
+from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
 
 
 class Proposal(db.Model):
@@ -10,6 +11,11 @@ class Proposal(db.Model):
     text = db.Column(db.Text, nullable=False)
     category = db.Column(db.Enum(SessionCategory), nullable=False)
     status = db.Column(db.Enum(ProposalState), nullable=False)
+    day = db.Column(db.Enum(ConferenceDay))
+    session = db.Column(db.Enum(SessionSlot))
+    quickie_slot = db.Column(db.Enum(QuickieSlot))
+    track = db.Column(db.Enum(Track))
+    room = db.Column(db.Enum(Room))
     slides_pdf = db.Column(db.String(80))
     video_url = db.Column(db.String(128))
     presenters = db.relationship('ProposalPresenter', uselist=True)
