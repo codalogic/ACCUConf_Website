@@ -9,18 +9,20 @@ class Proposal(db.Model):
     title = db.Column(db.String(150), nullable=False)
     session_type = db.Column(db.Enum(SessionType), nullable=False)
     text = db.Column(db.Text, nullable=False)
+    presenters = db.relationship('ProposalPresenter', uselist=True)
     category = db.Column(db.Enum(SessionCategory), nullable=False)
+    scores = db.relationship('ProposalScore', uselist=True)
+    comments = db.relationship('ProposalComment', uselist=True)
     status = db.Column(db.Enum(ProposalState), nullable=False)
+    # day, session, quickie_slot, track, room, slides_pdf, video_url are only non empty
+    # when status is accepted.
     day = db.Column(db.Enum(ConferenceDay))
     session = db.Column(db.Enum(SessionSlot))
-    quickie_slot = db.Column(db.Enum(QuickieSlot))
+    quickie_slot = db.Column(db.Enum(QuickieSlot)) # Only not empty if session_type == quickie.
     track = db.Column(db.Enum(Track))
     room = db.Column(db.Enum(Room))
     slides_pdf = db.Column(db.String(80))
     video_url = db.Column(db.String(128))
-    presenters = db.relationship('ProposalPresenter', uselist=True)
-    scores = db.relationship('ProposalScore', uselist=True)
-    comments = db.relationship('ProposalComment', uselist=True)
 
     def __init__(self, proposer, title, session_type, text, category=SessionCategory.not_sure, status=ProposalState.submitted):
         self.proposer = proposer
