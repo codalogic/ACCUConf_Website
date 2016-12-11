@@ -30,7 +30,6 @@ def registration_data():
         'state': 'TamilNadu',
         'towncity': 'Chennai',
         'streetaddress': 'Chepauk',
-        'bio': 'A nice member of the human race.',
         'captcha': '1',
         'question': '12',
     }
@@ -54,6 +53,7 @@ lengthy proposal''',
                 'lead': 1,
                 'fname': 'User',
                 'lname': 'Name',
+                'bio': 'A nice member of the human race.',
                 'country': 'India',
                 'state': 'TamilNadu'
             },
@@ -76,6 +76,7 @@ lengthy proposal''',
                 'lead': 1,
                 'fname': 'User',
                 'lname': 'Name',
+                'bio': 'A person.',
                 'country': 'India',
                 'state': 'TamilNadu'
             },
@@ -84,6 +85,7 @@ lengthy proposal''',
                 'lead': 0,
                 'fname': 'Presenter',
                 'lname': 'Second',
+                'bio': 'Another person',
                 'country': 'India',
                 'state': 'TamilNadu'
             },
@@ -106,6 +108,7 @@ lengthy proposal''',
                 'lead': 1,
                 'fname': 'User',
                 'lname': 'Name',
+                'bio': 'A human being',
                 'country': 'India',
                 'state': 'TamilNadu'
             },
@@ -114,6 +117,7 @@ lengthy proposal''',
                 'lead': 1,
                 'fname': 'Presenter',
                 'lname': 'Second',
+                'bio': 'Someone who is human.',
                 'country': 'India',
                 'state': 'TamilNadu'
             },
@@ -148,15 +152,19 @@ def test_logged_in_user_can_submit_a_single_presenter_proposal(client, registrat
     rvd = post_and_check_content(client, '/proposals/upload_proposal', json.dumps(proposal_single_presenter), 'application/json', values=('success',))
     response = json.loads(rvd)
     assert response['success']
-    proposal = Proposal.query.filter_by(proposer='a@b.c').first()
-    assert proposal is not None
-    # TODO test stuff.
-    user = User.query.filter_by(user_id='a@b.c').first()
+    user = User.query.filter_by(email='a@b.c').all()
+    assert len(user) == 1
+    user = user[0]
     assert user is not None
+    proposal = Proposal.query.filter_by(proposer=user.id).all()
+    assert len(proposal) == 1
+    proposal = proposal[0]
+    assert proposal is not None
     assert user.proposals is not None
+    assert len(user.proposals) == 1
     p = user.proposals[0]
-    assert p.proposer == user.user_id
     assert len(p.presenters) == 1
+    assert p.presenters[0].email == user.email
     assert proposal.session_type == SessionType.quickie
 
 
@@ -166,19 +174,22 @@ def test_logged_in_user_can_submit_multipresenter_single_lead_proposal(client, r
     rvd = post_and_check_content(client, '/proposals/upload_proposal', json.dumps(proposal_multiple_presenters_single_lead), 'application/json', values=('success',))
     response = json.loads(rvd)
     assert response['success']
-    proposal = Proposal.query.filter_by(proposer='a@b.c').first()
-    assert proposal is not None
-    # TODO test stuff.
-    user = User.query.filter_by(user_id='a@b.c').first()
+    user = User.query.filter_by(email='a@b.c').all()
+    assert len(user) == 1
+    user = user[0]
     assert user is not None
+    proposal = Proposal.query.filter_by(proposer=user.id).all()
+    assert len(proposal) == 1
+    proposal = proposal[0]
+    assert proposal is not None
     assert user.proposals is not None
     p = user.proposals[0]
-    assert p.proposer == user.user_id
     assert len(p.presenters) == 2
+    assert p.presenters[0].email == user.email
     assert proposal.session_type == SessionType.miniworkshop
 
 
-def test_logged_in_user_user_can_submit_multipresenter_multilead_proposal(client, registration_data, proposal_multiple_presenters_and_leads):
+def test_logged_in_user_cannot_submit_multipresenter_multilead_proposal(client, registration_data, proposal_multiple_presenters_and_leads):
     test_registered_user_can_login(client, registration_data)
     # TODO Why do we have to send JSON here but just used dictionaries previously?
     rvd = post_and_check_content(client, '/proposals/upload_proposal', json.dumps(proposal_multiple_presenters_and_leads), 'application/json', values=('success',))
@@ -186,12 +197,10 @@ def test_logged_in_user_user_can_submit_multipresenter_multilead_proposal(client
     assert response["success"] is False
     assert "message" in response
     assert "both marked as lead presenters" in response["message"]
-    #proposal = Proposal.query.filter_by(proposer="p2@b.c").first()
-    #assert proposal is not None
-    # TODO test stuff.
-    user = User.query.filter_by(user_id="a@b.c").first()
+    user = User.query.filter_by(email='a@b.c').all()
+    assert len(user) == 1
+    user = user[0]
     assert user is not None
     assert len(user.proposals) == 0
-    #p = user.proposal
-    #assert p.proposer == user.id
-    #assert len(p.presenters) == 2
+    proposal = Proposal.query.filter_by(proposer=user.id).all()
+    assert len(proposal) == 0

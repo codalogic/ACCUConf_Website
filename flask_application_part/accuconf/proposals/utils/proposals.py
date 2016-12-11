@@ -23,8 +23,10 @@ sessiontype_descriptions = {
 class ProposalState(Enum):
     submitted = 'submitted'
     accepted = 'accepted'
+    acknowledged = 'acknowledged'
     rejected = 'rejected'
     backup = 'backup'
+    withdrawn = 'withdrawn'
 
 
 class SessionCategory(Enum):
@@ -32,3 +34,10 @@ class SessionCategory(Enum):
     agile = 'agile'
     tools = 'tools'
     not_sure = 'not_sure'
+
+
+class SessionAudience(Enum):
+    beginner = 'beginner'
+    intermediate = 'intermediate'
+    expert = 'expert'
+    all = 'all'

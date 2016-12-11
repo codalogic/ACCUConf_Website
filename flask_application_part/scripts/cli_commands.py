@@ -1,3 +1,7 @@
+"""
+This module provides all the additional CLI commands.
+"""
+
 import re
 import sys
 
@@ -18,7 +22,7 @@ file_directory = Path(__file__).absolute().parent
 sys.path.insert(0, str(file_directory.parent))
 
 from accuconf import app, db
-from accuconf.models import User, Proposal, ProposalPresenter, ProposalReview, ProposalComment
+from accuconf.models import User, Proposal, ProposalPresenter, ProposalScore, ProposalComment
 
 
 @app.cli.command()
@@ -29,14 +33,14 @@ def create_database():
 
 @app.cli.command()
 def all_reviewers():
-    """Print a list of all the registrants labelled as a reviewer."""
+    """Print a list of all the registrants labelled as a scorer."""
     for x in UserInfo.query.filter_by(role='reviewer').all():
         print('{} {} <{}>'.format(x.first_name, x.last_name, x.user_id))
 
 
 @app.cli.command()
 def committee_are_reviewers():
-    """Ensure consistency between committee list and reviewer list."""
+    """Ensure consistency between committee list and scorer list."""
     file_name = 'committee_emails.txt'
     try:
         with open(str(file_directory / file_name)) as committee_email_file:
@@ -175,7 +179,7 @@ def expunge_user(email_address):
     to perform a deep removal.
 
     User has user_info, location and proposals. user_info and location are simple things
-    and can just be deleted. proposals is a list and each elements has presenters, status, reviews,
+    and can just be deleted. proposals is a list and each elements has presenters, status, scores,
     comments, category – only status is not a list.
     """
     user = User.query.filter_by(user_id=email_address).all()

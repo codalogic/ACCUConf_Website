@@ -1,91 +1,81 @@
 from accuconf import db
-from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState
+from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState, SessionAudience
+from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
 
 
 class Proposal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposer = db.Column(db.String(100), db.ForeignKey('user.user_id'))
+    proposer = db.Column(db.Integer, db.ForeignKey('user.id'))
     title = db.Column(db.String(150), nullable=False)
     session_type = db.Column(db.Enum(SessionType), nullable=False)
     text = db.Column(db.Text, nullable=False)
+    presenters = db.relationship('ProposalPresenter')
+    audience = db.Column(db.Enum(SessionAudience), nullable=False)
     category = db.Column(db.Enum(SessionCategory), nullable=False)
+    scores = db.relationship('ProposalScore')
+    comments = db.relationship('ProposalComment')
     status = db.Column(db.Enum(ProposalState), nullable=False)
-    presenters = db.relationship('ProposalPresenter', uselist=True)
-    reviews = db.relationship('ProposalReview', uselist=True)
-    comments = db.relationship('ProposalComment', uselist=True)
+    # day, session, quickie_slot, track, room, slides_pdf, video_url are only non empty
+    # when status is accepted.
+    day = db.Column(db.Enum(ConferenceDay))
+    session = db.Column(db.Enum(SessionSlot))
+    quickie_slot = db.Column(db.Enum(QuickieSlot)) # Only not empty if session_type == quickie.
+    track = db.Column(db.Enum(Track))
+    room = db.Column(db.Enum(Room))
+    slides_pdf = db.Column(db.String(80))
+    video_url = db.Column(db.String(128))
 
-    def __init__(self, proposer, title, session_type, text, category=SessionCategory.not_sure, status=ProposalState.submitted):
-        if isinstance(proposer, str):
-            if proposer == '':
-                raise ValueError('proposer cannot be an empty string.')
-            self.proposer = proposer
-        else:
-            raise TypeError('proposer must be a string value.')
-        if isinstance(title, str):
-            if title == '':
-                raise ValueError('title cannot be an empty string.')
-            self.title = title
-        else:
-            raise TypeError('title must be a string value.')
-        if isinstance(session_type, SessionType):
-            self.session_type = session_type
-        else:
-            raise TypeError('session_type must be a SessionType value.')
-        if isinstance(text, str):
-            if text == '':
-                raise ValueError('text cannot be an empty string.')
-            self.text = text
-        else:
-            raise TypeError('text must be a string value.')
-        if isinstance(category, SessionCategory):
-            self.category = SessionCategory.not_sure
-        else:
-            raise TypeError('category must be a SessionCategory value.')
-        if isinstance(status, ProposalState):
-            self.status = ProposalState.submitted
-        else:
-            raise TypeError('status must be a ProposalState value.')
+    def __init__(self, proposer, title, session_type, text, audience=SessionAudience.all, category=SessionCategory.not_sure, status=ProposalState.submitted):
+        self.proposer = proposer
+        self.title = title
+        self.session_type = session_type
+        self.text = text
+        self.audience = audience
+        self.category = category
+        self.status = status
 
 
 class ProposalPresenter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
+    email = db.Column(db.String(100), nullable=False)
+    proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
     is_lead = db.Column(db.Boolean, nullable=False)
-    email = db.Column(db.String(100), nullable=True)
-    first_name = db.Column(db.String(100), nullable=True)
-    last_name = db.Column(db.String(100), nullable=True)
-    country = db.Column(db.String(100), nullable=True)
-    state = db.Column(db.String(100), nullable=True)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
+    bio = db.Column(db.Text(), nullable=False)
+    country = db.Column(db.String(100), nullable=False)
+    state = db.Column(db.String(100), nullable=False)
 
-    def __init__(self, proposal_id, email, lead, fname, lname, country, state):
-        self.proposal_id = proposal_id
+    def __init__(self, email, proposal, is_lead, first_name, last_name, bio, country, state):
         self.email = email
-        self.is_lead = lead
-        self.first_name = fname
-        self.last_name = lname
+        self.proposal = proposal
+        self.is_lead = is_lead
+        self.first_name = first_name
+        self.last_name = last_name
+        self.bio = bio
         self.country = country
         self.state = state
 
 
-class ProposalReview(db.Model):
+class ProposalScore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
-    reviewer = db.Column(db.String(100), db.ForeignKey('user.user_id'))
+    proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
+    scorer = db.Column(db.Integer, db.ForeignKey('user.id'))
     score = db.Column(db.Integer)
 
-    def __init__(self, proposal_id, reviewer, score):
-        self.proposal_id = proposal_id
-        self.reviewer = reviewer
+    def __init__(self, proposal, scorer, score):
+        self.proposal = proposal
+        self.scorer = scorer
         self.score = score
 
 
 class ProposalComment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
-    commenter = db.Column(db.String(100), db.ForeignKey('user.user_id'))
+    proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
+    commenter = db.Column(db.Integer, db.ForeignKey('user.id'))
     comment = db.Column(db.Text)
 
-    def __init__(self, proposal_id, commenter, comment):
-        self.proposal_id = proposal_id
+    def __init__(self, proposal, commenter, comment):
+        self.proposal = proposal
         self.commenter = commenter
         self.comment = comment
