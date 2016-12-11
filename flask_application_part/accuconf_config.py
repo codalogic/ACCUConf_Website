@@ -24,7 +24,8 @@ class MaintenanceProductionConfig(ProductionConfig):
 
 
 class TestConfig(ConfigBase):
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(ConfigBase._here / 'accuconf_test.db')
+    _database_path = ConfigBase._here / 'accuconf_test.db'
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(_database_path)
     DEBUG = True
 
 
