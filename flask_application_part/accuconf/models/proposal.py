@@ -36,7 +36,7 @@ class Proposal(db.Model):
 class ProposalPresenter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), nullable=False)
-    proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
+    proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
     is_lead = db.Column(db.Boolean, nullable=False)
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
@@ -44,9 +44,9 @@ class ProposalPresenter(db.Model):
     country = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(100), nullable=False)
 
-    def __init__(self, email, proposal_id, is_lead, first_name, last_name, bio, country, state):
+    def __init__(self, email, proposal, is_lead, first_name, last_name, bio, country, state):
         self.email = email
-        self.proposal_id = proposal_id
+        self.proposal = proposal
         self.is_lead = is_lead
         self.first_name = first_name
         self.last_name = last_name
@@ -57,23 +57,23 @@ class ProposalPresenter(db.Model):
 
 class ProposalScore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
+    proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
     scorer = db.Column(db.String(100), db.ForeignKey('user.id'))
     score = db.Column(db.Integer)
 
-    def __init__(self, proposal_id, scorer, score):
-        self.proposal_id = proposal_id
+    def __init__(self, proposal, scorer, score):
+        self.proposal = proposal
         self.scorer = scorer
         self.score = score
 
 
 class ProposalComment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
+    proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
     commenter = db.Column(db.String(100), db.ForeignKey('user.id'))
     comment = db.Column(db.Text)
 
-    def __init__(self, proposal_id, commenter, comment):
-        self.proposal_id = proposal_id
+    def __init__(self, proposal, commenter, comment):
+        self.proposal = proposal
         self.commenter = commenter
         self.comment = comment
