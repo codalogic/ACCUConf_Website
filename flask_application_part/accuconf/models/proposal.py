@@ -5,14 +5,14 @@ from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, Quicki
 
 class Proposal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposer = db.Column(db.String(100), db.ForeignKey('user.id'))
+    proposer = db.Column(db.Integer, db.ForeignKey('user.id'))
     title = db.Column(db.String(150), nullable=False)
     session_type = db.Column(db.Enum(SessionType), nullable=False)
     text = db.Column(db.Text, nullable=False)
-    presenters = db.relationship('ProposalPresenter', uselist=True)
+    presenters = db.relationship('ProposalPresenter')
     category = db.Column(db.Enum(SessionCategory), nullable=False)
-    scores = db.relationship('ProposalScore', uselist=True)
-    comments = db.relationship('ProposalComment', uselist=True)
+    scores = db.relationship('ProposalScore')
+    comments = db.relationship('ProposalComment')
     status = db.Column(db.Enum(ProposalState), nullable=False)
     # day, session, quickie_slot, track, room, slides_pdf, video_url are only non empty
     # when status is accepted.
@@ -58,7 +58,7 @@ class ProposalPresenter(db.Model):
 class ProposalScore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
-    scorer = db.Column(db.String(100), db.ForeignKey('user.id'))
+    scorer = db.Column(db.Integer, db.ForeignKey('user.id'))
     score = db.Column(db.Integer)
 
     def __init__(self, proposal, scorer, score):
@@ -70,7 +70,7 @@ class ProposalScore(db.Model):
 class ProposalComment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
-    commenter = db.Column(db.String(100), db.ForeignKey('user.id'))
+    commenter = db.Column(db.Integer, db.ForeignKey('user.id'))
     comment = db.Column(db.Text)
 
     def __init__(self, proposal, commenter, comment):
