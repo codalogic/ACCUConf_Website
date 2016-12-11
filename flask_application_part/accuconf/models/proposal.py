@@ -1,5 +1,5 @@
 from accuconf import db
-from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState
+from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState, SessionAudience
 from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
 
 
@@ -10,6 +10,7 @@ class Proposal(db.Model):
     session_type = db.Column(db.Enum(SessionType), nullable=False)
     text = db.Column(db.Text, nullable=False)
     presenters = db.relationship('ProposalPresenter')
+    audience = db.Column(db.Enum(SessionAudience), nullable=False)
     category = db.Column(db.Enum(SessionCategory), nullable=False)
     scores = db.relationship('ProposalScore')
     comments = db.relationship('ProposalComment')
@@ -24,13 +25,14 @@ class Proposal(db.Model):
     slides_pdf = db.Column(db.String(80))
     video_url = db.Column(db.String(128))
 
-    def __init__(self, proposer, title, session_type, text, category=SessionCategory.not_sure, status=ProposalState.submitted):
+    def __init__(self, proposer, title, session_type, text, audience=SessionAudience.all, category=SessionCategory.not_sure, status=ProposalState.submitted):
         self.proposer = proposer
         self.title = title
         self.session_type = session_type
         self.text = text
-        self.category = SessionCategory.not_sure
-        self.status = ProposalState.submitted
+        self.audience = audience
+        self.category = category
+        self.status = status
 
 
 class ProposalPresenter(db.Model):

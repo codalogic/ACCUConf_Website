@@ -35,3 +35,9 @@ class SessionCategory(Enum):
     tools = 'tools'
     not_sure = 'not_sure'
 
+
+class SessionAudience(Enum):
+    beginner = 'beginner'
+    intermediate = 'intermediate'
+    expert = 'expert'
+    all = 'all'
