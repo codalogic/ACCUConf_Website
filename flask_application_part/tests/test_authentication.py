@@ -21,7 +21,6 @@ def registrant():
         'state': 'TamilNadu',
         'towncity': 'Chennai',
         'streetaddress': 'Chepauk',
-        'bio': 'A person from round the corner.',
         'captcha': '1',
         'question': '12'
     }

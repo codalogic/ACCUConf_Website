@@ -5,7 +5,7 @@ from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, Quicki
 
 class Proposal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    proposer = db.Column(db.String(100), db.ForeignKey('user.user_id'))
+    proposer = db.Column(db.String(100), db.ForeignKey('user.id'))
     title = db.Column(db.String(150), nullable=False)
     session_type = db.Column(db.Enum(SessionType), nullable=False)
     text = db.Column(db.Text, nullable=False)
@@ -35,20 +35,22 @@ class Proposal(db.Model):
 
 class ProposalPresenter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), nullable=False)
     proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
     is_lead = db.Column(db.Boolean, nullable=False)
-    email = db.Column(db.String(100), nullable=True)
-    first_name = db.Column(db.String(100), nullable=True)
-    last_name = db.Column(db.String(100), nullable=True)
-    country = db.Column(db.String(100), nullable=True)
-    state = db.Column(db.String(100), nullable=True)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
+    bio = db.Column(db.Text(), nullable=False)
+    country = db.Column(db.String(100), nullable=False)
+    state = db.Column(db.String(100), nullable=False)
 
-    def __init__(self, proposal_id, email, lead, first_name, last_name, country, state):
-        self.proposal_id = proposal_id
+    def __init__(self, email, proposal_id, is_lead, first_name, last_name, bio, country, state):
         self.email = email
-        self.is_lead = lead
+        self.proposal_id = proposal_id
+        self.is_lead = is_lead
         self.first_name = first_name
         self.last_name = last_name
+        self.bio = bio
         self.country = country
         self.state = state
 
@@ -56,7 +58,7 @@ class ProposalPresenter(db.Model):
 class ProposalScore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
-    scorer = db.Column(db.String(100), db.ForeignKey('user.user_id'))
+    scorer = db.Column(db.String(100), db.ForeignKey('user.id'))
     score = db.Column(db.Integer)
 
     def __init__(self, proposal_id, scorer, score):
@@ -68,7 +70,7 @@ class ProposalScore(db.Model):
 class ProposalComment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'))
-    commenter = db.Column(db.String(100), db.ForeignKey('user.user_id'))
+    commenter = db.Column(db.String(100), db.ForeignKey('user.id'))
     comment = db.Column(db.Text)
 
     def __init__(self, proposal_id, commenter, comment):

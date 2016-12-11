@@ -20,7 +20,6 @@ user_data = (
     'User',
     'Name',
     '+01234567890',
-    'A member of the human race.',
     "IND",
     "KARNATAKA",
     "560093",
@@ -39,7 +38,7 @@ proposal_data = (
 def test_proposal_in_database(database):
     u = User(*user_data)
     p = Proposal(*proposal_data)
-    presenter_data = (p.id, u.user_id, True, u.first_name, u.last_name, u.country, u.state)
+    presenter_data = (u.email, p.id, True, u.first_name, u.last_name, 'A member of the human race.', u.country, u.state)
     presenter = ProposalPresenter(*presenter_data)
     p.presenters = [presenter]
     p.lead_presenter = u
@@ -48,13 +47,13 @@ def test_proposal_in_database(database):
     database.session.add(p)
     database.session.add(presenter)
     database.session.commit()
-    query_result = Proposal.query.filter_by(proposer=u.user_id).all()
+    query_result = Proposal.query.filter_by(proposer=u.email).all()
     assert len(query_result) == 1
     p = query_result[0]
     assert (p.proposer, p.title, p.session_type, p.text) == proposal_data
     assert len(p.presenters) == 1
     presenter = p.presenters[0]
-    assert (presenter.email, presenter.first_name, presenter.last_name) == (u.user_id, u.first_name, u.last_name)
+    assert (presenter.email, presenter.first_name, presenter.last_name) == (u.email, u.first_name, u.last_name)
     assert p.category == SessionCategory.not_sure
     assert p.status == ProposalState.submitted
 
@@ -62,9 +61,9 @@ def test_proposal_in_database(database):
 def test_reviewed_proposal_in_database(database):
     u = User(*user_data)
     p = Proposal(*proposal_data)
-    presenter = ProposalPresenter(p.id, u.user_id, True, u.first_name, u.last_name, u.country, u.state)
-    score = ProposalScore(p.id, u.user_id, 10)
-    comment = ProposalComment(p.id, u.user_id, 'Perfect')
+    presenter = ProposalPresenter(u.email, p.id, True, u.first_name, u.last_name, 'Someone that exists', u.country, u.state)
+    score = ProposalScore(p.id, u.id, 10)
+    comment = ProposalComment(p.id, u.id, 'Perfect')
     p.presenters = [presenter]
     p.lead_presenter = u
     p.scores = [score]
@@ -76,7 +75,7 @@ def test_reviewed_proposal_in_database(database):
     database.session.add(score)
     database.session.add(comment)
     database.session.commit()
-    query_result = Proposal.query.filter_by(proposer=u.user_id).all()
+    query_result = Proposal.query.filter_by(proposer=u.email).all()
     assert len(query_result) == 1
     p = query_result[0]
     assert p.scores is not None

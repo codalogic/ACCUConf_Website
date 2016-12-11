@@ -19,7 +19,6 @@ user_data = (
     'User',
     'Name',
     '+01234567890',
-    'A human being who has done stuff',
     'Some Country',
     'Some State',
     'Postcode',
@@ -32,6 +31,6 @@ def test_user_in_database(database):
     u = User(*user_data)
     database.session.add(u)
     database.session.commit()
-    query_result = User.query.filter_by(user_id=u.user_id).all()
+    query_result = User.query.filter_by(email=u.email).all()
     assert len(query_result) == 1
     assert query_result[0] == u

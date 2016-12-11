@@ -23,6 +23,7 @@ sessiontype_descriptions = {
 class ProposalState(Enum):
     submitted = 'submitted'
     accepted = 'accepted'
+    acknowledged = 'acknowledged'
     rejected = 'rejected'
     backup = 'backup'
     withdrawn = 'withdrawn'

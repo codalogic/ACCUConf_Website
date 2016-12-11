@@ -1,3 +1,7 @@
+"""
+This module provides all the additional CLI commands.
+"""
+
 import re
 import sys
 
