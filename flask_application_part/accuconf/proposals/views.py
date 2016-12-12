@@ -1,6 +1,5 @@
 from flask import render_template, jsonify, redirect, url_for, session, request
 from flask import send_from_directory, g
-from datetime import datetime
 from accuconf import db
 from accuconf.models import MathPuzzle, User, Proposal, ProposalPresenter, ProposalScore, ProposalComment
 from accuconf.proposals.utils.proposals import SessionType
@@ -10,7 +9,6 @@ from random import randint
 from . import proposals
 
 _proposal_static_path = None
-_end_of_call_for_session = datetime(2016, 12, 2, 23, 58, 00)
 
 
 @proposals.record
@@ -478,25 +476,25 @@ def asset(path):
 @proposals.route('/navlinks', methods=["GET"])
 def navlinks():
     logged_in = False
-    logged_out = True
+    can_review = False
     number_of_proposals = 0
     my_proposals_text = ""
-    call_for_session_is_over = _end_of_call_for_session < datetime.now()
+    submissions_allowed = proposals.config.get('CALL_OPEN')
+    reviewing_allowed = proposals.config.get('CALL_OPEN') or proposals.config.get('REVIEWING_ONLY')
     if session.get("id", False):
         logged_in = True
-        logged_out = False
         user = User.query.filter_by(email=session["id"]).first()
         number_of_proposals = len(user.proposals)
         can_review = user.user_info.role == 'reviewer'
         my_proposals_text = "My Proposal" if number_of_proposals == 1 else "My Proposals"
     links = {
         "0": ("Home", url_for("nikola.index"), True),
-        "1": ("Login", url_for("proposals.login"), logged_out and not proposals.config.get("MAINTENANCE")),
-        "2": ("Register", url_for("proposals.register"), logged_out and not proposals.config.get("MAINTENANCE")),
+        "1": ("Login", url_for("proposals.login"), not logged_in and (submissions_allowed or reviewing_allowed)),
+        "2": ("Register", url_for("proposals.register"), not logged_in and (submissions_allowed or reviewing_allowed)),
         "3": ("Account", url_for("proposals.register"), logged_in),
-        "4": (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals>0),
-        "5": ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not call_for_session_is_over),
-        "6": ("Review Proposals", url_for("proposals.review_proposal"), logged_in and can_review),
+        "4": (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals > 0),
+        "5": ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not submissions_allowed),
+        "6": ("Review Proposals", url_for("proposals.review_proposal"), logged_in and reviewing_allowed and can_review),
         "7": ("RSS", "/site/rss.xml", True),
         "8": ("Log out", url_for("proposals.logout"), logged_in)
     }
@@ -557,3 +555,9 @@ def neighborhood(iterable):
         current_item = next_item
     yield (prev_item, current_item, None)
 
+
+@proposals.route('/proposal_administration')
+def proposal_administration():
+    if proposals.config.get("MAINTENANCE"):
+        return redirect(url_for("proposals.maintenance"))
+    return redirect(url_for("proposals.maintenance"))

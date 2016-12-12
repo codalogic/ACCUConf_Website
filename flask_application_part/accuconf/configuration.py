@@ -7,7 +7,7 @@ from pathlib import Path
 
 class _Base:
     here = Path(__file__).parent
-    database_path = None
+    database_path = here.parent / 'accuconf.db'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
     DEBUG = False
     TESTING = False
@@ -15,18 +15,29 @@ class _Base:
     NIKOLA_STATIC_PATH = here / 'static'
     MAINTENANCE = False
     CALL_OPEN = False
+    REVIEWING_ALLOWED = False
 
 
-class CallForProposalsClosed(_Base):
+class ApplicationOff(_Base):
     pass
 
 
 class CallForProposalsOpen(_Base):
-    database_path = _Base.here.parent / 'accuconf.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + str(_Base.database_path)
     CALL_OPEN = True
+    REVIEWING_ALLOWED = True
 
 
 class CallForProposalsOpenMaintenance(CallForProposalsOpen):
+    MAINTENANCE = True
+
+
+class ReviewingOnly(_Base):
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + str(_Base.database_path)
+    REVIEWING_ALLOWED = True
+
+
+class ReviewingOnlyMaintenance(CallForProposalsOpen):
     MAINTENANCE = True
 
 
@@ -35,6 +46,8 @@ class TestingWithDatabase(_Base):
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(database_path)
     DEBUG = True
     TESTING = True
+    CALL_OPEN = True
+    REVIEWING_ALLOWED = True
 
 
 class TestingWithDatabaseMaintenance(TestingWithDatabase):
@@ -46,4 +59,4 @@ class AdministeringDatabase(_Base):
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(database_path)
 
 
-Config = CallForProposalsClosed
+Config = ApplicationOff
