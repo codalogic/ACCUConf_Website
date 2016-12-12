@@ -16,6 +16,7 @@ class _Base:
     MAINTENANCE = False
     CALL_OPEN = False
     REVIEWING_ALLOWED = False
+    ADMINISTERING = False
 
 
 class ApplicationOff(_Base):
@@ -57,6 +58,7 @@ class TestingWithDatabaseMaintenance(TestingWithDatabase):
 class AdministeringDatabase(_Base):
     database_path = _Base.here.parent / 'accuconf.db'
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(database_path)
+    ADMINISTERING = True
 
 
 Config = ApplicationOff
