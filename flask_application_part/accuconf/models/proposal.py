@@ -37,7 +37,7 @@ class Proposal(db.Model):
 
 class ProposalPresenter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False, unique=True)
     proposal = db.Column(db.Integer, db.ForeignKey('proposal.id'))
     is_lead = db.Column(db.Boolean, nullable=False)
     first_name = db.Column(db.String(100), nullable=False)
