@@ -7,7 +7,7 @@ import pytest
 # import the fixture, PyCharm believes it isn't a used symbol, but it is.
 from common import database
 
-from accuconf.models import User, Proposal, ProposalPresenter, ProposalScore, ProposalComment
+from accuconf.models import User, Proposal, Presenter, Score, Comment
 from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState
 
 __author__ = 'Balachandran Sivakumar, Russel Winder'
@@ -28,29 +28,27 @@ user_data = (
 )
 
 proposal_data = (
-    user_data[0],
     "TDD with C++",
     SessionType.quickie,
-    "AABBCC",
+    "A session about creating C++ programs with proper process.",
 )
 
 
-def test_proposal_in_database(database):
+def test_putting_proposal_in_database(database):
     u = User(*user_data)
-    p = Proposal(*proposal_data)
-    presenter_data = (u.email, p.id, True, u.first_name, u.last_name, 'A member of the human race.', u.country, u.state)
-    presenter = ProposalPresenter(*presenter_data)
-    p.presenters = [presenter]
-    p.lead_presenter = u
-    u.proposal = p
+    p = Proposal(u, *proposal_data)
+    presenter_data = (u.email, True, u.first_name, u.last_name, 'A member of the human race.', u.country, u.state)
+    presenter = Presenter(*presenter_data)
+    p.presenters.append(presenter)
     database.session.add(u)
     database.session.add(p)
     database.session.add(presenter)
     database.session.commit()
-    query_result = Proposal.query.filter_by(proposer=u.email).all()
+    query_result = Proposal.query.filter_by(proposer_id=u.id).all()
     assert len(query_result) == 1
     p = query_result[0]
-    assert (p.proposer, p.title, p.session_type, p.text) == proposal_data
+    assert p.proposer.email == u.email
+    assert (p.title, p.session_type, p.text) == proposal_data
     assert len(p.presenters) == 1
     presenter = p.presenters[0]
     assert (presenter.email, presenter.first_name, presenter.last_name) == (u.email, u.first_name, u.last_name)
@@ -58,24 +56,20 @@ def test_proposal_in_database(database):
     assert p.status == ProposalState.submitted
 
 
-def test_reviewed_proposal_in_database(database):
+def test_adding_review_and_comment_to_proposal_in_database(database):
     u = User(*user_data)
-    p = Proposal(*proposal_data)
-    presenter = ProposalPresenter(u.email, p.id, True, u.first_name, u.last_name, 'Someone that exists', u.country, u.state)
-    score = ProposalScore(p.id, u.id, 10)
-    comment = ProposalComment(p.id, u.id, 'Perfect')
-    p.presenters = [presenter]
-    p.lead_presenter = u
-    p.scores = [score]
-    p.comments = [comment]
-    u.proposal = p
+    p = Proposal(u, *proposal_data)
+    presenter = Presenter(u.email, True, u.first_name, u.last_name, 'Someone that exists', u.country, u.state)
+    score = Score(p, u, 10)
+    comment = Comment(p, u, 'Perfect')
+    p.presenters.append(presenter)
     database.session.add(u)
     database.session.add(p)
     database.session.add(presenter)
     database.session.add(score)
     database.session.add(comment)
     database.session.commit()
-    query_result = Proposal.query.filter_by(proposer=u.email).all()
+    query_result = Proposal.query.filter_by(proposer_id=u.id).all()
     assert len(query_result) == 1
     p = query_result[0]
     assert p.scores is not None

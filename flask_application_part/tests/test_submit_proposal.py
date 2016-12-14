@@ -95,34 +95,10 @@ lengthy proposal''',
 
 @pytest.fixture(scope='function')
 def proposal_multiple_presenters_and_leads():
-    return {
-        'proposer': 'a@b.c',
-        'title': 'ACCU Proposal',
-        'session_type': 'workshop',
-        'abstract': ''' This is a test proposal that will have
-dummy data. Also this is not a very
-lengthy proposal''',
-        'presenters': [
-            {
-                'email': 'a@b.c',
-                'lead': 1,
-                'fname': 'User',
-                'lname': 'Name',
-                'bio': 'A human being',
-                'country': 'India',
-                'state': 'TamilNadu'
-            },
-            {
-                'email': 'p2@b.c',
-                'lead': 1,
-                'fname': 'Presenter',
-                'lname': 'Second',
-                'bio': 'Someone who is human.',
-                'country': 'India',
-                'state': 'TamilNadu'
-            },
-        ]
-    }
+    proposal_data = proposal_multiple_presenters_single_lead()
+    assert proposal_data['presenters'][1]['lead'] == 0
+    proposal_data['presenters'][1]['lead'] = 1
+    return proposal_data
 
 
 def test_user_can_register(client, registration_data):
@@ -156,7 +132,7 @@ def test_logged_in_user_can_submit_a_single_presenter_proposal(client, registrat
     assert len(user) == 1
     user = user[0]
     assert user is not None
-    proposal = Proposal.query.filter_by(proposer=user.id).all()
+    proposal = Proposal.query.filter_by(proposer_id=user.id).all()
     assert len(proposal) == 1
     proposal = proposal[0]
     assert proposal is not None
@@ -178,14 +154,19 @@ def test_logged_in_user_can_submit_multipresenter_single_lead_proposal(client, r
     assert len(user) == 1
     user = user[0]
     assert user is not None
-    proposal = Proposal.query.filter_by(proposer=user.id).all()
+    proposal = Proposal.query.filter_by(proposer_id=user.id).all()
     assert len(proposal) == 1
     proposal = proposal[0]
     assert proposal is not None
     assert user.proposals is not None
     p = user.proposals[0]
     assert len(p.presenters) == 2
-    assert p.presenters[0].email == user.email
+    if p.presenters[0].is_lead:
+        assert p.presenters[0].email == user.email
+        assert p.presenters[1].email == 'p2@b.c'
+    else:
+        assert p.presenters[0].email == 'p2@b.c'
+        assert p.presenters[1].email == user.email
     assert proposal.session_type == SessionType.miniworkshop
 
 
@@ -202,5 +183,5 @@ def test_logged_in_user_cannot_submit_multipresenter_multilead_proposal(client, 
     user = user[0]
     assert user is not None
     assert len(user.proposals) == 0
-    proposal = Proposal.query.filter_by(proposer=user.id).all()
+    proposal = Proposal.query.filter_by(proposer_id=user.id).all()
     assert len(proposal) == 0

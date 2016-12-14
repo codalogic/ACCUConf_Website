@@ -7,7 +7,7 @@ class UserAdmin(sqla.ModelView):
 
 
 class ProposalsAdmin(sqla.ModelView):
-    pass
+    column_exclude_list = ['proposer']
 
 
 class PresentersAdmin(sqla.ModelView):

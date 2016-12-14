@@ -7,7 +7,7 @@ from flask import send_from_directory, g
 import flask_admin
 
 from accuconf import db
-from accuconf.models import MathPuzzle, User, Proposal, ProposalPresenter, ProposalScore, ProposalComment
+from accuconf.models import MathPuzzle, User, Proposal, Presenter, Score, Comment
 from accuconf.proposals.utils.proposals import SessionType
 from accuconf.proposals.utils.roles import Role
 from accuconf.proposals.utils.validator import validate_email, validate_password, validate_proposal_data
@@ -35,7 +35,7 @@ def init_blueprint(context):
         proposals.admin = flask_admin.Admin(app, name='ACCUConf Admin', template_mode='bootstrap3')
         proposals.admin.add_view(UserAdmin(User, db.session))
         proposals.admin.add_view(ProposalsAdmin(Proposal, db.session))
-        proposals.admin.add_view(PresentersAdmin(ProposalPresenter, db.session))
+        proposals.admin.add_view(PresentersAdmin(Presenter, db.session))
 
 
 @proposals.route("/")
@@ -95,6 +95,7 @@ def register():
         password = None
         if len(request.form["password"].strip()) > 0:
             password = request.form["password"]
+        # TODO Should cpassword be handled like password and failure happen if they are not the same?
         cpassword = request.form["cpassword"]
         first_name = request.form["firstname"]
         last_name = request.form["lastname"]
@@ -286,17 +287,15 @@ def upload_proposal():
             status, message = validate_proposal_data(proposal_data)
             response = {}
             if status:
-                proposal = Proposal(proposal_data.get("proposer"),
-                                    proposal_data.get("title").rstrip(),
+                proposal = Proposal(user,
+                                    proposal_data.get("title").strip(),
                                     SessionType(proposal_data.get('session_type')),
-                                    proposal_data.get("abstract").rstrip())
-                user.proposals.append(proposal)
+                                    proposal_data.get("abstract").strip())
                 db.session.add(proposal)
                 presenters = proposal_data.get("presenters")
                 for presenter in presenters:
-                    proposal_presenter = ProposalPresenter(
+                    proposal_presenter = Presenter(
                         presenter["email"],
-                        proposal.id,
                         presenter["lead"],
                         presenter["fname"],
                         presenter["lname"],
@@ -363,8 +362,8 @@ def review_proposal():
         previous_potential_not_read = find_next_not_reviewed_element(all_proposals_reverse, proposal_to_show_next.id, user.email)
         if previous_potential_not_read is not None:
             previous_not_read_available = True
-        proposal_review = ProposalScore.query.filter_by(proposal_id=proposal_to_show_next.id, reviewer=user.email).first()
-        proposal_comment = ProposalComment.query.filter_by(proposal_id=proposal_to_show_next.id, commenter=user.email).first()
+        proposal_review = Score.query.filter_by(proposal_id=proposal_to_show_next.id, reviewer=user.email).first()
+        proposal_comment = Comment.query.filter_by(proposal_id=proposal_to_show_next.id, commenter=user.email).first()
 
         speakers_info = User.query.filter_by(email=proposal_to_show_next.proposer).first()
         speakers_bio = speakers_info.bio if speakers_info is not None else ""
@@ -405,22 +404,22 @@ def upload_review():
             if proposal is not None:
                 review_data = request.json
                 proposals.logger.info(review_data)
-                proposal_review = ProposalScore.query.filter_by(proposal_id=proposal.id, reviewer=user.id).first()
+                proposal_review = Score.query.filter_by(proposal_id=proposal.id, reviewer=user.id).first()
                 if proposal_review:
                     proposal_review.score = review_data["score"]
-                    ProposalScore.query.filter_by(proposal_id=proposal.id, reviewer=user.id).update({'score': proposal_review.score})
+                    Score.query.filter_by(proposal_id=proposal.id, reviewer=user.id).update({'score': proposal_review.score})
                 else:
-                    proposal_review = ProposalScore(proposal.id, user.id, review_data["score"])
+                    proposal_review = Score(proposal.id, user.id, review_data["score"])
                     proposal.reviews.append(proposal_review)
                     db.session.add(proposal_review)
-                proposal_comment = ProposalComment.query.filter_by(proposal_id=proposal.id, commenter=user.id).first()
+                proposal_comment = Comment.query.filter_by(proposal_id=proposal.id, commenter=user.id).first()
                 if proposal_comment:
                     proposal_comment.comment = review_data["comment"].rstrip()
-                    ProposalComment.query.filter_by(
+                    Comment.query.filter_by(
                         proposal_id=proposal.id,
                         commenter=user.id).update({'comment': proposal_comment.comment})
                 else:
-                    proposal_comment = ProposalComment(proposal.id, user.id, review_data["comment"])
+                    proposal_comment = Comment(proposal.id, user.id, review_data["comment"])
                     proposal.comments.append(proposal_comment)
                     db.session.add(proposal_comment)
                 db.session.commit()
@@ -551,7 +550,7 @@ def find_next_not_reviewed_element(data, identifier, user_id):
     found = False
     for it in data:
         if found:
-            score = ProposalScore.query.filter_by(proposal_id=it.id, reviewer=user_id).first()
+            score = Score.query.filter_by(proposal_id=it.id, reviewer=user_id).first()
             if score is None or score.score == 0:
                 return it
         if it.id == identifier:
