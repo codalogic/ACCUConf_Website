@@ -4,8 +4,6 @@ from random import randint
 from flask import render_template, jsonify, redirect, url_for, session, request
 from flask import send_from_directory, g
 
-import flask_admin
-
 from accuconf import db
 from accuconf.models import MathPuzzle, User, Proposal, Presenter, Score, Comment
 from accuconf.proposals.utils.proposals import SessionType
@@ -32,6 +30,7 @@ def init_blueprint(context):
         raise ValueError(message)
     assert _proposal_static_path.is_dir()
     if proposals.config.get('ADMINISTERING'):
+        import flask_admin
         proposals.admin = flask_admin.Admin(app, name='ACCUConf Admin', template_mode='bootstrap3')
         proposals.admin.add_view(UserAdmin(User, db.session))
         proposals.admin.add_view(ProposalsAdmin(Proposal, db.session))
