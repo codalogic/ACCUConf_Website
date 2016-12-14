@@ -10,8 +10,6 @@ from accuconf.proposals.utils.proposals import SessionType
 from accuconf.proposals.utils.roles import Role
 from accuconf.proposals.utils.validator import validate_email, validate_password, validate_proposal_data
 
-from accuconf.models.admin import UserAdmin, ProposalsAdmin, PresentersAdmin
-
 from . import proposals
 
 _proposal_static_path = None
@@ -31,6 +29,7 @@ def init_blueprint(context):
     assert _proposal_static_path.is_dir()
     if proposals.config.get('ADMINISTERING'):
         import flask_admin
+        from accuconf.models.admin import UserAdmin, ProposalsAdmin, PresentersAdmin
         proposals.admin = flask_admin.Admin(app, name='ACCUConf Admin', template_mode='bootstrap3')
         proposals.admin.add_view(UserAdmin(User, db.session))
         proposals.admin.add_view(ProposalsAdmin(Proposal, db.session))
