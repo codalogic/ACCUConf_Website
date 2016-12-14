@@ -45,9 +45,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <span>
-                                <a class="navbar-brand"
-                                   href="{{ url_for('nikola.index')}}"> {{ links.menu_title() }}
-                                </a>
+                                <a class="navbar-brand" href="{{ url_for('nikola.index')}}"> {{ links.menu_title() }} </a>
                             </span>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
@@ -65,10 +63,18 @@
                     </div>
                 </div>
                 <!-- End of Menubar -->
-            </div> <!-- End of div.col-sm-3 -->
+            </div> <!-- End of div.col-sm-3  col-md-3 col-lg-3 -->
             <!-- For single column rendering - In mobiles and tablets -->
             <div class="visible-xs-block">
                 <div class="container-fluid">
+                    <h4>
+                        <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
+                        <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
+                    </h4>
+                    <hr/>
+                    <h3>
+                        <a href="/stories/coc_code_of_conduct.html">Code of Conduct</a>
+                    </h3>
                     <div class="accuconf-menu">
                         <a type="button" class="accuconf-toggle-link btn" data-toggle="collapse" href="#keydates">
                             <span class="accuconf-toggle glyphicon glyphicon-menu-hamburger"> Dates </span>
@@ -125,39 +131,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Programme Committee</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nolist">
-                                {{ accuconf.committee() }}
-                            </ul>
-                        </div>
-                    </div>
+                    {{ accuconf.committee() }}
                 </div>
                 <div class="row">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Organisation</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="http://www.archer-yates.co.uk/"><h4> Archer Yates Ltd </h4></a>
-                            <img src="/proposals/assets/images/AYA_holding.png" width="50" align="right" alt="AYALogo"/>
-                            <ul class="nolist">
-                                <li> 7 Threshers Yard </li>
-                                <li> West Street </li>
-                                <li> Kingham </li>
-                                <li> Oxfordshire OX7 6YF  </li>
-                                <li> </li>
-                                <li> Telephone: +44 1608 659900  </li>
-                                <li> Fax: +44 1608 659911  </li>
-                                <li> Email: julie@archer-yates.co.uk </li>
-                            </ul>
-                        </div>
-                    </div>
+                    {{ accuconf.organiser() }}
                 </div>
-            </div>
+                <div class="row visible-xs">
+                    {{ accuconf.sponsors() }}
+                </div>
+          </div>
         </div> <!--  End of div.row -->
         <!--script type="text/template" id="navlinks-template">
             <li> <a href="<%= href %>"><%= title %></a> </li>

@@ -1,11 +1,15 @@
-from flask import render_template, jsonify, redirect, url_for, session, request
-from flask import send_from_directory, g
-from accuconf import db
-from accuconf.models import MathPuzzle, User, Proposal, ProposalPresenter, ProposalScore, ProposalComment
-from accuconf.proposals.utils.proposals import SessionType
-from accuconf.proposals.utils.validator import validate_email, validate_password, validate_proposal_data
 import hashlib
 from random import randint
+
+from flask import render_template, jsonify, redirect, url_for, session, request
+from flask import send_from_directory, g
+
+from accuconf import db
+from accuconf.models import MathPuzzle, User, Proposal, Presenter, Score, Comment
+from accuconf.proposals.utils.proposals import SessionType
+from accuconf.proposals.utils.roles import Role
+from accuconf.proposals.utils.validator import validate_email, validate_password, validate_proposal_data
+
 from . import proposals
 
 _proposal_static_path = None
@@ -23,6 +27,13 @@ def init_blueprint(context):
         proposals.logger.info(message)
         raise ValueError(message)
     assert _proposal_static_path.is_dir()
+    if proposals.config.get('ADMINISTERING'):
+        import flask_admin
+        from accuconf.models.admin import UserAdmin, ProposalsAdmin, PresentersAdmin
+        proposals.admin = flask_admin.Admin(app, name='ACCUConf Admin', template_mode='bootstrap3')
+        proposals.admin.add_view(UserAdmin(User, db.session))
+        proposals.admin.add_view(ProposalsAdmin(Proposal, db.session))
+        proposals.admin.add_view(PresentersAdmin(Presenter, db.session))
 
 
 @proposals.route("/")
@@ -82,6 +93,7 @@ def register():
         password = None
         if len(request.form["password"].strip()) > 0:
             password = request.form["password"]
+        # TODO Should cpassword be handled like password and failure happen if they are not the same?
         cpassword = request.form["cpassword"]
         first_name = request.form["firstname"]
         last_name = request.form["lastname"]
@@ -186,28 +198,28 @@ def register():
         db.session.commit()
         return render_template("registration_success.html", page=page)
     elif request.method == "GET":
-        page = {}
-        page["mode"] = "edit_mode" if edit_mode else "register"
-        page["email"] = user.email if edit_mode else ""
-        page["first_name"] = user.first_name if edit_mode else ""
-        page["last_name"] = user.last_name if edit_mode else ""
-        page["phone"] = user.phone if edit_mode else ""
-        page["country"] = user.country if edit_mode else "GBR" # UK shall be the default
-        page["state"] = user.state if edit_mode else "GB-ENG"
-        page["postal_code"] = user.postal_code if edit_mode else ""
-        page["town_city"] = user.town_city if edit_mode else ""
-        page["street_address"] = user.street_address if edit_mode else ""
         num_a = randint(10, 99)
         num_b = randint(10, 99)
-        sum = num_a + num_b
-        question = MathPuzzle(sum)
+        question = MathPuzzle(num_a + num_b)
         db.session.add(question)
         db.session.commit()
-        page["title"] = "Account Information" if edit_mode else "Register"
-        page["data"] = "Here you can edit your account information" if edit_mode else "Register here for submitting proposals to ACCU Conference"
-        page["question"] = question.id
-        page["puzzle"] = "%d + %d" % (num_a, num_b)
-        page["submit_button"] = "Save" if edit_mode else "Register"
+        page = {
+            'mode': 'edit_mode' if edit_mode else 'register',
+            'email': user.email if edit_mode else '',
+            'first_name': user.first_name if edit_mode else '',
+            'last_name': user.last_name if edit_mode else '',
+            'phone': user.phone if edit_mode else '',
+            'country': user.country if edit_mode else 'GBR', # UK shall be the default
+            'state': user.state if edit_mode else 'GB-ENG',
+            'postal_code': user.postal_code if edit_mode else '',
+            'town_city': user.town_city if edit_mode else '',
+            'street_address': user.street_address if edit_mode else '',
+            'title': 'Account Information' if edit_mode else 'Register',
+            'data': 'Here you can edit your account information' if edit_mode else 'Register here for submitting proposals to ACCU Conference',
+            'question': question.id,
+            'puzzle': '{} + {}'.format(num_a, num_b),
+            'submit_button': 'Save' if edit_mode else 'Register',
+        }
         return render_template("register.html", page=page)
 
 
@@ -273,17 +285,15 @@ def upload_proposal():
             status, message = validate_proposal_data(proposal_data)
             response = {}
             if status:
-                proposal = Proposal(proposal_data.get("proposer"),
-                                    proposal_data.get("title").rstrip(),
+                proposal = Proposal(user,
+                                    proposal_data.get("title").strip(),
                                     SessionType(proposal_data.get('session_type')),
-                                    proposal_data.get("abstract").rstrip())
-                user.proposals.append(proposal)
+                                    proposal_data.get("abstract").strip())
                 db.session.add(proposal)
                 presenters = proposal_data.get("presenters")
                 for presenter in presenters:
-                    proposal_presenter = ProposalPresenter(
+                    proposal_presenter = Presenter(
                         presenter["email"],
-                        proposal.id,
                         presenter["lead"],
                         presenter["fname"],
                         presenter["lname"],
@@ -350,8 +360,8 @@ def review_proposal():
         previous_potential_not_read = find_next_not_reviewed_element(all_proposals_reverse, proposal_to_show_next.id, user.email)
         if previous_potential_not_read is not None:
             previous_not_read_available = True
-        proposal_review = ProposalScore.query.filter_by(proposal_id=proposal_to_show_next.id, reviewer=user.email).first()
-        proposal_comment = ProposalComment.query.filter_by(proposal_id=proposal_to_show_next.id, commenter=user.email).first()
+        proposal_review = Score.query.filter_by(proposal_id=proposal_to_show_next.id, reviewer=user.email).first()
+        proposal_comment = Comment.query.filter_by(proposal_id=proposal_to_show_next.id, commenter=user.email).first()
 
         speakers_info = User.query.filter_by(email=proposal_to_show_next.proposer).first()
         speakers_bio = speakers_info.bio if speakers_info is not None else ""
@@ -392,22 +402,22 @@ def upload_review():
             if proposal is not None:
                 review_data = request.json
                 proposals.logger.info(review_data)
-                proposal_review = ProposalScore.query.filter_by(proposal_id=proposal.id, reviewer=user.id).first()
+                proposal_review = Score.query.filter_by(proposal_id=proposal.id, reviewer=user.id).first()
                 if proposal_review:
                     proposal_review.score = review_data["score"]
-                    ProposalScore.query.filter_by(proposal_id=proposal.id, reviewer=user.id).update({'score': proposal_review.score})
+                    Score.query.filter_by(proposal_id=proposal.id, reviewer=user.id).update({'score': proposal_review.score})
                 else:
-                    proposal_review = ProposalScore(proposal.id, user.id, review_data["score"])
+                    proposal_review = Score(proposal.id, user.id, review_data["score"])
                     proposal.reviews.append(proposal_review)
                     db.session.add(proposal_review)
-                proposal_comment = ProposalComment.query.filter_by(proposal_id=proposal.id, commenter=user.id).first()
+                proposal_comment = Comment.query.filter_by(proposal_id=proposal.id, commenter=user.id).first()
                 if proposal_comment:
                     proposal_comment.comment = review_data["comment"].rstrip()
-                    ProposalComment.query.filter_by(
+                    Comment.query.filter_by(
                         proposal_id=proposal.id,
                         commenter=user.id).update({'comment': proposal_comment.comment})
                 else:
-                    proposal_comment = ProposalComment(proposal.id, user.id, review_data["comment"])
+                    proposal_comment = Comment(proposal.id, user.id, review_data["comment"])
                     proposal.comments.append(proposal_comment)
                     db.session.add(proposal_comment)
                 db.session.commit()
@@ -433,7 +443,7 @@ def check_duplicate(user):
 @proposals.route("/captcha/validate", methods=["POST"])
 def validate_captcha():
     captcha_info = request.json
-    qid= captcha_info.get("question_id")
+    qid = captcha_info.get("question_id")
     ans = captcha_info.get("answer")
     q = MathPuzzle.query.filter_by(id=qid).first()
     result = {"valid": False}
@@ -483,20 +493,21 @@ def navlinks():
     reviewing_allowed = proposals.config.get('CALL_OPEN') or proposals.config.get('REVIEWING_ONLY')
     if session.get("id", False):
         logged_in = True
-        user = User.query.filter_by(email=session["id"]).first()
+        user = User.query.filter_by(email=session["id"]).first() # email not primary key, may not be unique.
         number_of_proposals = len(user.proposals)
-        can_review = user.user_info.role == 'reviewer'
+        can_review = user.role == Role.reviewer
         my_proposals_text = "My Proposal" if number_of_proposals == 1 else "My Proposals"
     links = {
         "0": ("Home", url_for("nikola.index"), True),
-        "1": ("Login", url_for("proposals.login"), not logged_in and (submissions_allowed or reviewing_allowed)),
-        "2": ("Register", url_for("proposals.register"), not logged_in and (submissions_allowed or reviewing_allowed)),
-        "3": ("Account", url_for("proposals.register"), logged_in),
-        "4": (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals > 0),
-        "5": ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not submissions_allowed),
-        "6": ("Review Proposals", url_for("proposals.review_proposal"), logged_in and reviewing_allowed and can_review),
-        "7": ("RSS", "/site/rss.xml", True),
-        "8": ("Log out", url_for("proposals.logout"), logged_in)
+        "1": ("RSS", "/site/rss.xml", True),
+        "2": ("Login", url_for("proposals.login"), not logged_in and (submissions_allowed or reviewing_allowed)),
+        "3": ("Register", url_for("proposals.register"), not logged_in and (submissions_allowed or reviewing_allowed)),
+        "4": ("Account", url_for("proposals.register"), logged_in),
+        "5": (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals > 0),
+        "6": ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not submissions_allowed),
+        "7": ("Review Proposals", url_for("proposals.review_proposal"), logged_in and reviewing_allowed and can_review),
+        "8": ("Log out", url_for("proposals.logout"), logged_in),
+        '9': ('Administrate', '/admin/', proposals.config.get('ADMINISTERING')),
     }
     return jsonify(**links)
 
@@ -537,7 +548,7 @@ def find_next_not_reviewed_element(data, identifier, user_id):
     found = False
     for it in data:
         if found:
-            score = ProposalScore.query.filter_by(proposal_id=it.id, reviewer=user_id).first()
+            score = Score.query.filter_by(proposal_id=it.id, reviewer=user_id).first()
             if score is None or score.score == 0:
                 return it
         if it.id == identifier:
@@ -554,10 +565,3 @@ def neighborhood(iterable):
         prev_item = current_item
         current_item = next_item
     yield (prev_item, current_item, None)
-
-
-@proposals.route('/proposal_administration')
-def proposal_administration():
-    if proposals.config.get("MAINTENANCE"):
-        return redirect(url_for("proposals.maintenance"))
-    return redirect(url_for("proposals.maintenance"))

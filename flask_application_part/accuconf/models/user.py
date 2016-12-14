@@ -5,7 +5,7 @@ from accuconf.proposals.utils.roles import Role
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(512), nullable=False)
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
@@ -16,7 +16,9 @@ class User(db.Model):
     postal_code = db.Column(db.String(40), nullable=False)
     town_city = db.Column(db.String(30), nullable=False)
     street_address = db.Column(db.String(128), nullable=False)
-    proposals = db.relationship('Proposal')
+    proposals = db.relationship('Proposal', backref='proposer')
+    scores = db.relationship('Score', backref='scorer')
+    comments = db.relationship('Comment', backref='commenter')
 
     def __init__(self, email, password, first_name, last_name, phone, country, state, postal_code, town_city, street_address):
         self.email = email

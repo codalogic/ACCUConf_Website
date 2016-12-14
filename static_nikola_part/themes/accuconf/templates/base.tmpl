@@ -33,7 +33,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <span> <a class="navbar-brand" href="{{ abs_link(_link("root", None, lang)) }}"> {{ blog_title|e }} </a> </span>
+                    <span>
+                      <a class="navbar-brand" href="{{ abs_link(_link("root", None, lang)) }}"> {{blog_title|e }} </a>
+                    </span>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
                     <ul class="nav navbar-nav" id="navigation-links">
@@ -51,7 +53,6 @@
         </div>
         <!-- End of Menubar -->
     </div> <!-- End of col-sm-3 col-md-3 col-lg-3 -->
-
     <!-- For single column rendering - In mobiles and tablets -->
     <div class="visible-xs-block">
         <div class="container-fluid">
@@ -63,7 +64,6 @@
             <h3>
               <a href="/stories/coc_code_of_conduct.html">Code of Conduct</a>
             </h3>
-
             <div class="accuconf-menu">
                 <a type="button" class="accuconf-toggle-link btn" data-toggle="collapse" href="#keydates">
                     <span class="accuconf-toggle glyphicon glyphicon-menu-hamburger"> Dates </span>
@@ -77,7 +77,6 @@
         </div>
     </div>
     <!-- End For single column rendering  -->
-
     <!-- Main Content -->
     <div class="col-sm-6 col-md-6 col-lg-6">
         <div id="content" role="main">
@@ -97,7 +96,6 @@
         </div>
     </div> <!--  End of col-sm-6 -->
     <!-- End of main content -->
-
     <div class="col-sm-3 col-md-3 col-lg-3">
         <div class="hidden-xs">
             <div class="row" id="greeter-row">
@@ -140,7 +138,6 @@
         </div>
     </div>
 </div> <!--  End of div.row -->
-
 {{ base.late_load_js() }}
     <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
     <script type="text/template" id="navlinks-template">
