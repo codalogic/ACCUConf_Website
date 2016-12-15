@@ -1,0 +1,106 @@
+////
+.. title: Keynote Speakers
+.. type: text
+////
+
+
+
+== Bradford Chamberlain
+
+image:/images/2017_Keynotes/BradChamberlain.jpg[Brad Chamberlian image, float="right"]
+
+=== Abstract
+
+=== Bio
+
+
+Bradford Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
+serves as the technical lead for the Chapel project which is developing a portable, open-source language for
+parallel programming on large-scale systems. In this role, Brad focuses primarily on leading the design and
+implementation of the Chapel language with his team at Cray and members of the open-source development
+community. Brad received his Ph.D. in Computer Science & Engineering from the University of Washington in
+2001 working on the ZPL parallel array language. In the past, he has also worked on languages for embedded
+reconfigurable processors and on algorithms for accelerating the rendering of complex 3D scenes.
+
+
+== Frances Buontempo
+
+=== _AI: Actual Intelligence_
+
+image:/images/2017_Keynotes/FrancesBuontempo.jpg[Frances Buotempo image, float="right"]
+
+=== Abstract
+
+It has been said, to err is human, to really foul things up requires a computer [citation needed]. Given the
+long tradition of AI, which sometimes attempts to make a sentient being from hardware, or body parts (think
+Frankenstein’s monster), are humans unique, or is this dream possible? Or desirable?
+
+Intelligence is also used to mean information the state or businesses gather on you; this is increasingly
+done by machine. We frequently have to prove who we are by stating Mother’s maiden names, passwords, even
+swiping fingerprints. Much of this is processed by machine, powered by algorithms.  What if they don’t
+believe we are who we say we are?
+
+There is more to intelligence than an algorithm. Your thoughts have a context; belief systems, experience,
+insight, thinking, learning. SciFi offers Asimov's law of robots. Clearly first order logic isn't enough.
+Obviously brute force isn’t intelligence. So what is? Do we need it to run on hardware? Conversely, could we
+exist in cyberspace without a body? Where will it end?
+
+=== Bio
+
+
+Frances Buontempo is currently editor of the ACCU’s Overload magazine and is working as a researcher at
+City, University of London, working on a project to provide diversity enhancements to SIEMS (Security
+Information and Event Management)
+http://www.city.ac.uk/news/2016/march/city-academics-receive-a-large-grant-for-eu-sponsored-research and
+http://lasige.di.fc.ul.pt/Projects/DiSIEM
+
+After graduating from Leeds University with a B.A. in Mathematics and Philosophy, she worked as a
+mathematics and IT secondary school teacher, eventually ending up as a programmer. During this time she
+obtained an M.Sc. in Pure Mathematics with the Open University, and then returned to Leeds University, to
+study for a PhD in data mining to predict how toxic organic chemicals might be. Between then and now, she
+has worked in various companies in London with a finance focus.
+
+She has talked and written about various ways to program your way out of a paper bag, providing a gentle
+introduction to some machine learning approaches, while trying to keep up to date with new techniques.
+
+
+== Herb Sutter
+
+=== _Something(s) New in C++_
+
+image:/images/2017_Keynotes/HerbSutter.png[Herb Sutter image, float="right"]
+
+=== Abstract
+
+By the time the ACCU 2017 conference begins, {cpp}17 is expected to be technically complete and in its final
+approval ballot. What comes next? Will {cpp} continue growing forever? Can {cpp} code be simplified? This is a
+brand-new talk of material I've never given before, in which I'll present one (or more) of three proposals
+I'm personally working on to further improve {cpp} post-{cpp}17. All follow a common theme – adding a strategic
+language and/or library feature to {cpp} that leads to significant, and sometimes dramatic, simplification of
+real-world {cpp} code. I'll pick which one (or more) of those topics to present sometime in March – watch for
+this title and abstract to be replaced with more specific information at least one month before the ACCU
+2017 conference begins.
+
+=== Bio
+
+
+
+== Russ Miles
+
+image:/images/2017_Keynotes/RussMiles.jpg[Russ Miles image, float="right"]
+
+=== Abstract
+
+=== Bio
+
+Lead Engineer @Atomist; Founder @Russ Miles & Associates
+
+Russ’ experience covers almost every facet of software delivery having worked across many different domains
+including Financial Services, Publishing, Defence, Insurance and Search. Russ helps to change all facets of
+the software delivery process in order to remove unnecessary and costly complexity in everything from
+developer skills and practices, through applying the right processes for the job at hand, to ensuring that
+the right change is delivered, be it through software or otherwise.
+
+Russ Miles is an international speaker on techniques for achieving the delivery of valuable software as well
+as a published author, most recently of _Head First Software Development_ from O’Reilly Media. Also author
+of _Antifragile Software_, which is available on LeanPub.com.

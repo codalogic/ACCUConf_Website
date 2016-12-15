@@ -28,32 +28,33 @@ def index():
 
 @nikola.route('/rss.xml')
 def rss():
-    nikola.logger.info("Index accessed")
+    nikola.logger.info("RSS accessed")
     return send_from_directory(_nikola_static_path.as_posix(), 'rss.xml')
 
 
 @nikola.route('/posts/<path:path>')
-def post(path):
-    nikola.logger.info("posts accessed")
-    nikola.logger.info("Requested for {}".format(path))
+def posts(path):
+    nikola.logger.info("posts accessed: {}".format(path))
     source_path = _nikola_static_path / 'posts'
-    nikola.logger.info("Sending from: {}".format(source_path))
     return send_from_directory(source_path.as_posix(), path)
 
 
 @nikola.route('/stories/<path:path>')
 def stories(path):
-    nikola.logger.info("stories accessed")
-    nikola.logger.info("Requested for {}".format(path))
+    nikola.logger.info("stories accessed: {}".format(path))
     source_path = _nikola_static_path / 'stories'
-    nikola.logger.info("Sending from: {}".format(source_path))
     return send_from_directory(source_path.as_posix(), path)
 
 
 @nikola.route('/assets/<path:path>')
-def asset(path):
-    nikola.logger.info("assets accessed")
-    nikola.logger.info("Requested for {}".format(path))
+def assets(path):
+    nikola.logger.info("assets accessed: {}".format(path))
     source_path = _nikola_static_path / 'assets'
-    nikola.logger.info("Sending from: {}".format(source_path))
+    return send_from_directory(source_path.as_posix(), path)
+
+
+@nikola.route('/images/<path:path>')
+def images(path):
+    nikola.logger.info("images accessed: {}".format(path))
+    source_path = _nikola_static_path / 'images'
     return send_from_directory(source_path.as_posix(), path)
