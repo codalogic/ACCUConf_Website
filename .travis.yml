@@ -10,4 +10,4 @@ install:
 script:
   - ./create_links.sh
   - pushd . && cd static_nikola_part && nikola build && nikola build && popd
-  - python -m pytest flask_application_part
+  - python -m pytest flask_application_part/tests
