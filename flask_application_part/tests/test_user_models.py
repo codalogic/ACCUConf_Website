@@ -9,10 +9,6 @@ from common import database
 
 from accuconf.models import User
 
-__author__ = 'Balachandran Sivakumar, Russel Winder'
-__copyright__ = '© 2016  Balachandran Sivakumar, Russel Winder'
-__licence__ = 'GPLv3'
-
 user_data = (
     'a@b.c',
     'password',

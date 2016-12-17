@@ -2,10 +2,6 @@ import pytest
 
 from common import client, post_and_check_content
 
-__author__ = 'Balachandran Sivakumar, Russel Winder'
-__copyright__ = '© 2016  Balachandran Sivakumar, Russel Winder'
-__licence__ = 'GPLv3'
-
 
 @pytest.fixture
 def registrant():
