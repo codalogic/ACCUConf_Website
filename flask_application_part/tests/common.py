@@ -13,10 +13,6 @@ if path_to_add not in sys.path:
 
 from accuconf import app, db
 
-__author__ = 'Russel Winder'
-__copyright__ = '© 2016  Russel Winder'
-__licence__ = 'GPLv3'
-
 
 @pytest.fixture
 def database():

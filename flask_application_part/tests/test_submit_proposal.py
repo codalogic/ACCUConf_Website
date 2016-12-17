@@ -11,10 +11,6 @@ from common import client, get_and_check_content, post_and_check_content
 from accuconf.models import User, Proposal
 from accuconf.proposals.utils.proposals import SessionType
 
-__author__ = 'Balachandran Sivakumar, Russel Winder'
-__copyright__ = '© 2016  Balachandran Sivakumar, Russel Winder'
-__licence__ = 'GPLv3'
-
 
 @pytest.fixture(scope='function')
 def registration_data():
