@@ -12,11 +12,7 @@ path_to_add = str(PurePath(__file__).parent.parent)
 if path_to_add not in sys.path:
     sys.path.insert(0, path_to_add)
 
-from accuconf import db
-
-__author__ = 'Russel Winder'
-__copyright__ = '© 2016  Russel Winder'
-__licence__ = 'GPLv3'
+from accuconf import app, db
 
 
 @pytest.fixture
@@ -32,5 +28,6 @@ def database():
     db.create_all()
     yield db
     db.drop_all()
+
 
 base_url = 'http://localhost:8000/'
