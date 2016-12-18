@@ -30,7 +30,7 @@ class ProposalState(Enum):
 
 
 class SessionCategory(Enum):
-    cpp = 'c++'
+    cpp = 'cpp'
     agile = 'agile'
     tools = 'tools'
     not_sure = 'not_sure'
