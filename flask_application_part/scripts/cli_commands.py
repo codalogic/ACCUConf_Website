@@ -7,13 +7,17 @@ import sys
 
 from pathlib import Path
 
+from statistics import mean, median
+
+from email.mime.text import MIMEText
+from email.utils import formatdate
+from smtplib import SMTP
+
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, KeepTogether
 from reportlab.platypus.flowables import HRFlowable
-
-from statistics import mean, median
 
 # This must be imported here even though it may not be explicitly used in this file.
 import click
@@ -23,6 +27,9 @@ sys.path.insert(0, str(file_directory.parent))
 
 from accuconf import app, db
 from accuconf.models import User, Proposal, Presenter, Score, Comment
+from accuconf.proposals.utils.proposals import SessionType, ProposalState, SessionCategory, SessionAudience
+from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
+from accuconf.proposals.utils.roles import Role
 
 
 @app.cli.command()
@@ -34,24 +41,24 @@ def create_database():
 @app.cli.command()
 def all_reviewers():
     """Print a list of all the registrants labelled as a scorer."""
-    for x in UserInfo.query.filter_by(role='reviewer').all():
+    for x in User.query.filter_by(role=Role.reviewer).all():
         print('{} {} <{}>'.format(x.first_name, x.last_name, x.user_id))
 
 
 @app.cli.command()
-def committee_are_reviewers():
+@click.argument('committee_email_file_path')
+def committee_are_reviewers(committee_email_file_path):
     """Ensure consistency between committee list and scorer list."""
-    file_name = 'committee_emails.txt'
     try:
-        with open(str(file_directory / file_name)) as committee_email_file:
+        with open(committee_email_file_path) as committee_email_file:
             committee_emails = {s.strip() for s in committee_email_file.read().split()}
-            reviewer_emails = {u.user_id for u in User.query.filter_by(role='reviewer').all()}
+            reviewer_emails = {u.user_id for u in User.query.filter_by(role=Role.reviewer).all()}
             committee_not_reviewer = {c for c in committee_emails if c not in reviewer_emails}
             reviewers_not_committee = {r for r in reviewer_emails if r not in committee_emails}
             print('Committee members not reviewers:', committee_not_reviewer)
             print('Reviewers not committee members:', reviewers_not_committee)
     except FileNotFoundError:
-        print('{} not present in directory {}.'.format(file_name, file_directory))
+        print('{} not found..'.format(committee_email_file_path))
 
 
 @app.cli.command()
@@ -64,11 +71,11 @@ def create_proposal_sheets():
     document = SimpleDocTemplate(file_path, pagesize=A4, rightMargin=30, leftMargin=30, topMargin=10, bottomMargin=30)
     elements = []
     for p in Proposal.query.all():
-        scores = tuple(r.score for r in p.reviews if r.score != 0)
+        scores = tuple(score.score for score in p.scores if score.score != 0)
         table = Table([
             [Paragraph(p.title, style_sheet), p.session_type],
             [', '.join('{} {}'.format(pp.first_name, pp.last_name) for pp in p.presenters),
-             ', '.join(str(r.score) for r in p.reviews) + ' — {:.2f}, {}'.format(mean(scores), median(scores)) if len(scores) > 0 else ''],
+             ', '.join(str(score.score) for score in p.scores) + ' — {:.2f}, {}'.format(mean(scores), median(scores)) if len(scores) > 0 else ''],
         ], colWidths=(380, 180), spaceAfter=64)
         table.setStyle(TableStyle([
             ('FONTSIZE', (0, 0), (-1, -1), 12),
@@ -97,8 +104,8 @@ def create_proposals_document():
             proposals_file.write('<<<\n\n=== {}\n\n'.format(p.title))
             proposals_file.write(', '.join('{} {}'.format(pp.first_name, pp.last_name) for pp in p.presenters) + '\n\n')
             proposals_file.write(cleanup_text(p.text.strip()) + '\n\n')
-            scores = tuple(r.score for r in p.reviews if r.score != 0)
-            proposals_file.write("'''\n\n*{}{}*\n\n".format(', '.join(str(review.score) for review in p.reviews), ' — {:.2f}, {}'.format(mean(scores), median(scores)) if len(scores) > 0 else ''))
+            scores = tuple(r.score for r in p.scores if r.score != 0)
+            proposals_file.write("'''\n\n*{}{}*\n\n".format(', '.join(str(score.score) for score in p.scores), ' — {:.2f}, {}'.format(mean(scores), median(scores)) if len(scores) > 0 else ''))
             for comment in p.comments:
                 c = comment.comment.strip()
                 if c:
@@ -107,37 +114,125 @@ def create_proposals_document():
             proposals_processed += 1
 
         proposals_file.write('== Full Day Workshops\n\n')
-        for p in Proposal.query.filter_by(session_type='6 hour workshop'):
-            write_proposal(p)
         for p in Proposal.query.filter_by(session_type='fulldayworkshop'):
             write_proposal(p)
 
         proposals_file.write('<<<\n\n== 90 minute presentations\n\n')
-        for p in Proposal.query.filter_by(session_type='90 minutes, Interactive'):
-            write_proposal(p)
-        for p in Proposal.query.filter_by(session_type='interactive'):
+        for p in Proposal.query.filter_by(session_type='session'):
             write_proposal(p)
 
         proposals_file.write('<<<\n\n== 90 minute workshops\n\n')
-        for p in Proposal.query.filter_by(session_type='90 minutes, Mini Workshop'):
-            write_proposal(p)
         for p in Proposal.query.filter_by(session_type='miniworkshop'):
             write_proposal(p)
 
         proposals_file.write('<<<\n\n== 180 minute workshops\n\n')
-        for p in Proposal.query.filter_by(session_type='180 minutes, Workshop'):
-            write_proposal(p)
         for p in Proposal.query.filter_by(session_type='workshop'):
             write_proposal(p)
 
         proposals_file.write('<<<\n\n== 15 minute presentations\n\n')
-        for p in Proposal.query.filter_by(session_type='quick'):
+        for p in Proposal.query.filter_by(session_type='quickie'):
             write_proposal(p)
 
     if total_proposals != proposals_processed:
         print('###\n### Did not process all proposals, {} expected, dealt with {}.'.format(total_proposals, proposals_processed))
     else:
         print('Processed {} proposals.'.format(total_proposals))
+
+
+@app.cli.command()
+def ensure_consistency_of_schedule():
+    """
+    Run a number of checks to ensure that the schedule has no obvious problems.
+    """
+    accepted = Proposal.query.filter_by(status=ProposalState.accepted).all()
+    acknowledged = Proposal.query.filter_by(status=ProposalState.acknowledged).all()
+    if len(accepted) >0:
+        print('####  There are accepted sessions that have not been acknowledged.')
+    accepted = accepted + acknowledged
+    workshops = Proposal.query.filter_by(day=ConferenceDay.workshops).all()
+    sessions = (
+        Proposal.query.filter_by(day=ConferenceDay.day_1).all() +
+        Proposal.query.filter_by(day=ConferenceDay.day_2).all() +
+        Proposal.query.filter_by(day=ConferenceDay.day_3).all() +
+        Proposal.query.filter_by(day=ConferenceDay.day_4).all()
+    )
+    scheduled = workshops + sessions
+    if len(accepted) > len(scheduled):
+        print('####  There are accepted sessions that are not scheduled.')
+    elif len(accepted) < len(scheduled):
+        print('####  There are schedule sessions that are not accepted.')
+    for day in ConferenceDay:
+        if day == ConferenceDay.workshops:
+            continue
+        for session in SessionSlot:
+
+            def generator():
+                return (p for s in sessions if s.day == day and s.session == session for p in s.presenters)
+
+            presenter_set = set(generator())
+            presenter_list = list(generator())
+            if len(presenter_set) < len(presenter_list):
+                print('####  A presenter appears to be presenting at the same time in {}, {}'.format(day, session))
+            elif len(presenter_set) > len(presenter_list):
+                print('#### ####  This cannot be.')
+            if len(presenter_set) == 0:
+                print('####  Session {}, {} appears to have no presenters.'.format(day, session))
+            for room in Room:
+                if room == Room.bristol_suite:
+                    continue
+                if len([s for s in sessions if s.day == day and s.session == session and s.room == room]) > 1:
+                    print('####  There appears to be a conflict at {}, {}, {}'.format(day, session, room))
+
+    def generator():
+        return (p for s in sessions if s.session != SessionType.quickie and s.session != SessionType.fulldayworkshop for p in s.presenters)
+
+    presenter_set = set(generator())
+    presenter_list = list(generator())
+    if len(presenter_set) < len(presenter_list):
+        print('####  There appears to be someone with more than one 90 minute session.')
+    elif len(presenter_set) > len(presenter_list):
+        print('#### ####  This cannot be.')
+
+
+@app.cli.command()
+@click.argument('emailout_spec')
+def do_emailout(emailout_spec):
+    """
+    Given an name of an emailout directory, which must contain query.py, subject.txt and text.txt files
+    run a mailout. The query.py module must contain a query function that delivers a list of Proposal
+    objects. The proposers of the proposals will be emailed. The query.py module must also contain a
+    edit_template function that takes a path to a template file and a Proposal object and returns text
+    that can be emailed. The subject.txt file must contain 1 short line of text that is the email subject.
+    """
+    emailout_directory = file_directory.parent / 'emailouts' / emailout_spec
+    file_paths = tuple(emailout_directory / name for name in ('query.py', 'subject.txt', 'text.txt'))
+    for fp in file_paths:
+        if not Path(fp).exists():
+            print('Cannot find required file {}'.format(fp))
+            return 1
+    old_path = sys.path
+    sys.path.insert(0, emailout_directory.as_posix())
+    import query
+    del sys.path[0]
+    assert sys.path == old_path
+    with open(str(file_paths[1])) as subject_file:
+        subject = subject_file.read().strip()
+    for proposal in query.query():
+        email_address = '{} {} <{}>'.format(proposal.proposer.first_name, proposal.proposer.last_name, proposal.proposer.email)
+        print('Subject:', subject)
+        print('Recipient:', email_address)
+        with SMTP('smtp.winder.org.uk') as server:
+            message = MIMEText(query.edit_template(str(file_paths[2]), proposal), _charset='utf-8')
+            message['From'] = 'conference@accu.org'
+            message['To'] = email_address
+            message['Cc'] = 'russel@winder.org.uk'
+            message['Subject'] = subject
+            message['Date'] = formatdate()  # RFC 2822 format.
+            server.send_message(message)
+
+
+
+
 
 
 @app.cli.command()
