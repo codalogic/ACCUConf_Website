@@ -176,7 +176,7 @@ def ensure_consistency_of_schedule():
                 print('\t' + s.title)
     for s in scheduled:
         lead_count = len(tuple(p for p in s.presenters if p.is_lead))
-        if lead_count > 0:
+        if lead_count > 1:
             print('####  {} has multiple leads.'.format(s.title))
         elif lead_count == 0:
             print('####  {} has no lead.'.format(s.title))
@@ -206,7 +206,7 @@ def ensure_consistency_of_schedule():
                     if len(quickies) != 4:
                         print('#### Too few quickies in {}, {}, {}'.format(day, session, room))
 
-    presenter_counter = Counter(p for s in sessions if s.session != SessionType.quickie and s.session != SessionType.fulldayworkshop for p in s.presenters if p.is_lead)
+    presenter_counter = Counter(p for s in sessions if s.session_type != SessionType.quickie and s.session_type != SessionType.fulldayworkshop for p in s.presenters if p.is_lead)
     for p in presenter_counter:
         if presenter_counter[p] > 1:
             print('####  {} has more than one 90 minute session.'.format(p.email))
