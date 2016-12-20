@@ -3,9 +3,31 @@
 .. type: text
 ////
 
+== Chapel Programming
+
+=== Bradford Chamberlain
+
+
+image:/images/2017/Keynotes/BradChamberlain.jpg[Brad Chamberlain image, float="right"]
+
+==== Overview
+
+==== Bio
+
+Bradford Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
+serves as the technical lead for the Chapel project which is developing a portable, open-source language for
+parallel programming on large-scale systems. In this role, Brad focuses primarily on leading the design and
+implementation of the Chapel language with his team at Cray and members of the open-source development
+community. Brad received his Ph.D. in Computer Science & Engineering from the University of Washington in
+2001 working on the ZPL parallel array language. In the past, he has also worked on languages for embedded
+reconfigurable processors and on algorithms for accelerating the rendering of complex 3D scenes.
+
+
 == The Art of Writing Reasonable Concurrent Code
 
 === Felix Petriconi
+
+image:/images/2017/FullDayWorkshops/FelixPetriconi.jpg[Felix Petriconi image, float="right", width=200]
 
 ==== Overview
 
@@ -39,9 +61,63 @@ application performance tuning and process improvement. He is a regular speaker 
 Bremen, a blog editor at https://isocpp.org and became recently a member of the ACCU's conference committee.
 
 
+
+
+== Moving to C++17: The New Language and Library Features
+
+=== Nico Josuttis
+
+image:/images/2017/FullDayWorkshops/NicoJosuttis.jpg[Nico Josuttis image, float="right"]
+
+==== Overview
+
+{cpp}17 is the next evolution in modern {cpp} programming. Although it is not as big a step as {cpp}11, it
+contains a large number of small and valuable language and library features, which will change the way we
+program in {cpp}.
+
+This one-day tutorial presents all the new language and library features in {cpp}17. We’ll cover the
+motivation and context of each new feature with examples and background information. We’ll focus on how
+these features impact day-to-day programming and how to benefit from them in practice.
+
+Contents:
+
+* History of C++17
+* Language features such as
+** Structured Bindings
+** new control structures
+** new features for compile time computing
+** minor language features
+* Language support features
+** uncaught_exceptions()
+** new data types any, variant, and optional
+** new type traits
+** launder()
+* Library features
+** filesystem library
+** parallel STL algorithms
+** string_view
+** splicing between associative containers
+** small library features
+* Other bug fixes and notable enhancements
+* Effects when combining multiple features
+
+
+==== Bio
+
+Nicolai Josuttis (www.josuttis.com) is an independent systems architect, technical manager, author, and
+consultant. He designs mid-sized and large software systems for the telecommunication, traffic, finance, and
+manufacturing industries.
+
+He is well known in the {cpp} Community for speaking and writing with authority about {cpp} (being the
+author of 'The C++ Standard Library' and '{cpp} Templates') but is also an innovative presenter.  He is an
+active member of {cpp} standardization committee for almost 20 years now.
+
+
 == Testable architecture
 
 === Seb Rose
+
+image:/images/2017/FullDayWorkshops/SebRose.jpg[Seb Rose image, float="right", width=200]
 
 ==== Overview
 
@@ -90,68 +166,3 @@ Things Every Programmer Should Know” (O’Reilly) and lead author of “The Cu
 Programmers).
 
 He blogs at cucumber.io and tweets as @sebrose.
-
-
-== Moving to C++17: The New Language and Library Features
-
-=== Nico Josuttis
-
-==== Overview
-
-{cpp}17 is the next evolution in modern {cpp} programming. Although it is not as big a step as {cpp}11, it
-contains a large number of small and valuable language and library features, which will change the way we
-program in {cpp}.
-
-This one-day tutorial presents all the new language and library features in {cpp}17. We’ll cover the
-motivation and context of each new feature with examples and background information. We’ll focus on how
-these features impact day-to-day programming and how to benefit from them in practice.
-
-Contents:
-
-* History of C++17
-* Language features such as
-  * Structured Bindings
-  * new control structures
-  * new features for compile time computing
-  * minor language features
-* Language support features
-  * uncaught_exceptions()
-  * new data types any, variant, and optional
-  * new type traits
-  * launder()
-* Library features
-  * filesystem library
-  * parallel STL algorithms
-  * string_view
-  * splicing between associative containers
-  * small library features
-* Other bug fixes and notable enhancements
-* Effects when combining multiple features
-
-
-==== Bio
-
-Nicolai Josuttis (www.josuttis.com) is an independent systems architect, technical manager, author, and
-consultant. He designs mid-sized and large software systems for the telecommunication, traffic, finance, and
-manufacturing industries.
-
-He is well known in the {cpp} Community for speaking and writing with authority about {cpp} (being the
-author of 'The C++ Standard Library' and '{cpp} Templates') but is also an innovative presenter.  He is an
-active member of {cpp} standardization committee for almost 20 years now.
-
-
-== Chapel Programming
-
-=== Bradford Chamberlain
-
-==== Overview
-
-==== Bio
-
-Bradford Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
-serves as the technical lead for the Chapel project which is developing a portable, open-source language for
-parallel programming on large-scale systems. In this role, Brad focuses primarily on leading the design and
-implementation of the Chapel language with his team at Cray and members of the open-source development
-community. Brad received his Ph.D. in Computer Science & Engineering from the University of Washington in
-2001 working on the ZPL parallel array language. In the past, he has also worked on languages for embedded
-reconfigurable processors and on algorithms for accelerating the rendering of complex 3D scenes.
