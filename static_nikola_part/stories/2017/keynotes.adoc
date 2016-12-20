@@ -7,7 +7,7 @@
 
 == Bradford Chamberlain
 
-image:/images/2017_Keynotes/BradChamberlain.jpg[Brad Chamberlian image, float="right"]
+image:/images/2017/Keynotes/BradChamberlain.jpg[Brad Chamberlain image, float="right"]
 
 === Abstract
 
@@ -27,7 +27,7 @@ reconfigurable processors and on algorithms for accelerating the rendering of co
 
 === _AI: Actual Intelligence_
 
-image:/images/2017_Keynotes/FrancesBuontempo.jpg[Frances Buotempo image, float="right"]
+image:/images/2017/Keynotes/FrancesBuontempo.jpg[Frances Buotempo image, float="right"]
 
 === Abstract
 
@@ -42,17 +42,18 @@ believe we are who we say we are?
 
 There is more to intelligence than an algorithm. Your thoughts have a context; belief systems, experience,
 insight, thinking, learning. SciFi offers Asimov's law of robots. Clearly first order logic isn't enough.
-Obviously brute force isn’t intelligence. So what is? Do we need it to run on hardware? Conversely, could we
+Obviously brute force isn't intelligence. So what is? Do we need it to run on hardware? Conversely, could we
 exist in cyberspace without a body? Where will it end?
 
 === Bio
 
 
-Frances Buontempo is currently editor of the ACCU’s Overload magazine and is working as a researcher at
+Frances Buontempo is currently editor of the ACCU's Overload magazine and is a researcher at
 City, University of London, working on a project to provide diversity enhancements to SIEMS (Security
 Information and Event Management)
 http://www.city.ac.uk/news/2016/march/city-academics-receive-a-large-grant-for-eu-sponsored-research and
 http://lasige.di.fc.ul.pt/Projects/DiSIEM
+//http://disiem.lasige.di.fc.ul.pt
 
 After graduating from Leeds University with a B.A. in Mathematics and Philosophy, she worked as a
 mathematics and IT secondary school teacher, eventually ending up as a programmer. During this time she
@@ -68,7 +69,7 @@ introduction to some machine learning approaches, while trying to keep up to dat
 
 === _Something(s) New in C++_
 
-image:/images/2017_Keynotes/HerbSutter.png[Herb Sutter image, float="right"]
+image:/images/2017/Keynotes/HerbSutter.png[Herb Sutter image, float="right"]
 
 === Abstract
 
@@ -83,11 +84,22 @@ this title and abstract to be replaced with more specific information at least o
 
 === Bio
 
+Herb Sutter is a leading authority on software development. He is the best selling author of several books
+including _Exceptional {cpp}_ and _{cpp} Coding Standards_, as well as hundreds of technical papers and
+articles, including the essay http://www.gotw.ca/publications/concurrency-ddj.htm[The Free Lunch Is Over]
+which coined the term "concurrency revolution" and its recent sequel
+https://herbsutter.com/welcome-to-the-jungle/[Welcome to the Jungle] on the end of Moore¹s Law and the turn
+to mainstream heterogeneous supercomputing from the cloud to 'smartphones'.
+
+Herb has served for a decade as chair of http://www.open-std.org/jtc1/sc22/wg21/[the ISO {cpp} standards
+committee], and is a software architect at Microsoft where he has led the language extensions design of
+{cpp}/CLI (http://www.gotw.ca/publications/C++CLIRationale.pdf[link to PDF document]), {cpp}/CX, {cpp} AMP,
+and other technologies.
 
 
 == Russ Miles
 
-image:/images/2017_Keynotes/RussMiles.jpg[Russ Miles image, float="right"]
+image:/images/2017/Keynotes/RussMiles.jpg[Russ Miles image, float="right"]
 
 === Abstract
 
