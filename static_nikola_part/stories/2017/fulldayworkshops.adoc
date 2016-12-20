@@ -1,0 +1,157 @@
+////
+.. title: Full-day Pre-Conference Workshops
+.. type: text
+////
+
+== The Art of Writing Reasonable Concurrent Code
+
+=== Felix Petriconi
+
+==== Overview
+
+It is indispensable to use multiple cores to get best performance on today's hardware if you cannot use
+GPUs. So it is almost unavoidable to write concurrent code. But writing concurrent code is hard. Writing
+concurrent code correct and with minimal contention is even harder.
+
+In this hands on tutorial I want to show you how to utilize available CPU cores efficiently in a simple way
+by using higher level abstractions like futures and CSP channels, instead of threads and low level
+synchronization primitives like atomics and mutex.
+
+After laying a theoretical foundation, I will start with simpler problems, advance to complex use cases and
+I will introduce you to abstraction techniques to write at the same time safe, readable, and fast code.
+
+The content of the tutorial is a follow up on Sean Parent's concurrency talks in his series of goals for
+better code. I will utilize an open source library that he and I have developed.
+
+You should bring your laptop with a recent C++14 compiler (clang 3.7, gcc 6.1, or Visual Studio 2015 Update
+3), boost 1.60.0 and cmake 3.5.1 or newer installed, because there will be lot's of opportunities to
+translate the theory into practice.
+
+
+==== Bio
+
+Felix Petriconi is working as professional programmer since 1993 after he had finished his study of
+electrical engineering. He started his career as teacher for intellectually gifted children, freelance
+programmer among others in telecommunication and automotive projects. Since 2003 he is employed as
+programmer at the MeVis Medical Solutions AG in Bremen, Germany. He is part of a team that develops and
+maintains radiological medical devices. His focus is on {cpp} development, training of modern {cpp},
+application performance tuning and process improvement. He is a regular speaker at the {cpp} user group in
+Bremen, a blog editor at https://isocpp.org and became recently a member of the ACCU's conference committee.
+
+
+== Testable architecture
+
+=== Seb Rose
+
+==== Overview
+
+
+Automated tests and executable specifications can only work with software that has a testable architecture.
+
+A testable architecture enables fast and reliable tests that are easy to write, execute and maintain. Many
+organisations have the opposite - slow and unreliable tests that are difficult to write and expensive to
+maintain.
+
+During this workshop, we will teach you how to decouple your domain logic from your infrastructure so that
+you can test at different levels, with maximum confidence and minimum cost.
+
+You will learn advanced techniques such as ports and adapters (hexagonal architecture), contract testing and
+test pyramid - all essential for a testable architecture.
+
+You will learn how to use these techniques with different kinds of architectures such as microservices, SOA
+or monolithic systems.
+
+
+Learning Outcomes:
+
+* Draw and annotate the testing pyramid.
+* Be able to identify reasons why teams end up with a top-heavy test-distribution, and explain the consequences.
+* Refactor a small part of a system to introduce a port and a concrete adapter.
+* Implement a test double that mimics an external system or API.
+* Refactor an existing codebase to use a ports & adapters / hexagonal architecture
+* Draw a hexagonal architecture diagram for an example codebase.
+* List three kinds of feedback that TDD gives you to create a more testable codebase.
+* Be able to explain how a Ports & Adapters improves testability in three different ways.
+* Create a contract test that can drive both a real and test double adapter for an external component, removing the need for an end-to-end test.
+* Enumerate the pros and cons of three different approaches to test data management.
+
+
+==== Bio
+
+
+Consultant, coach, designer, analyst and developer for over 30 years.
+
+Seb has been involved in the full development lifecycle with experience that ranges from Architecture to
+Support, from BASIC to Ruby. He’s a partner in Cucumber Limited, who help teams adopt and refine their agile
+practices, with a particular focus on collaboration and automated testing.
+
+Regular speaker at conferences and occasional contributor to software journals. Contributing author to “97
+Things Every Programmer Should Know” (O’Reilly) and lead author of “The Cucumber for Java Book” (Pragmatic
+Programmers).
+
+He blogs at cucumber.io and tweets as @sebrose.
+
+
+== Moving to C++17: The New Language and Library Features
+
+=== Nico Josuttis
+
+==== Overview
+
+{cpp}17 is the next evolution in modern {cpp} programming. Although it is not as big a step as {cpp}11, it
+contains a large number of small and valuable language and library features, which will change the way we
+program in {cpp}.
+
+This one-day tutorial presents all the new language and library features in {cpp}17. We’ll cover the
+motivation and context of each new feature with examples and background information. We’ll focus on how
+these features impact day-to-day programming and how to benefit from them in practice.
+
+Contents:
+
+* History of C++17
+* Language features such as
+  * Structured Bindings
+  * new control structures
+  * new features for compile time computing
+  * minor language features
+* Language support features
+  * uncaught_exceptions()
+  * new data types any, variant, and optional
+  * new type traits
+  * launder()
+* Library features
+  * filesystem library
+  * parallel STL algorithms
+  * string_view
+  * splicing between associative containers
+  * small library features
+* Other bug fixes and notable enhancements
+* Effects when combining multiple features
+
+
+==== Bio
+
+Nicolai Josuttis (www.josuttis.com) is an independent systems architect, technical manager, author, and
+consultant. He designs mid-sized and large software systems for the telecommunication, traffic, finance, and
+manufacturing industries.
+
+He is well known in the {cpp} Community for speaking and writing with authority about {cpp} (being the
+author of 'The C++ Standard Library' and '{cpp} Templates') but is also an innovative presenter.  He is an
+active member of {cpp} standardization committee for almost 20 years now.
+
+
+== Chapel Programming
+
+=== Bradford Chamberlain
+
+==== Overview
+
+==== Bio
+
+Bradford Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
+serves as the technical lead for the Chapel project which is developing a portable, open-source language for
+parallel programming on large-scale systems. In this role, Brad focuses primarily on leading the design and
+implementation of the Chapel language with his team at Cray and members of the open-source development
+community. Brad received his Ph.D. in Computer Science & Engineering from the University of Washington in
+2001 working on the ZPL parallel array language. In the past, he has also worked on languages for embedded
+reconfigurable processors and on algorithms for accelerating the rendering of complex 3D scenes.
