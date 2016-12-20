@@ -5,8 +5,8 @@ This module provides all the additional CLI commands.
 import re
 import sys
 
+from collections import Counter
 from pathlib import Path
-
 from statistics import mean, median
 
 from email.mime.text import MIMEText
@@ -146,10 +146,17 @@ def ensure_consistency_of_schedule():
     """
     accepted = Proposal.query.filter_by(status=ProposalState.accepted).all()
     acknowledged = Proposal.query.filter_by(status=ProposalState.acknowledged).all()
-    if len(accepted) >0:
+    if len(accepted) > 0:
         print('####  There are accepted sessions that have not been acknowledged.')
+        for a in accepted:
+            print('\t' + a.title)
     accepted = accepted + acknowledged
     workshops = Proposal.query.filter_by(day=ConferenceDay.workshops).all()
+    unacknowledged_workshops = tuple(w for w in workshops if w not in acknowledged)
+    if len(unacknowledged_workshops) > 0:
+        print('####  The are full-day pre-conference workshops accepted but not acknowledged.')
+        for uw in unacknowledged_workshops:
+            print('\t' + uw.title)
     sessions = (
         Proposal.query.filter_by(day=ConferenceDay.day_1).all() +
         Proposal.query.filter_by(day=ConferenceDay.day_2).all() +
@@ -159,39 +166,54 @@ def ensure_consistency_of_schedule():
     scheduled = workshops + sessions
     if len(accepted) > len(scheduled):
         print('####  There are accepted sessions that are not scheduled.')
+        for a in accepted:
+            if a not in scheduled:
+                print('\t' + a.title)
     elif len(accepted) < len(scheduled):
         print('####  There are schedule sessions that are not accepted.')
+        for s in scheduled:
+            if s not in accepted:
+                print('\t' + s.title)
+    for s in scheduled:
+        lead_count = len(tuple(p for p in s.presenters if p.is_lead))
+        if lead_count > 0:
+            print('####  {} has multiple leads.'.format(s.title))
+        elif lead_count == 0:
+            print('####  {} has no lead.'.format(s.title))
     for day in ConferenceDay:
         if day == ConferenceDay.workshops:
             continue
         for session in SessionSlot:
-
-            def generator():
-                return (p for s in sessions if s.day == day and s.session == session for p in s.presenters)
-
-            presenter_set = set(generator())
-            presenter_list = list(generator())
-            if len(presenter_set) < len(presenter_list):
-                print('####  A presenter appears to be presenting at the same time in {}, {}'.format(day, session))
-            elif len(presenter_set) > len(presenter_list):
-                print('#### ####  This cannot be.')
-            if len(presenter_set) == 0:
-                print('####  Session {}, {} appears to have no presenters.'.format(day, session))
+            presenter_counter = Counter(p for s in sessions if s.day == day and s.session == session for p in s.presenters)
+            for p in presenter_counter:
+                if presenter_counter[p] > 1:
+                    print('####  {} is presenting in two place in {}, {}'.format(p.email, day, session))
+                elif presenter_counter[p] == 0:
+                    print('####  Session {}, {} appears to have no presenters.'.format(day, session))
             for room in Room:
                 if room == Room.bristol_suite:
                     continue
-                if len([s for s in sessions if s.day == day and s.session == session and s.room == room]) > 1:
-                    print('####  There appears to be a conflict at {}, {}, {}'.format(day, session, room))
+                sessions_now = tuple(s for s in sessions if s.day == day and s.session == session and s.room == room)
+                if len(sessions_now) == 0:
+                    print('####  {}, {}, {} appears empty'.format(day, session, room))
+                elif len(sessions_now) > 1:
+                    quickies = tuple(s for s in sessions_now if s.quickie_slot != None)
+                    if len(sessions_now) != len(quickies):
+                        print('####  Non-quickie scheduled in quickie session')
+                        for s in sessions_now:
+                            if s not in quickies:
+                                print('\t' + s.title)
+                    if len(quickies) != 4:
+                        print('#### Too few quickies in {}, {}, {}'.format(day, session, room))
 
-    def generator():
-        return (p for s in sessions if s.session != SessionType.quickie and s.session != SessionType.fulldayworkshop for p in s.presenters)
-
-    presenter_set = set(generator())
-    presenter_list = list(generator())
-    if len(presenter_set) < len(presenter_list):
-        print('####  There appears to be someone with more than one 90 minute session.')
-    elif len(presenter_set) > len(presenter_list):
-        print('#### ####  This cannot be.')
+    presenter_counter = Counter(p for s in sessions if s.session != SessionType.quickie and s.session != SessionType.fulldayworkshop for p in s.presenters if p.is_lead)
+    for p in presenter_counter:
+        if presenter_counter[p] > 1:
+            print('####  {} has more than one 90 minute session.'.format(p.email))
+            for pp in (prop for prop in sessions if p in prop.presenters):
+                print('\t' + pp.title)
+        elif presenter_counter[p] == 0:
+            print('#### #### This cannot be.')
 
 
 @app.cli.command()
@@ -229,10 +251,6 @@ def do_emailout(emailout_spec):
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
             server.send_message(message)
-
-
-
-
 
 
 @app.cli.command()
