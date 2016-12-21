@@ -125,9 +125,12 @@ image:/images/2017/Keynotes/RussMiles.jpg[Russ Miles image, float="right"]
 
 === Abstract
 
-Microservices are hell, quite literally. As architectural styles go, we have asked so much from the
-developers who are tasked with building systems. In this talk Russ Miles will talk about the nature of this
-hell, and how he's working to overcome it using new tools, approaches and, yes, languages.
+
+Microservices are hell, quite literally. As architectural styles go, rarely has a style asked so much from
+the developers who are tasked with building systems.
+
+In this talk Russ Miles will be joined by his colleagues, Gibson and the Bot, to talk about the nature of
+this hell and how they're working to overcome it using new tools, approaches and, yes, languages."
 
 
 === Bio
