@@ -14,7 +14,7 @@ image:/images/2017/Keynotes/BradChamberlain.jpg[Brad Chamberlain image, float="r
 
 === Abstract
 
-Programming language designers have largely failed the large-scale parallel computing community, and
+Programming language designers have to date largely failed the large-scale parallel computing community, and
 arguably even parallel programmers targeting desktops or modest-scale clusters.  Parallel features are
 typically an afterthought in language design, tacked on as pragmas, libraries, or extensions.  Even when
 languages _are_ designed to support parallelism, they generally fail to consider distributed-memory
