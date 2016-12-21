@@ -505,7 +505,7 @@ def navlinks():
         ("Register", url_for("proposals.register"), not logged_in and (submissions_allowed or reviewing_allowed)),
         ("Account", url_for("proposals.register"), logged_in),
         (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals > 0),
-        ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not submissions_allowed),
+        ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and submissions_allowed),
         ("Review Proposals", url_for("proposals.review_proposal"), logged_in and reviewing_allowed and can_review),
         ("Log out", url_for("proposals.logout"), logged_in),
         ('Administrate', '/admin/', proposals.config.get('ADMINISTERING')),
