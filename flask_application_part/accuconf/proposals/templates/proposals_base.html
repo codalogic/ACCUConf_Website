@@ -24,12 +24,8 @@
         <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
         <!--  Banner -->
         <div class="container-fluid banner">
-            <a href="/"><img class="img-responsive"
-                             src="/proposals/assets/images/accu2017_363x124.png" align="left"
-                             alt="ACCU 2017 Logo"/></a>
-            <a href="http://www.accu.org"><img class="img-responsive"
-                                               src="/proposals/assets/images/accu_logo.png" align="right"
-                                               alt="ACCU Logo"/></a>
+            <a href="/"><img class="img-responsive" src="/proposals/assets/images/accu2017_363x124.png" align="left" alt="ACCU 2017 Logo"/></a>
+            <a href="http://www.accu.org"><img class="img-responsive" src="/proposals/assets/images/accu_logo.png" align="right" alt="ACCU Logo"/></a>
         </div>
         <!-- Banner logo -->
         <div class="row">
@@ -70,6 +66,7 @@
                     <h4>
                         <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
                         <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
+                        <a href="/site/rss.xml"><img class="img-responsive" src="/site/assets/images/feed-icon-28x28.png" align="right" alt="RSS icon"></a>
                     </h4>
                     <hr/>
                     <h3>
@@ -111,6 +108,7 @@
                     <h4>
                       <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
                       <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
+                      <a href="/site/rss.xml"><img class="img-responsive" src="/site/assets/images/feed-icon-28x28.png" align="right" alt="RSS icon"></a>
                     </h4>
                     <hr/>
                     <h3>
@@ -141,10 +139,10 @@
                 </div>
           </div>
         </div> <!--  End of div.row -->
-        <!--script type="text/template" id="navlinks-template">
+        <script type="text/template" id="navlinks-template">
             <li> <a href="<%= href %>"><%= title %></a> </li>
-        </script-->
-        <!--script type="text/javascript">
+        </script>
+        <script type="text/javascript">
             $(document).ready(function() {
                 $("#greeter-row").hide();
                 var navlinksTemplate = _.template($("#navlinks-template").html());
@@ -153,12 +151,8 @@
                     method: "GET",
                     contentType: "application/json",
                     success: function(jsonData) {
-                        var order = Object.keys(jsonData);
-                        order.sort();
-                        $.each(order, function(idx, orderidx) {
-                            if (jsonData[orderidx][2]) {
-                                $("#navigation-links").append(navlinksTemplate({"href": jsonData[orderidx][1], "title": jsonData[orderidx][0]}));
-                            }
+                        $.each(jsonData, function(idx, item) {
+                            if (item[2]) { $("#navigation-links").append(navlinksTemplate({"href": item[1], "title": item[0]})); }
                         });
                     }
                 });
@@ -175,6 +169,6 @@
                     }
                 });
             });
-        </script-->
+        </script>
     </body>
 </html>

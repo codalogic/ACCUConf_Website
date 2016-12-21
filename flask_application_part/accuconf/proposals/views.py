@@ -497,19 +497,20 @@ def navlinks():
         number_of_proposals = len(user.proposals)
         can_review = user.role == Role.reviewer
         my_proposals_text = "My Proposal" if number_of_proposals == 1 else "My Proposals"
-    links = {
-        "0": ("Home", url_for("nikola.index"), True),
-        "1": ("RSS", "/site/rss.xml", True),
-        "2": ("Login", url_for("proposals.login"), not logged_in and (submissions_allowed or reviewing_allowed)),
-        "3": ("Register", url_for("proposals.register"), not logged_in and (submissions_allowed or reviewing_allowed)),
-        "4": ("Account", url_for("proposals.register"), logged_in),
-        "5": (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals > 0),
-        "6": ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not submissions_allowed),
-        "7": ("Review Proposals", url_for("proposals.review_proposal"), logged_in and reviewing_allowed and can_review),
-        "8": ("Log out", url_for("proposals.logout"), logged_in),
-        '9': ('Administrate', '/admin/', proposals.config.get('ADMINISTERING')),
-    }
-    return jsonify(**links)
+    links_data = (
+        ("Home", url_for("nikola.index"), True),
+        ("Keynotes", url_for("nikola.stories", path="2017/keynotes.html"), True),
+        ("Full-day Workshops", url_for("nikola.stories", path="2017/fulldayworkshops.html"), True),
+        ("Login", url_for("proposals.login"), not logged_in and (submissions_allowed or reviewing_allowed)),
+        ("Register", url_for("proposals.register"), not logged_in and (submissions_allowed or reviewing_allowed)),
+        ("Account", url_for("proposals.register"), logged_in),
+        (my_proposals_text, url_for("proposals.show_proposals"), logged_in and number_of_proposals > 0),
+        ("Submit Proposal", url_for("proposals.submit_proposal"), logged_in and not submissions_allowed),
+        ("Review Proposals", url_for("proposals.review_proposal"), logged_in and reviewing_allowed and can_review),
+        ("Log out", url_for("proposals.logout"), logged_in),
+        ('Administrate', '/admin/', proposals.config.get('ADMINISTERING')),
+    )
+    return jsonify(links_data)
 
 
 @proposals.route('/current_user', methods=["GET"])

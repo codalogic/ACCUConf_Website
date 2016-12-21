@@ -39,7 +39,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
                     <ul class="nav navbar-nav" id="navigation-links">
-                        {{ base.html_navigation_links() }}
+                        {# {{ base.html_navigation_links() }} #}
                     </ul>
                 </div>
             </nav>
@@ -59,6 +59,7 @@
             <h4>
               <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
               <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
+              <a href="/rss.xml"><img class="img-responsive" src="/assets/images/feed-icon-28x28.png" align="right" alt="RSS icon"></a>
             </h4>
             <hr/>
             <h3>
@@ -108,6 +109,7 @@
              <h4>
                 <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
                 <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
+                <a href="/rss.xml"><img class="img-responsive" src="/assets/images/feed-icon-28x28.png" alt="RSS icon" align="right"></a>
              </h4>
              <hr/>
              <h3>
@@ -167,12 +169,8 @@
              method: "GET",
              contentType: "application/json",
              success: function(jsonData) {
-                 var order = Object.keys(jsonData);
-                 order.sort()
-                 $.each(order, function(idx, orderidx) {
-                     if (jsonData[orderidx][2]) {
-                         $("#navigation-links").append(navlinksTemplate({"href": jsonData[orderidx][1], "title": jsonData[orderidx][0]}));
-                     }
+                 $.each(jsonData, function(idx, item) {
+                     if (item[2]) { $("#navigation-links").append(navlinksTemplate({"href": item[1], "title": item[0]})); }
                  });
              }
          });
