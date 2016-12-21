@@ -5,7 +5,7 @@
 
 
 
-== Bradford Chamberlain
+== Brad Chamberlain
 
 === _The Audacity of Chapel: Scalable Parallel Programming Done Right_
 
