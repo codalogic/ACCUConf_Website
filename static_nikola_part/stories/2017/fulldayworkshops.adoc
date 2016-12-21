@@ -3,18 +3,37 @@
 .. type: text
 ////
 
-== Chapel Programming
+== A Programmer's Introduction to Chapel
 
-=== Bradford Chamberlain
+=== Brad Chamberlain
 
 
 image:/images/2017/Keynotes/BradChamberlain.jpg[Brad Chamberlain image, float="right"]
 
 ==== Overview
 
+In this tutorial workshop, I'll present an introduction to Chapel through a combination of short
+presentations and hands-on programming sessions (i.e., bring your laptop!).
+
+Over the course of this workshop, you'll be introduced to Chapel's unique language features for tasking and
+data parallelism, as well as those for specifying locality and affinity to enable scalability on clusters,
+the cloud, and HPC systems.  I'll also provide a brief introduction to Chapel's rich base language, designed
+to simplify serial programming as in modern scripting languages (e.g., Python) while preserving the
+performance and type safety properties of traditional languages like C and {cpp}.
+
+In the hands-on sessions, you'll be free to explore Chapel features through a combination of prepared
+exercises and/or free-form programming – on your laptop and, with luck, even a modern Cray system.
+
+The fine print: Chapel requires a {cpp} compiler, POSIX threads, and a UNIX-like environment.  Thus,
+attendees with Linux/*nix, MacOS, or Windows 10 with the Linux bash shell will have the best results.
+Alternatives include ssh-ing into such a system, Docker, or Windows with Cygwin.  In short, if you arrive
+with access to a system (local or remote) where you can do a 'make'-based compile of a C/{cpp} hello world,
+you should be good to go.
+
+
 ==== Bio
 
-Bradford Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
+Brad Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
 serves as the technical lead for the Chapel project which is developing a portable, open-source language for
 parallel programming on large-scale systems. In this role, Brad focuses primarily on leading the design and
 implementation of the Chapel language with his team at Cray and members of the open-source development

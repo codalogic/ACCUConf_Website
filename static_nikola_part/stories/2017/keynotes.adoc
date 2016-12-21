@@ -7,14 +7,36 @@
 
 == Bradford Chamberlain
 
+=== _The Audacity of Chapel: Scalable Parallel Programming Done Right_
+
+
 image:/images/2017/Keynotes/BradChamberlain.jpg[Brad Chamberlain image, float="right"]
 
 === Abstract
 
+Programming language designers have largely failed the large-scale parallel computing community, and
+arguably even parallel programmers targeting desktops or modest-scale clusters.  Parallel features are
+typically an afterthought in language design, tacked on as pragmas, libraries, or extensions.  Even when
+languages _are_ designed to support parallelism, they generally fail to consider distributed-memory
+computing.  Other approaches tend to be domain-specific and not suited for more general parallel
+programming.  Meanwhile, though the High Performance Computing (HPC) community has pursued many novel
+parallel languages, none have succeeded in getting over the tipping point of broad adoption.
+
+Chapel is my team's effort to reverse these trends.  It's a general-purpose language in which scalable
+parallel programming has been a motivating theme from day one.  It's designed with productivity in mind in
+order to make parallel programming less arcane and more modern in style.  It's portable and open-source in
+order to support a broad community and reduce barriers to adoption.  And yet, like any new language design
+being undertaken by a modest-sized team, it's an uphill battle all the way.
+
+In this talk, I'll provide an introduction to Chapel's motivating themes and features to give you a sense of
+what we are doing and why.  I'll also provide a glimpse into some of the challenges we wrestle with and how
+we are dealing with them.  Whether you leave the talk a convert to Chapel or simply intrigued, I hope to
+challenge you to think about scalable parallelism as the first-class language feature that it deserves
+to be.
+
 === Bio
 
-
-Bradford Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
+Brad Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He
 serves as the technical lead for the Chapel project which is developing a portable, open-source language for
 parallel programming on large-scale systems. In this role, Brad focuses primarily on leading the design and
 implementation of the Chapel language with his team at Cray and members of the open-source development
