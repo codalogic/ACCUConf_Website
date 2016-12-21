@@ -233,21 +233,31 @@ def do_emailout(emailout_spec):
     with open(str(file_paths[1])) as subject_file:
         subject = subject_file.read().strip()
     for proposal, person in query.query():
-        if proposal is not None:
-            if person != proposal.proposer:
-                print('####  Person being sent to is not the proposer of the proposal: {}, {}; {}'.format(proposal.title, proposal.proposer.email, person.email))
+        if proposal is None:
+            if person is not None:
+                email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
+            else:
+                print('####  No data of people to send email to.')
                 return 1
-        email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
+        else:
+            if person is not None:
+                if person != proposal.proposer:
+                    print('####  Person being sent to is not the proposer of the proposal: {}, {}; {}'.format(proposal.title, proposal.proposer.email, person.email))
+                    return 1
+                else:
+                    email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
         print('Subject:', subject)
         print('Recipient:', email_address)
+        if proposal is not None:
+            print('Title:', proposal.title)
         with SMTP('smtp.winder.org.uk') as server:
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
             message['From'] = 'conference@accu.org'
-            message['To'] = 'russel@winder.org.uk'  # email_address
+            message['To'] = email_address
             message['Cc'] = 'russel@winder.org.uk'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
-            #server.send_message(message)
+            server.send_message(message)
 
 
 @app.cli.command()
