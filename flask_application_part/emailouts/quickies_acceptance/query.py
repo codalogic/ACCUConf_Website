@@ -3,7 +3,7 @@ from accuconf.proposals.utils.proposals import SessionType, ProposalState
 
 
 def query():
-    proposals = Proposal.query.filter_by(session_type=SessionType.fulldayworkshop, status=ProposalState.accepted).all()
+    proposals = Proposal.query.filter_by(session_type=SessionType.quickie, status=ProposalState.accepted).all()
     people = tuple(p.proposer for p in proposals)
     return zip(proposals, people)
 

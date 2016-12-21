@@ -219,13 +219,6 @@ def ensure_consistency_of_schedule():
 @app.cli.command()
 @click.argument('emailout_spec')
 def do_emailout(emailout_spec):
-    """
-    Given an name of an emailout directory, which must contain query.py, subject.txt and text.txt files
-    run a mailout. The query.py module must contain a query function that delivers a list of Proposal
-    objects. The proposers of the proposals will be emailed. The query.py module must also contain a
-    edit_template function that takes a path to a template file and a Proposal object and returns text
-    that can be emailed. The subject.txt file must contain 1 short line of text that is the email subject.
-    """
     emailout_directory = file_directory.parent / 'emailouts' / emailout_spec
     file_paths = tuple(emailout_directory / name for name in ('query.py', 'subject.txt', 'text.txt'))
     for fp in file_paths:
@@ -239,18 +232,22 @@ def do_emailout(emailout_spec):
     assert sys.path == old_path
     with open(str(file_paths[1])) as subject_file:
         subject = subject_file.read().strip()
-    for proposal in query.query():
-        email_address = '{} {} <{}>'.format(proposal.proposer.first_name, proposal.proposer.last_name, proposal.proposer.email)
+    for proposal, person in query.query():
+        if proposal is not None:
+            if person != proposal.proposer:
+                print('####  Person being sent to is not the proposer of the proposal: {}, {}; {}'.format(proposal.title, proposal.proposer.email, person.email))
+                return 1
+        email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
         print('Subject:', subject)
         print('Recipient:', email_address)
         with SMTP('smtp.winder.org.uk') as server:
-            message = MIMEText(query.edit_template(str(file_paths[2]), proposal), _charset='utf-8')
+            message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
             message['From'] = 'conference@accu.org'
-            message['To'] = email_address
+            message['To'] = 'russel@winder.org.uk'  # email_address
             message['Cc'] = 'russel@winder.org.uk'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
-            server.send_message(message)
+            #server.send_message(message)
 
 
 @app.cli.command()
