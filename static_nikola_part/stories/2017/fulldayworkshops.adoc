@@ -136,7 +136,7 @@ active member of {cpp} standardization committee for almost 20 years now.
 
 == Testable architecture
 
-=== Seb Rose
+=== Seb Rose & Jon Jagger
 
 image:/images/2017/FullDayWorkshops/SebRose.jpg[Seb Rose image, float="right", width=200]
 
@@ -180,6 +180,7 @@ Learning Outcomes:
 
 ==== Bio
 
+_Seb Rose_
 
 Consultant, coach, designer, analyst and developer for over 30 years.
 
@@ -192,3 +193,19 @@ Things Every Programmer Should Know” (O’Reilly) and lead author of “The Cu
 Programmers).
 
 He blogs at cucumber.io and tweets as @sebrose.
+
+_Jon Jagger_
+
+I'm a software consultant specializing in practice, process, test driven development, and complex-adaptive systems-thinking. Hire me!
+I'm 30 years old (hex) and I've loved software since I was 10 (decimal).
+I built cyber-dojo.org to promote deliberate practice for software developers.
+I've worked with Accenture, Aviva, Cisco, Ericsson, Friends Provident, HP, Microsoft, Opera, Ordnance Survey, RBS, Reuters, Renault F1, Schlumberger, Tandberg and many many more.
+If you don't like my work I won't invoice you.
+I'm the co-author (with Olve Maudal) of the Deep C/C++ slide deck (over 600,000 views)
+I'm the ex ECMA Task Group 2 C# convenor.
+I've had some C# books published.
+I'm the ex ACCU conference chairman.
+I'm married to the beautiful Natalie, and proud father of Ellie, Penny and Patrick.
+I love coarse fishing and salmon fishing.
+I live in Somerset, England.
+On twitter I'm @JonJagger
