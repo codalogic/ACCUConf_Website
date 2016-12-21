@@ -50,9 +50,9 @@ exist in cyberspace without a body? Where will it end?
 
 Frances Buontempo is currently editor of the ACCU's Overload magazine and is a researcher at
 City, University of London, working on a project to provide diversity enhancements to SIEMS (Security
-Information and Event Management)
-http://www.city.ac.uk/news/2016/march/city-academics-receive-a-large-grant-for-eu-sponsored-research and
-http://lasige.di.fc.ul.pt/Projects/DiSIEM
+Information and Event Management) http://disiem-project.eu/.
+//http://www.city.ac.uk/news/2016/march/city-academics-receive-a-large-grant-for-eu-sponsored-research and
+//http://lasige.di.fc.ul.pt/Projects/DiSIEM
 //http://disiem.lasige.di.fc.ul.pt
 
 After graduating from Leeds University with a B.A. in Mathematics and Philosophy, she worked as a
