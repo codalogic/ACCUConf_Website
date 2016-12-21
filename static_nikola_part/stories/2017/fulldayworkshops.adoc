@@ -50,23 +50,25 @@ image:/images/2017/FullDayWorkshops/FelixPetriconi.jpg[Felix Petriconi image, fl
 
 ==== Overview
 
-It is indispensable to use multiple cores to get best performance on today's hardware if you cannot use
-GPUs. So it is almost unavoidable to write concurrent code. But writing concurrent code is hard. Writing
-concurrent code correct and with minimal contention is even harder.
+If you want to get best performance on today's hardware, and you are not just working with the GPGPUs, using
+the multiple cores of the (possibly multiple) CPU is effectively mandatory. Thus for best performance
+software you have to write concurrent (and parallel) code. But writing concurrent code is hard. Writing
+concurrent code that is correct and has minimal contention is even harder.
 
-In this hands on tutorial I want to show you how to utilize available CPU cores efficiently in a simple way
-by using higher level abstractions like futures and CSP channels, instead of threads and low level
-synchronization primitives like atomics and mutex.
+In this hands-on tutorial we will see how to utilise available CPU cores efficiently in a simple way by
+using higher level abstractions like futures and CSP channels, instead of manually managing threads and
+using other low level synchronization primitives such as atomics and mutexes.
 
-After laying a theoretical foundation, I will start with simpler problems, advance to complex use cases and
-I will introduce you to abstraction techniques to write at the same time safe, readable, and fast code.
+We will not dive into lock free data structures, sequential consistency, or ABA problems, etc. Instead,
+after laying some theoretical foundations, we will start with simpler problems, advance to complex use cases
+and then move on to abstraction techniques to write safe, readable, and fast code. You are encouraged to
+bring problems from your domain so that we can together discuss them.
 
 The content of the tutorial is a follow up on Sean Parent's concurrency talks in his series of goals for
-better code. I will utilize an open source library that he and I have developed.
+better code. We will utilize an open source library that he and I have developed.
 
-You should bring your laptop with a recent C++14 compiler (clang 3.7, gcc 6.1, or Visual Studio 2015 Update
-3), boost 1.60.0 and cmake 3.5.1 or newer installed, because there will be lot's of opportunities to
-translate the theory into practice.
+You will need to bring a laptop with these minimal requirements: a recent {cpp}14 compliant compiler (clang
+3.7, gcc 6.1, or Visual Studio 2015 Update 3), boost 1.60.0 and cmake 3.5.1.
 
 
 ==== Bio
@@ -144,30 +146,35 @@ image:/images/2017/FullDayWorkshops/SebRose.jpg[Seb Rose image, float="right", w
 Automated tests and executable specifications can only work with software that has a testable architecture.
 
 A testable architecture enables fast and reliable tests that are easy to write, execute and maintain. Many
-organisations have the opposite - slow and unreliable tests that are difficult to write and expensive to
+organisations have the opposite – slow and unreliable tests that are difficult to write and expensive to
 maintain.
 
 During this workshop, we will teach you how to decouple your domain logic from your infrastructure so that
 you can test at different levels, with maximum confidence and minimum cost.
 
 You will learn advanced techniques such as ports and adapters (hexagonal architecture), contract testing and
-test pyramid - all essential for a testable architecture.
+test pyramid – all essential for a testable architecture.
 
-You will learn how to use these techniques with different kinds of architectures such as microservices, SOA
-or monolithic systems.
+You will learn how these techniques can be applied to different kinds of architectures such as
+microservices, SOA or monolithic systems.
 
+The practical work will be carried out using Cyber-Dojo, an online training environment – all that is needed
+is access to a modern web browser. Delegates will work in pairs, so not everyone will need to bring their
+own laptop. The training material will be available in {cpp}, C# and Java.
 
 Learning Outcomes:
 
 * Draw and annotate the testing pyramid.
-* Be able to identify reasons why teams end up with a top-heavy test-distribution, and explain the consequences.
+* Be able to identify reasons why teams end up with a top-heavy test-distribution, and explain the
+  consequences.
 * Refactor a small part of a system to introduce a port and a concrete adapter.
 * Implement a test double that mimics an external system or API.
 * Refactor an existing codebase to use a ports & adapters / hexagonal architecture
 * Draw a hexagonal architecture diagram for an example codebase.
 * List three kinds of feedback that TDD gives you to create a more testable codebase.
 * Be able to explain how a Ports & Adapters improves testability in three different ways.
-* Create a contract test that can drive both a real and test double adapter for an external component, removing the need for an end-to-end test.
+* Create a contract test that can drive both a real and test double adapter for an external component,
+  removing the need for an end-to-end test.
 * Enumerate the pros and cons of three different approaches to test data management.
 
 
