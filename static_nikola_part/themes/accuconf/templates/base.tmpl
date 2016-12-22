@@ -55,16 +55,9 @@
     </div> <!-- End of col-sm-3 col-md-3 col-lg-3 -->
     <!-- For single column rendering - In mobiles and tablets -->
     <div class="visible-xs-block">
-        <div class="container-fluid">
-            <h4>
-              <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
-              <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
-              <a href="/rss.xml"><img class="img-responsive" src="/assets/images/feed-icon-28x28.png" align="right" alt="RSS icon"></a>
-            </h4>
-            <hr/>
-            <h3>
-              <a href="/stories/coc_code_of_conduct.html">Code of Conduct</a>
-            </h3>
+      <div class="container-fluid">
+        {{ accuconf.cocbits() }}
+        <a href=" http://www.cvent.com/d/dvqxq2"><img class="img-responsive" src="/assets/images/register_2017_2.jpg" alt="Register Now icon" align="right" width="200"></a>
             <div class="accuconf-menu">
                 <a type="button" class="accuconf-toggle-link btn" data-toggle="collapse" href="#keydates">
                     <span class="accuconf-toggle glyphicon glyphicon-menu-hamburger"> Dates and Location </span>
@@ -106,16 +99,14 @@
             </div>
         </div>
         <div class="hidden-xs">
-             <h4>
-                <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
-                <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
-                <a href="/rss.xml"><img class="img-responsive" src="/assets/images/feed-icon-28x28.png" alt="RSS icon" align="right"></a>
-             </h4>
-             <hr/>
-             <h3>
-                  <a href="/stories/coc_code_of_conduct.html">Code of Conduct</a>
-             </h3>
-             <hr/>
+          {{ accuconf.cocbits() }}
+             <div class="row">
+               <div class="panel panel-default">
+                 <div class="panel-body">
+                   <a href=" http://www.cvent.com/d/dvqxq2"><img class="img-responsive" src="/assets/images/register_2017_2.jpg" alt="Register Now icon" align="right"></a>
+                 </div>
+               </div>
+             </div>
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-heading">

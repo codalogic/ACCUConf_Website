@@ -1,3 +1,18 @@
+{% macro cocbits() %}
+<h4>
+  <a href="https://twitter.com/ACCUConf">@ACCUConf</a>
+  <a href="https://twitter.com/hashtag/ACCUConf">#ACCUConf</a>
+  <a href="/rss.xml"><img class="img-responsive" src="/assets/images/feed-icon-28x28.png" align="right" alt="RSS icon"></a>
+</h4>
+<h3>
+  <a href="/stories/coc_code_of_conduct.html">Code of Conduct</a>
+</h3>
+<br/>
+{% endmacro %}
+
+
+
+
 {% macro dates() %}
 <ul class="nolist list-group">
   <li> Call for Proposals: 2016-10-17 to 2016-12-02 </li>
@@ -25,11 +40,13 @@
     <h3 class="panel-title">Sponsors</h3>
   </div>
   <div class="panel-body">
-      <p><a href="https://www.jetbrains.com/"><img src="/assets/images/2017_SponsorLogos/Jetbrains_NL.jpg" alt="JetBrains Logo" class="img-responsive img-rounded center-block"/></a></p>
-      <br/>
-      <p><a href="http://undo.io/"><img src="/assets/images/2017_SponsorLogos/Undo_Master_3x.png" alt="Undo Logo" class="img-responsive img-rounded center-block"/></a></p>
-      <br/>
-      <p><a href="http://mosaic.fm/"><img src="/assets/images/2017_SponsorLogos/MosaicLogo.png" alt="Mosaic Logo" class="img-responsive img-rounded center-block"/></a></p>
+    <p><a href="http://www.bloomberg.co.uk/"><img src="/assets/images/2017_SponsorLogos/Bloomberg_black.png" alt="Bloomberg Logo" class="img-responsive img-rounded center-block"/></a></p>
+    <br/>
+    <p><a href="https://www.jetbrains.com/"><img src="/assets/images/2017_SponsorLogos/Jetbrains_NL.jpg" alt="JetBrains Logo" class="img-responsive img-rounded center-block"/></a></p>
+    <br/>
+    <p><a href="http://undo.io/"><img src="/assets/images/2017_SponsorLogos/Undo_Master_3x.png" alt="Undo Logo" class="img-responsive img-rounded center-block"/></a></p>
+    <br/>
+    <p><a href="http://mosaic.fm/"><img src="/assets/images/2017_SponsorLogos/MosaicLogo.png" alt="Mosaic Logo" class="img-responsive img-rounded center-block"/></a></p>
   </div>
 </div>
 {% endmacro %}
@@ -75,5 +92,17 @@
       <li> Email: julie@archer-yates.co.uk </li>
     </ul>
   </div>
+</div>
+{% endmacro %}
+
+{% macro countdown() %}
+<div class='cvt-main-app' data-widget-url='www.cvent.com/d/wvqv91/6V'>
+  <script type='text/javascript'>
+    window.cvtDomain = 'www.cvent.com';
+    var cventWidgetLoaderScript = document.createElement('script');
+    var numberOfHoursFrom1970 = new Date().getTime()/(3600 * 1000);
+    cventWidgetLoaderScript .src = '//www.cvent.com/g/mobile/javascript/widget-loader.js?versioninhrs=' + numberOfHoursFrom1970;
+    document.getElementsByTagName('head')[0].appendChild(cventWidgetLoaderScript);
+  </script>
 </div>
 {% endmacro %}
