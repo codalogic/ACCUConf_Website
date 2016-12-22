@@ -468,7 +468,7 @@ HIDDEN_CATEGORIES = []
 # If you do not want to display an author publicly, you can mark it as hidden.
 # The author will not be displayed on the author list page and posts.
 # Tag pages will still be generated.
-HIDDEN_AUTHORS = ['Guest']
+HIDDEN_AUTHORS = ['ACCU', 'Guest']
 
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
@@ -848,7 +848,7 @@ src="https://i.creativecommons.org/l/by-nd-nc/1.0/88x31.png"></a>"""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date} <a href="mailto:{email}">{author}</a>  {license} – Report problems with this site on <a href="https://github.com/ACCUConf/ACCUConfWebsite_Static/issues">GitHub</a> – Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>'
+CONTENT_FOOTER = 'Contents &copy; {date} <a href="mailto:{email}">{author}</a>  {license} – Powered by <a href="http://flask.pocoo.org/" rel="nofollow">Flask</a> and <a href="https://getnikola.com" rel="nofollow">Nikola</a> – Hosting donated by <a href="http://www.bytemark.co.uk/r/accu" rel="nofollow">Bytemark</a>.</a>'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
