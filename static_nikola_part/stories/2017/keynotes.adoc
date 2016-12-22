@@ -130,7 +130,7 @@ and other technologies.
 [[RussMiles]]
 == Russ Miles
 
-=== To hell and back: One guitarist's journey through modern software development
+=== _To hell and back: One guitarist's journey through modern software development_
 
 image:/images/2017/Keynotes/RussMiles.jpg[Russ Miles image, float="right"]
 
