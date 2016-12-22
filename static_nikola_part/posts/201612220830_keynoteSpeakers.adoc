@@ -1,0 +1,33 @@
+////
+.. title: Keynote Speakers
+.. date: 2016-12-22T08:30+00:00
+.. type: text
+////
+
+The core of any conference based on submitted proposals are the submitted proposals, and we got an excellent
+collection of proposals this year. We think we are going to have an excellent conference based on these.
+
+Conferences are though enhanced dramatically by having good keynote speakers, to set scenes, get questions
+being asked, open attenders eyes to new things, etc. We believe the ACCU 2017 keynote speakers are going to do
+this "in spades".
+
+The conference will open on Wednesday with a presentation by
+link:../stories/2017/keynotes.html#RussMiles[Russ Miles] supported by his colleagues Gibson and Bot. He will
+be telling us about microservices hell, and I suspect he will pull the Rug out from under it.
+
+Thursday morning we have a presentation by link:../stories/2017/keynotes.html#BradChamberlain[Brad
+Chamberlain] about how concurrency and parallelism, both local and in clusters, can be first class citizens
+in programming languages, e.g. http://www.chapel-lang.org[Chapel], unlike in all the languages we currently
+use, e.g. C, C++, Java, etc.
+
+Friday morning we will challenged by link:../stories/2017/keynotes.html#FranBuontempo[Fran Buontempo] to
+decide what intelligence actually is, and indeed whether humans, let alone machines, display it.
+
+As with previous ACCU conferences the first three days start with a keynote, but the last day ends with a
+keynote. This year we are delighted to have link:../stories/2017/keynotes.html#HerbSutter[Herb Sutter]
+return to ACCU. He will be telling us something new, but as no-one is entirely sure (not even Herb) what
+that will be, we are all left on tenterhooks. We can be certain though, that it will be a seriously great
+close to the conference.
+
+The organising team is already excited, not just about Christmas 2016, but also about ACCU 2017. See you in
+Bristol, 2017-04-25.

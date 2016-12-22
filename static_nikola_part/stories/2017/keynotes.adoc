@@ -4,13 +4,15 @@
 ////
 
 
-
+[[BradChamberlain]]
 == Brad Chamberlain
 
 === _The Audacity of Chapel: Scalable Parallel Programming Done Right_
 
 
 image:/images/2017/Keynotes/BradChamberlain.jpg[Brad Chamberlain image, float="right"]
+
+Thursday 2017-04-27T09:30+01:00
 
 === Abstract
 
@@ -26,7 +28,7 @@ Chapel is my team's effort to reverse these trends.  It's a general-purpose lang
 parallel programming has been a motivating theme from day one.  It's designed with productivity in mind in
 order to make parallel programming less arcane and more modern in style.  It's portable and open-source in
 order to support a broad community and reduce barriers to adoption.  And yet, like any new language design
-being undertaken by a modest-sized team, it's an uphill battle all the way.
+being undertaken by a modest-sized team, it's not without its challenges – both technical and social.
 
 In this talk, I'll provide an introduction to Chapel's motivating themes and features to give you a sense of
 what we are doing and why.  I'll also provide a glimpse into some of the challenges we wrestle with and how
@@ -45,11 +47,14 @@ community. Brad received his Ph.D. in Computer Science & Engineering from the Un
 reconfigurable processors and on algorithms for accelerating the rendering of complex 3D scenes.
 
 
+[[FranBuontempo]]
 == Frances Buontempo
 
 === _AI: Actual Intelligence_
 
 image:/images/2017/Keynotes/FrancesBuontempo.jpg[Frances Buotempo image, float="right"]
+
+Friday 2017-04-28T09:30+01:00
 
 === Abstract
 
@@ -87,11 +92,14 @@ She has talked and written about various ways to program your way out of a paper
 introduction to some machine learning approaches, while trying to keep up to date with new techniques.
 
 
+[[HerbSutter]]
 == Herb Sutter
 
 === _Something(s) New in C++_
 
 image:/images/2017/Keynotes/HerbSutter.png[Herb Sutter image, float="right"]
+
+Saturday 2017-04-29T16:30+01:00
 
 === Abstract
 
@@ -119,9 +127,13 @@ committee], and is a software architect at Microsoft where he has led the langua
 and other technologies.
 
 
+[[RussMiles]]
 == Russ Miles
 
 image:/images/2017/Keynotes/RussMiles.jpg[Russ Miles image, float="right"]
+
+
+Wednesday 2017-04-26T09:30+01:00
 
 === Abstract
 
