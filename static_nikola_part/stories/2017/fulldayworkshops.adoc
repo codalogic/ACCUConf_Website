@@ -3,6 +3,7 @@
 .. type: text
 ////
 
+[[BradChamberlain]]
 == A Programmer's Introduction to Chapel
 
 === Brad Chamberlain
@@ -30,6 +31,8 @@ Alternatives include ssh-ing into such a system, Docker, or Windows with Cygwin.
 with access to a system (local or remote) where you can do a 'make'-based compile of a C/{cpp} hello world,
 you should be good to go.
 
+image:/assets/images/register_2017_4.jpg[link=http://www.cvent.com/d/dvqxq2, width=200, float="right"]
+
 
 ==== Bio
 
@@ -42,6 +45,7 @@ community. Brad received his Ph.D. in Computer Science & Engineering from the Un
 reconfigurable processors and on algorithms for accelerating the rendering of complex 3D scenes.
 
 
+[[FelixPetriconi]]
 == The Art of Writing Reasonable Concurrent Code
 
 === Felix Petriconi
@@ -71,6 +75,8 @@ You will need to bring a laptop with these minimal requirements: a recent {cpp}1
 3.7, gcc 6.1, or Visual Studio 2015 Update 3), boost 1.60.0 and cmake 3.5.1.
 
 
+image:/assets/images/register_2017_4.jpg[link=http://www.cvent.com/d/dvqxq2, width=200, float="right"]
+
 ==== Bio
 
 Felix Petriconi is working as professional programmer since 1993 after he had finished his study of
@@ -83,7 +89,7 @@ Bremen, a blog editor at https://isocpp.org and became recently a member of the 
 
 
 
-
+[[NicoJosuttis]]
 == Moving to C++17: The New Language and Library Features
 
 === Nico Josuttis
@@ -122,6 +128,8 @@ Contents:
 * Other bug fixes and notable enhancements
 * Effects when combining multiple features
 
+image:/assets/images/register_2017_4.jpg[link=http://www.cvent.com/d/dvqxq2, width=200, float="right"]
+
 
 ==== Bio
 
@@ -134,6 +142,7 @@ author of 'The C++ Standard Library' and '{cpp} Templates') but is also an innov
 active member of {cpp} standardization committee for almost 20 years now.
 
 
+[[SebRose]]
 == Testable architecture
 
 === Seb Rose & Jon Jagger
@@ -180,6 +189,8 @@ Learning Outcomes:
   removing the need for an end-to-end test.
 * Enumerate the pros and cons of three different approaches to test data management.
 
+
+image:/assets/images/register_2017_4.jpg[link=http://www.cvent.com/d/dvqxq2, width=200, float="right"]
 
 ==== Bio
 

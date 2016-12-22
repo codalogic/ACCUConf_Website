@@ -1,0 +1,31 @@
+////
+.. title: Pre-Conference Workshops
+.. date: 2016-12-22T17:35+00:00
+.. type: text
+////
+
+ACCU is a four-day conference, but it also has a day of full-day pre-conference workshops. For ACCU 2017, we
+have, on Tuesday 2017-04-25, four workshops for you to choose from. In no particular order (*):
+
+* _Brad Chamberlain_ is going to give us link:../stories/2017/fulldayworkshops.html#BradChamberlain[A
+  Programmer's Introduction to Chapel]. Anyone interested in parallel code on any computer, but especially
+  on multi-multicore processor clusters, will be interested in http://www.chapel-lang.org[Chapel]. It is a
+  disruptive technology to replace Fortran, C, C++, etc. with a programming language that uses modern idioms
+  to make programming parallel system fun.
+* _Felix Petriconi_ will introduce link:../stories/2017/fulldayworkshops.html#FelixPetriconi[The Art of
+  Writing Reasonable Concurrent Code]. All about dataflow based approaches (CSP and channels), this workshop
+  will get people writing concurrent (and parallel) {cpp}14 code running with nicer more manageable and
+  maintainable code, with little or no debugging required.
+* _Nico Josuttis_ will get us link:../stories/2017/fulldayworkshops.html#NicoJosuttis[Moving to C++17]. A
+  workshop for anyone wanting to use the latest features of {cpp} now, today.
+* _Seb Rose_ and _Jon Jagger_ will be educating people about
+  link:../stories/2017/fulldayworkshops.html#SebRose[Testable Architecture] If you are having difficulties
+  getting you application into a well tested state, this is the workshop for you.
+
+All four of these workshops really are "must attend" workshops. However don't dither, plump for one and sign
+up – today. Click through http://www.cvent.com/d/dvqxq2[REGISTER FOR ACCU 2017 HERE] to register, and sign
+up for your chosen workshop.
+
+'''
+
+(*) Well actually there is an order, but it is left as an exercise for the reader to discern it.
