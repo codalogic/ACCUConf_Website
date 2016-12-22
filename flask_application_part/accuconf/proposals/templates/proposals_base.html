@@ -74,12 +74,12 @@
                     </h3>
                     <div class="accuconf-menu">
                         <a type="button" class="accuconf-toggle-link btn" data-toggle="collapse" href="#keydates">
-                            <span class="accuconf-toggle glyphicon glyphicon-menu-hamburger"> Dates </span>
+                            <span class="accuconf-toggle glyphicon glyphicon-menu-hamburger"> Dates and Location </span>
                         </a>
                         <div class="collapse" id="keydates">
-                            <ul class="nolist">
-                                {{ accuconf.dates() }}
-                            </ul>
+                          {{ accuconf.dates() }}
+                          <hr/>
+                          {{ accuconf.location() }}
                         </div>
                     </div>
                 </div>
@@ -121,9 +121,17 @@
                                 <h3 class="panel-title">Dates</h3>
                             </div>
                             <div class="panel-body">
-                                <ul class="nolist list-group">
-                                    {{ accuconf.dates() }}
-                                </ul>
+                              {{ accuconf.dates() }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Location</h3>
+                            </div>
+                            <div class="panel-body">
+                              {{ accuconf.location() }}
                             </div>
                         </div>
                     </div>
