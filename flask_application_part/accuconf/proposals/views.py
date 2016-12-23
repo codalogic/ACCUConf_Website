@@ -5,7 +5,7 @@ from flask import render_template, jsonify, redirect, url_for, session, request
 from flask import send_from_directory, g
 
 from accuconf import db
-from accuconf.models import MathPuzzle, User, Proposal, Presenter, Score, Comment
+from accuconf.models import MathPuzzle, User, ProposalPresenter, Proposal, Presenter, Score, Comment
 from accuconf.proposals.utils.proposals import SessionType
 from accuconf.proposals.utils.roles import Role
 from accuconf.proposals.utils.validator import validate_email, validate_password, validate_proposal_data
@@ -292,14 +292,15 @@ def upload_proposal():
                 db.session.add(proposal)
                 presenters = proposal_data.get("presenters")
                 for presenter in presenters:
-                    proposal_presenter = Presenter(
-                        presenter["email"],
+                    proposal_presenter = ProposalPresenter(Presenter(
+                            presenter["email"],
+                            presenter["fname"],
+                            presenter["lname"],
+                            'A human being.',
+                            presenter["country"],
+                            presenter["state"],
+                        ),
                         presenter["lead"],
-                        presenter["fname"],
-                        presenter["lname"],
-                        'A human being.',
-                        presenter["country"],
-                        presenter["state"],
                     )
                     proposal.presenters.append(proposal_presenter)
                     db.session.add(proposal_presenter)

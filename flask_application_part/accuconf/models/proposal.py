@@ -1,12 +1,20 @@
+from sqlalchemy.ext.associationproxy import association_proxy
+
 from accuconf import db
 from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState, SessionAudience
 from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
 
-proposal_presenter_table = db.Table(
-    'proposal_presenter_table',
-    db.Column('proposal_id', db.Integer, db.ForeignKey('proposal.id')),
-    db.Column('presenter_id', db.Integer, db.ForeignKey('presenter.id')),
-)
+
+class ProposalPresenter(db.Model):
+    proposal_id = db.Column(db.Integer, db.ForeignKey('proposal.id'), primary_key=True)
+    presenter_id = db.Column(db.Integer, db.ForeignKey('presenter.id'), primary_key=True)
+    proposal = db.relationship('Proposal', back_populates='presenters')
+    presenter = db.relationship('Presenter', back_populates='proposals')
+    is_lead = db.Column(db.Boolean, nullable=False)
+
+    def __init__(self, presenter, is_lead):
+        self.presenter = presenter
+        self.is_lead = is_lead
 
 
 class Proposal(db.Model):
@@ -15,7 +23,7 @@ class Proposal(db.Model):
     title = db.Column(db.String(150), nullable=False)
     session_type = db.Column(db.Enum(SessionType), nullable=False)
     text = db.Column(db.Text, nullable=False)
-    presenters = db.relationship('Presenter', secondary=proposal_presenter_table, backref='proposal')
+    presenters = db.relationship(ProposalPresenter, back_populates='proposal')
     audience = db.Column(db.Enum(SessionAudience), nullable=False)
     category = db.Column(db.Enum(SessionCategory), nullable=False)
     scores = db.relationship('Score', backref='proposal')
@@ -45,16 +53,15 @@ class Proposal(db.Model):
 class Presenter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
-    is_lead = db.Column(db.Boolean, nullable=False)
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     bio = db.Column(db.Text(), nullable=False)
     country = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(100), nullable=False)
+    proposals = db.relationship(ProposalPresenter, back_populates='presenter')
 
-    def __init__(self, email, is_lead, first_name, last_name, bio, country, state):
+    def __init__(self, email, first_name, last_name, bio, country, state):
         self.email = email
-        self.is_lead = is_lead
         self.first_name = first_name
         self.last_name = last_name
         self.bio = bio
