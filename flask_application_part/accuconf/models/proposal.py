@@ -40,7 +40,9 @@ class Proposal(db.Model):
     video_url = db.Column(db.String(128))
 
     def __init__(self, proposer, title, session_type, text,
-                 audience=SessionAudience.all, category=SessionCategory.not_sure, status=ProposalState.submitted):
+                 audience=SessionAudience.all, category=SessionCategory.not_sure, status=ProposalState.submitted,
+                 day=None, session=None, quickie_slot=None, track=None, room=None,
+                 slides_pdf=None, video_url=None):
         self.proposer = proposer
         self.title = title
         self.session_type = session_type
@@ -48,7 +50,13 @@ class Proposal(db.Model):
         self.audience = audience
         self.category = category
         self.status = status
-
+        self.day = day
+        self.session = session
+        self.quickie_slot = quickie_slot
+        self.track = track
+        self.room = room
+        self.slides_pdf = slides_pdf
+        self.video_url = video_url
 
 class Presenter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
