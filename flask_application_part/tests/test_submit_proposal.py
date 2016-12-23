@@ -46,7 +46,7 @@ lengthy proposal''',
         'presenters': [
             {
                 'email': 'a@b.c',
-                'lead': 1,
+                'lead': True,
                 'fname': 'User',
                 'lname': 'Name',
                 'bio': 'A nice member of the human race.',
@@ -69,7 +69,7 @@ lengthy proposal''',
         'presenters': [
             {
                 'email': 'a@b.c',
-                'lead': 1,
+                'lead': True,
                 'fname': 'User',
                 'lname': 'Name',
                 'bio': 'A person.',
@@ -78,7 +78,7 @@ lengthy proposal''',
             },
             {
                 'email': 'p2@b.c',
-                'lead': 0,
+                'lead': False,
                 'fname': 'Presenter',
                 'lname': 'Second',
                 'bio': 'Another person',
@@ -136,7 +136,11 @@ def test_logged_in_user_can_submit_a_single_presenter_proposal(client, registrat
     assert len(user.proposals) == 1
     p = user.proposals[0]
     assert len(p.presenters) == 1
-    assert p.presenters[0].email == user.email
+    proposal_presenter = p.presenters[0]
+    presenter = proposal_presenter.presenter
+    is_lead = proposal_presenter.is_lead
+    assert is_lead
+    assert presenter.email == user.email
     assert proposal.session_type == SessionType.quickie
 
 
@@ -158,11 +162,11 @@ def test_logged_in_user_can_submit_multipresenter_single_lead_proposal(client, r
     p = user.proposals[0]
     assert len(p.presenters) == 2
     if p.presenters[0].is_lead:
-        assert p.presenters[0].email == user.email
-        assert p.presenters[1].email == 'p2@b.c'
+        assert p.presenters[0].presenter.email == user.email
+        assert p.presenters[1].presenter.email == 'p2@b.c'
     else:
-        assert p.presenters[0].email == 'p2@b.c'
-        assert p.presenters[1].email == user.email
+        assert p.presenters[0].presenter.email == 'p2@b.c'
+        assert p.presenters[1].presenter.email == user.email
     assert proposal.session_type == SessionType.miniworkshop
 
 
