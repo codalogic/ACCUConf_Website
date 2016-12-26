@@ -1,5 +1,3 @@
-from sqlalchemy.ext.associationproxy import association_proxy
-
 from accuconf import db
 from accuconf.proposals.utils.proposals import SessionType, SessionCategory, ProposalState, SessionAudience
 from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
@@ -12,7 +10,15 @@ class ProposalPresenter(db.Model):
     presenter = db.relationship('Presenter', back_populates='proposals')
     is_lead = db.Column(db.Boolean, nullable=False)
 
-    def __init__(self, presenter, is_lead):
+    #  When using an association object rather than just an association table, it seems
+    #  the keys have to be set manually. This likely indicates something wrong with
+    #  this code as this has never had to be done in other cases. this just seems wrong.
+    #
+    # TODo Fix this.
+    def __init__(self, proposal_id, presenter_id, proposal, presenter, is_lead):
+        self.proposal_id = proposal_id
+        self.presenter_id = presenter_id
+        self.proposal = proposal
         self.presenter = presenter
         self.is_lead = is_lead
 
@@ -20,6 +26,7 @@ class ProposalPresenter(db.Model):
 class Proposal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     proposer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    proposer = db.relationship('User', back_populates='proposals')
     title = db.Column(db.String(150), nullable=False)
     session_type = db.Column(db.Enum(SessionType), nullable=False)
     text = db.Column(db.Text, nullable=False)
@@ -57,6 +64,7 @@ class Proposal(db.Model):
         self.room = room
         self.slides_pdf = slides_pdf
         self.video_url = video_url
+
 
 class Presenter(db.Model):
     id = db.Column(db.Integer, primary_key=True)

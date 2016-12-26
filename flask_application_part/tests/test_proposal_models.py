@@ -2,8 +2,6 @@
 Test the Proposal and related models.
 """
 
-import pytest
-
 # import the fixture, PyCharm believes it isn't a used symbol, but it is.
 from common import database
 
@@ -35,49 +33,57 @@ proposal_data = (
 
 
 def test_putting_proposal_in_database(database):
-    u = User(*user_data)
-    p = Proposal(u, *proposal_data)
-    presenter_data = (u.email, u.first_name, u.last_name, 'A member of the human race.', u.country, u.state)
-    presenter = ProposalPresenter(Presenter(*presenter_data), True)
-    p.presenters.append(presenter)
-    database.session.add(u)
-    database.session.add(p)
+    user = User(*user_data)
+    proposal = Proposal(user, *proposal_data)
+    presenter_data = (user.email, user.first_name, user.last_name, 'A member of the human race.', user.country, user.state)
+    presenter = Presenter(*presenter_data)
+    database.session.add(user)
+    database.session.add(proposal)
     database.session.add(presenter)
     database.session.commit()
-    query_result = Proposal.query.filter_by(proposer_id=u.id).all()
+    proposal_presenter = ProposalPresenter(proposal.id, presenter.id, proposal, presenter, True)
+    proposal.presenters.append(proposal_presenter)
+    presenter.proposals.append(proposal_presenter)
+    database.session.add(proposal_presenter)
+    database.session.commit()
+    query_result = Proposal.query.filter_by(proposer_id=user.id).all()
     assert len(query_result) == 1
-    p = query_result[0]
-    assert p.proposer.email == u.email
-    assert (p.title, p.session_type, p.text) == proposal_data
-    assert len(p.presenters) == 1
-    proposal_presenter = p.presenters[0]
+    proposal = query_result[0]
+    assert proposal.proposer.email == user.email
+    assert (proposal.title, proposal.session_type, proposal.text) == proposal_data
+    assert len(proposal.presenters) == 1
+    proposal_presenter = proposal.presenters[0]
     is_lead = proposal_presenter.is_lead
     assert is_lead
-    presenter = proposal_presenter.presenter
-    assert (presenter.email, presenter.first_name, presenter.last_name) == (u.email, u.first_name, u.last_name)
-    assert p.category == SessionCategory.not_sure
-    assert p.status == ProposalState.submitted
+    proposal_presenter = proposal_presenter.presenter
+    assert (proposal_presenter.email, proposal_presenter.first_name, proposal_presenter.last_name) == (user.email, user.first_name, user.last_name)
+    assert proposal.category == SessionCategory.not_sure
+    assert proposal.status == ProposalState.submitted
 
 
 def test_adding_review_and_comment_to_proposal_in_database(database):
-    u = User(*user_data)
-    p = Proposal(u, *proposal_data)
-    presenter = ProposalPresenter(Presenter(u.email, u.first_name, u.last_name, 'Someone that exists', u.country, u.state), True)
-    score = Score(p, u, 10)
-    comment = Comment(p, u, 'Perfect')
-    p.presenters.append(presenter)
-    database.session.add(u)
-    database.session.add(p)
+    user = User(*user_data)
+    proposal = Proposal(user, *proposal_data)
+    presenter = Presenter(user.email, user.first_name, user.last_name, 'Someone that exists', user.country, user.state)
+    database.session.add(user)
+    database.session.add(proposal)
     database.session.add(presenter)
+    database.session.commit()
+    proposal_presenter = ProposalPresenter(proposal.id, presenter.id, proposal, presenter, True)
+    proposal.presenters.append(proposal_presenter)
+    presenter.proposals.append(proposal_presenter)
+    database.session.add(proposal_presenter)
+    score = Score(proposal, user, 10)
+    comment = Comment(proposal, user, 'Perfect')
     database.session.add(score)
     database.session.add(comment)
     database.session.commit()
-    query_result = Proposal.query.filter_by(proposer_id=u.id).all()
+    query_result = Proposal.query.filter_by(proposer_id=user.id).all()
     assert len(query_result) == 1
-    p = query_result[0]
-    assert p.scores is not None
-    assert len(p.scores) == 1
-    assert p.scores[0].score == 10
-    assert p.comments is not None
-    assert len(p.comments) == 1
-    assert p.comments[0].comment == 'Perfect'
+    proposal = query_result[0]
+    assert proposal.scores is not None
+    assert len(proposal.scores) == 1
+    assert proposal.scores[0].score == 10
+    assert proposal.comments is not None
+    assert len(proposal.comments) == 1
+    assert proposal.comments[0].comment == 'Perfect'

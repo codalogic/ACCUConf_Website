@@ -290,20 +290,28 @@ def upload_proposal():
                                     SessionType(proposal_data.get('session_type')),
                                     proposal_data.get("abstract").strip())
                 db.session.add(proposal)
-                presenters = proposal_data.get("presenters")
-                for presenter in presenters:
-                    proposal_presenter = ProposalPresenter(Presenter(
-                            presenter["email"],
-                            presenter["fname"],
-                            presenter["lname"],
+                db.session.commit()
+                presenters_data = proposal_data.get("presenters")
+                for presenter_data in presenters_data:
+                    presenter = Presenter(
+                            presenter_data["email"],
+                            presenter_data["fname"],
+                            presenter_data["lname"],
                             'A human being.',
-                            presenter["country"],
-                            presenter["state"],
-                        ),
-                        presenter["lead"],
+                            presenter_data["country"],
+                            presenter_data["state"],
+                        )
+                    db.session.add(presenter)
+                    db.session.commit()
+                    proposal_presenter = ProposalPresenter(
+                        proposal.id, presenter.id,
+                        proposal, presenter,
+                        presenter_data["lead"],
                     )
                     proposal.presenters.append(proposal_presenter)
+                    presenter.proposals.append(proposal_presenter)
                     db.session.add(proposal_presenter)
+                    db.session.commit()
                 db.session.commit()
                 response["success"] = True
                 response["message"] = "Thank you very much!\nYou have successfully submitted a proposal for the next ACCU conference!\nYou can see it now under \"My Proposal\"."
