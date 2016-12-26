@@ -14,7 +14,7 @@ class ProposalPresenter(db.Model):
     #  the keys have to be set manually. This likely indicates something wrong with
     #  this code as this has never had to be done in other cases. this just seems wrong.
     #
-    # TODo Fix this.
+    # TODO Fix this.
     def __init__(self, proposal_id, presenter_id, proposal, presenter, is_lead):
         self.proposal_id = proposal_id
         self.presenter_id = presenter_id
