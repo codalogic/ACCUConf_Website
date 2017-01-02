@@ -197,7 +197,7 @@ def ensure_consistency_of_schedule():
                 if len(sessions_now) == 0:
                     print('####  {}, {}, {} appears empty'.format(day, session, room))
                 elif len(sessions_now) > 1:
-                    quickies = tuple(s for s in sessions_now if s.quickie_slot != None)
+                    quickies = tuple(s for s in sessions_now if s.quickie_slot is not None)
                     if len(sessions_now) != len(quickies):
                         print('####  Non-quickie scheduled in quickie session')
                         for s in sessions_now:
@@ -205,6 +205,10 @@ def ensure_consistency_of_schedule():
                                 print('\t' + s.title)
                     if len(quickies) != 4:
                         print('#### Too few quickies in {}, {}, {}'.format(day, session, room))
+                else:
+                    s = sessions_now[0]
+                    if s.quickie_slot is not None:
+                        print('####  Session listed as quickies scheduled as a session: {}, {}, {}, {}.'.format(s.title, day, session, room))
 
     presenter_counter = Counter(p for s in sessions if s.session_type != SessionType.quickie and s.session_type != SessionType.fulldayworkshop for p in s.presenters if p.is_lead)
     for p in presenter_counter:
