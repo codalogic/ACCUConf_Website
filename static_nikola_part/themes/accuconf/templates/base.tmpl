@@ -13,7 +13,6 @@
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">{{ messages("Skip to main content") }}</a>
-
 <!--  Banner -->
 <div class="container-fluid banner">
     <a href="/"><img class="img-responsive" src="/assets/images/accu2017_363x124.png" align="left" alt="ACCUConf 2017 Logo"/></a>
@@ -34,14 +33,15 @@
                         <span class="icon-bar"></span>
                     </button>
                     <span>
-                      <a class="navbar-brand" href="{{ abs_link(_link("root", None, lang)) }}"> {{blog_title|e }} </a>
+                      <a class="navbar-brand" href="/"> {{blog_title|e }} </a>
                     </span>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
                     <ul class="nav navbar-nav" id="navigation-links">
-                        {# {{ base.html_navigation_links() }} #}
+                        <!-- This is the attachment point for the dynamically constructed menu -->
                     </ul>
                 </div>
+                {{ accuconf.previous_conferences() }}
             </nav>
         </div> <!-- End div.row for nav -->
         <div class="hidden-xs">

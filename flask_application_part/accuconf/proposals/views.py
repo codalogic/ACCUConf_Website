@@ -507,7 +507,7 @@ def navlinks():
         can_review = user.role == Role.reviewer
         my_proposals_text = "My Proposal" if number_of_proposals == 1 else "My Proposals"
     links_data = (
-        ("Home", url_for("nikola.index"), True),
+        #("Home", url_for("nikola.index"), True),
         ("Keynotes", url_for("nikola.stories", path="2017/keynotes.html"), True),
         ("Full-day Workshops", url_for("nikola.stories", path="2017/fulldayworkshops.html"), True),
         ("Login", url_for("proposals.login"), not logged_in and (submissions_allowed or reviewing_allowed)),

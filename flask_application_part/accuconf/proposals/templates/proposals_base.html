@@ -1,4 +1,3 @@
-{% import 'links.html' as links with context %}
 {% import 'accuconf.html' as accuconf with context %}
 <!DOCTYPE html>
 <html lang="en">
@@ -41,14 +40,15 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <span>
-                                <a class="navbar-brand" href="{{ url_for('nikola.index')}}"> {{ links.menu_title() }} </a>
+                                <a class="navbar-brand" href="{{ url_for('nikola.index')}}"> ACCU Conference </a>
                             </span>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
                             <ul class="nav navbar-nav" id="navigation-links">
-                                {# {{ links.sitelinks() }} #}
+                                <!-- This is the attachment point for the dynamically constructed menu -->
                             </ul>
                         </div>
+                        {{ accuconf.previous_conferences() }}
                     </nav>
                 </div> <!-- End div.row for nav -->
                 <div class="hidden-xs">
