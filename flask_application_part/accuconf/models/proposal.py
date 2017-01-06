@@ -72,8 +72,8 @@ class Presenter(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     bio = db.Column(db.Text(), nullable=False)
-    country = db.Column(db.String(100), nullable=False)
-    state = db.Column(db.String(100), nullable=False)
+    country = db.Column(db.String(100), nullable=False)  # TODO Should be String(5)
+    state = db.Column(db.String(100), nullable=False)  # TODO Should be String(10)
     proposals = db.relationship(ProposalPresenter, back_populates='presenter')
 
     def __init__(self, email, first_name, last_name, bio, country, state):
