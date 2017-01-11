@@ -115,7 +115,7 @@ flask_application_part/accuconf_test.db files for putting back in place later.
 To create an initial database:
 
 * `cd flask_application_part/`
-* `./create_db.py`
+* `./cli.sh create_database`
 * `cd ..`
 
 To run all the tests:
