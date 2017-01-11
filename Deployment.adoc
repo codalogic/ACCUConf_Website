@@ -53,14 +53,18 @@ accuconf CSS files – there is an issue in Nikola such that you have build to c
 and then run the build again to create the deployable HTML files. Ostensibly the bug has been fixed, but
 pragmatically that appears not to be the case.
 
-Current best practice seems to be to have a clone of the mainline Git repository and treat that as the place
-from which to deploy to the live server https://conference.accu.org. The configuration should be a live
-server – see flask_application_part/accuconf_config.py which contains a number of configuration classes then
-at the end define one of them to be the class `Config` This reference is the one picked up by the rest of
-the application. To avoid configuration and database hassles, it seems best to take a clone of this "live"
-website for the test website. In the clone the accuconf_config.py file can be different and
-uncommitted. This then means deployment to the live site is of a live server and deployment to the test site
-is of a test server.
+It should be feasible to deploy to the live server https://conference.accu.org from any clone of the
+mainline Git repository. The deploy scripts do not copy the locally defined configuration file of the
+repository being deployed from even if it exists.  The module
+flask_application_part/accuconf/configuration.py contains a number of classes that define the pre-defined
+server states found to be needed. It defines the default `Config` which is effectively the static website
+with no flask application and is in the repository. To create a different website state create a
+flask_application_part/accuconf_config.py module that, by whatever Pythonic means, defines a symbol `Config`
+– this `Config` symbol will override the default one. There is no flask_application_part/accuconf_config.py
+file in the repository, so any checkout of the repository starts with the default state that can be changed
+by adding a file of this name. This configuration file must remain uncommitted. This means the deployed
+material has its own independent state: the state of the live server is determined by a file that only
+exists on the server.
 
 == The Installation Environments
 
