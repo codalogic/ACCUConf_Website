@@ -1,9 +1,8 @@
 Hi,
 
-Thank you for registering on the ACCU session proposal submission
-website. Currently your bio is empty. This is most likely because you
-registered before this field was on the registration page. Sorry about this
-phasing error. We need to ask you to go back to the registration page and
-complete the bio field. If your proposal is accepted for the conference, this
-is the information about you that will be made available on the ACCU 2017
-website.
+It appears that your bio is empty. This may be because you have never
+entered one, or because in our machinations behind the scenes we lost
+the one you entered. In any event we need to have a non-trivial bio for
+you to put up on the website for ACCU 2017. Please can I get you to email
+a suitable bio to me asap so that we can set up publishing of the
+conference details.

@@ -1,6 +1,12 @@
-from sqlalchemy import MetaData, Table, select
+from accuconf.models import Proposal, Presenter, ProposalState
 
 
-def query(engine):
-    user_infos = Table('user_infos', MetaData(), autoload=True, autoload_with=engine)
-    return select([user_infos.c.user_id, user_infos.c.first_name, user_infos.c.last_name]).where(user_infos.c.bio == '')
+def query():
+    acknowledged = Proposal.query.filter_by(status=ProposalState.acknowledged)
+    presenters = tuple(ppp for ppp in (pp.presenter for p in acknowledged for pp in p.presenters) if ppp.bio.strip() == '')
+    return tuple((None, p) for p in presenters)
+
+
+def edit_template(text_file, proposal, person):
+    with open(text_file) as file:
+        return file.read().strip()
