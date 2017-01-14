@@ -2,10 +2,13 @@
 This module provides all the additional CLI commands.
 """
 
+import json
 import re
+import shutil
 import sys
 
 from collections import Counter
+from datetime import date, timedelta
 from pathlib import Path
 from statistics import mean, median
 
@@ -26,21 +29,26 @@ file_directory = Path(__file__).absolute().parent
 sys.path.insert(0, str(file_directory.parent))
 
 from accuconf import app, db
-from accuconf.models import User, Proposal, Presenter, Score, Comment
+from accuconf.models import User, ProposalPresenter, Proposal, Presenter, Score, Comment
 from accuconf.proposals.utils.proposals import SessionType, ProposalState, SessionCategory, SessionAudience
 from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
 from accuconf.proposals.utils.roles import Role
 
+start_date = date(2017, 4, 25)  # The day of the full-day pre-conference workshops
 
 @app.cli.command()
 def create_database():
-    """Create an initial database."""
+    """
+    Create an initial database.
+    """
     db.create_all()
 
 
 @app.cli.command()
 def all_reviewers():
-    """Print a list of all the registrants labelled as a scorer."""
+    """
+    Print a list of all the registrants labelled as a scorer.
+    """
     for x in User.query.filter_by(role=Role.reviewer).all():
         print('{} {} <{}>'.format(x.first_name, x.last_name, x.user_id))
 
@@ -48,7 +56,9 @@ def all_reviewers():
 @app.cli.command()
 @click.argument('committee_email_file_path')
 def committee_are_reviewers(committee_email_file_path):
-    """Ensure consistency between committee list and scorer list."""
+    """
+    Ensure consistency between committee list and scorer list.
+    """
     try:
         with open(committee_email_file_path) as committee_email_file:
             committee_emails = {s.strip() for s in committee_email_file.read().split()}
@@ -63,7 +73,9 @@ def committee_are_reviewers(committee_email_file_path):
 
 @app.cli.command()
 def create_proposal_sheets():
-    """Create the bits of papers for constructing an initial schedule."""
+    """
+    Create the bits of papers for constructing an initial schedule.
+    """
     file_path = str(file_directory.parent / 'proposal_sheets.pdf')
     style_sheet = getSampleStyleSheet()['BodyText']
     style_sheet.fontSize = 18
@@ -87,7 +99,9 @@ def create_proposal_sheets():
 
 @app.cli.command()
 def create_proposals_document():
-    """Create an Asciidoc document of all the proposals in the various sections."""
+    """
+    Create an Asciidoc document of all the proposals in the various sections.
+    """
     file_path = str(file_directory.parent / 'proposals.adoc')
     total_proposals = len(Proposal.query.all())
     proposals_processed = 0
@@ -140,6 +154,62 @@ def create_proposals_document():
 
 
 @app.cli.command()
+def check_database_consistency():
+    """
+    Make sure that all columns in all tables have the right sort of value.
+
+    The tests for enum valued columns should never fail since the data
+    schema contains the string constraints to ensure there is never a
+    failure of the enum types.
+    """
+    #  May throw json.JSONDecodeError
+    with open((file_directory.parent / 'accuconf' / 'static' / 'assets' / 'data' / 'countries.json').as_posix()) as countries_file:
+        countries_data = json.load(countries_file)
+    country_codes = tuple(c['alpha3'] for c in countries_data)
+
+    def state_codes(country_code):
+        country_data = tuple(c for c in countries_data if c['alpha3'] == country_code)
+        assert len(country_data) == 1
+        return tuple(r['code'] for r in country_data[0]['regions'])
+
+    for u in User.query.all():
+        if u.role not in Role:
+            print('####  User {}, has role {}.'.format(u.email, u.role))
+        if u.country not in country_codes:
+            print('####  User {}, has country {}.'.format(u.email, u.country))
+        else:
+            if u.state not in state_codes(u.country):
+                print('####  User {}, has state {}.'.format(u.email, u.state))
+
+    for p in Proposal.query.all():
+        if p.session_type not in SessionType:
+            print('####  Proposal {} has sessiontype {}'.format(p.title, p.session_type))
+        if p.audience not in SessionAudience:
+            print('#### Proposal {} has audience {}'.format(p.title, p.audience))
+        if p.category not in SessionCategory:
+            print('#### Proposal {} has category {}'.format(p.title, p.category))
+        if p.status not in ProposalState:
+            print('#### Proposal {} has status {}'.format(p.title, p.status))
+        if p.day is not None and p.day not in ConferenceDay:
+            print('#### Proposal {} has day {}'.format(p.title, p.day))
+        if p.session is not None and p.session not in SessionSlot:
+            print('#### Proposal {} has session {}'.format(p.title, p.session))
+        if p.quickie_slot is not None and p.quickie_slot not in QuickieSlot:
+            print('#### Proposal {} has quickie_slot {}'.format(p.title, p.quickie_slot))
+        if p.track is not None and p.track not in Track:
+            print('#### Proposal {} has track {}'.format(p.title, p.track))
+        if p.room is not None and p.room not in Room:
+            print('#### Proposal {} has room {}'.format(p.title, p.room))
+
+    for p in Presenter.query.all():
+        if p.country not in country_codes:
+            print('####  Presenter {}, has country {}.'.format(p.email, p.country))
+        else:
+            if p.state not in state_codes(p.country):
+                print('####  Presenter {}, has state {}.'.format(p.email, p.state))
+
+
+@app.cli.command()
 def ensure_consistency_of_schedule():
     """
     Run a number of checks to ensure that the schedule has no obvious problems.
@@ -151,19 +221,29 @@ def ensure_consistency_of_schedule():
         for a in accepted:
             print('\t' + a.title)
     accepted = accepted + acknowledged
-    workshops = Proposal.query.filter_by(day=ConferenceDay.workshops).all()
-    unacknowledged_workshops = tuple(w for w in workshops if w not in acknowledged)
+    fulldayworkshops = Proposal.query.filter_by(day=ConferenceDay.workshops).all()
+    incorrect = tuple(item for item in fulldayworkshops if item.session_type != SessionType.fulldayworkshop)
+    if len(incorrect) > 0:
+        print('####  There are scheduled full-day workshops that are not full-day workshops:')
+        for item in incorrect:
+            print('\t' + item.title)
+    unacknowledged_workshops = tuple(w for w in fulldayworkshops if w not in acknowledged)
     if len(unacknowledged_workshops) > 0:
-        print('####  The are full-day pre-conference workshops accepted but not acknowledged.')
+        print('####  The are full-day workshops accepted but not acknowledged.')
         for uw in unacknowledged_workshops:
             print('\t' + uw.title)
+    keynotes = Proposal.query.filter_by(session_type=SessionType.keynote).all()
+    if len(keynotes) != 4:
+        print('####  Wrong number of keynotes')
     sessions = (
         Proposal.query.filter_by(day=ConferenceDay.day_1).all() +
         Proposal.query.filter_by(day=ConferenceDay.day_2).all() +
         Proposal.query.filter_by(day=ConferenceDay.day_3).all() +
         Proposal.query.filter_by(day=ConferenceDay.day_4).all()
     )
-    scheduled = workshops + sessions
+    if not all(s.status == ProposalState.acknowledged for s in sessions):
+        print('####  There are unacknowledged scheduled sessions.')
+    scheduled = fulldayworkshops + sessions
     if len(accepted) > len(scheduled):
         print('####  There are accepted sessions that are not scheduled.')
         for a in accepted:
@@ -209,7 +289,6 @@ def ensure_consistency_of_schedule():
                     s = sessions_now[0]
                     if s.quickie_slot is not None:
                         print('####  Session listed as quickies scheduled as a session: {}, {}, {}, {}.'.format(s.title, day, session, room))
-
     presenter_counter = Counter(p for s in sessions if s.session_type != SessionType.quickie and s.session_type != SessionType.fulldayworkshop for p in s.presenters if p.is_lead)
     for p in presenter_counter:
         if presenter_counter[p] > 1:
@@ -221,8 +300,256 @@ def ensure_consistency_of_schedule():
 
 
 @app.cli.command()
+def list_of_unacknowledged():
+    """
+    List the sessions anf emails of unacknowledged sessions.
+    """
+    proposals = Proposal.query.filter_by(status=ProposalState.accepted).all()
+    quickies = tuple(p for p in proposals if p.session_type == SessionType.quickie)
+    others = tuple(p for p in proposals if p.session_type != SessionType.quickie)
+    assert set(proposals) == set(quickies) | set(others)
+    for p in quickies:
+        print('####  Quickie {} by {}, not yet acknowledged.'.format(p.title, p.proposer.email))
+    for p in others:
+        print('####  Session {} by {}, not yet acknowledged.'.format(p.title, p.proposer.email))
+
+
+@app.cli.command()
+def  list_of_lead_presenters():
+    """
+    List of people eligible for the presenter deal.
+    """
+    accepted = Proposal.query.filter_by(status=ProposalState.accepted).all()
+    acknowledged = Proposal.query.filter_by(status=ProposalState.acknowledged).all()
+    not_quickies = tuple(s for s in accepted + acknowledged if s.session_type != SessionType.quickie and s.session_type != SessionType.fulldayworkshop)
+    for n_q in not_quickies:
+        for p in tuple(p.presenter for p in n_q.presenters if p.is_lead):
+            print("{} {}, {}".format(p.first_name, p.last_name, p.email))
+
+
+@app.cli.command()
+def generate_pages():
+    """
+    Generate the schedule, presenters, and sessions Asciidoc files for placing into the
+    static part of the website.
+    """
+    accepted = Proposal.query.filter_by(status=ProposalState.accepted).all()
+    assert len(accepted) == 0, 'There are unacknowledged accepted proposals.'
+    acknowledged = Proposal.query.filter_by(status=ProposalState.acknowledged).all()
+    presenters = set(p.presenter for s in acknowledged for p in s.presenters)
+    for p in presenters:
+        if p.bio.strip() == '':
+            print('####  Presenter {}, has empty bio.'.format(p.email))
+    workshops = set(item for item in acknowledged if item.day == ConferenceDay.workshops)
+    assert all(item.session_type == SessionType.fulldayworkshop for item in workshops)
+    sessions = set(item for item in acknowledged if item.day != ConferenceDay.workshops)
+    day_names = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
+    room_names = ('Bristol 1', 'Bristol 2', 'Bristol 3', 'Empire', 'SS Great Britain')
+
+    def valid_link(text):
+        return ('_' + text
+                .replace('+', '_')
+                .replace("'", '_')
+                .replace('-', '_')
+                .replace(':', '_')
+                .replace('.', '_')
+                .replace(' ', '_')
+                .replace('(', '_')
+                .replace(')', '_')
+                .replace('/', '_')
+                .replace(',', '_')
+                .replace('?', '_')
+                .replace('`', '_')
+                .replace('!', '_')
+                .replace('{', '_')
+                .replace('}', '_')
+        )
+
+    def cppmark(text):
+        return text.replace('C++', '{cpp}')
+
+    def presenter_link(presenter):
+        return 'link:presenters.html#{}[{}]'.format(
+            valid_link(presenter.first_name + '_' + presenter.last_name),
+            presenter.first_name + ' ' + presenter.last_name)
+
+    def session_link(proposal):
+        return 'link:sessions.html#{}[{}]'.format(valid_link(proposal.title), proposal.title)
+
+    with open('sessions.adoc', 'w') as session_file:
+        session_file.write('''
+////
+.. title: ACCU {} Sessions
+.. type: text
+////
+'''.format(start_date.year))
+        for p in sorted(acknowledged, key=lambda x: x.title):
+            presenter_links = ', '.join(presenter_link(pr) for pr in (pp.presenter for pp in sorted(p.presenters, key=lambda x: x.is_lead)))
+            session_file.write('''
+[[{}]]
+== {}
+=== {}
+
+{}
+
+'''.format(valid_link(p.title), cppmark(p.title), presenter_links, cppmark(p.text)))
+
+    with open('presenters.adoc', 'w') as presenter_file:
+        presenter_file.write('''
+////
+.. title: ACCU {} Presenters
+.. type: text
+////
+'''.format(start_date.year))
+        for p in sorted(presenters, key=lambda x: x.first_name):
+            proposals = tuple(pp.proposal for pp in p.proposals if pp.proposal.status == ProposalState.acknowledged)
+            session_links = '\n\n'.join(session_link(pr) for pr in sorted(proposals, key=lambda x: x.title))
+            presenter_file.write('''
+[[{}]]
+== {}
+
+{}
+
+{}
+
+'''.format(valid_link(p.first_name + '_' + p.last_name), cppmark(p.first_name + ' ' + p.last_name), session_links, cppmark(p.bio)))
+
+    with open('schedule.adoc', 'w') as schedule_file:
+        schedule_file.write('''
+////
+.. title: ACCU {} Schedule
+.. type: text
+////
+'''.format(start_date.year))
+
+        def heading(text):
+            return '\n== {}\n\n'.format(text)
+
+        def table(cols, *args):
+            return '[cols="{}*^", options="header"]\n|===\n{}\n|===\n'.format(cols, '\n\n'.join(args))
+
+        def row(*args):
+            return '\n'.join(args)
+
+        def banner(args):
+            return tuple(single_column_entry('*{}*'.format(i)) for i in args)
+
+        def first_column(name):
+            return '|' + name
+
+        def single_column_entry(*args):
+            assert len(args) > 0
+            return '|' + ' +\n'.join(str(item) for item in args)
+
+        def all_columns_entry(cols, data):
+            return '{}+^|'.format(cols) + data
+
+        def all_columns_block(cols, data):
+            return '{}+^'.format(cols) + data
+
+        def session_and_presenters(proposal):
+            return (session_link(proposal), '', *tuple(presenter_link(p.presenter) for p in proposal.presenters))
+
+        def schedule_write(text):
+            schedule_file.write(text.replace('C++', '{cpp}'))
+
+        workshop_data = tuple(single_column_entry(*session_and_presenters(item)) for item in workshops)
+        schedule_write(
+            heading(day_names[start_date.weekday()] + ' ' + start_date.isoformat()) +
+            table(len(workshop_data) + 1,
+                row(first_column(''), all_columns_entry(4, '')),
+                row(first_column('10:00'), *workshop_data),
+            )
+        )
+
+        def get_keynote(day):
+            possibles = tuple(p for p in sessions if p.session_type == SessionType.keynote and p.day == day)
+            assert len(possibles) == 1
+            return possibles[0]
+
+        def find_entry(day, session, room):
+            ss = tuple(p for p in sessions if p.day == day and p.session == session and p.room == room)
+            if len(ss) == 0:
+                raise ValueError('Got 0 sessions for {}, {}, {}.'.format(day, session, room))
+            elif len(ss) == 1:
+                return single_column_entry(*session_and_presenters(ss[0]))
+            elif len(ss) > 4:
+                raise ValueError('Got {} sessions for {}, {}, {}.'.format(len(ss), day, session, room))
+            else:
+                assert all(p.quickie_slot is not None for p in ss)
+                the_quickies = tuple(t for q in ss for t in session_and_presenters(q) + ('', ''))
+                return single_column_entry(*the_quickies)
+
+        def get_sessions(day, session):
+            return (
+                find_entry(day, session, Room.bristol_1),
+                find_entry(day, session, Room.bristol_2),
+                find_entry(day, session, Room.bristol_3),
+                find_entry(day, session, Room.empire),
+                find_entry(day, session, Room.great_britain),
+            )
+
+        def create_conference_day(i, id):
+            d = start_date + timedelta(days=i)
+            cols = len(room_names)
+            schedule_write(
+                heading(day_names[d.weekday()] + ' ' + d.isoformat()) +
+                table(cols + 1,
+                    row(first_column(''), *banner(room_names)),
+                    row(first_column('09:30'), all_columns_block(cols, single_column_entry(*session_and_presenters(get_keynote(id))))),
+                    row(first_column('10:30'), all_columns_entry(cols ,'Break')),
+                    row(first_column('11:00'), *get_sessions(id, SessionSlot.session_1)),
+                    row(first_column('12:30'), all_columns_entry(cols, 'Lunch')),
+                    row(first_column('14:00'), *get_sessions(id, SessionSlot.session_2)),
+                    row(first_column('15:30'), all_columns_entry(cols, 'Break')),
+                    row(first_column('16:00'), *get_sessions(id, SessionSlot.session_3)),
+                    row(first_column('17:30'), all_columns_entry(cols, 'Break')),
+                    row(first_column('18:00'), all_columns_entry(cols, 'Lightning Talks')),
+                    row(first_column('19:30'), all_columns_entry(cols, 'Conference Supper')) if i == 3 else '',
+                )
+            )
+
+        def create_conference_last_day(i, id):
+            d = start_date + timedelta(days=i)
+            cols = len(room_names)
+            schedule_write(
+                heading(day_names[d.weekday()] + ' ' + d.isoformat()) +
+                table(cols + 1,
+                    row(first_column(''), *banner(room_names)),
+                    row(first_column('09:30'), *get_sessions(id, SessionSlot.session_1)),
+                    row(first_column('11:00'), all_columns_entry(cols, 'Break')),
+                    row(first_column('11:30'), *get_sessions(id, SessionSlot.session_2)),
+                    row(first_column('13:00'), all_columns_entry(cols, 'Lunch')),
+                    row(first_column('14:30'), *get_sessions(id, SessionSlot.session_3)),
+                    row(first_column('16:00'), all_columns_entry(cols, 'Break')),
+                    row(first_column('16:30'), all_columns_block(cols, single_column_entry(*session_and_presenters(get_keynote(id))))),
+                    row(first_column('17:30'), all_columns_entry(cols, 'Close')),
+                )
+            )
+
+        create_conference_day(1, ConferenceDay.day_1)
+        create_conference_day(2, ConferenceDay.day_2)
+        create_conference_day(3, ConferenceDay.day_3)
+        create_conference_last_day(4, ConferenceDay.day_4)
+
+
+@app.cli.command()
+def deploy_new_schedule_files():
+    """
+    Copy the three generated Asciidoc pages for the schedule, sessions,
+    and presenters to their place in the static stories area.
+    """
+    destination = Path('..') / 'static_nikola_part' / 'stories' / str(start_date.year)
+    for name in ('sessions.adoc', 'presenters.adoc', 'schedule.adoc'):
+        shutil.copyfile(name, str(destination / name))
+
+
+@app.cli.command()
 @click.argument('emailout_spec')
 def do_emailout(emailout_spec):
+    """
+    Perform an emailout given data in the `emailout_spec`.
+    """
     emailout_directory = file_directory.parent / 'emailouts' / emailout_spec
     file_paths = tuple(emailout_directory / name for name in ('query.py', 'subject.txt', 'text.txt'))
     for fp in file_paths:
@@ -237,27 +564,19 @@ def do_emailout(emailout_spec):
     with open(str(file_paths[1])) as subject_file:
         subject = subject_file.read().strip()
     for proposal, person in query.query():
-        if proposal is None:
-            if person is not None:
-                email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
-            else:
-                print('####  No data of people to send email to.')
-                return 1
+        if person is not None:
+            email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
         else:
-            if person is not None:
-                if person != proposal.proposer:
-                    print('####  Person being sent to is not the proposer of the proposal: {}, {}; {}'.format(proposal.title, proposal.proposer.email, person.email))
-                    return 1
-                else:
-                    email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
+            print('####  No data of person to send email to.')
+            return 1
         print('Subject:', subject)
         print('Recipient:', email_address)
         if proposal is not None:
             print('Title:', proposal.title)
         with SMTP('smtp.winder.org.uk') as server:
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
-            message['From'] = 'conference@accu.org'
-            message['To'] = email_address
+            message['From'] = 'russel@winder.org.uk'
+            message['To'] = 'russel@winder.org.uk'  # email_address
             message['Cc'] = 'russel@winder.org.uk'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
