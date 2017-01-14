@@ -347,22 +347,22 @@ def generate_pages():
     room_names = ('Bristol 1', 'Bristol 2', 'Bristol 3', 'Empire', 'SS Great Britain')
 
     def valid_link(text):
-        return ('_' + text
-                .replace('+', '_')
-                .replace("'", '_')
-                .replace('-', '_')
-                .replace(':', '_')
-                .replace('.', '_')
-                .replace(' ', '_')
-                .replace('(', '_')
-                .replace(')', '_')
-                .replace('/', '_')
-                .replace(',', '_')
-                .replace('?', '_')
-                .replace('`', '_')
-                .replace('!', '_')
-                .replace('{', '_')
-                .replace('}', '_')
+        return ('X' + text
+                .replace('+', '')
+                .replace("'", '')
+                .replace('-', '')
+                .replace(':', '')
+                .replace('.', '')
+                .replace(' ', '')
+                .replace('(', '')
+                .replace(')', '')
+                .replace('/', '')
+                .replace(',', '')
+                .replace('?', '')
+                .replace('`', '')
+                .replace('!', '')
+                .replace('{', '')
+                .replace('}', '')
         )
 
     def cppmark(text):

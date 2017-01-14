@@ -1,22 +1,14 @@
-from sqlalchemy import and_, or_
-
-from accuconf.models import Proposal
-from accuconf.proposals.utils.proposals import SessionType, ProposalState
+from accuconf.models import Proposal, Presenter
+from accuconf.proposals.utils.proposals import ProposalState
 
 
 def query():
-    proposals = Proposal.query.filter(
-        and_(
-            Proposal.status == ProposalState.acknowledged,
-            or_(
-                Proposal.session_type == SessionType.session,
-                Proposal.session_type == SessionType.miniworkshop,
-                Proposal.session_type == SessionType.workshop,
-            ),
-        )
-    )
-    people = tuple(p.proposer for p in proposals)
-    return zip(proposals, people)
+    proposals = Proposal.query.filter_by(status=ProposalState.acknowledged)
+
+    def uniquify(proposer, presenters):
+        return {proposer} | {pp for pp in (p.presenter for p in presenters) if pp.email != proposer.email}
+
+    return tuple((proposal, person) for proposal in proposals for person in uniquify(proposal.proposer, proposal.presenters))
 
 
 def edit_template(text_file, proposal, person):
