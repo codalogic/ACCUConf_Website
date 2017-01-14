@@ -380,6 +380,7 @@ def generate_pages():
         session_file.write('''
 ////
 .. title: ACCU {} Sessions
+.. description: List of session blurbs with links to presenters.
 .. type: text
 ////
 '''.format(start_date.year))
@@ -398,6 +399,7 @@ def generate_pages():
         presenter_file.write('''
 ////
 .. title: ACCU {} Presenters
+.. description: List of presenter bios with links to session blurbs.
 .. type: text
 ////
 '''.format(start_date.year))
@@ -418,6 +420,7 @@ def generate_pages():
         schedule_file.write('''
 ////
 .. title: ACCU {} Schedule
+.. description: Schedule with links to session blurbs and presenter bios.
 .. type: text
 ////
 '''.format(start_date.year))
