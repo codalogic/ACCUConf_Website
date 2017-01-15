@@ -579,7 +579,7 @@ def do_emailout(emailout_spec):
         with SMTP('smtp.winder.org.uk') as server:
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
             message['From'] = 'russel@winder.org.uk'
-            message['To'] = 'russel@winder.org.uk'  # email_address
+            message['To'] = email_address  # 'russel@winder.org.uk'  # email_address
             message['Cc'] = 'russel@winder.org.uk'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
