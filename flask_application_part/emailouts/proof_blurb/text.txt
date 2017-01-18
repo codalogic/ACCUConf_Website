@@ -6,7 +6,7 @@ This text will be used as part of the generation of webpages for the
 conference.
 
 This text is treated as an Asciidoc fragment when the webpages for the
-conference website is generated. Thus it is possible to have markup.
+conference website are generated. Thus it is possible to have markup.
 
 Can I get you to reply either accepting the blurb as is or sending the
 amendments you want.

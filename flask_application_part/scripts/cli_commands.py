@@ -585,9 +585,9 @@ def do_emailout(emailout_spec):
             if proposal is not None:
                 print('Title:', proposal.title)
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
-            message['From'] = 'conference@accu.org'
+            message['From'] = 'ACCUConf <conference@accu.org>'
             message['To'] = email_address  # 'russel@winder.org.uk'  # email_address
-            message['Cc'] = 'conference.accu.org'
+            message['Cc'] = 'ACCUConf <conference@accu.org>'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
             server.send_message(message)
