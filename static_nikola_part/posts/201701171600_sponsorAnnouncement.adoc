@@ -1,0 +1,12 @@
+////
+.. title: Sponsor Announcement
+.. date: 2017-01-17T16:00+00:00
+.. type: text
+////
+
+It appears that we put the https://www.techatbloomberg.com/[Bloomberg] logo in our sponsors logo area but
+failed to announce in this blog that Bloomberg had signed up as a sponsor of ACCU 2017. Very remiss. So a
+little later than it should have been: we are very pleased to announce that Bloomberg is a sponsor of the
+ACCU 2017 conference.
+
+link:https://www.techatbloomberg.com/[image:/assets/images/2017_SponsorLogos/Bloomberg_black.png[]]

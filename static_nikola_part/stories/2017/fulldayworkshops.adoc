@@ -3,6 +3,11 @@
 .. type: text
 ////
 
+The ACCU 2017 full-day, pre-conference workshops will be held Tuesday 2017-04-25 starting 10:00 at the
+http://www.marriott.co.uk/hotels/travel/brsdt-bristol-marriott-hotel-city-centre/[Bristol Marriott Hotel
+City Centre] (which is the conference hotel, so same venue as the conference).
+
+
 [[BradChamberlain]]
 == A Programmer's Introduction to Chapel
 

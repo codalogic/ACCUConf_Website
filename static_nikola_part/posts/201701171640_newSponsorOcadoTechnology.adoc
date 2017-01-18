@@ -1,0 +1,11 @@
+////
+.. title: New Sponsor, Ocado Technology
+.. date: 2017-01-17T16:40+00:00
+.. type: text
+////
+
+ACCU 2017 has another sponsor: we are delighted that http://www.ocadotechnology.com/[Ocado Technology] are
+sponsoring the conference. A first time sponsor of an ACCU conference, I am sure the ACCU community will make them
+very, very welcome.
+
+link:http://www.ocadotechnology.com/[image:/assets/images/2017_SponsorLogos/OcadoTechnology.png[]]

@@ -3,6 +3,7 @@ This module provides all the additional CLI commands.
 """
 
 import json
+import os
 import re
 import shutil
 import sys
@@ -566,21 +567,27 @@ def do_emailout(emailout_spec):
     assert sys.path == old_path
     with open(str(file_paths[1])) as subject_file:
         subject = subject_file.read().strip()
-    for proposal, person in query.query():
-        if person is not None:
-            email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
-        else:
-            print('####  No data of person to send email to.')
-            return 1
-        print('Subject:', subject)
-        print('Recipient:', email_address)
-        if proposal is not None:
-            print('Title:', proposal.title)
-        with SMTP('smtp.winder.org.uk') as server:
+    with open(str(Path(os.environ['HOME']) / '.accuconf' / 'password')) as password_file:
+        password = password_file.read().strip()
+    with SMTP('mail.accu.org') as server:
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        server.login('conference', password)
+        for proposal, person in query.query():
+            if person is not None:
+                email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
+            else:
+                print('####  No data of person to send email to.')
+                return 1
+            print('Subject:', subject)
+            print('Recipient:', email_address)
+            if proposal is not None:
+                print('Title:', proposal.title)
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
-            message['From'] = 'russel@winder.org.uk'
+            message['From'] = 'conference@accu.org'
             message['To'] = email_address  # 'russel@winder.org.uk'  # email_address
-            message['Cc'] = 'russel@winder.org.uk'
+            message['Cc'] = 'conference.accu.org'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
             server.send_message(message)

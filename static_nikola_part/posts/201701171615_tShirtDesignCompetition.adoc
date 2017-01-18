@@ -1,0 +1,22 @@
+////
+.. title: T-Shirt Design Competition
+.. date: 2017-01-17T16:15+00:00
+.. type: text
+////
+
+ACCU conferences tend to have themes. Not for the content of the sessions of the conference, obviously –
+content is determined entirely by the Programme Committee selecting from that that is
+submittedfootnote:[Except for the keynotes, they are arranged by the ACCUConf Chair with support from the
+Programme Committee]. The conference themes are for the more social aspect of the conference. In particular,
+the conference dinner/supper (choose your preferred label here) on the Friday evening, and the t-shirts, and
+other bits and bobs.
+
+For reasons that are likely to become very apparent at 2017-04-26T09:31 in the Bristol Suite, we are
+thinking of "rock music"footnote:[Perhaps even Music with Rocks In.] or something along those lines as a
+theme for ACCU 2017. As is traditional we are having a competition to allow people to design the conference
+t-shirt based on the chosen theme.
+
+So if you fancy having a go at designing the ACCU 2017 t-shirt on the theme of "rock music" send your mock
+up images to mailto:conference@accu.org[ACCUConf Chair]. We are not entirely sure of the closing date just
+now, but we are sure there is one. Also we are sure there is a prize, but we are not entirely sure what that
+is just at the minutefootnote:[But there definitely will be one, and not just a fridge magnet.].
