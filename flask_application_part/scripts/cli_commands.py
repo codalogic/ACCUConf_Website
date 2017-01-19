@@ -594,6 +594,55 @@ def do_emailout(emailout_spec):
 
 
 @app.cli.command()
+@click.option('--selector', '-s', type=click.Choice(['bio', 'blurb']))
+@click.argument('values', nargs=-1)
+def edit(selector, values):
+    """
+    Edit either a bio (given an email) or a blurb (given a title) using the user's default editor.
+    """
+    if selector is None:
+        click.echo(click.style('Must provide a --selector|-s option [bio|blurb]', fg='red'))
+        return 1
+    if len(values) == 0:
+        click.echo(click.style('Processing all items is not yet supported, must provide argument(s).', fg='red'))
+        return 1
+    if selector == 'bio':
+        value = values[0]
+        presenters = Presenter.query.filter_by(email=value).all()
+        if len(presenters) == 0:
+            click.echo(click.style('Presenter with this email not found.', fg='red'))
+        elif len(presenters) > 1:
+            click.echo(click.style('Multiple presenters with this email found.', fg='red'))
+        else:
+            presenter = presenters[0]
+            datum = click.edit(presenter.bio)
+            if datum is not None and datum != presenter.bio:
+                presenter.bio = datum
+                db.session.commit()
+                click.echo(click.style('Bio updated.', fg='green'))
+            else:
+                click.echo('Bio left unchanged.')
+    elif selector == 'blurb':
+        value = ' '.join(values)
+        proposals = Proposal.query.filter_by(title=value).all()
+        if len(proposals) == 0:
+            click.echo(click.style('Proposal with this title not found.', fg='red'))
+        elif len(proposals) > 1:
+            click.echo(click.style('Multiple proposal with this title found.', fg='red'))
+        else:
+            proposal = proposals[0]
+            datum = click.edit(proposal.text)
+            if datum is not None and datum != proposal.title:
+                proposal.text = datum
+                db.session.commit()
+                click.echo(click.style('Blurb updated.', fg='green'))
+            else:
+                click.echo('Blurb left unchanged.')
+    else:
+        click.echo(click.style('#### Panic now, this cannot happen', fg='red'))
+
+
+@app.cli.command()
 @click.argument('amendment_file_name')
 def replace_proposal_abstract(amendment_file_name):
     """

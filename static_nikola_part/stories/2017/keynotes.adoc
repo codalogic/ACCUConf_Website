@@ -114,17 +114,13 @@ this title and abstract to be replaced with more specific information at least o
 
 === Bio
 
-Herb Sutter is a leading authority on software development. He is the best selling author of several books
-including _Exceptional {cpp}_ and _{cpp} Coding Standards_, as well as hundreds of technical papers and
-articles, including the essay http://www.gotw.ca/publications/concurrency-ddj.htm[The Free Lunch Is Over]
-which coined the term "concurrency revolution" and its recent sequel
-https://herbsutter.com/welcome-to-the-jungle/[Welcome to the Jungle] on the end of Moore¹s Law and the turn
-to mainstream heterogeneous supercomputing from the cloud to 'smartphones'.
-
-Herb has served for a decade as chair of http://www.open-std.org/jtc1/sc22/wg21/[the ISO {cpp} standards
-committee], and is a software architect at Microsoft where he has led the language extensions design of
-{cpp}/CLI (http://www.gotw.ca/publications/C++CLIRationale.pdf[link to PDF document]), {cpp}/CX, {cpp} AMP,
-and other technologies.
+Herb Sutter is the chair of the ISO {cpp} committee and a native languages architect at
+Microsoft. Organizationally, he has overseen the development of all ISO {cpp}-related specifications except
+for the original {cpp}98 standard. Technically, he has been the lead- or co-designer of many standard {cpp}
+features, including lambda functions, forwarding constructors, enum class, nullptr, override/final, parallel
+algorithms, structured bindings, and other features. He is currently working on finding ways to further
+evolve {cpp} so that using {cpp} can be more consistent and simpler, even as the language continues to gain
+even greater expressive power and efficiency.
 
 
 [[RussMiles]]
