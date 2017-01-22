@@ -562,7 +562,7 @@ def do_emailout(trial, emailout_spec):
     be explicitly set to False to do a real emailout.
     """
     emailout_directory = file_directory.parent / 'emailouts' / emailout_spec
-    file_paths = tuple(emailout_directory / name for name in ('query.py', 'subject.txt', 'text.adoc'))
+    file_paths = tuple(emailout_directory / name for name in ('query.py', 'subject.txt', 'text.txt'))
     for fp in file_paths:
         if not Path(fp).exists():
             print('Cannot find required file {}'.format(fp))
