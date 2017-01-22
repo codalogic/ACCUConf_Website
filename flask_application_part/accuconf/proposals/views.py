@@ -507,9 +507,11 @@ def navlinks():
         can_review = user.role == Role.reviewer
         my_proposals_text = "My Proposal" if number_of_proposals == 1 else "My Proposals"
     links_data = (
-        #("Home", url_for("nikola.index"), True),
         ("Keynotes", url_for("nikola.stories", path="2017/keynotes.html"), True),
         ("Full-day Workshops", url_for("nikola.stories", path="2017/fulldayworkshops.html"), True),
+        ("Schedule", url_for("nikola.stories", path="2017/schedule.html"), True),
+        ("Sessions", url_for("nikola.stories", path="2017/sessions.html"), True),
+        ("Presenters", url_for("nikola.stories", path="2017/presenters.html"), True),
         ("Login", url_for("proposals.login"), not logged_in and (submissions_allowed or reviewing_allowed)),
         ("Register", url_for("proposals.register"), not logged_in and (submissions_allowed or reviewing_allowed)),
         ("Account", url_for("proposals.register"), logged_in),

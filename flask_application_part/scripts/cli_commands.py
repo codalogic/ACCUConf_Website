@@ -424,6 +424,9 @@ def generate_pages():
 .. description: Schedule with links to session blurbs and presenter bios.
 .. type: text
 ////
+
+_The schedule is subject to change without notice until 2017-04-29._
+
 '''.format(start_date.year))
 
         def heading(text):
@@ -452,6 +455,7 @@ def generate_pages():
             return '{}+^'.format(cols) + data
 
         def session_and_presenters(proposal):
+            #  TODO  Put the lead presenter first in the tuple.
             return (session_link(proposal), '', *tuple(presenter_link(p.presenter) for p in proposal.presenters))
 
         def schedule_write(text):
@@ -549,13 +553,16 @@ def deploy_new_schedule_files():
 
 
 @app.cli.command()
+@click.option('--trial', '-t', default=True)
 @click.argument('emailout_spec')
-def do_emailout(emailout_spec):
+def do_emailout(trial, emailout_spec):
     """
     Perform an emailout given data in the `emailout_spec`.
+    The default is to run a trial emailout, the --trial|-t option must
+    be explicitly set to False to do a real emailout.
     """
     emailout_directory = file_directory.parent / 'emailouts' / emailout_spec
-    file_paths = tuple(emailout_directory / name for name in ('query.py', 'subject.txt', 'text.txt'))
+    file_paths = tuple(emailout_directory / name for name in ('query.py', 'subject.txt', 'text.adoc'))
     for fp in file_paths:
         if not Path(fp).exists():
             print('Cannot find required file {}'.format(fp))
@@ -569,11 +576,8 @@ def do_emailout(emailout_spec):
         subject = subject_file.read().strip()
     with open(str(Path(os.environ['HOME']) / '.accuconf' / 'password')) as password_file:
         password = password_file.read().strip()
-    with SMTP('mail.accu.org') as server:
-        server.ehlo()
-        server.starttls()
-        server.ehlo()
-        server.login('conference', password)
+
+    def run_emailout():
         for proposal, person in query.query():
             if person is not None:
                 email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
@@ -586,11 +590,22 @@ def do_emailout(emailout_spec):
                 print('Title:', proposal.title)
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
             message['From'] = 'ACCUConf <conference@accu.org>'
-            message['To'] = email_address  # 'russel@winder.org.uk'  # email_address
+            message['To'] = 'russel@winder.org.uk' if trial else email_address
             message['Cc'] = 'ACCUConf <conference@accu.org>'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
             server.send_message(message)
+
+    if trial:
+        with SMTP('smtp.winder.org.uk') as server:
+            run_emailout()
+    else:
+        with SMTP('mail.accu.org') as server:
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login('conference', password)
+            run_emailout()
 
 
 @app.cli.command()
