@@ -1,0 +1,781 @@
+
+////
+.. title: ACCU 2017 Presenters
+.. description: List of presenter bios with links to session blurbs.
+.. type: text
+////
+
+[[XAhto_Truu]]
+== Ahto Truu
+
+link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees]
+
+During his two and a half decades in the ICT industry, Ahto has worked in hardware installations and user support, as a software developer and architect, and as a systems analyst. Currently he is busy helping Guardtime's customers preserve the integrity of their important data. Outside his day job he coaches Estonia's team to the high school students' programming competitions. He has also been writing programming columns for the popular science magazines A&A and Horisont.
+
+
+[[XAlan_Griffiths]]
+== Alan Griffiths
+
+link:sessions.html#XTheMirALStory[The MirAL Story]
+
+Alan is an experienced and effective proponent of the craft of software development. Interested in development processes, tools, design and coding techniques. His expertise covers a range of programming languages, tools and platforms. He is a long term {cpp} user, has been Chair of the ACCU and a member of the BSI {cpp} Panel.
+
+He is currently working in {cpp} with a team of open source developers on "Mir" (a new Linux display server - https://wiki.ubuntu.com/Mir).
+
+He has a BSC in Mathematics and has published articles in ACCU's Overload and C Vu, C/{cpp} Users Journal, Java Report, and EXE. Contributor to "97 Things Every Programmer Should Know".
+
+
+[[XAlfred_Bratterud]]
+== Alfred Bratterud
+
+link:sessions.html#XPOSIXviolatescoreguidelinesAnewtakeontheoperatingsysteminterface[POSIX violates core guidelines: A new take on the operating system interface]
+
+Alfred started the IncludeOS project as a part of his ongoing PhD work aimed at improving resource efficiency in cloud computing. He's been employed since 2011 as Assistant Professor at Oslo and Akershus University College of Applied Science, the largest institution for engineering education in Norway, where among other things he taught {cpp} for 5 years. Alfred is currently working full time on IncludeOS through a startup spun out of the college and funded in part by the Norwegian Research Council. Alfred has 10+ years industrial programming experience. He holds an MSc. in Mathematical Logic and BSc in computer science from the University of Oslo. 
+
+
+
+[[XAnastasia_Kazakova]]
+== Anastasia Kazakova
+
+link:sessions.html#XAlookatCthroughtheglassesofalanguagetool[A look at C++ through the glasses of a language tool]
+
+A C/{cpp} fan since university, Anastasia has been creating real-time *nix-based systems and pushing them to production for 8 years. She has a passion for networking algorithms (especially congestion problems and network management protocols) and embedded programming, and believes in good tooling. Now she is a part of the JetBrains team working as a Product Marketing Manager for CLion, a cross-platform C/{cpp} IDE.
+
+
+[[XAndy_Balaam]]
+== Andy Balaam
+
+link:sessions.html#XHowtowriteaprogramminglanguage[How to write a programming language]
+
+Andy Balaam loves to code, and loves to learn new programming languages.  He blogs and makes videos on these topics at https://artificialworlds.net/blog
+
+
+[[XAnthony_Williams]]
+== Anthony Williams
+
+link:sessions.html#XConcurrencyParallelismandCoroutines[Concurrency, Parallelism and Coroutines]
+
+Anthony Williams is the author of {cpp} Concurrency in Action, and a UK-based developer and consultant with many years of experience in {cpp}. He has been an active member of the BSI {cpp} Standards Panel since 2001, and is author or coauthor of many of the {cpp} Standards Committee papers that led up to the inclusion of the thread library in the {cpp}11 Standard. He is the developer of the just::thread implementation of the {cpp}11 thread library from Just Software Solutions Ltd. Anthony lives in the far west of Cornwall, England.
+
+
+[[XArjan_vanLeeuwen]]
+== Arjan van Leeuwen
+
+link:sessions.html#XDealingwithstringsinC[Dealing with strings in C++]
+
+Arjan van Leeuwen is a developer at browser maker Opera Software, where he mainly works with {cpp}. Reliability and speed are things that matter every day, but code quality is the subject that can really get him riled up. Arjan has worked on Opera Software's flagship product, the Opera browser for computers, for over 9 years and has spoken regularly at ACCU conferences.
+
+
+[[XArne_Mertz]]
+== Arne Mertz
+
+link:sessions.html#XLearningandteachingmodernCChallengesandResources[Learning (and teaching) modern C++ - Challenges and Resources]
+
+I have been learning and using {cpp} for over a decade now, mostly developing and maintaining enterprise applications in the financial sector. I am self-taught, using books and online content as the primary resources for my learning. As an active member and moderator of a German {cpp} forum and later as a contributor on StackOverflow, I have used the "learning by teaching" approach to continue to learn and deepen my understanding of the language for several years. Since 2015 I write "Simplify {cpp}!", a weekly blog about {cpp} and Clean Code (no, they do not contradict each other!).
+
+
+[[XAustin_Bingham]]
+== Austin Bingham
+
+link:sessions.html#XFunctionalProgrammingfortheWebwithElm[Functional Programming for the Web with Elm]
+
+Austin is a founding director of Sixty North, a software consulting, training, and application development company. A native of Texas, in 2008 Austin moved to Stavanger, Norway where he helped develop industry-leading oil reservoir modeling software in {cpp} and Python. Prior to that he worked at National Instruments developing LabVIEW, at Applied Research Labs (Univ. of Texas at Austin) developing sonar systems for the U.S. Navy, and at a number of telecommunications companies. He is an experienced presenter, teacher, and author, and he is an active member of the open source community. Austin is the founder of Stavanger Software Developers, one of the largest and most active social software groups in the Stavanger region. Austin holds a Master of Science in Computer Engineering from the University of Texas at Austin.
+
+
+[[XBernhard_Merkle]]
+== Bernhard Merkle
+
+link:sessions.html#XGradleBuildinganddeliveringSoftwareinamodernworld[Gradle: Building and delivering Software in a modern world]
+
+link:sessions.html#Xlintingwithclangandclangtidy[linting with clang and clang-tidy]
+
+Bernhard Merkle works as a Software Architect and Engineer in the central Research & Development Department at SICK AG, one of the world’s leading producers of sensors and sensor solutions. 
+He serves as internal consultant for the complete Software Development Cycle and is responsible for Process- and Methods-Selection as well as Tool-Evaluation and Introduction.
+In his spare time he gives a lecture about Software Development. He writes technical articles and also gives sessions at various conferences (e.g. ACCU, Codegeneration, Conquest, QCon, OOPSLA, EclipseCon and OOP).  
+
+
+
+[[XBjörn_Fahller]]
+== Björn Fahller
+
+link:sessions.html#XUsingTrompeloeilamockingframeworkformodernC[Using Trompeloeil, a mocking framework for modern C++]
+
+Björn wrote his first program in 1980. After completing his MSc in CS and Engineering in 1994, programming
+has been the primary source of income, mostly from writing embedded software for communications systems. He
+has been working for a while at Net Insight, where he wears many hats, including mentor, trouble shooter,
+network communications expert, software architect and programmer; the latter in increasingly modern {cpp}.
+
+Occasionally Björn has been seen tinkering with unorthodox software constructs, pondering "what can be done
+with this?" He lives in Stockholm.
+
+
+
+[[XBrad_Chamberlain]]
+== Brad Chamberlain
+
+link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel]
+
+link:sessions.html#XTheAudacityofChapelScalableParallelProgrammingDoneRight[The Audacity of Chapel: Scalable Parallel Programming Done Right]
+
+Brad Chamberlain is a Principal Engineer at Cray Inc. where he works on parallel programming models. He serves as the technical lead for the Chapel project which is developing a portable, open-source language for parallel programming on large-scale systems. In this role, Brad focuses primarily on leading the design and implementation of the Chapel language with his team at Cray and members of the open-source development community. Brad received his Ph.D. in Computer Science & Engineering from the University of Washington in 2001 working on the ZPL parallel array language. In the past, he has also worked on languages for embedded reconfigurable processors and on algorithms for accelerating the rendering of complex 3D scenes.
+    
+
+
+[[XBurkhard_Kloss]]
+== Burkhard Kloss
+
+link:sessions.html#XTheEthicsofSoftwaresomepracticalconsiderations[The Ethics of Software - some practical considerations]
+
+I only came to England to walk the Pennine Way… 25 years later I still haven’t done it. I did, though, get round to starting an AI company (spectacularly unsuccessful), joining another startup long before it was cool, learning {cpp}, and spending a lot of time on trading floors building systems for complex derivatives. Sometimes hands on, sometimes managing people. Somewhere along the way I realised you can do cool stuff quickly in Python, and I’ve never lost my fascination with making machines smarter.
+
+Twitter handle: @numericalresearch / @georgebernhard
+
+
+[[XCharles_Bailey]]
+== Charles Bailey
+
+link:sessions.html#XMasteringGitsindex[Mastering Git's index]
+
+Charles is a software developer at Bloomberg LP. He works in Developer
+Experience where he helps maintain and improve the tools used in
+development, and consult and advise on all aspects of software
+development.
+
+His previous career in software has included roles in such diverse areas
+as web technology, business intelligence, data warehousing, defence and
+radar.
+
+He understands the importance of optimal software practices and so has a
+keen interest in source control systems and best practices surrounding
+their use.
+
+He is a Git user, advocate and contributor and relishes the opportunity
+to slice through knotty problems with his git-fu and to teach others how
+to do the same.
+
+
+[[XChris_Oldwood]]
+== Chris Oldwood
+
+link:sessions.html#XATestofStrength[A Test of Strength]
+
+Chris is a freelance programmer who started out as a bedroom coder in the 1980s writing assembler on 8-bit micros. These days it's enterprise grade technology in plush corporate offices. He also commentates on the Godmanchester duck race and can be easily distracted via gort@cix.co.uk or @chrisoldwood.
+
+
+[[XChristopher_Simons]]
+== Christopher Simons
+
+link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study]
+
+As a technician in the 80’s, Chris found himself increasingly automating laboratory tests when someone told him what he was actually doing was programming. As this was rather fun, Chris became a software engineer, architect, then agile methodology and design consultant and trainer, before joining the University of the West of England, Bristol in 2002. He applied his software development experience to artificial intelligence, and in 2011 obtained his PhD in interactive, evolutionary computation for software design. Chris now actively researches in the field of Search-Based Software Engineering (SBSE); his research interests can be found at http://www.cems.uwe.ac.uk/~clsimons/
+
+
+
+
+[[XDiego_RodriguezLosada]]
+== Diego Rodriguez-Losada
+
+link:sessions.html#X5yearscreatingFOSSdevtoolsforCandCtheuntold[5 years creating FOSS dev tools for C and C++: the untold]
+
+My passions are robotics and SW development. I have developed many years in C and {cpp} in the Industrial, Robotics and AI fields. 
+
+I was also a University (tenure track) professor till 2012, when I quit academia to try to build a C/{cpp} dependency manager, co-founded startup biicode, since then mostly developing in Python. 
+
+I am conan.io C/{cpp} package manager co-creator, recently acquired by JFrog, now working as senior SW engineer and C/{cpp} advocate.
+
+
+[[XDietmar_Kühl]]
+== Dietmar Kühl
+
+link:sessions.html#XParallelAlgorithms[Parallel Algorithms]
+
+Dietmar Kühl is a senior software developer at Bloomberg L.P. working on the data distribution environment used both internally and by enterprise installations at clients. Before joining Bloomberg he has done mainly consulting for software projects in the finance area. He is a regular attendee of the ANSI/ISO {cpp} standards committee, presents at conferences, and he used to be a moderator of the newsgroup comp.lang.c++.moderated. He frequently answers questions on Stackoverflow.
+
+
+[[XDirk_Haun]]
+== Dirk Haun
+
+link:sessions.html#XHowtopresenteffectivelyinameeting[How to present effectively in a meeting]
+
+link:sessions.html#XRequirementCreativity[Requirement: Creativity]
+
+I help people express and present their ideas. Presentation Coach. Author of 'Presenting for Geeks' & 'Brainstorming Your Presentation'. Open Source enthusiast.
+
+
+[[XDmitry_Kandalov]]
+== Dmitry Kandalov
+
+link:sessions.html#XAnintroductiontoKotlinbyexample[An introduction to Kotlin by example]
+
+https://twitter.com/dmitrykandalov[Dmitry] has been programming and trying to get better at it since DOS
+times.  He is currently working with Java and JVM languages such as http://kotlinlang.org[Kotlin].  One of
+his most recent programming endeavours is a re-implementation of https://github.com/dkandalov/kotlin-99[99
+programming problems in Kotlin].
+
+
+
+[[XDom_Davis]]
+== Dom Davis
+
+link:sessions.html#XPasswordsAreNotHard[Passwords. Are. Not. Hard!]
+
+Dom Davis is a veteran of The City and a casualty of The Financial Crisis. Not content with bringing the world to its knees he then went off to help break the internet before winding up in Norfolk where he messes about with development and devops. Dom is an enthusiastic and impassioned speaker [read: he gabbles] who uses a blend of irreverent sarcasm and flippant humour to bring complex subjects to a broad audience. Whether or not they understand him is up for debate, but he likes to believe they do.
+
+
+[[XDominic_Robinson]]
+== Dominic Robinson
+
+link:sessions.html#XCoroutinesandCDSLsforHumanScaleConcurrency[Coroutines and C++ DSLs for Human Scale Concurrency]
+
+Dominic has mis-spent the last 30 years and counting developing video games, flight simulators and software development tools in various assembly languages, C and {cpp}. He founded and sold a video games company during the .com boom and is now a principal engineer at SN Systems, the subsidiary of Sony Interactive Entertainment that is responsible for the development tools for the Sony PlayStation platforms. He has spent the last 8 years developing a fault tolerant, distributed build accelerator in {cpp} in the style of Erlang.  He continues to cling to the hope that there are better ways of expressing concurrency in a manner more accessible to humans.
+
+
+
+[[XElliot_Goodrich]]
+== Elliot Goodrich
+
+link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizations on Node-based Containers]
+
+Elliot is a software engineer working in London for Bloomberg LP, where he
+writes libraries and tools to perform SQL-like operations on live financial
+data.  He has a passion for library design and optimisations of all
+flavours.  Previously he has worked for other financial tech companies and
+as a freelance web developer.
+
+
+[[XFelix_Petriconi]]
+== Felix Petriconi
+
+link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code]
+
+Felix Petriconi is working as professional programmer since 1993 after he had finished his study of electrical engineering. He started his career as teacher for intellectually gifted children, freelance programmer among others in telecommunication and automotive projects. Since 2003 he is employed as programmer at the MeVis Medical Solutions AG in Bremen, Germany. He is part of a team that develops and maintains radiological medical devices. His focus is on {cpp} development, training of modern {cpp}, application performance tuning and process improvement. He is a regular speaker at the {cpp} user group in Bremen, a blog editor at https://isocpp.org and became recently a member of the ACCU's conference committee.
+
+
+[[XFran_Buontempo]]
+== Fran Buontempo
+
+link:sessions.html#XAIActualIntelligence[AI: Actual Intelligence]
+
+
+Frances Buontempo is currently editor of the ACCU’s Overload magazine and is a researcher at City, University of London, working on a project to provide diversity enhancements to SIEMS (Security Information and Event Management) http://disiem-project.eu/.
+
+After graduating from Leeds University with a B.A. in Mathematics and Philosophy, she worked as a mathematics and IT secondary school teacher, eventually ending up as a programmer. During this time she obtained an M.Sc. in Pure Mathematics with the Open University, and then returned to Leeds University, to study for a PhD in data mining to predict how toxic organic chemicals might be. Between then and now, she has worked in various companies in London with a finance focus.
+
+She has talked and written about various ways to program your way out of a paper bag, providing a gentle introduction to some machine learning approaches, while trying to keep up to date with new techniques.
+
+
+
+[[XFrank_Birbacher]]
+== Frank Birbacher
+
+link:sessions.html#XAtomicsmemoryorderswhatfor[Atomic's memory orders, what for?]
+
+Frank Birbacher is located in London and works as a software engineer at Bloomberg.  He studied computer science at RWTH Aachen University in Germany and worked as a software engineer at INFORM GmbH in Aachen.  Frank started programming with Basic and Assembler and had his first experience with {cpp} in 1998.  Lots of his knowledge of {cpp} was gained from Usenet where he was an active member of the group comp.lang.c++.moderated.  His main interest lies in the technical understanding of the language and its limits in theory and practice using different compilers on different platforms.
+
+During his studies Frank learned about functional programming and has been a fan of Haskell ever since.
+
+
+[[XGiuseppe_DAngelo]]
+== Giuseppe D'Angelo
+
+link:sessions.html#XIntroductiontoQt3D[Introduction to Qt 3D]
+
+Giuseppe is a Senior Software Engineer at KDAB, working on a number of {cpp} and QML projects, most of them requiring OpenGL knowledge. He is also a professional trainer, regularly delivering classes about Qt, {cpp} and OpenGL.
+
+Giuseppe is a long time contributor to Qt, having been using Qt since 2000, and an Approver in the Qt Project. His contributions to Qt range from containers and regular expressions to GUI and OpenGL. A Free Software passionate, he found his home in GNU/Linux systems.
+
+
+[[XGreg_Law]]
+== Greg Law
+
+link:sessions.html#XTheProgrammerCEOandhowtodoasoftwarestartup[The Programmer CEO, and how to do a software startup]
+
+link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?]
+
+Greg is the co-founder and CEO of Undo. He is a coder at heart, but likes to bridge the gap between the
+business and software worlds.
+
+Greg has 20 years’ experience in the software industry and has held development and management roles at
+companies including the pioneering British computer firm Acorn, as well as fast-growing start ups, NexWave
+and Solarflare. It was at Acorn that Greg met Julian and on evenings and weekends, they invented the core
+technology that would eventually become UndoDB. Greg left Solarflare in 2012 to lead Undo as CEO and has
+overseen the company as it transitioned from the shed in his back garden to a scaling award-winning
+business.
+
+
+
+[[XGuy_Davidson]]
+== Guy  Davidson 
+
+link:sessions.html#XWritinggamesinverymodernC[Writing games in very modern C++]
+
+Games programmer since 1980, Guy Davidson has worked on the Total War franchise for Creative Assembly since 1999.
+
+He contributes to the standard through SG14 and is interested in all aspects of making games and making good programmers into better programmers.
+
+
+[[XHerb_Sutter]]
+== Herb Sutter
+
+link:sessions.html#XSomethingsNewincpp[Something(s) New in {cpp}]
+
+Herb Sutter is the chair of the ISO {cpp} committee and a native languages architect at
+Microsoft. Organizationally, he has overseen the development of all ISO {cpp}-related specifications except
+for the original {cpp}98 standard. Technically, he has been the lead- or co-designer of many standard {cpp}
+features, including lambda functions, forwarding constructors, enum class, nullptr, override/final, parallel
+algorithms, structured bindings, and other features. He is currently working on finding ways to further
+evolve {cpp} so that using {cpp} can be more consistent and simpler, even as the language continues to gain
+even greater expressive power and efficiency.
+
+
+
+[[XHubert_Matthews]]
+== Hubert Matthews
+
+link:sessions.html#XTheCTypeSystemIsYourFriend[The C++ Type System Is Your Friend]
+
+Hubert Matthews has been programming in {cpp} for over 20 years and he has been teaching it for over 15 years. He also works as a systems architect and software consultant. Hubert has been a member of the UK BSI standards committee for {cpp}. Hubert Matthews is a freelance consultant specialising in system architecture and design as well as training programmers in {cpp}, UML, patterns and Java. His clients range from large companies and government to small companies and startups. Hubert lives in Oxford and in his abundant spare time he likes to pretend that he coaches rowing, dances salsa, dabbles with martial arts and drives too fast. 
+
+
+[[XJDaniel_Garcia]]
+== J Daniel Garcia
+
+link:sessions.html#XContractsprogrammingafterC17[Contracts programming after C++17]
+
+J Daniel Garcia is an Associate Professor in Computer Architecture at University Carlos III of Madrid, Spain. He has been serving as head of the Spanish delegation to ISO {cpp} standards committee since 2008. Before joining academia he worked as a software engineer in industrial projects in different domains including real time control systems, civil engineering, medical imaging, aerospace engineering, and high performance scientific computing. He has lead the REPARA project funded by the European Commission and aiming refactoring {cpp} applications for parallel heterogeneous architectures. He also participates in the RePhrase European project related to better software engineering practices for parallel {cpp} applications. His main research goal is to make software developer lives easier by balancing software maintainability and application performance. In summary easier to read, faster to run, and less resources consumed.
+
+
+[[XJames_Turner]]
+== James Turner
+
+link:sessions.html#XIntroductiontoQt3D[Introduction to Qt 3D]
+
+OpenGL, Qt and {cpp} consultant, currently at KDAB. Mac / Apple aficionado, hacker of many rendering and visualisation engines, maintainer of open-source flight-simulator project 'FlightGear'.
+
+
+
+[[XJason_McGuiness]]
+== Jason McGuiness
+
+link:sessions.html#XKnuthAmdahlIspurnthee[Knuth, Amdahl: I spurn thee!]
+
+Jason is a contract programmer in {cpp} on Linux. With over 15 years experience, including programming prototype super-computers, but mainly in finance, now focussing on low-latency and HFT software, their architectures and the issues arising from them. I am also actively involved with the UK {cpp} Panel and the ACCU to maintain my skill-set.
+
+
+[[XJez_Higgins]]
+== Jez Higgins
+
+link:sessions.html#XABrowseThroughES2016[A Browse Through ES2016]
+
+Jez Higgins is a jobbing programmer so dedicated to the cause of software craftsmanship he once
+cycled to the conference from Birmingham.
+
+
+
+[[XJim_Hague]]
+== Jim Hague
+
+link:sessions.html#XDNSat30[DNS at 30]
+
+After spending 13 years developing applications for Czech Air Traffic Control, Jim bailed out in 2016 and landed in the world of DNS. He now spends his workdays coding while sitting between two DNS RFC authors. It's possible he might be learning something in the process.
+
+
+
+[[XJohn_Lakos]]
+== John Lakos
+
+link:sessions.html#XLocalarenaMemoryAllocators[Local (arena) Memory Allocators]
+
+John Lakos, author of _Large Scale {cpp} Software Design_, serves at Bloomberg LP in New York City as a senior architect and mentor for {cpp} Software Development world-wide.  He is also an active voting member of the {cpp} Standards Committee’s Evolution Working Group. Previously, Dr. Lakos directed the design and development of infrastructure libraries for proprietary analytic financial applications at Bear Stearns. For 12 years prior, Dr. Lakos developed large frameworks and advanced ICCAD applications at Mentor Graphics, for which he holds multiple software patents. His academic credentials include a Ph.D. in Computer Science ('97) and an Sc.D. in Electrical Engineering ('89) from Columbia University. Dr. Lakos received his undergraduate degrees from MIT in Mathematics ('82) and Computer Science ('81). His next book, entitled _Large-Scale {cpp}, Volume I: Process and Architecture_, is anticipated in 2017.
+
+
+[[XJon_Jagger]]
+== Jon Jagger
+
+link:sessions.html#XACCUdoesCountdown[ACCU does Countdown]
+
+link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo]
+
+link:sessions.html#XTestablearchitecture[Testable architecture]
+
+I'm a software consultant specializing in practice, process, test driven development, and complex-adaptive systems-thinking. Hire me!
+I'm 30 years old (hex) and I've loved software since I was 10 (decimal).
+I built cyber-dojo.org to promote deliberate practice for software developers.
+I've worked with Accenture, Aviva, Cisco, Ericsson, Friends Provident, HP, Microsoft, Opera, Ordnance Survey, RBS, Reuters, Renault F1, Schlumberger, Tandberg and many many more.
+If you don't like my work I won't invoice you.
+I'm the co-author (with Olve Maudal) of the Deep C/{cpp} slide deck (over 600,000 views)
+I'm the ex ECMA Task Group 2 C# convenor.
+I've had some C# books published.
+I'm the ex ACCU conference chairman.
+I'm married to the beautiful Natalie, and proud father of Ellie, Penny and Patrick.
+I love coarse fishing and salmon fishing.
+I live in Somerset, England.
+On twitter I'm @JonJagger
+
+
+[[XKevlin_Henney]]
+== Kevlin Henney
+
+link:sessions.html#XThinkingOutsidetheSynchronisationQuadrant[Thinking Outside the Synchronisation Quadrant]
+
+Kevlin is an independent consultant, speaker, writer and trainer. His development interests are in patterns, programming, practice and process. He has been a columnist for a number of magazines and sites and has been on far too many committees (it has been said that "a committee is a cul-de-sac down which ideas are lured and then quietly strangled"). He is co-author of A Pattern Language for Distributed Computing and On Patterns and Pattern Languages, two volumes in the Pattern-Oriented Software Architecture series. He is also editor of 97 Things Every Programmer Should Know. He lives in Bristol and online.
+
+
+[[XLouis_Dionne]]
+== Louis Dionne
+
+link:sessions.html#XMetaprogramminginC14[Metaprogramming in C++14]
+
+Louis is a math and computer science enthusiast with interest in {cpp} (meta)programming, functional
+programming, domain specific languages and related subjects. He is an active member of the Boost community,
+and recently wrote the Boost.Hana metaprogramming library. He works at https://a9.com[A9], writing high
+quality {cpp} libraries and applications to power Amazon’s search engine.
+
+
+
+[[XMarshall_Clow]]
+== Marshall Clow
+
+link:sessions.html#XTheDetectionIdiomasimplerwaytoSFINAE[The Detection Idiom - a simpler way to SFINAE]
+
+Marshall has been programming professionally for 35 years. He is the chair of the Library working group of the {cpp} standard committee. He is the lead developer for libc++, the {cpp} standard library for LLVM. He is the author of Boost.Algorithm, and has been a contributor to Boost for more than 15 years.
+
+He works for Qualcomm in San Diego.
+
+
+[[XMathias_Gaunard]]
+== Mathias Gaunard
+
+link:sessions.html#XAnOverviewofProgramOptimizationTechniques[An Overview of Program Optimization Techniques]
+
+Mathias is a software engineer with a focus on {cpp} development, parallelism and performance, with experience in high-performance numerical computing and low-level systems programming.
+
+He is currently working in finance on option market-making low-latency trading platform; but as a big aficionado of {cpp}, he also likes to get involved with various open-source projects like Boost and the {cpp} standards committee of which he is a member since 2011.
+
+
+[[XMatthew_Dodkins]]
+== Matthew Dodkins
+
+link:sessions.html#XImprovingSenseofSmellforLowLevelDebugging[Improving Sense of Smell for Low-Level Debugging]
+
+Matthew is a 3rd generation programmer and has been programming since the age of 6. He's been coding in C and {cpp} for over 20 years, professionally for 15 years and fell in love with embedded software a decade ago. He's now having a lot of fun leading a team at a progressive, Agile embedded software company in Cornwall (Bluefruit).
+
+
+[[XNeil_Horlock]]
+== Neil Horlock
+
+link:sessions.html#XTimegentlemenplease[Time gentlemen please]
+
+Neil is a senior solutions architect within the Global Markets division at Credit Suisse and co-chair of the FIX Protocol Limited working group for clock synchronisation. Throughout his career, Neil has been involved with latency sensitive systems, designing and implementing ultra-low latency venue connectivity for both market data and transactions. His experience, as a subject matter expert for exchange connectivity, has involved him in a range of industry initiatives and working groups. Neil is a member of the BSI panel for {cpp} and contributor to the ISO SG14 low latency {cpp} study group.
+
+
+[[XNiall_Douglas]]
+== Niall Douglas
+
+link:sessions.html#XMongrelMonadsDirtyDirtyDirty[Mongrel Monads, Dirty, Dirty, Dirty]
+
+Niall Douglas is a lead author of WiP Boost.AFIO v2, Boost.Outcome, Boost.KernelTest and Boost-lite. He has
+been the lead Google Summer of Code administrator for Boost since 2014. He is an Affiliate Researcher with
+the Waterloo Research Institute for Complexity and Innovation at the University of Waterloo, Canada, and
+holds postgraduate qualifications in Business Information Systems and Educational and Social Research as
+well as a second undergraduate degree double majoring in Economics and Management. He has been using Boost
+since 2002 and was the ISO SC22 (Programming Languages) mirror convener for the Republic of Ireland
+2011-2012. He formerly worked for BlackBerry 2012-2013 in their Platform Development group, and was formerly
+the Chief Software Architect of the Fuel and Hydraulic Test Benches of the EuroFighter defence aircraft. He
+is presently out of contract.
+
+
+
+[[XNicolai_Josuttis]]
+== Nicolai Josuttis
+
+link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to C++17: The New Language and Library Features]
+
+link:sessions.html#XThenightmareofMoveSemanticsforSimpleClasses[The nightmare of Move Semantics for Simple Classes]
+
+Nicolai Josuttis (http://www.josuttis.com) is an independent systems architect,
+technical manager, author, and consultant. He designs mid-sized and
+large software systems for the telecommunication, traffic, finance, and
+manufacturing industries.
+He is well known in the {cpp} Community for speaking and writing with
+authority about {cpp} (being the author of 'The {cpp} Standard Library' and
+'{cpp} Templates') but is also an innovative presenter.
+He is an active member of {cpp} standardization committee for almost 20
+years now.
+
+
+
+[[XNigel_Lester]]
+== Nigel Lester
+
+link:sessions.html#XACCUTheViewFromTheConference[ACCU - The View From The Conference]
+
+Coordinator of ACCU Oxford group (https://www.meetup.com/ACCU-Oxford/) and ACCU Committee Member for ACCU
+Local Groups (https://accu.org/index.php/accu_branches).
+
+
+
+[[XOdin_Holmes]]
+== Odin Holmes
+
+link:sessions.html#XModernCDesignreloaded[Modern C++ Design reloaded]
+
+link:sessions.html#XNamedparameters[Named parameters]
+
+Odin Holmes has been programming bare metal embedded systems for 15+ 
+years and as any honest nerd admits most of that time was spent 
+debugging his stupid mistakes. With the advent of the 100x speed up of 
+template metaprogramming provided by {cpp}11 his current mission began: 
+teach the compiler to find his stupid mistakes at compile time so he has 
+more free time for even more template metaprogramming. Odin Holmes is 
+the author of the Kvasir.io library, a DSL which wraps bare metal 
+special function register interactions allowing full static checking and 
+a considerable efficiency gain over common practice. Along the way he 
+has discovered many patterns and improvements in expression templates, 
+the brigand MPL library, named parameters, policy based class design etc.
+
+
+[[XPaul_Cunnell]]
+== Paul Cunnell
+
+link:sessions.html#XIntroductiontoBlockchaintechnologyandhowtobuildsomethingusefulwithit[Introduction to Blockchain technology, and how to build something useful with it]
+
+Paul has a software development background, starting his career in Logica developing the BBC Domesday Project. He has spent the last 20 years working within investment banking, as a C/{cpp} developer and technology lead, and now as a principal in Mosaic Financial Markets, a specialist consultancy company.
+
+Paul has led the delivery of front-to-back derivatives systems and has extensive experience designing and building both in-house and vendor-based trading/risk management systems. His recent consulting engagements include interim leadership of delivery teams, building technology strategy and enterprise architecture, business process re-engineering, and program management.
+
+
+[[XPedro_Ferreira]]
+== Pedro Ferreira
+
+link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study]
+
+Currently a Knowledge Transfer Partnership associate with Paxport(Multicom) and University of West of England working on a Machine Learning related problem.
+
+
+[[XPeter_Hilton]]
+== Peter Hilton
+
+link:sessions.html#XDocumentationforsoftwaredevelopers[Documentation for software developers]
+
+Peter Hilton is a software developer, writer, speaker, trainer, and musician. Peter’s professional interests are business process management, web application development, functional design, agile software development and documentation. Peter currently works as a programmer and technical writer for Signavio, working remotely from Rotterdam, and delivers the occasional lecture and training course.
+
+Peter’s software development interests include web applications, service architecture, software development methodology and practices, and web-based collaboration. Peter has presented at several European developer conferences, including ACCU, Scala eXchange, Devoxx, Øredev, Jfokus, Javazone, geecon and TopConf. Peter co-authored ‘Play for Scala’ (Manning Publications) and has taught ‘Fast Track to Play with Scala’.
+
+
+[[XPeter_Sommerlad]]
+== Peter Sommerlad
+
+link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
+
+Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
+
+
+
+[[XPeter_Smith]]
+== Peter Smith
+
+link:sessions.html#XThelinkfromobjecttoexecutabletheroleoflinkerinadevelopmenttoolchain[The link from object to executable - the role of linker in a development toolchain]
+
+Peter is a software engineer at ARM and Linaro, he has been working on software development tools for over
+16 years, specialising in non-compiler tools. He has been the maintainer of the ARM Compiler toolchain
+linker armlink and is currently adding ARM support to the LLVM linker lld.
+
+
+
+[[XPetr_Kudriavtsev]]
+== Petr Kudriavtsev
+
+link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/C++ compiler frontend in Java]
+
+Software engineer at Oracle. Working on NetBeans C/{cpp} project, mostly on code model part.
+
+
+[[XPhil_Nash]]
+== Phil Nash
+
+link:sessions.html#XFunctionalCForFunAndProfit[Functional C++ For Fun And Profit]
+
+Phil is a Developer Advocate for {cpp}, Objective-C and Swift tools at JetBrains. Prior to that he worked in as diverse fields as finance, agile coaching and iOS development. A long time {cpp} developer he also has his feet in C#, F#, Objective-C and Swift - as well as dabbling in other languages. He is the author of several open source projects - most notably Catch: a {cpp}-native test framework.
+
+
+[[XRobert_Chatley]]
+== Robert Chatley
+
+link:sessions.html#XACCUdoesCountdown[ACCU does Countdown]
+
+Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperial College London. Commercially he works as a consultant, coach and trainer with a focus on agile development. Robert has worked in many companies from startups to multinationals, including working as an engineer at Google, and also as a technical lead at Kizoom, one of the earliest companies in the UK employing XP at scale. He has chaired the XPDay conference, and acted as programme chair for the SPA conference. Robert holds an MEng degree in Information Systems Engineering and PhD in Software Engineering from Imperial College London.
+
+
+[[XRobert_Smallshire]]
+== Robert Smallshire
+
+link:sessions.html#XLiberatingWirelessSensorData[Liberating Wireless Sensor Data]
+
+Robert Smallshire is a founding director of Sixty North, a technology product and consulting business in Norway providing services throughout Europe. Robert has worked in senior software architecture and technical management roles in the energy sector, and is currently embarking on a new Internet-of-Things venture for solar power prediction and monitoring.
+He has dealt with understanding, designing, advocating and implementing effective architectures for sophisticated scientific, enterprise and embedded software in Python, {cpp} and on the .NET stack. He holds a Ph.D. in a natural science.
+
+
+[[XRoger_Orr]]
+== Roger Orr
+
+link:sessions.html#XBluffyourwayinx64assembler[Bluff your way in x64 assembler]
+
+link:sessions.html#XGrilltheCcommittee[Grill the C++ committee]
+
+I have over 30 years experience in IT, using a variety of languages and platforms and have experienced working for a number of different companies over the years.
+In 1989 I became a contract computer programmer and have successfully managed to remain at the technical end of IT ever since;
+my recent work has mostly been in {cpp} and Java, on Windows and Linux.
+
+I have been a member of ACCU since 1999; I currently run the Code Critique section of CVu and also write the occasional article.
+
+I am a member of the BSI {cpp} panel, catchily known as IST/5/-/21, and have represented the UK at recent {cpp} ISO standards meetings.
+
+
+[[XRuss_Miles]]
+== Russ Miles
+
+link:sessions.html#XTohellandbackOneguitaristsjourneythroughmodernsoftwaredevelopment[To hell and back: One guitarist's journey through modern software development]
+
+
+Lead Engineer, Atomist; Founder, Russ Miles & Associates
+
+Russ’ experience covers almost every facet of software delivery having worked across many different domains
+including Financial Services, Publishing, Defence, Insurance and Search. Russ helps to change all facets of
+the software delivery process in order to remove unnecessary and costly complexity in everything from
+developer skills and practices, through applying the right processes for the job at hand, to ensuring that
+the right change is delivered, be it through software or otherwise.
+
+Russ Miles is an international speaker on techniques for achieving the delivery of valuable software as well
+as a published author, most recently of _Head First Software Development_ from O’Reilly Media. Also author
+of _Antifragile Software_, which is available on LeanPub.com.
+
+
+
+
+[[XSeb_Rose]]
+== Seb Rose
+
+link:sessions.html#XIntrotoTDDandBDD[Intro to TDD and BDD]
+
+link:sessions.html#XTestablearchitecture[Testable architecture]
+
+link:sessions.html#XWritinggoodBDDscenarios[Writing good BDD scenarios]
+
+Consultant, coach, designer, analyst and developer for over 30 years.
+
+Seb has been involved in the full development lifecycle with experience that ranges from Architecture to Support, from BASIC to Ruby. He’s a partner in Cucumber Limited, who help teams adopt and refine their agile practices, with a particular focus on collaboration and automated testing.
+
+Regular speaker at conferences and occasional contributor to software journals. Contributing author to “97 Things Every Programmer Should Know” (O’Reilly) and lead author of “The Cucumber for Java Book” (Pragmatic Programmers).
+
+He blogs at https://cucumber.io and tweets as @sebrose.
+
+
+[[XSergei_Sadovnikov]]
+== Sergei Sadovnikov
+
+link:sessions.html#XAutomaticCsourcecodegenerationwithclang[Automatic C++ source code generation with clang]
+
+Sergei has over 25-years experience as a programmer and architect. He started with simple programs for
+programmable calculators, and now works as Senior Software Architect at the Future Department of
+Kaspersky Lab. Sergei has experience in various software development areas: high-load distributed software
+for telecommunications and industrial sectors, instrumental libraries and frameworks, Web services and
+applications, database applications, development tools and others. Despite the many languages he has used in
+practice (Java, C#, Haskell, SQL, and so on), {cpp} is his primary and favourite language.
+
+
+
+[[XSergey_Ignatchenko]]
+== Sergey Ignatchenko
+
+link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
+
+Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
+
+
+[[XSergey_Nepomnyachiy]]
+== Sergey Nepomnyachiy
+
+link:sessions.html#XEasyHighConstancy[Easy High Constancy]
+
+Worked for Intel and IBM, now working for Bloomberg
+
+
+[[XStephen_Kelly]]
+== Stephen Kelly
+
+link:sessions.html#XEmbracingModernCMake[Embracing Modern CMake]
+
+Stephen Kelly has been working with {cpp} as a Software Engineer for almost 10 years. After starting out contributing to KDE applications and libraries, he subsequently became focused on the dependencies of KDE. 
+
+Stephen worked as a Qt professional in Berlin for 7 years and became a maintainer in the upstream Qt Project organization. 
+
+In parallel, Stephen became the top contributor to CMake over many releases and more than 4 years. He designed and implemented the central concepts and new APIs which aim to make CMake easier to work with, more extensible and more modular for users.
+
+Stephen now lives in Dublin and works at Havok.
+
+
+
+[[XSteve_Love]]
+== Steve Love
+
+link:sessions.html#XGotToTestThemAll[Got To Test Them All]
+
+Steve Love is a freelance software developer who has never written a compiler, but has written a (very small) operating system, of which he was once very proud. He now works on the periphery of the finance industry, writing C#, {cpp} and Python code when he can.
+
+
+[[XSteven_Simpson]]
+== Steven Simpson
+
+link:sessions.html#XHistoryofTimeAsynchronousC[History of Time: Asynchronous C++]
+
+Software engineer with 10 years experience spanning a wide range of problems and languages, with an overall focus on systems level code in C/{cpp}. This has ranged from embedded C firmware development for high-performance network switches, to the implementation of a distributed analytical SQL database. Additionally, a stint as an ASIC verification engineer has led to an unhealthy paranoia when it comes testing software. Having lost many hours debugging deadlocks and memory corruptions, is most content when able to solve complex problems with the intelligible, uncomplicated code which is easily understood by others.
+
+Proud of having only ever worked for start-up companies, was mad enough to work for a third, currently developing data centre monitoring and distributed application profiling solutions for OpenStack based HPC environments. Regular attendee of the ACCU Bristol meet-up group. Dislikes include scope creep, buzzwords and marzipan.
+
+
+
+[[XSven_Rosvall]]
+== Sven Rosvall
+
+link:sessions.html#XPracticalCodeReviewusingtools[Practical Code Review using tools]
+
+Sven has a long career in many markets and technologies. He has a keen interest in quality and passionate about Agile practices.  
+
+
+[[XTim_Boddy]]
+== Tim Boddy
+
+link:sessions.html#Xah64Amemoryanalyzerforuninstrumentedcores[ah64: A memory analyzer for un-instrumented cores]
+
+I have been working with C since 1984 or so and with {cpp} since 2005.  My current line of work at VMware is
+writing debugging tools, including memory analyzers, deadlock analyzers and python extensions to gdb, and
+sometimes using these tools or offering advice on how to do so.
+
+
+
+[[XTimur_Doumler]]
+== Timur Doumler
+
+link:sessions.html#XLockfreeprogrammingwithmodernC[Lock-free programming with modern C++]
+
+Timur is a developer passionate about {cpp}, audio, music, and good code. He currently works at ROLI, where he develops JUCE, the leading cross-platform {cpp} framework for audio apps. Timur has previously given talks at CppCon, {cpp}Now, and Meeting{cpp}. He is also the program chair and co-organiser of the Audio Developer Conference (ADC), the annual gathering of the audio software developer community.
+
+
+[[XVittorio_Romeo]]
+== Vittorio Romeo
+
+link:sessions.html#XImplementingvariantvisitationusinglambdas[Implementing `variant` visitation using lambdas]
+
+Vittorio Romeo is a {cpp} enthusiast from a young age, now with a BS in Computer Science from the "Università degli Studi di Messina". While following the evolution of the {cpp} standard and embracing the newest features, he worked on several open-source projects, including modern general-purpose libraries and free cross-platform indie games. Vittorio is an active member of the {cpp} community, speaking at many conferences and events. He currently maintains a YouTube channel featuring well-received modern {cpp}11 and {cpp}14 tutorials. When he's not writing code, Vittorio enjoys weightlifting and fitness-related activities, competitive/challenging computer gaming and good sci-fi movies/TV-series. 
+
+
+[[XVladimir_Voskresensky]]
+== Vladimir Voskresensky
+
+link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/C++ compiler frontend in Java]
+
+Vladimir is a senior principal engineer in the Oracle Developer Studio 
+team, leading commercial Studio IDE and Open Source Netbeans C/{cpp} 
+projects. He is focusing on Parsing Technologies, Code Assistance, Refactorings support as well as Performance and Memory optimizations.
+

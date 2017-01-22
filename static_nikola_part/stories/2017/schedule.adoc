@@ -1,0 +1,423 @@
+
+////
+.. title: ACCU 2017 Schedule
+.. description: Schedule with links to session blurbs and presenter bios.
+.. type: text
+////
+
+_The schedule is subject to change without notice until 2017-04-29._
+
+
+== Tuesday 2017-04-25
+
+[cols="5*^", options="header"]
+|===
+|
+4+^|
+
+|10:00
+|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
+ +
+link:presenters.html#XFelix_Petriconi[Felix Petriconi]
+|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
+ +
+link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
+|link:sessions.html#XTestablearchitecture[Testable architecture] +
+ +
+link:presenters.html#XSeb_Rose[Seb Rose] +
+link:presenters.html#XJon_Jagger[Jon Jagger]
+|link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
+ +
+link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
+|===
+
+== Wednesday 2017-04-26
+
+[cols="6*^", options="header"]
+|===
+|
+|*Bristol 1*
+|*Bristol 2*
+|*Bristol 3*
+|*Empire*
+|*SS Great Britain*
+
+|09:30
+5+^|link:sessions.html#XTohellandbackOneguitaristsjourneythroughmodernsoftwaredevelopment[To hell and back: One guitarist's journey through modern software development] +
+ +
+link:presenters.html#XRuss_Miles[Russ Miles]
+
+|10:30
+5+^|Break
+
+|11:00
+|link:sessions.html#XParallelAlgorithms[Parallel Algorithms] +
+ +
+link:presenters.html#XDietmar_Kühl[Dietmar Kühl]
+|link:sessions.html#XLockfreeprogrammingwithmodernC[Lock-free programming with modern {cpp}] +
+ +
+link:presenters.html#XTimur_Doumler[Timur Doumler]
+|link:sessions.html#XThelinkfromobjecttoexecutabletheroleoflinkerinadevelopmenttoolchain[The link from object to executable - the role of linker in a development toolchain] +
+ +
+link:presenters.html#XPeter_Smith[Peter Smith]
+|link:sessions.html#XATestofStrength[A Test of Strength] +
+ +
+link:presenters.html#XChris_Oldwood[Chris Oldwood]
+|link:sessions.html#XThenightmareofMoveSemanticsforSimpleClasses[The nightmare of Move Semantics for Simple Classes] +
+ +
+link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
+
+|12:30
+5+^|Lunch
+
+|14:00
+|link:sessions.html#XTheDetectionIdiomasimplerwaytoSFINAE[The Detection Idiom - a simpler way to SFINAE] +
+ +
+link:presenters.html#XMarshall_Clow[Marshall Clow]
+|link:sessions.html#XAtomicsmemoryorderswhatfor[Atomic's memory orders, what for?] +
+ +
+link:presenters.html#XFrank_Birbacher[Frank Birbacher]
+|link:sessions.html#XBluffyourwayinx64assembler[Bluff your way in x64 assembler] +
+ +
+link:presenters.html#XRoger_Orr[Roger Orr]
+|link:sessions.html#XThinkingOutsidetheSynchronisationQuadrant[Thinking Outside the Synchronisation Quadrant] +
+ +
+link:presenters.html#XKevlin_Henney[Kevlin Henney]
+|link:sessions.html#XTheMirALStory[The MirAL Story] +
+ +
+link:presenters.html#XAlan_Griffiths[Alan Griffiths]
+
+|15:30
+5+^|Break
+
+|16:00
+|link:sessions.html#XAlookatCthroughtheglassesofalanguagetool[A look at {cpp} through the glasses of a language tool] +
+ +
+link:presenters.html#XAnastasia_Kazakova[Anastasia Kazakova]
+|link:sessions.html#XMetaprogramminginC14[Metaprogramming in {cpp}14] +
+ +
+link:presenters.html#XLouis_Dionne[Louis Dionne]
+|link:sessions.html#XTimegentlemenplease[Time gentlemen please] +
+ +
+link:presenters.html#XNeil_Horlock[Neil Horlock]
+|link:sessions.html#XHowtowriteaprogramminglanguage[How to write a programming language] +
+ +
+link:presenters.html#XAndy_Balaam[Andy Balaam]
+|link:sessions.html#XACCUdoesCountdown[ACCU does Countdown] +
+ +
+link:presenters.html#XRobert_Chatley[Robert Chatley] +
+link:presenters.html#XJon_Jagger[Jon Jagger]
+
+|17:30
+5+^|Break
+
+|18:00
+5+^|Lightning Talks
+
+
+|===
+
+== Thursday 2017-04-27
+
+[cols="6*^", options="header"]
+|===
+|
+|*Bristol 1*
+|*Bristol 2*
+|*Bristol 3*
+|*Empire*
+|*SS Great Britain*
+
+|09:30
+5+^|link:sessions.html#XTheAudacityofChapelScalableParallelProgrammingDoneRight[The Audacity of Chapel: Scalable Parallel Programming Done Right] +
+ +
+link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
+
+|10:30
+5+^|Break
+
+|11:00
+|link:sessions.html#XWritinggamesinverymodernC[Writing games in very modern {cpp}] +
+ +
+link:presenters.html#XGuy_Davidson[Guy  Davidson ]
+|link:sessions.html#XLocalarenaMemoryAllocators[Local (arena) Memory Allocators] +
+ +
+link:presenters.html#XJohn_Lakos[John Lakos]
+|link:sessions.html#XDocumentationforsoftwaredevelopers[Documentation for software developers] +
+ +
+link:presenters.html#XPeter_Hilton[Peter Hilton]
+|link:sessions.html#XTheProgrammerCEOandhowtodoasoftwarestartup[The Programmer CEO, and how to do a software startup] +
+ +
+link:presenters.html#XGreg_Law[Greg Law]
+|link:sessions.html#XFunctionalProgrammingfortheWebwithElm[Functional Programming for the Web with Elm] +
+ +
+link:presenters.html#XAustin_Bingham[Austin Bingham]
+
+|12:30
+5+^|Lunch
+
+|14:00
+|link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[{cpp} Core Guidelines - Modernize your {cpp} Code Base] +
+ +
+link:presenters.html#XPeter_Sommerlad[Peter Sommerlad]
+|link:sessions.html#XAnOverviewofProgramOptimizationTechniques[An Overview of Program Optimization Techniques] +
+ +
+link:presenters.html#XMathias_Gaunard[Mathias Gaunard]
+|link:sessions.html#XLiberatingWirelessSensorData[Liberating Wireless Sensor Data] +
+ +
+link:presenters.html#XRobert_Smallshire[Robert Smallshire]
+|link:sessions.html#XAnintroductiontoKotlinbyexample[An introduction to Kotlin by example] +
+ +
+link:presenters.html#XDmitry_Kandalov[Dmitry Kandalov]
+|link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation] +
+ +
+link:presenters.html#XSergey_Ignatchenko[Sergey Ignatchenko]
+
+|15:30
+5+^|Break
+
+|16:00
+|link:sessions.html#XLearningandteachingmodernCChallengesandResources[Learning (and teaching) modern {cpp} - Challenges and Resources] +
+ +
+link:presenters.html#XArne_Mertz[Arne Mertz]
+|link:sessions.html#XTheCTypeSystemIsYourFriend[The {cpp} Type System Is Your Friend] +
+ +
+link:presenters.html#XHubert_Matthews[Hubert Matthews]
+|link:sessions.html#XABrowseThroughES2016[A Browse Through ES2016] +
+ +
+link:presenters.html#XJez_Higgins[Jez Higgins]
+|link:sessions.html#XDNSat30[DNS at 30] +
+ +
+link:presenters.html#XJim_Hague[Jim Hague]
+|link:sessions.html#XEmbracingModernCMake[Embracing Modern CMake] +
+ +
+link:presenters.html#XStephen_Kelly[Stephen Kelly]
+
+|17:30
+5+^|Break
+
+|18:00
+5+^|Lightning Talks
+
+
+|===
+
+== Friday 2017-04-28
+
+[cols="6*^", options="header"]
+|===
+|
+|*Bristol 1*
+|*Bristol 2*
+|*Bristol 3*
+|*Empire*
+|*SS Great Britain*
+
+|09:30
+5+^|link:sessions.html#XAIActualIntelligence[AI: Actual Intelligence] +
+ +
+link:presenters.html#XFran_Buontempo[Fran Buontempo]
+
+|10:30
+5+^|Break
+
+|11:00
+|link:sessions.html#XContractsprogrammingafterC17[Contracts programming after {cpp}17] +
+ +
+link:presenters.html#XJDaniel_Garcia[J Daniel Garcia]
+|link:sessions.html#XACCUTheViewFromTheConference[ACCU - The View From The Conference] +
+ +
+link:presenters.html#XNigel_Lester[Nigel Lester]
+|link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
+ +
+link:presenters.html#XJon_Jagger[Jon Jagger] +
+ +
+ +
+link:sessions.html#XIntrotoTDDandBDD[Intro to TDD and BDD] +
+ +
+link:presenters.html#XSeb_Rose[Seb Rose] +
+ +
+ +
+link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/{cpp} compiler frontend in Java] +
+ +
+link:presenters.html#XPetr_Kudriavtsev[Petr Kudriavtsev] +
+link:presenters.html#XVladimir_Voskresensky[Vladimir Voskresensky] +
+ +
+ +
+link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
+ +
+link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
+ +
+
+|link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
+ +
+link:presenters.html#XGreg_Law[Greg Law] +
+ +
+ +
+link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees] +
+ +
+link:presenters.html#XAhto_Truu[Ahto Truu] +
+ +
+ +
+link:sessions.html#XPasswordsAreNotHard[Passwords. Are. Not. Hard!] +
+ +
+link:presenters.html#XDom_Davis[Dom Davis] +
+ +
+ +
+link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
+ +
+link:presenters.html#XDirk_Haun[Dirk Haun] +
+ +
+
+|link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
+ +
+link:presenters.html#XChristopher_Simons[Christopher Simons] +
+link:presenters.html#XPedro_Ferreira[Pedro Ferreira] +
+ +
+ +
+link:sessions.html#XNamedparameters[Named parameters] +
+ +
+link:presenters.html#XOdin_Holmes[Odin Holmes] +
+ +
+ +
+link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizations on Node-based Containers] +
+ +
+link:presenters.html#XElliot_Goodrich[Elliot Goodrich] +
+ +
+ +
+link:sessions.html#Xlintingwithclangandclangtidy[linting with clang and clang-tidy] +
+ +
+link:presenters.html#XBernhard_Merkle[Bernhard Merkle] +
+ +
+
+
+|12:30
+5+^|Lunch
+
+|14:00
+|link:sessions.html#XAutomaticCsourcecodegenerationwithclang[Automatic {cpp} source code generation with clang] +
+ +
+link:presenters.html#XSergei_Sadovnikov[Sergei Sadovnikov]
+|link:sessions.html#XUsingTrompeloeilamockingframeworkformodernC[Using Trompeloeil, a mocking framework for modern {cpp}] +
+ +
+link:presenters.html#XBjörn_Fahller[Björn Fahller]
+|link:sessions.html#XMasteringGitsindex[Mastering Git's index] +
+ +
+link:presenters.html#XCharles_Bailey[Charles Bailey]
+|link:sessions.html#XHistoryofTimeAsynchronousC[History of Time: Asynchronous {cpp}] +
+ +
+link:presenters.html#XSteven_Simpson[Steven Simpson]
+|link:sessions.html#XIntroductiontoBlockchaintechnologyandhowtobuildsomethingusefulwithit[Introduction to Blockchain technology, and how to build something useful with it] +
+ +
+link:presenters.html#XPaul_Cunnell[Paul Cunnell]
+
+|15:30
+5+^|Break
+
+|16:00
+|link:sessions.html#XImplementingvariantvisitationusinglambdas[Implementing `variant` visitation using lambdas] +
+ +
+link:presenters.html#XVittorio_Romeo[Vittorio Romeo]
+|link:sessions.html#XCoroutinesandCDSLsforHumanScaleConcurrency[Coroutines and {cpp} DSLs for Human Scale Concurrency] +
+ +
+link:presenters.html#XDominic_Robinson[Dominic Robinson]
+|link:sessions.html#XTheEthicsofSoftwaresomepracticalconsiderations[The Ethics of Software - some practical considerations] +
+ +
+link:presenters.html#XBurkhard_Kloss[Burkhard Kloss]
+|link:sessions.html#XImprovingSenseofSmellforLowLevelDebugging[Improving Sense of Smell for Low-Level Debugging] +
+ +
+link:presenters.html#XMatthew_Dodkins[Matthew Dodkins]
+|link:sessions.html#XPOSIXviolatescoreguidelinesAnewtakeontheoperatingsysteminterface[POSIX violates core guidelines: A new take on the operating system interface] +
+ +
+link:presenters.html#XAlfred_Bratterud[Alfred Bratterud]
+
+|17:30
+5+^|Break
+
+|18:00
+5+^|Lightning Talks
+
+|19:30
+5+^|Conference Supper
+|===
+
+== Saturday 2017-04-29
+
+[cols="6*^", options="header"]
+|===
+|
+|*Bristol 1*
+|*Bristol 2*
+|*Bristol 3*
+|*Empire*
+|*SS Great Britain*
+
+|09:30
+|link:sessions.html#XDealingwithstringsinC[Dealing with strings in {cpp}] +
+ +
+link:presenters.html#XArjan_vanLeeuwen[Arjan van Leeuwen]
+|link:sessions.html#X5yearscreatingFOSSdevtoolsforCandCtheuntold[5 years creating FOSS dev tools for C and {cpp}: the untold] +
+ +
+link:presenters.html#XDiego_RodriguezLosada[Diego Rodriguez-Losada]
+|link:sessions.html#Xah64Amemoryanalyzerforuninstrumentedcores[ah64: A memory analyzer for un-instrumented cores] +
+ +
+link:presenters.html#XTim_Boddy[Tim Boddy]
+|link:sessions.html#XMongrelMonadsDirtyDirtyDirty[Mongrel Monads, Dirty, Dirty, Dirty] +
+ +
+link:presenters.html#XNiall_Douglas[Niall Douglas]
+|link:sessions.html#XWritinggoodBDDscenarios[Writing good BDD scenarios] +
+ +
+link:presenters.html#XSeb_Rose[Seb Rose]
+
+|11:00
+5+^|Break
+
+|11:30
+|link:sessions.html#XGrilltheCcommittee[Grill the {cpp} committee] +
+ +
+link:presenters.html#XRoger_Orr[Roger Orr]
+|link:sessions.html#XConcurrencyParallelismandCoroutines[Concurrency, Parallelism and Coroutines] +
+ +
+link:presenters.html#XAnthony_Williams[Anthony Williams]
+|link:sessions.html#XHowtopresenteffectivelyinameeting[How to present effectively in a meeting] +
+ +
+link:presenters.html#XDirk_Haun[Dirk Haun]
+|link:sessions.html#XFunctionalCForFunAndProfit[Functional {cpp} For Fun And Profit] +
+ +
+link:presenters.html#XPhil_Nash[Phil Nash]
+|link:sessions.html#XKnuthAmdahlIspurnthee[Knuth, Amdahl: I spurn thee!] +
+ +
+link:presenters.html#XJason_McGuiness[Jason McGuiness]
+
+|13:00
+5+^|Lunch
+
+|14:30
+|link:sessions.html#XModernCDesignreloaded[Modern {cpp} Design reloaded] +
+ +
+link:presenters.html#XOdin_Holmes[Odin Holmes]
+|link:sessions.html#XIntroductiontoQt3D[Introduction to Qt 3D] +
+ +
+link:presenters.html#XJames_Turner[James Turner] +
+link:presenters.html#XGiuseppe_DAngelo[Giuseppe D'Angelo]
+|link:sessions.html#XPracticalCodeReviewusingtools[Practical Code Review using tools] +
+ +
+link:presenters.html#XSven_Rosvall[Sven Rosvall]
+|link:sessions.html#XGradleBuildinganddeliveringSoftwareinamodernworld[Gradle: Building and delivering Software in a modern world] +
+ +
+link:presenters.html#XBernhard_Merkle[Bernhard Merkle]
+|link:sessions.html#XGotToTestThemAll[Got To Test Them All] +
+ +
+link:presenters.html#XSteve_Love[Steve Love]
+
+|16:00
+5+^|Break
+
+|16:30
+5+^|link:sessions.html#XSomethingsNewincpp[Something(s) New in {cpp}] +
+ +
+link:presenters.html#XHerb_Sutter[Herb Sutter]
+
+|17:30
+5+^|Close
+|===
