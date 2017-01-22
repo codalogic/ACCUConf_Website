@@ -104,7 +104,17 @@ ENV/
 
 # Ignore the databases, they must not get stored in the repo.
 /accuconf_test.db
+/accuconf_save.db
 /accuconf.db
 
 # Do not put emails in the repository.
 /scripts/committee_email.txt
+
+
+# Do not put the generated files or their renderings into the repository
+presenters.adoc
+presenters.html
+schedule.adoc
+schedule.html
+sessions.adoc
+sessions.html
