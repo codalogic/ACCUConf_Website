@@ -553,7 +553,7 @@ def deploy_new_schedule_files():
 
 
 @app.cli.command()
-@click.option('--trial', '-t', default=True)
+@click.option('--trial/--not_trial', default=True)
 @click.argument('emailout_spec')
 def do_emailout(trial, emailout_spec):
     """
@@ -585,7 +585,7 @@ def do_emailout(trial, emailout_spec):
                 print('####  No data of person to send email to.')
                 return 1
             print('Subject:', subject)
-            print('Recipient:', email_address)
+            print('Recipient:', 'russel@winder.org.uk' if trial else email_address)
             if proposal is not None:
                 print('Title:', proposal.title)
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
@@ -597,9 +597,11 @@ def do_emailout(trial, emailout_spec):
             server.send_message(message)
 
     if trial:
+        click.echo(click.style('Sending a test emailout via Winder server.', fg='green'))
         with SMTP('smtp.winder.org.uk') as server:
             run_emailout()
     else:
+        click.echo(click.style('Sending a real emailout via ACCU server.', fg='green'))
         with SMTP('mail.accu.org') as server:
             server.ehlo()
             server.starttls()
