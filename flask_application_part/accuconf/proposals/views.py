@@ -36,6 +36,32 @@ def init_blueprint(context):
         proposals.admin.add_view(PresentersAdmin(Presenter, db.session))
 
 
+def proposal_presenter_to_json(presenter):
+    return {
+        'first_name': presenter.presenter.first_name,
+        'last_name': presenter.presenter.last_name
+    }
+
+
+def proposal_to_json(proposal):
+    return {
+        'text': proposal.text,
+        'day': proposal.day.value,
+        'session': proposal.session.value,
+        'presenters': [proposal_presenter_to_json(presenter)
+                       for presenter
+                       in proposal.presenters]
+    }
+
+
+@proposals.route("/api/proposals", methods=['GET'])
+def all_proposals():
+    props = Proposal.query.filter(Proposal.day!=None,
+                                  Proposal.session!=None).all()
+    prop_info = [proposal_to_json(prop) for prop in props]
+    return jsonify(prop_info)
+
+
 @proposals.route("/")
 def index():
     if proposals.config.get("MAINTENANCE"):
