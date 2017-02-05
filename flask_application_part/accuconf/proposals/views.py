@@ -38,6 +38,7 @@ def init_blueprint(context):
 
 def proposal_presenter_to_json(presenter):
     return {
+        'id': presenter.presenter.id,
         'first_name': presenter.presenter.first_name,
         'last_name': presenter.presenter.last_name
     }
@@ -45,16 +46,20 @@ def proposal_presenter_to_json(presenter):
 
 def proposal_to_json(proposal):
     return {
+        'id': proposal.id,
+        'title': proposal.title,
         'text': proposal.text,
         'day': proposal.day.value,
         'session': proposal.session.value,
+        'room': proposal.room.value,
+        # 'track': proposal.track.value,
         'presenters': [proposal_presenter_to_json(presenter)
                        for presenter
                        in proposal.presenters]
     }
 
 
-@proposals.route("/api/proposals", methods=['GET'])
+@proposals.route("/api/scheduled_proposals", methods=['GET'])
 def all_proposals():
     props = Proposal.query.filter(Proposal.day!=None,
                                   Proposal.session!=None).all()
