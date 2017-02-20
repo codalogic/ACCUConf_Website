@@ -528,6 +528,8 @@ _The schedule is subject to change without notice until 2017-04-29._
                     row(first_column('11:00'), all_columns_entry(cols, 'Break')),
                     row(first_column('11:30'), *get_sessions(id, SessionSlot.session_2)),
                     row(first_column('13:00'), all_columns_entry(cols, 'Lunch')),
+                    row(first_column('13:30'), all_columns_entry(cols, 'ACCU AGM')),
+                    row(first_column(''), all_columns_entry(cols, '')),
                     row(first_column('14:30'), *get_sessions(id, SessionSlot.session_3)),
                     row(first_column('16:00'), all_columns_entry(cols, 'Break')),
                     row(first_column('16:30'), all_columns_block(cols, single_column_entry(*session_and_presenters(get_keynote(id))))),

@@ -121,31 +121,64 @@ are all welcome.
 
 
 
-[[XACCUdoesCountdown]]
-== ACCU does Countdown
+[[XACCUdoesCCountdown]]
+== ACCU does {cpp} Countdown
 === link:presenters.html#XJon_Jagger[Jon Jagger], link:presenters.html#XRobert_Chatley[Robert Chatley]
 
 This is a fun session based on the popular UK game show _Countdown_ [1] and its parody, _8 out of 10 cats
 does Countdown_ [2].
 
-In each round, instead of picking vowels and consonants the teams take it in turns to pick ~6 {cpp} tokens
-from 5 categories: keywords, identifiers, operators, punctuators, and literals!
+* In the TV version contestants take turns picking 9 random vowels/consonants and finding the longest word
+in 30 seconds.
+* in this version contestants take turns picking 7 random {cpp} tokens from 5 categories: (keywords,
+identifiers, operators, punctuators, literals) and writing the _shortest_ {cpp} program using _all_ 7 tokens
+in 8 minutes.
 
-The aim of each round is to write the smallest program containing all the tokens. After we stop and review
-the submissions, points will be awarded!  There will be winners and losers, but most of all, there will be
-learning and fun.
+For example, if these 7 tokens are selected:
 
-We may also introduce some bonus rounds including surprise other languages!  We will be using the online
-coding practice site http://cyber-dojo.org to facilitate the competition.
+[source,cpp]
+----
+const vector tokens =
+{
+    "catch",              // keyword
+    "->",                 // operator
+    "[",                  // punctuator
+    ";",                  // punctuator
+    "--",                 // operator
+    "foobar",             // identifier
+    "operator",           // keyword
+};
+----
 
-Numbers are limited: at most 8 teams, two people per team.
+Then a winning program (53 characters long) might be:
 
-But, if you aren't in an official team, you can still be part of the audience, where you are invited to
-"play along at home".
+[source,cpp]
+----
+class c {
+  c operator->(){
+    foobar:
+    try{
+    }
+    catch(c x[]){
+        x--;
+    }
+  }
+};
+----
+* Programs will be written in customized cyber-dojo [3] sessions which
+automatically checks which tokens have been missed and tells you
+the program's size.
+* Numbers are limited: minimum two people per team, maximum 12 teams.
+* Once it is full, you can still be part of the audience, and "play along at
+home".
+* _Bring your laptop!_
+
 
 [1] http://www.channel4.com/programmes/countdown
 
 [2] http://www.channel4.com/programmes/8-out-of-10-cats-does-countdown
+
+[3] http://cyber-dojo.org
 
 
 
@@ -750,13 +783,14 @@ In the main part of the talk, I will then show various common use-cases of lock-
 == Machine Learning with Python Case Study
 === link:presenters.html#XPedro_Ferreira[Pedro Ferreira], link:presenters.html#XChristopher_Simons[Christopher Simons]
 
-This presentation will be a case study of Paxport's initial adoption of machine learning where we will go over our tools selection of Python with Jupyter as the main framework and its importance when dealing with uncertainty and the need for quick and reliable experimentation.
+This presentation is a case study taken from the travel and holiday industry. Paxport/Multicom, based in UK
+and Sweden, have recently adopted a recommendation system for holiday accommodation bookings. Machine
+learning techniques such as Collaborative Filtering have been applied using Python (3.5.1), with Jupyter
+(4.0.6) as the main framework. Data scale and sparsity present significant challenges in the case study, and
+so the effectiveness of various techniques are described as well as the performance of Python-based
+libraries such as Python Data Analysis Library (Pandas), and Scikit-learn (built on NumPy, SciPy and
+matplotlib). The presentation is suitable for all levels of programmers.
 
-More specifically we will be looking at a recommendation system for accommodation bookings based on Collaborative Filtering approaches by going over different stages and pointing certain aspects such as important libraries used (Pandas, Scikit-learn, etc.), data preparation/analysis, performance/scalability needs, implementation/deployment choices and results evaluation.
-
-Finally we briefly conclude on how we benefited from the tools selection on the subject of A.I./Machine Learning and their importance for dealing with uncertainties such as data quality, company's current infrastructure, business model incompatibilities, etc.
-
-Target audience should be beginners to expert programmers that are curious about the usage of Python for Machine Learning, namely Collaborative Filtering, by having a quick case study on this new and exciting area that is Artificial Intelligence.
 
 
 [[XMasteringGitsindex]]

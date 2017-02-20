@@ -177,11 +177,16 @@ As a technician in the 80’s, Chris found himself increasingly automating labor
 
 link:sessions.html#X5yearscreatingFOSSdevtoolsforCandCtheuntold[5 years creating FOSS dev tools for C and C++: the untold]
 
-My passions are robotics and SW development. I have developed many years in C and {cpp} in the Industrial, Robotics and AI fields. 
+My passions are robotics and software engineering and development. I developed software for many years in C
+and {cpp} in the Industrial, Robotics and AI fields.
 
-I was also a University (tenure track) professor till 2012, when I quit academia to try to build a C/{cpp} dependency manager, co-founded startup biicode, since then mostly developing in Python. 
+I was also a university (tenure track) professor and robotics researcher for 8 years. In 2012, I quit
+academia to try to build a C/{cpp} dependency manager, co-founding a startup called biicode. Since then I
+have been mostly developing software using Python.
 
-I am conan.io C/{cpp} package manager co-creator, recently acquired by JFrog, now working as senior SW engineer and C/{cpp} advocate.
+I am the https://www.conan.io/[Conan] C/{cpp} package manager co-creator and maintainer. This was recently
+acquired by JFrog. I am now working at JFrog as senior SW engineer and C/{cpp} advocate.
+
 
 
 [[XDietmar_Kühl]]
@@ -392,7 +397,7 @@ John Lakos, author of _Large Scale {cpp} Software Design_, serves at Bloomberg L
 [[XJon_Jagger]]
 == Jon Jagger
 
-link:sessions.html#XACCUdoesCountdown[ACCU does Countdown]
+link:sessions.html#XACCUdoesCCountdown[ACCU does C++ Countdown]
 
 link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo]
 
@@ -550,7 +555,11 @@ Paul has led the delivery of front-to-back derivatives systems and has extensive
 
 link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study]
 
-Currently a Knowledge Transfer Partnership associate with Paxport(Multicom) and University of West of England working on a Machine Learning related problem.
+After graduating in software engineering Pedro's interest in artificial intelligence led him to work in the
+video game industry for a year. That same interest has him now taking part of a Knowledge Transfer
+Partnership with Paxport(Multicom) and University of West of England working on a Machine Learning related
+problem.
+
 
 
 [[XPeter_Hilton]]
@@ -599,14 +608,6 @@ link:sessions.html#XFunctionalCForFunAndProfit[Functional C++ For Fun And Profit
 Phil is a Developer Advocate for {cpp}, Objective-C and Swift tools at JetBrains. Prior to that he worked in as diverse fields as finance, agile coaching and iOS development. A long time {cpp} developer he also has his feet in C#, F#, Objective-C and Swift - as well as dabbling in other languages. He is the author of several open source projects - most notably Catch: a {cpp}-native test framework.
 
 
-[[XRobert_Chatley]]
-== Robert Chatley
-
-link:sessions.html#XACCUdoesCountdown[ACCU does Countdown]
-
-Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperial College London. Commercially he works as a consultant, coach and trainer with a focus on agile development. Robert has worked in many companies from startups to multinationals, including working as an engineer at Google, and also as a technical lead at Kizoom, one of the earliest companies in the UK employing XP at scale. He has chaired the XPDay conference, and acted as programme chair for the SPA conference. Robert holds an MEng degree in Information Systems Engineering and PhD in Software Engineering from Imperial College London.
-
-
 [[XRobert_Smallshire]]
 == Robert Smallshire
 
@@ -614,6 +615,14 @@ link:sessions.html#XLiberatingWirelessSensorData[Liberating Wireless Sensor Data
 
 Robert Smallshire is a founding director of Sixty North, a technology product and consulting business in Norway providing services throughout Europe. Robert has worked in senior software architecture and technical management roles in the energy sector, and is currently embarking on a new Internet-of-Things venture for solar power prediction and monitoring.
 He has dealt with understanding, designing, advocating and implementing effective architectures for sophisticated scientific, enterprise and embedded software in Python, {cpp} and on the .NET stack. He holds a Ph.D. in a natural science.
+
+
+[[XRobert_Chatley]]
+== Robert Chatley
+
+link:sessions.html#XACCUdoesCCountdown[ACCU does C++ Countdown]
+
+Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperial College London. Commercially he works as a consultant, coach and trainer with a focus on agile development. Robert has worked in many companies from startups to multinationals, including working as an engineer at Google, and also as a technical lead at Kizoom, one of the earliest companies in the UK employing XP at scale. He has chaired the XPDay conference, and acted as programme chair for the SPA conference. Robert holds an MEng degree in Information Systems Engineering and PhD in Software Engineering from Imperial College London.
 
 
 [[XRoger_Orr]]
@@ -685,20 +694,20 @@ practice (Java, C#, Haskell, SQL, and so on), {cpp} is his primary and favourite
 
 
 
-[[XSergey_Ignatchenko]]
-== Sergey Ignatchenko
-
-link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
-
-Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
-
-
 [[XSergey_Nepomnyachiy]]
 == Sergey Nepomnyachiy
 
 link:sessions.html#XEasyHighConstancy[Easy High Constancy]
 
 Worked for Intel and IBM, now working for Bloomberg
+
+
+[[XSergey_Ignatchenko]]
+== Sergey Ignatchenko
+
+link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
+
+Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
 
 
 [[XStephen_Kelly]]

@@ -16,12 +16,6 @@ _The schedule is subject to change without notice until 2017-04-29._
 4+^|
 
 |10:00
-|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
- +
-link:presenters.html#XFelix_Petriconi[Felix Petriconi]
-|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
- +
-link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
 |link:sessions.html#XTestablearchitecture[Testable architecture] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose] +
@@ -29,6 +23,12 @@ link:presenters.html#XJon_Jagger[Jon Jagger]
 |link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
  +
 link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
+|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
+ +
+link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
+|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
+ +
+link:presenters.html#XFelix_Petriconi[Felix Petriconi]
 |===
 
 == Wednesday 2017-04-26
@@ -103,7 +103,7 @@ link:presenters.html#XNeil_Horlock[Neil Horlock]
 |link:sessions.html#XHowtowriteaprogramminglanguage[How to write a programming language] +
  +
 link:presenters.html#XAndy_Balaam[Andy Balaam]
-|link:sessions.html#XACCUdoesCountdown[ACCU does Countdown] +
+|link:sessions.html#XACCUdoesCCountdown[ACCU does {cpp} Countdown] +
  +
 link:presenters.html#XRobert_Chatley[Robert Chatley] +
 link:presenters.html#XJon_Jagger[Jon Jagger]
@@ -249,9 +249,9 @@ link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
 link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
  +
 
-|link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
+|link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
  +
-link:presenters.html#XGreg_Law[Greg Law] +
+link:presenters.html#XDirk_Haun[Dirk Haun] +
  +
  +
 link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees] +
@@ -259,14 +259,14 @@ link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggr
 link:presenters.html#XAhto_Truu[Ahto Truu] +
  +
  +
+link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
+ +
+link:presenters.html#XGreg_Law[Greg Law] +
+ +
+ +
 link:sessions.html#XPasswordsAreNotHard[Passwords. Are. Not. Hard!] +
  +
 link:presenters.html#XDom_Davis[Dom Davis] +
- +
- +
-link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
- +
-link:presenters.html#XDirk_Haun[Dirk Haun] +
  +
 
 |link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
@@ -391,6 +391,12 @@ link:presenters.html#XJason_McGuiness[Jason McGuiness]
 
 |13:00
 5+^|Lunch
+
+|13:30
+5+^|ACCU AGM
+
+|
+5+^|
 
 |14:30
 |link:sessions.html#XModernCDesignreloaded[Modern {cpp} Design reloaded] +
