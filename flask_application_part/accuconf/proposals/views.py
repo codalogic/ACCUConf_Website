@@ -45,7 +45,7 @@ def proposal_presenter_to_json(presenter):
 
 
 def proposal_to_json(proposal):
-    return {
+    result = {
         'id': proposal.id,
         'title': proposal.title,
         'text': proposal.text,
@@ -58,11 +58,16 @@ def proposal_to_json(proposal):
                        in proposal.presenters]
     }
 
+    if proposal.quickie_slot:
+        result['quickie_slot'] = proposal.quickie_slot.value
+
+    return result
+
 
 @proposals.route("/api/scheduled_proposals", methods=['GET'])
 def all_proposals():
-    props = Proposal.query.filter(Proposal.day!=None,
-                                  Proposal.session!=None).all()
+    props = Proposal.query.filter(Proposal.day != None,
+                                  Proposal.session != None).all()
     prop_info = [proposal_to_json(prop) for prop in props]
     return jsonify(prop_info)
 
