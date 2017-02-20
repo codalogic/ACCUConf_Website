@@ -17,6 +17,7 @@ class _Base:
     CALL_OPEN = False
     REVIEWING_ALLOWED = False
     ADMINISTERING = False
+    API_ACCESS = False
 
 
 class ApplicationOff(_Base):
@@ -60,6 +61,11 @@ class AdministeringDatabase(_Base):
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(database_path)
     MAINTENANCE = True
     ADMINISTERING = True
+
+
+class APIAccessOpen(_Base):
+    database_path = _Base.here.parent / 'accuconf_api.db'
+    API_ACCESS = True
 
 
 Config = ApplicationOff
