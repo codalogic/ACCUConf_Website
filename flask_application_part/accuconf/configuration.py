@@ -62,4 +62,4 @@ class AdministeringDatabase(_Base):
     ADMINISTERING = True
 
 
-Config = ReviewingOnly
+Config = ApplicationOff
