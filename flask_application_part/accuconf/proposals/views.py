@@ -4,6 +4,8 @@ from random import randint
 from flask import render_template, jsonify, redirect, url_for, session, request
 from flask import send_from_directory, g
 
+from flask_cors import cross_origin
+
 from accuconf import db
 from accuconf.models import MathPuzzle, User, ProposalPresenter, Proposal, Presenter, Score, Comment
 from accuconf.proposals.utils.proposals import SessionType
@@ -65,6 +67,7 @@ def proposal_to_json(proposal):
 
 
 @proposals.route("/api/scheduled_proposals", methods=['GET'])
+@cross_origin()
 def all_proposals():
     props = Proposal.query.filter(Proposal.day != None,
                                   Proposal.session != None).all()
