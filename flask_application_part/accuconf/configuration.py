@@ -57,14 +57,14 @@ class TestingWithDatabaseMaintenance(TestingWithDatabase):
 
 
 class AdministeringDatabase(_Base):
-    database_path = _Base.here.parent / 'accuconf.db'
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(database_path)
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(_Base.database_path)
     MAINTENANCE = True
     ADMINISTERING = True
 
 
 class APIAccessOpen(_Base):
     database_path = _Base.here.parent / 'accuconf_api.db'
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + str(database_path)
     API_ACCESS = True
 
 
