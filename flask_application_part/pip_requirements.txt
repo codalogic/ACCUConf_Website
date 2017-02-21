@@ -2,6 +2,7 @@
 
 Flask
 Flask-Bootstrap
+flask-cors
 SQLAlchemy
 Flask_SQLAlchemy
 
