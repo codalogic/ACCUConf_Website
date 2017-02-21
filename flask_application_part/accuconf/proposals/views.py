@@ -4,7 +4,7 @@ from random import randint
 from flask import render_template, jsonify, redirect, url_for, session, request
 from flask import send_from_directory, g
 
-from flask_cors import CORS, cross_origin
+from flask_cors import cross_origin
 
 from accuconf import db
 from accuconf.models import MathPuzzle, User, ProposalPresenter, Proposal, Presenter, Score, Comment
