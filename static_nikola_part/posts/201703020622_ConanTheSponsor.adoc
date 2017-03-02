@@ -1,0 +1,12 @@
+////
+.. title: Conan the Sponsor
+.. date: 2017-03-02T06:22+00:00
+.. type: text
+////
+
+Many of you will know that https://www.jfrog.com/[JFrog] are now the owners of the {cpp} package management
+system https://www.conan.io/[Conan]. Package management in {cpp} is likely to be as big a "thing" in the
+{cpp} community as {cpp}17, and so very important to the development of {cpp} software development. We are
+therefore very please to announce that Conan is now a sponsor of ACCU 2017.
+
+image::/assets/images/2017_SponsorLogos/conan_io.svg[Conan, width="50%", align="center", link="https://conan.io"]
