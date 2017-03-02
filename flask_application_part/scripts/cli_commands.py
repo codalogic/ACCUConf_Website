@@ -478,7 +478,8 @@ _The schedule is subject to change without notice until 2017-04-29._
         def find_entry(day, session, room):
             ss = tuple(p for p in sessions if p.day == day and p.session == session and p.room == room)
             if len(ss) == 0:
-                raise ValueError('Got 0 sessions for {}, {}, {}.'.format(day, session, room))
+                click.echo(click.style('Got no sessions for {}, {}, {}.'.format(day, session, room), fg='red'))
+                return single_column_entry('TBC')
             elif len(ss) == 1:
                 return single_column_entry(*session_and_presenters(ss[0]))
             elif len(ss) > 4:
