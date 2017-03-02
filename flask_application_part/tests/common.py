@@ -23,8 +23,8 @@ def database():
     with app.app_context():
         db.drop_all()
         db.create_all()
-    yield db
-    db.drop_all()
+        yield db
+        db.drop_all()
 
 
 @pytest.fixture(scope='function')
@@ -36,8 +36,8 @@ def client():
     with app.app_context():
         db.drop_all()
         db.create_all()
-    yield app.test_client()
-    db.drop_all()
+        yield app.test_client()
+        db.drop_all()
 
 
 def get_and_check_content(client, url, code=200, values=()):
