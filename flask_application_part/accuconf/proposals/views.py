@@ -38,14 +38,6 @@ def init_blueprint(context):
         proposals.admin.add_view(PresentersAdmin(Presenter, db.session))
 
 
-def proposal_presenter_to_json(presenter):
-    return {
-        'id': presenter.presenter.id,
-        'first_name': presenter.presenter.first_name,
-        'last_name': presenter.presenter.last_name
-    }
-
-
 def proposal_to_json(proposal):
     result = {
         'id': proposal.id,
@@ -55,7 +47,7 @@ def proposal_to_json(proposal):
         'session': proposal.session.value,
         'room': proposal.room.value,
         # 'track': proposal.track.value,
-        'presenters': [proposal_presenter_to_json(presenter)
+        'presenters': [presenter.id
                        for presenter
                        in proposal.presenters]
     }
@@ -66,6 +58,15 @@ def proposal_to_json(proposal):
     return result
 
 
+def presenter_to_json(presenter):
+    return {
+        'id': presenter.id,
+        'last_name': presenter.last_name,
+        'first_name': presenter.first_name,
+        'bio': presenter.bio
+    }
+
+
 @proposals.route("/api/scheduled_proposals", methods=['GET'])
 @cross_origin()
 def all_proposals():
@@ -73,6 +74,14 @@ def all_proposals():
                                   Proposal.session != None).all()
     prop_info = [proposal_to_json(prop) for prop in props]
     return jsonify(prop_info)
+
+
+@proposals.route("/api/presenters", methods=["GET"])
+@cross_origin()
+def all_presenters():
+    ps = Presenter.query.all()
+    json = [presenter_to_json(p) for p in ps]
+    return jsonify(json)
 
 
 @proposals.route("/")
@@ -277,7 +286,7 @@ def show_proposals():
                     "title": proposal.title,
                     "abstract": proposal.text,
                     "session_type": proposal.session_type,
-                    "presenters": proposal.presenters,
+                    "resenters": proposal.presenters,
                 }
             }
             page["subpages"].append(subpage)
