@@ -565,20 +565,6 @@ even a little Powershell.
 No prior experience is required, but some exposure to automated testing in one or more languages will be helpful. Open to all.
 
 
-[[XGradleBuildinganddeliveringSoftwareinamodernworld]]
-== Gradle: Building and delivering Software in a modern world
-=== link:presenters.html#XBernhard_Merkle[Bernhard Merkle]
-
-Modern software projects usually contain a mixture of languages and tools. Delivering software becomes a challenge as different language aware tools (e.g. ant/maven for Java, (c)make for {cpp}) 
-are used for managing the build pipeline. And invoking the compiler + linker is only 20% of the story.
-Managing a build also involves clean dependency management, multiple configurations and variants, cross-plattform builds (e.g. {cpp}), documentation, test, deployments, devops and more. 
-
-I this session I will show the key concepts of Gradle using real-world examples. We will first dive into a short Groovy introduction and then continue with Gradle as a DSL (domain specific language) for managing the software delivery pipeline. We will look at key concepts like declarative build systems over imperative, conventions over configuration, Gradle included plugins, multi-language and multi-project support and optimized build strategies. Furthermore we will show how Groovy can be used to simplify builds and extending the ecosystem with own plugins.
-
-I will present the examples live (expect to see an editor + code and not just slides ;-) and also talk about strategies for migrating from old build systems towards Gradle.
-We will show how we migrated a large Java and {cpp} system which suffered from ant-hell and IDE specific project files towards build happiness with Gradle.
-
-
 [[XGrilltheCcommittee]]
 == Grill the {cpp} committee
 === link:presenters.html#XRoger_Orr[Roger Orr]
@@ -1223,6 +1209,13 @@ This presentation will show how to use Trompeloeil by following the step-by-step
 The presentation will also include call outs for participation to help further the development.
 
 Level: intermediate->advanced
+
+
+[[XWhylimitingyourworkinprogresswillspeedupyourproject]]
+== Why limiting your work in progress will speed up your project
+=== link:presenters.html#XMichel_Grootjans[Michel Grootjans]
+
+It sounds counter-intuitive, but limiting work in progress actually improves the flow of your team. In this workshop you will experience this firsthand. We will be experimenting with several approaches to increase throughput, without changing the actual work.
 
 
 [[XWritinggamesinverymodernC]]

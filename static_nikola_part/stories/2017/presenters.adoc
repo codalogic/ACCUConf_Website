@@ -85,8 +85,6 @@ Austin is a founding director of Sixty North, a software consulting, training, a
 [[XBernhard_Merkle]]
 == Bernhard Merkle
 
-link:sessions.html#XGradleBuildinganddeliveringSoftwareinamodernworld[Gradle: Building and delivering Software in a modern world]
-
 link:sessions.html#Xlintingwithclangandclangtidy[linting with clang and clang-tidy]
 
 Bernhard Merkle works as a Software Architect and Engineer in the central Research & Development Department at SICK AG, one of the world’s leading producers of sensors and sensor solutions. 
@@ -466,6 +464,18 @@ link:sessions.html#XImprovingSenseofSmellforLowLevelDebugging[Improving Sense of
 Matthew is a 3rd generation programmer and has been programming since the age of 6. He's been coding in C and {cpp} for over 20 years, professionally for 15 years and fell in love with embedded software a decade ago. He's now having a lot of fun leading a team at a progressive, Agile embedded software company in Cornwall (Bluefruit).
 
 
+[[XMichel_Grootjans]]
+== Michel Grootjans
+
+link:sessions.html#XWhylimitingyourworkinprogresswillspeedupyourproject[Why limiting your work in progress will speed up your project]
+
+Michel Grootjans has been programming since the age of 12. He has programmed strange machines like the TI 99-4A, the Atari 2600, Mac128, HP28, Apple II, Siemens PLC's using languages like Basic, Pascal, C, HyperTalk, Assembler, ... along the way.
+
+His professional experiences includes building enterprise applications for government, chemical plants, telecom, HR, insurance companies, ... in Java, C#, Ruby and Javascript.
+
+He's an independent technical agile coach. He coaches agile teams on continuous improvement, trying to find the most productive principles and practices to deliver value for the customer as fast as possible, while aiming for a product that is both flexible and maintainable.
+
+
 [[XNeil_Horlock]]
 == Neil Horlock
 
@@ -562,6 +572,15 @@ problem.
 
 
 
+[[XPeter_Sommerlad]]
+== Peter Sommerlad
+
+link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
+
+Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
+
+
+
 [[XPeter_Hilton]]
 == Peter Hilton
 
@@ -570,15 +589,6 @@ link:sessions.html#XDocumentationforsoftwaredevelopers[Documentation for softwar
 Peter Hilton is a software developer, writer, speaker, trainer, and musician. Peter’s professional interests are business process management, web application development, functional design, agile software development and documentation. Peter currently works as a programmer and technical writer for Signavio, working remotely from Rotterdam, and delivers the occasional lecture and training course.
 
 Peter’s software development interests include web applications, service architecture, software development methodology and practices, and web-based collaboration. Peter has presented at several European developer conferences, including ACCU, Scala eXchange, Devoxx, Øredev, Jfokus, Javazone, geecon and TopConf. Peter co-authored ‘Play for Scala’ (Manning Publications) and has taught ‘Fast Track to Play with Scala’.
-
-
-[[XPeter_Sommerlad]]
-== Peter Sommerlad
-
-link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
-
-Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
-
 
 
 [[XPeter_Smith]]
@@ -694,20 +704,20 @@ practice (Java, C#, Haskell, SQL, and so on), {cpp} is his primary and favourite
 
 
 
-[[XSergey_Nepomnyachiy]]
-== Sergey Nepomnyachiy
-
-link:sessions.html#XEasyHighConstancy[Easy High Constancy]
-
-Worked for Intel and IBM, now working for Bloomberg
-
-
 [[XSergey_Ignatchenko]]
 == Sergey Ignatchenko
 
 link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
 
 Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
+
+
+[[XSergey_Nepomnyachiy]]
+== Sergey Nepomnyachiy
+
+link:sessions.html#XEasyHighConstancy[Easy High Constancy]
+
+Worked for Intel and IBM, now working for Bloomberg
 
 
 [[XStephen_Kelly]]

@@ -16,6 +16,12 @@ _The schedule is subject to change without notice until 2017-04-29._
 4+^|
 
 |10:00
+|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
+ +
+link:presenters.html#XFelix_Petriconi[Felix Petriconi]
+|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
+ +
+link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
 |link:sessions.html#XTestablearchitecture[Testable architecture] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose] +
@@ -23,12 +29,6 @@ link:presenters.html#XJon_Jagger[Jon Jagger]
 |link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
  +
 link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
-|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
- +
-link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
-|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
- +
-link:presenters.html#XFelix_Petriconi[Felix Petriconi]
 |===
 
 == Wednesday 2017-04-26
@@ -183,9 +183,9 @@ link:presenters.html#XArne_Mertz[Arne Mertz]
 |link:sessions.html#XTheCTypeSystemIsYourFriend[The {cpp} Type System Is Your Friend] +
  +
 link:presenters.html#XHubert_Matthews[Hubert Matthews]
-|link:sessions.html#XABrowseThroughES2016[A Browse Through ES2016] +
+|link:sessions.html#XWhylimitingyourworkinprogresswillspeedupyourproject[Why limiting your work in progress will speed up your project] +
  +
-link:presenters.html#XJez_Higgins[Jez Higgins]
+link:presenters.html#XMichel_Grootjans[Michel Grootjans]
 |link:sessions.html#XDNSat30[DNS at 30] +
  +
 link:presenters.html#XJim_Hague[Jim Hague]
@@ -228,7 +228,12 @@ link:presenters.html#XJDaniel_Garcia[J Daniel Garcia]
 |link:sessions.html#XACCUTheViewFromTheConference[ACCU - The View From The Conference] +
  +
 link:presenters.html#XNigel_Lester[Nigel Lester]
-|link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
+|link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
+ +
+link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
+ +
+ +
+link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
  +
 link:presenters.html#XJon_Jagger[Jon Jagger] +
  +
@@ -243,30 +248,25 @@ link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/{cpp} compiler frontend
 link:presenters.html#XPetr_Kudriavtsev[Petr Kudriavtsev] +
 link:presenters.html#XVladimir_Voskresensky[Vladimir Voskresensky] +
  +
- +
-link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
- +
-link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
- +
 
-|link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
- +
-link:presenters.html#XDirk_Haun[Dirk Haun] +
- +
- +
-link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees] +
- +
-link:presenters.html#XAhto_Truu[Ahto Truu] +
- +
- +
-link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
+|link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
  +
 link:presenters.html#XGreg_Law[Greg Law] +
+ +
+ +
+link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
+ +
+link:presenters.html#XDirk_Haun[Dirk Haun] +
  +
  +
 link:sessions.html#XPasswordsAreNotHard[Passwords. Are. Not. Hard!] +
  +
 link:presenters.html#XDom_Davis[Dom Davis] +
+ +
+ +
+link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees] +
+ +
+link:presenters.html#XAhto_Truu[Ahto Truu] +
  +
 
 |link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
@@ -409,9 +409,9 @@ link:presenters.html#XGiuseppe_DAngelo[Giuseppe D'Angelo]
 |link:sessions.html#XPracticalCodeReviewusingtools[Practical Code Review using tools] +
  +
 link:presenters.html#XSven_Rosvall[Sven Rosvall]
-|link:sessions.html#XGradleBuildinganddeliveringSoftwareinamodernworld[Gradle: Building and delivering Software in a modern world] +
+|link:sessions.html#XABrowseThroughES2016[A Browse Through ES2016] +
  +
-link:presenters.html#XBernhard_Merkle[Bernhard Merkle]
+link:presenters.html#XJez_Higgins[Jez Higgins]
 |link:sessions.html#XGotToTestThemAll[Got To Test Them All] +
  +
 link:presenters.html#XSteve_Love[Steve Love]
