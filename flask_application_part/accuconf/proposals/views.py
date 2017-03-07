@@ -288,7 +288,7 @@ def show_proposals():
                     "title": proposal.title,
                     "abstract": proposal.text,
                     "session_type": proposal.session_type,
-                    "resenters": proposal.presenters,
+                    "presenters": proposal.presenters,
                 }
             }
             page["subpages"].append(subpage)
