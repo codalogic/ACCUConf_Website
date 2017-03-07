@@ -47,7 +47,7 @@ def proposal_to_json(proposal):
         'session': proposal.session.value,
         'room': proposal.room.value,
         # 'track': proposal.track.value,
-        'presenters': [presenter.id
+        'presenters': [presenter.presenter.id
                        for presenter
                        in proposal.presenters]
     }
