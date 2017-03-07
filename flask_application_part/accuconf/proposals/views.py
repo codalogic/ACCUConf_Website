@@ -63,7 +63,9 @@ def presenter_to_json(presenter):
         'id': presenter.id,
         'last_name': presenter.last_name,
         'first_name': presenter.first_name,
-        'bio': presenter.bio
+        'bio': presenter.bio,
+        'country': presenter.country,
+        'state': presenter.state
     }
 
 
