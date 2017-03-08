@@ -69,20 +69,33 @@ def presenter_to_json(presenter):
     }
 
 
+def scheduled_proposals():
+    return Proposal.query.filter(Proposal.day != None,
+                                 Proposal.session != None).all()
+
+
 @proposals.route("/api/scheduled_proposals", methods=['GET'])
 @cross_origin()
-def all_proposals():
-    props = Proposal.query.filter(Proposal.day != None,
-                                  Proposal.session != None).all()
-    prop_info = [proposal_to_json(prop) for prop in props]
+def scheduled_proposals_view():
+    prop_info = [proposal_to_json(prop) for prop in scheduled_proposals()]
     return jsonify(prop_info)
 
 
 @proposals.route("/api/presenters", methods=["GET"])
 @cross_origin()
-def all_presenters():
-    ps = Presenter.query.all()
-    json = [presenter_to_json(p) for p in ps]
+def schedule_presenters_view():
+    scheduled_presenter_ids = {
+        presenter.presenter.id
+        for prop in scheduled_proposals()
+        for presenter in prop.presenters
+    }
+
+    json = [
+        presenter_to_json(presenter)
+        for presenter in Presenter.query.all()
+        if presenter.id in scheduled_presenter_ids
+    ]
+
     return jsonify(json)
 
 
