@@ -1,0 +1,11 @@
+////
+.. title: QBS Sponsoring ACCU
+.. date: 2017-03-15T15:35+00:00
+.. type: text
+////
+http://www.qbssoftware.com[QBS] has been a staunch supporter of ACCU conferences over the years, and we are
+very pleased that they have become a sponsor of ACCU 2017. We are sure many attenders will visit their stand
+to find out about their product line.
+
+
+image::/assets/images/2017_SponsorLogos/qbs_software_logo.png[QBS, align="center", link="http://www.qbssoftware.com/products/Intel_Parallel_Studio_XE/overview/_prodintelparxe"]
