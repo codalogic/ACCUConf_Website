@@ -48,7 +48,7 @@ def create_database():
 @app.cli.command()
 def all_reviewers():
     """
-    Print a list of all the registrants labelled as a scorer.
+    Print a list of all the registrants labelled as a reviewers.
     """
     for x in User.query.filter_by(role=Role.reviewer).all():
         print('{} {} <{}>'.format(x.first_name, x.last_name, x.user_id))
@@ -56,20 +56,51 @@ def all_reviewers():
 
 @app.cli.command()
 @click.argument('committee_email_file_path')
-def committee_are_reviewers(committee_email_file_path):
+def are_committee_all_reviewers(committee_email_file_path):
     """
-    Ensure consistency between committee list and scorer list.
+    Ensure consistency between committee list and reviewers list.
     """
     try:
         with open(committee_email_file_path) as committee_email_file:
             committee_emails = {s.strip() for s in committee_email_file.read().split()}
-            reviewer_emails = {u.user_id for u in User.query.filter_by(role=Role.reviewer).all()}
+            reviewer_emails = {u.email for u in User.query.filter_by(role=Role.reviewer).all()}
             committee_not_reviewer = {c for c in committee_emails if c not in reviewer_emails}
             reviewers_not_committee = {r for r in reviewer_emails if r not in committee_emails}
-            print('Committee members not reviewers:', committee_not_reviewer)
-            print('Reviewers not committee members:', reviewers_not_committee)
+            print('Committee members not reviewers:')
+            for p in committee_not_reviewer:
+                print('\t', p)
+            print('Reviewers not committee members:')
+            for p in reviewers_not_committee:
+                print('\t', p)
     except FileNotFoundError:
-        print('{} not found..'.format(committee_email_file_path))
+        print('{} not found.'.format(committee_email_file_path))
+
+
+@app.cli.command()
+@click.argument('committee_email_file_path')
+def set_committee_as_reviewers(committee_email_file_path):
+    """
+    Update database to ensure all committee members are reviewers.
+    """
+    try:
+        with open(committee_email_file_path) as committee_email_file:
+            committee_emails = {s.strip() for s in committee_email_file.read().split()}
+            reviewer_emails = {u.email for u in User.query.filter_by(role=Role.reviewer).all()}
+            committee_not_reviewer = {c for c in committee_emails if c not in reviewer_emails}
+            print('Setting these Committee members as reviewers:')
+            for p in committee_not_reviewer:
+                user = User.query.filter_by(email=p).all()
+                if len(user) == 0:
+                    print('\t ####', p, 'not found')
+                elif len(user) > 1:
+                    print('\t ####', p, 'has more that one entry, this cannot be.')
+                else:
+                    user = user[0]
+                    print('\t', user.first_name, user.last_name, '–', user.email)
+                    user.role = Role.reviewer
+                    db.session.commit()
+    except FileNotFoundError:
+        print('{} not found.'.format(committee_email_file_path))
 
 
 @app.cli.command()
