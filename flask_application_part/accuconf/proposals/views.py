@@ -562,7 +562,7 @@ def navlinks():
     number_of_proposals = 0
     my_proposals_text = ""
     submissions_allowed = proposals.config.get('CALL_OPEN')
-    reviewing_allowed = proposals.config.get('CALL_OPEN') or proposals.config.get('REVIEWING_ONLY')
+    reviewing_allowed = proposals.config.get('CALL_OPEN') or proposals.config.get('REVIEWING_ALLOWED')
     if session.get("id", False):
         logged_in = True
         user = User.query.filter_by(email=session["id"]).first() # email not primary key, may not be unique.
