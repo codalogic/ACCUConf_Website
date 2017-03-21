@@ -310,13 +310,15 @@ def ensure_consistency_of_schedule():
                     print('####  {}, {}, {} appears empty'.format(day, session, room))
                 elif len(sessions_now) > 1:
                     quickies = tuple(s for s in sessions_now if s.quickie_slot is not None)
-                    if len(sessions_now) != len(quickies):
-                        print('####  Non-quickie scheduled in quickie session')
+                    if len(sessions_now) > len(quickies):
+                        if len(quickies) > 0:
+                            print('#### Quickies and non-quickies in same session')
+                        print('#### Multiple sessions in {}, {}, {}:'.format(day, session, room))
                         for s in sessions_now:
-                            if s not in quickies:
-                                print('\t' + s.title)
-                    if len(quickies) != 4:
-                        print('#### Too few quickies in {}, {}, {}'.format(day, session, room))
+                            print('\t' + ('(quickie) ' if s in quickies else '') + s.title)
+                    else:
+                        if len(quickies) != 4:
+                            print('#### Too few quickies in {}, {}, {}'.format(day, session, room))
                 else:
                     s = sessions_now[0]
                     if s.quickie_slot is not None:
