@@ -16,19 +16,19 @@ _The schedule is subject to change without notice until 2017-04-29._
 4+^|
 
 |10:00
-|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
- +
-link:presenters.html#XFelix_Petriconi[Felix Petriconi]
-|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
- +
-link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
 |link:sessions.html#XTestablearchitecture[Testable architecture] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose] +
 link:presenters.html#XJon_Jagger[Jon Jagger]
+|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
+ +
+link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
 |link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
  +
 link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
+|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
+ +
+link:presenters.html#XFelix_Petriconi[Felix Petriconi]
 |===
 
 == Wednesday 2017-04-26
@@ -228,12 +228,7 @@ link:presenters.html#XJDaniel_Garcia[J Daniel Garcia]
 |link:sessions.html#XACCUTheViewFromTheConference[ACCU - The View From The Conference] +
  +
 link:presenters.html#XNigel_Lester[Nigel Lester]
-|link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
- +
-link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
- +
- +
-link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
+|link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
  +
 link:presenters.html#XJon_Jagger[Jon Jagger] +
  +
@@ -247,6 +242,11 @@ link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/{cpp} compiler frontend
  +
 link:presenters.html#XPetr_Kudriavtsev[Petr Kudriavtsev] +
 link:presenters.html#XVladimir_Voskresensky[Vladimir Voskresensky] +
+ +
+ +
+link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
+ +
+link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
  +
 
 |link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
@@ -269,13 +269,7 @@ link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggr
 link:presenters.html#XAhto_Truu[Ahto Truu] +
  +
 
-|link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
- +
-link:presenters.html#XChristopher_Simons[Christopher Simons] +
-link:presenters.html#XPedro_Ferreira[Pedro Ferreira] +
- +
- +
-link:sessions.html#XNamedparameters[Named parameters] +
+|link:sessions.html#XNamedparameters[Named parameters] +
  +
 link:presenters.html#XOdin_Holmes[Odin Holmes] +
  +
@@ -285,9 +279,10 @@ link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizati
 link:presenters.html#XElliot_Goodrich[Elliot Goodrich] +
  +
  +
-link:sessions.html#Xlintingwithclangandclangtidy[linting with clang and clang-tidy] +
+link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
  +
-link:presenters.html#XBernhard_Merkle[Bernhard Merkle] +
+link:presenters.html#XChristopher_Simons[Christopher Simons] +
+link:presenters.html#XPedro_Ferreira[Pedro Ferreira] +
  +
 
 
@@ -315,9 +310,9 @@ link:presenters.html#XPaul_Cunnell[Paul Cunnell]
 5+^|Break
 
 |16:00
-|link:sessions.html#XImplementingvariantvisitationusinglambdas[Implementing `variant` visitation using lambdas] +
+|link:sessions.html#X5yearscreatingFOSSdevtoolsforCandCtheuntold[5 years creating FOSS dev tools for C and {cpp}: the untold] +
  +
-link:presenters.html#XVittorio_Romeo[Vittorio Romeo]
+link:presenters.html#XDiego_RodriguezLosada[Diego Rodriguez-Losada]
 |link:sessions.html#XCoroutinesandCDSLsforHumanScaleConcurrency[Coroutines and {cpp} DSLs for Human Scale Concurrency] +
  +
 link:presenters.html#XDominic_Robinson[Dominic Robinson]
@@ -356,9 +351,9 @@ link:presenters.html#XAlfred_Bratterud[Alfred Bratterud]
 |link:sessions.html#XDealingwithstringsinC[Dealing with strings in {cpp}] +
  +
 link:presenters.html#XArjan_vanLeeuwen[Arjan van Leeuwen]
-|link:sessions.html#X5yearscreatingFOSSdevtoolsforCandCtheuntold[5 years creating FOSS dev tools for C and {cpp}: the untold] +
+|link:sessions.html#XImplementingvariantvisitationusinglambdas[Implementing `variant` visitation using lambdas] +
  +
-link:presenters.html#XDiego_RodriguezLosada[Diego Rodriguez-Losada]
+link:presenters.html#XVittorio_Romeo[Vittorio Romeo]
 |link:sessions.html#Xah64Amemoryanalyzerforuninstrumentedcores[ah64: A memory analyzer for un-instrumented cores] +
  +
 link:presenters.html#XTim_Boddy[Tim Boddy]

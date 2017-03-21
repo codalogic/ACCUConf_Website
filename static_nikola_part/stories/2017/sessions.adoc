@@ -1278,10 +1278,3 @@ working with windows MDMP files.  Some expected areas of growth are likely to
 include support for other allocators, such as tcmalloc and jemalloc, support
 for other dump formats, better scripting, and use of DWARF information to make usage analysis more precise.
 
-
-[[Xlintingwithclangandclangtidy]]
-== linting with clang and clang-tidy
-=== link:presenters.html#XBernhard_Merkle[Bernhard Merkle]
-
-In this session we will use clang's features to find bugs at compile time (via static analysis) and runtime (via sanitizers). First we will look how clang is able to detect common C/{cpp} traps and pitfalls via static analysis. We will write our own code checker to implement a common {cpp} guideline. Second, we will demonstrate sanitizers which enable code instrumentation and detection of problems which happen at runtime.
-

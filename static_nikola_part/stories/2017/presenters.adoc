@@ -82,17 +82,6 @@ link:sessions.html#XFunctionalProgrammingfortheWebwithElm[Functional Programming
 Austin is a founding director of Sixty North, a software consulting, training, and application development company. A native of Texas, in 2008 Austin moved to Stavanger, Norway where he helped develop industry-leading oil reservoir modeling software in {cpp} and Python. Prior to that he worked at National Instruments developing LabVIEW, at Applied Research Labs (Univ. of Texas at Austin) developing sonar systems for the U.S. Navy, and at a number of telecommunications companies. He is an experienced presenter, teacher, and author, and he is an active member of the open source community. Austin is the founder of Stavanger Software Developers, one of the largest and most active social software groups in the Stavanger region. Austin holds a Master of Science in Computer Engineering from the University of Texas at Austin.
 
 
-[[XBernhard_Merkle]]
-== Bernhard Merkle
-
-link:sessions.html#Xlintingwithclangandclangtidy[linting with clang and clang-tidy]
-
-Bernhard Merkle works as a Software Architect and Engineer in the central Research & Development Department at SICK AG, one of the world’s leading producers of sensors and sensor solutions. 
-He serves as internal consultant for the complete Software Development Cycle and is responsible for Process- and Methods-Selection as well as Tool-Evaluation and Introduction.
-In his spare time he gives a lecture about Software Development. He writes technical articles and also gives sessions at various conferences (e.g. ACCU, Codegeneration, Conquest, QCon, OOPSLA, EclipseCon and OOP).  
-
-
-
 [[XBjörn_Fahller]]
 == Björn Fahller
 
@@ -572,15 +561,6 @@ problem.
 
 
 
-[[XPeter_Sommerlad]]
-== Peter Sommerlad
-
-link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
-
-Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
-
-
-
 [[XPeter_Hilton]]
 == Peter Hilton
 
@@ -599,6 +579,15 @@ link:sessions.html#XThelinkfromobjecttoexecutabletheroleoflinkerinadevelopmentto
 Peter is a software engineer at ARM and Linaro, he has been working on software development tools for over
 16 years, specialising in non-compiler tools. He has been the maintainer of the ARM Compiler toolchain
 linker armlink and is currently adding ARM support to the LLVM linker lld.
+
+
+
+[[XPeter_Sommerlad]]
+== Peter Sommerlad
+
+link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
+
+Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
 
 
 
@@ -704,20 +693,20 @@ practice (Java, C#, Haskell, SQL, and so on), {cpp} is his primary and favourite
 
 
 
-[[XSergey_Ignatchenko]]
-== Sergey Ignatchenko
-
-link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
-
-Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
-
-
 [[XSergey_Nepomnyachiy]]
 == Sergey Nepomnyachiy
 
 link:sessions.html#XEasyHighConstancy[Easy High Constancy]
 
 Worked for Intel and IBM, now working for Bloomberg
+
+
+[[XSergey_Ignatchenko]]
+== Sergey Ignatchenko
+
+link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
+
+Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
 
 
 [[XStephen_Kelly]]
