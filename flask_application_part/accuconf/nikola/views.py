@@ -26,6 +26,12 @@ def index():
     return send_from_directory(_nikola_static_path.as_posix(), 'index.html')
 
 
+@nikola.route('/index-<int:number>.html')
+def older_indexes(number):
+    nikola.logger.info("index-{}.html accessed".format(number))
+    return send_from_directory(_nikola_static_path.as_posix(), 'index-{}.html'.format(number))
+
+
 @nikola.route('/rss.xml')
 def rss():
     nikola.logger.info("RSS accessed")
