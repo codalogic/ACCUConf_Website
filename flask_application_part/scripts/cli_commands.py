@@ -547,7 +547,12 @@ _The schedule is subject to change without notice until 2017-04-29._
                     row(first_column('16:00'), *get_sessions(id, SessionSlot.session_3)),
                     row(first_column('17:30'), all_columns_entry(cols, 'Break')),
                     row(first_column('18:00'), all_columns_entry(cols, 'Lightning Talks')),
-                    row(first_column('19:30'), all_columns_entry(cols, 'Conference Supper')) if i == 3 else '',
+                    (
+                        row(first_column('19:00'), all_columns_entry(cols, 'Welcome Reception')) if i == 1 else
+                        row(first_column('19:00'), all_columns_entry(cols, 'Bloomberg Dinner (at Zerodegrees via coaches)')) if i == 2 else
+                        row(first_column('19:30'), all_columns_entry(cols, 'Conference Supper')) if i == 3 else
+                        ''
+                    ),
                 )
             )
 
@@ -589,7 +594,7 @@ def deploy_new_schedule_files():
 
 
 @app.cli.command()
-@click.option('--trial/--not_trial', default=True)
+@click.option('--trial/--not-trial', default=True)
 @click.argument('emailout_spec')
 def do_emailout(trial, emailout_spec):
     """
@@ -616,17 +621,20 @@ def do_emailout(trial, emailout_spec):
     def run_emailout():
         for proposal, person in query.query():
             if person is not None:
-                email_address = '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
+                email_address = (
+                    '{} {} <russel@winder.org.uk>'.format(person.first_name, person.last_name) if trial else
+                    '{} {} <{}>'.format(person.first_name, person.last_name, person.email)
+                )
             else:
                 print('####  No data of person to send email to.')
                 return 1
             print('Subject:', subject)
-            print('Recipient:', 'russel@winder.org.uk' if trial else email_address)
+            print('Recipient:', email_address)
             if proposal is not None:
                 print('Title:', proposal.title)
             message = MIMEText(query.edit_template(str(file_paths[2]), proposal, person), _charset='utf-8')
             message['From'] = 'ACCUConf <conference@accu.org>'
-            message['To'] = 'russel@winder.org.uk' if trial else email_address
+            message['To'] = email_address
             message['Cc'] = 'ACCUConf <conference@accu.org>'
             message['Subject'] = subject
             message['Date'] = formatdate()  # RFC 2822 format.
@@ -637,7 +645,7 @@ def do_emailout(trial, emailout_spec):
         with SMTP('smtp.winder.org.uk') as server:
             run_emailout()
     else:
-        click.echo(click.style('Sending a real emailout via ACCU server.', fg='green'))
+        click.echo(click.style('Sending a real emailout via ACCU server.', fg='yellow'))
         with SMTP('mail.accu.org') as server:
             server.ehlo()
             server.starttls()
