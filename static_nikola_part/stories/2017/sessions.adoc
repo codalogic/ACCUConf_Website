@@ -121,67 +121,6 @@ are all welcome.
 
 
 
-[[XACCUdoesCCountdown]]
-== ACCU does {cpp} Countdown
-=== link:presenters.html#XJon_Jagger[Jon Jagger], link:presenters.html#XRobert_Chatley[Robert Chatley]
-
-This is a fun session based on the popular UK game show _Countdown_ [1] and its parody, _8 out of 10 cats
-does Countdown_ [2].
-
-* In the TV version contestants take turns picking 9 random vowels/consonants and finding the longest word
-in 30 seconds.
-* in this version contestants take turns picking 7 random {cpp} tokens from 5 categories: (keywords,
-identifiers, operators, punctuators, literals) and writing the _shortest_ {cpp} program using _all_ 7 tokens
-in 8 minutes.
-
-For example, if these 7 tokens are selected:
-
-[source,cpp]
-----
-const vector tokens =
-{
-    "catch",              // keyword
-    "->",                 // operator
-    "[",                  // punctuator
-    ";",                  // punctuator
-    "--",                 // operator
-    "foobar",             // identifier
-    "operator",           // keyword
-};
-----
-
-Then a winning program (53 characters long) might be:
-
-[source,cpp]
-----
-class c {
-  c operator->(){
-    foobar:
-    try{
-    }
-    catch(c x[]){
-        x--;
-    }
-  }
-};
-----
-* Programs will be written in customized cyber-dojo [3] sessions which
-automatically checks which tokens have been missed and tells you
-the program's size.
-* Numbers are limited: minimum two people per team, maximum 12 teams.
-* Once it is full, you can still be part of the audience, and "play along at
-home".
-* _Bring your laptop!_
-
-
-[1] http://www.channel4.com/programmes/countdown
-
-[2] http://www.channel4.com/programmes/8-out-of-10-cats-does-countdown
-
-[3] http://cyber-dojo.org
-
-
-
 [[XAIActualIntelligence]]
 == AI: Actual Intelligence
 === link:presenters.html#XFran_Buontempo[Fran Buontempo]
@@ -309,6 +248,60 @@ through application of the guidelines is demonstrated. Tools will be shown, that
 guideline violation and automatic repair to guideline-conforming code. Attending developers will be enabled
 to apply the Core Guidelines in the future to create or refactor to safer and more maintainable {cpp} code.
 
+
+
+[[XCCountdownPubQuiz]]
+== {cpp} Countdown Pub Quiz
+=== link:presenters.html#XJon_Jagger[Jon Jagger], link:presenters.html#XRobert_Chatley[Robert Chatley]
+
+This is a fun session based loosely on the popular UK TV game show _Countdown_ [1].
+
+In the TV version, in each round, contestants have 30 seconds to find the
+longest word using only a small set of letters.
+
+In this version, in each round, teams have ~7 minutes to write the
+_smallest_ {cpp} program which includes a given set of tokens.
+
+For example, the tokens in one round might be:
+
+[source,cpp]
+----
+const std::vector<std::string>> tokens =
+{
+    "catch",
+    "->",
+    "[",
+    ";",
+    "--",
+    "foobar",
+    "operator",
+};
+----
+
+A winning program (53 characters long) might be:
+
+[source,cpp]
+----
+class c {
+  c operator->(){
+    foobar: try{
+    }
+    catch(c x[]){
+        x--;
+    }
+  }
+};
+----
+Numbers are limited: minimum two people per team, maximum 12 teams.
+
+_Each team will need a laptop_ with wifi and a modern browser.
+
+All programs will be written in the browser using a customized cyber-dojo [2]
+which will automatically tell you your program's size, and your score.
+
+[1] http://www.channel4.com/programmes/countdown
+
+[2] http://cyber-dojo.org
 
 
 [[XConcurrencyParallelismandCoroutines]]

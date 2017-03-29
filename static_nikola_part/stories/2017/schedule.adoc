@@ -16,19 +16,19 @@ _The schedule is subject to change without notice until 2017-04-29._
 4+^|
 
 |10:00
+|link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
+ +
+link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
+|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
+ +
+link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
+|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
+ +
+link:presenters.html#XFelix_Petriconi[Felix Petriconi]
 |link:sessions.html#XTestablearchitecture[Testable architecture] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose] +
 link:presenters.html#XJon_Jagger[Jon Jagger]
-|link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
- +
-link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
-|link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
- +
-link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
-|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
- +
-link:presenters.html#XFelix_Petriconi[Felix Petriconi]
 |===
 
 == Wednesday 2017-04-26
@@ -103,7 +103,7 @@ link:presenters.html#XNeil_Horlock[Neil Horlock]
 |link:sessions.html#XHowtowriteaprogramminglanguage[How to write a programming language] +
  +
 link:presenters.html#XAndy_Balaam[Andy Balaam]
-|link:sessions.html#XACCUdoesCCountdown[ACCU does {cpp} Countdown] +
+|link:sessions.html#XCCountdownPubQuiz[{cpp} Countdown Pub Quiz] +
  +
 link:presenters.html#XRobert_Chatley[Robert Chatley] +
 link:presenters.html#XJon_Jagger[Jon Jagger]
@@ -114,7 +114,8 @@ link:presenters.html#XJon_Jagger[Jon Jagger]
 |18:00
 5+^|Lightning Talks
 
-
+|19:00
+5+^|Welcome Reception
 |===
 
 == Thursday 2017-04-27
@@ -199,7 +200,8 @@ link:presenters.html#XStephen_Kelly[Stephen Kelly]
 |18:00
 5+^|Lightning Talks
 
-
+|19:00
+5+^|Bloomberg Dinner (at Zerodegrees via coaches)
 |===
 
 == Friday 2017-04-28
@@ -269,7 +271,13 @@ link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggr
 link:presenters.html#XAhto_Truu[Ahto Truu] +
  +
 
-|link:sessions.html#XNamedparameters[Named parameters] +
+|link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
+ +
+link:presenters.html#XChristopher_Simons[Christopher Simons] +
+link:presenters.html#XPedro_Ferreira[Pedro Ferreira] +
+ +
+ +
+link:sessions.html#XNamedparameters[Named parameters] +
  +
 link:presenters.html#XOdin_Holmes[Odin Holmes] +
  +
@@ -277,12 +285,6 @@ link:presenters.html#XOdin_Holmes[Odin Holmes] +
 link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizations on Node-based Containers] +
  +
 link:presenters.html#XElliot_Goodrich[Elliot Goodrich] +
- +
- +
-link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
- +
-link:presenters.html#XChristopher_Simons[Christopher Simons] +
-link:presenters.html#XPedro_Ferreira[Pedro Ferreira] +
  +
 
 
