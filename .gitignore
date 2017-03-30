@@ -3,5 +3,3 @@
 /.cache
 /HowToStart.html
 /HowToStart.pdf
-/static_nikola_part/themes/accuconf/templates/accuconf.tmpl
-/flask_application_part/accuconf_config.py

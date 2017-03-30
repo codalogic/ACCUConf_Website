@@ -116,5 +116,9 @@ presenters.adoc
 presenters.html
 schedule.adoc
 schedule.html
+schedule.pdf
 sessions.adoc
 sessions.html
+
+# Do not commit the configuration file, it is a per server local file.
+accuconf_config.py
