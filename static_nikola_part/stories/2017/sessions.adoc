@@ -878,7 +878,7 @@ With modern {cpp} we can solve all those problems elegantly. This works especial
 
 [[XPOSIXviolatescoreguidelinesAnewtakeontheoperatingsysteminterface]]
 == POSIX violates core guidelines: A new take on the operating system interface
-=== link:presenters.html#XAlfred_Bratterud[Alfred Bratterud]
+=== link:presenters.html#XIngve_Vormestrand[Ingve Vormestrand]
 
 
 {cpp} has seen a fast paced evolution over the last six years, giving performance oriented programmers access to high level features such as range based loops, automatic type deduction, lambdas and unprecedented compile time expressivity. The core guidelines has emerged as a manual for using the new language features to write  type safe code without sacrificing performance or control.

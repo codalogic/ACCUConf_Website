@@ -25,15 +25,6 @@ He is currently working in {cpp} with a team of open source developers on "Mir" 
 He has a BSC in Mathematics and has published articles in ACCU's Overload and C Vu, C/{cpp} Users Journal, Java Report, and EXE. Contributor to "97 Things Every Programmer Should Know".
 
 
-[[XAlfred_Bratterud]]
-== Alfred Bratterud
-
-link:sessions.html#XPOSIXviolatescoreguidelinesAnewtakeontheoperatingsysteminterface[POSIX violates core guidelines: A new take on the operating system interface]
-
-Alfred started the IncludeOS project as a part of his ongoing PhD work aimed at improving resource efficiency in cloud computing. He's been employed since 2011 as Assistant Professor at Oslo and Akershus University College of Applied Science, the largest institution for engineering education in Norway, where among other things he taught {cpp} for 5 years. Alfred is currently working full time on IncludeOS through a startup spun out of the college and funded in part by the Norwegian Research Council. Alfred has 10+ years industrial programming experience. He holds an MSc. in Mathematical Logic and BSc in computer science from the University of Oslo. 
-
-
-
 [[XAnastasia_Kazakova]]
 == Anastasia Kazakova
 
@@ -329,6 +320,14 @@ link:sessions.html#XTheCTypeSystemIsYourFriend[The C++ Type System Is Your Frien
 Hubert Matthews has been programming in {cpp} for over 20 years and he has been teaching it for over 15 years. He also works as a systems architect and software consultant. Hubert has been a member of the UK BSI standards committee for {cpp}. Hubert Matthews is a freelance consultant specialising in system architecture and design as well as training programmers in {cpp}, UML, patterns and Java. His clients range from large companies and government to small companies and startups. Hubert lives in Oxford and in his abundant spare time he likes to pretend that he coaches rowing, dances salsa, dabbles with martial arts and drives too fast. 
 
 
+[[XIngve_Vormestrand]]
+== Ingve Vormestrand
+
+link:sessions.html#XPOSIXviolatescoreguidelinesAnewtakeontheoperatingsysteminterface[POSIX violates core guidelines: A new take on the operating system interface]
+
+Ingve is a developer at IncludeOS, where he works on the implementation of a new unikernel operating system. His professional experience includes web and mobile app development, and he is very enthusiastic about open source.
+
+
 [[XJDaniel_Garcia]]
 == J Daniel Garcia
 
@@ -607,6 +606,14 @@ link:sessions.html#XFunctionalCForFunAndProfit[Functional C++ For Fun And Profit
 Phil is a Developer Advocate for {cpp}, Objective-C and Swift tools at JetBrains. Prior to that he worked in as diverse fields as finance, agile coaching and iOS development. A long time {cpp} developer he also has his feet in C#, F#, Objective-C and Swift - as well as dabbling in other languages. He is the author of several open source projects - most notably Catch: a {cpp}-native test framework.
 
 
+[[XRobert_Chatley]]
+== Robert Chatley
+
+link:sessions.html#XCCountdownPubQuiz[C++ Countdown Pub Quiz]
+
+Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperial College London. Commercially he works as a consultant, coach and trainer with a focus on agile development. Robert has worked in many companies from startups to multinationals, including working as an engineer at Google, and also as a technical lead at Kizoom, one of the earliest companies in the UK employing XP at scale. He has chaired the XPDay conference, and acted as programme chair for the SPA conference. Robert holds an MEng degree in Information Systems Engineering and PhD in Software Engineering from Imperial College London.
+
+
 [[XRobert_Smallshire]]
 == Robert Smallshire
 
@@ -614,14 +621,6 @@ link:sessions.html#XLiberatingWirelessSensorData[Liberating Wireless Sensor Data
 
 Robert Smallshire is a founding director of Sixty North, a technology product and consulting business in Norway providing services throughout Europe. Robert has worked in senior software architecture and technical management roles in the energy sector, and is currently embarking on a new Internet-of-Things venture for solar power prediction and monitoring.
 He has dealt with understanding, designing, advocating and implementing effective architectures for sophisticated scientific, enterprise and embedded software in Python, {cpp} and on the .NET stack. He holds a Ph.D. in a natural science.
-
-
-[[XRobert_Chatley]]
-== Robert Chatley
-
-link:sessions.html#XCCountdownPubQuiz[C++ Countdown Pub Quiz]
-
-Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperial College London. Commercially he works as a consultant, coach and trainer with a focus on agile development. Robert has worked in many companies from startups to multinationals, including working as an engineer at Google, and also as a technical lead at Kizoom, one of the earliest companies in the UK employing XP at scale. He has chaired the XPDay conference, and acted as programme chair for the SPA conference. Robert holds an MEng degree in Information Systems Engineering and PhD in Software Engineering from Imperial College London.
 
 
 [[XRoger_Orr]]
@@ -693,20 +692,20 @@ practice (Java, C#, Haskell, SQL, and so on), {cpp} is his primary and favourite
 
 
 
-[[XSergey_Nepomnyachiy]]
-== Sergey Nepomnyachiy
-
-link:sessions.html#XEasyHighConstancy[Easy High Constancy]
-
-Worked for Intel and IBM, now working for Bloomberg
-
-
 [[XSergey_Ignatchenko]]
 == Sergey Ignatchenko
 
 link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
 
 Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
+
+
+[[XSergey_Nepomnyachiy]]
+== Sergey Nepomnyachiy
+
+link:sessions.html#XEasyHighConstancy[Easy High Constancy]
+
+Worked for Intel and IBM, now working for Bloomberg
 
 
 [[XStephen_Kelly]]
