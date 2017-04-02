@@ -117,6 +117,9 @@ presenters.html
 schedule.adoc
 schedule.html
 schedule.pdf
+schedule_paginated.adoc
+schedule_paginated.html
+schedule_paginated.pdf
 sessions.adoc
 sessions.html
 
