@@ -336,7 +336,7 @@ def ensure_consistency_of_schedule():
 @app.cli.command()
 def list_of_unacknowledged():
     """
-    List the sessions anf emails of unacknowledged sessions.
+    List the sessions and emails of unacknowledged sessions.
     """
     proposals = Proposal.query.filter_by(status=ProposalState.accepted).all()
     quickies = tuple(p for p in proposals if p.session_type == SessionType.quickie)
@@ -549,7 +549,7 @@ _The schedule is subject to change without notice until 2017-04-29._
                     row(first_column('18:00'), all_columns_entry(cols, 'Lightning Talks')),
                     (
                         row(first_column('19:00'), all_columns_entry(cols, 'Welcome Reception')) if i == 1 else
-                        row(first_column('19:00'), all_columns_entry(cols, 'Bloomberg Dinner (at Zerodegrees via coaches)')) if i == 2 else
+                        row(first_column('19:00'), all_columns_entry(cols, 'Bloomberg ACCUChess17 (at Zerodegrees via coaches)')) if i == 2 else
                         row(first_column('19:30'), all_columns_entry(cols, 'Conference Supper')) if i == 3 else
                         ''
                     ),
@@ -731,6 +731,81 @@ def replace_proposal_abstract(amendment_file_name):
         proposals[0].text = amendment_text
         db.session.commit()
         print('Update apparently completed.')
+
+
+@app.cli.command()
+@click.argument('person')
+def replace_presenter_of_proposal(person):
+    """
+    Replace the, or one of the, presenters associated with a proposal.
+
+    The name is in the format <first_name>_<last_name> and refers to a directory
+    in presenter_replacements directory. This directory must contain a file
+    title.txt with the title of the proposal to be presented by the person being replaced.
+    There must also be a file new_presenter.txt with details of the replacement presenter.
+    This file must contain a line for each of the fields of a Presenter object:
+    email, first_name, last_name, country, state, and then an Asciidoc paragraph for the bio.
+
+    :param person: name of a directory in the presenter_replacements directory
+    :return: None
+    """
+    directory = Path(__file__).parent.parent / 'presenter_replacements' / person
+    if not directory.exists():
+        print(person + ' replacement not set up correctly')
+        return
+    title_file = directory / 'title.txt'
+    if not title_file.exists():
+        print('no title.txt file for {} replacement'.format(person))
+        return
+    with open(str(title_file)) as f:
+        title = f.read().strip()
+    new_presenter_file = directory / 'new_presenter.txt'
+    if not new_presenter_file.exists():
+        print('no new_presenter.txt file for {} replacement'.format(person))
+        return
+    with open(str(new_presenter_file)) as f:
+        email = f.readline().strip()
+        first_name = f.readline().strip()
+        last_name = f.readline().strip()
+        country = f.readline().strip()
+        state = f.readline().strip()
+        bio = f.read().strip()
+    proposal = Proposal.query.filter_by(title=title).all()
+    if len(proposal) == 0:
+        print('No proposal found with title: ' + title)
+        return
+    if len(proposal) > 1:
+        print('Multiple proposals with the title: ' + title)
+        return
+    proposal = proposal[0]
+    f_name, l_name = tuple(p.capitalize() for p in person.split('_'))
+    old_presenter = Presenter.query.filter_by(first_name=f_name, last_name=l_name).all()
+    if len(old_presenter) == 0:
+        print('No presenter found with name: {} {}'.format(f_name, l_name))
+        return
+    if len(old_presenter) > 1:
+        print('Multiple presenters found with name: {} {}'.format(f_name, l_name))
+        return
+    old_presenter = old_presenter[0]
+    proposal_presenter = ProposalPresenter.query.filter_by(proposal=proposal, presenter=old_presenter).all()
+    if len(proposal_presenter) == 0:
+        print('No proposal_presenter found with title {}, and name {} {}'.format(proposal.title, old_presenter.first_name, old_presenter.last_name))
+        return
+    if len(proposal_presenter) > 1:
+        print('Multiple proposal_presenters found with title {}, and name {} {}'.format(proposal.title, old_presenter.first_name, old_presenter.last_name))
+        return
+    proposal_presenter = proposal_presenter[0]
+    new_presenter = Presenter(email, first_name, last_name, bio, country, state)
+    print(proposal.title)
+    print(old_presenter.email)
+    print(new_presenter.email)
+    print(proposal_presenter, proposal_presenter.proposal, proposal_presenter.presenter, proposal_presenter.is_lead)
+    if old_presenter != proposal_presenter.presenter:
+        print('Presenter not found, this cannot happen')
+        return
+    proposal_presenter.presenter = new_presenter
+    print(proposal_presenter, proposal_presenter.proposal, proposal_presenter.presenter, proposal_presenter.is_lead)
+    #db.session.commit()
 
 
 @app.cli.command()
