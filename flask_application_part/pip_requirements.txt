@@ -5,7 +5,3 @@ Flask-Bootstrap
 Flask-Cors
 SQLAlchemy
 Flask_SQLAlchemy
-
-# Not needed for the application but needed for the CLI stuff.
-
-reportlab
