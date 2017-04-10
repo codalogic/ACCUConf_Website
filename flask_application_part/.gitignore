@@ -112,16 +112,15 @@ ENV/
 
 
 # Do not put the generated files or their renderings into the repository
-presenters.adoc
-presenters.html
-schedule.adoc
-schedule.html
-schedule.pdf
-schedule_paginated.adoc
-schedule_paginated.html
-schedule_paginated.pdf
-sessions.adoc
-sessions.html
+/presenters.adoc
+/presenters.html
+/presenters.pdf
+/schedule.adoc
+/schedule.html
+/schedule.pdf
+/sessions.adoc
+/sessions.html
+/sessions.pdf
 
 # Do not commit the configuration file, it is a per server local file.
 accuconf_config.py
