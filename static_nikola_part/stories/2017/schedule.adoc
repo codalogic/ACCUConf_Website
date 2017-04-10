@@ -8,28 +8,37 @@
 _The schedule is subject to change without notice until 2017-04-29._
 
 
+
+<<<
+
 == Tuesday 2017-04-25
 
 [cols="5*^", options="header"]
 |===
 |
-4+^|
+|Bristol 3
+|Empire
+|SS Great Britain
+|Wallace
 
 |10:00
+|link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
+ +
+link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
+|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
+ +
+link:presenters.html#XFelix_Petriconi[Felix Petriconi]
 |link:sessions.html#XTestablearchitecture[Testable architecture] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose] +
 link:presenters.html#XJon_Jagger[Jon Jagger]
-|link:sessions.html#XMovingtoC17TheNewLanguageandLibraryFeatures[Moving to {cpp}17: The New Language and Library Features] +
- +
-link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
 |link:sessions.html#XAProgrammersIntroductiontoChapel[A Programmer's Introduction to Chapel] +
  +
 link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
-|link:sessions.html#XTheArtofWritingReasonableConcurrentCode[The Art of Writing Reasonable Concurrent Code] +
- +
-link:presenters.html#XFelix_Petriconi[Felix Petriconi]
 |===
+
+
+<<<
 
 == Wednesday 2017-04-26
 
@@ -112,11 +121,14 @@ link:presenters.html#XJon_Jagger[Jon Jagger]
 5+^|Break
 
 |18:00
-5+^|Lightning Talks
+5+^|Lightning Talks (1 hour)
 
 |19:00
 5+^|Welcome Reception
 |===
+
+
+<<<
 
 == Thursday 2017-04-27
 
@@ -198,11 +210,14 @@ link:presenters.html#XStephen_Kelly[Stephen Kelly]
 5+^|Break
 
 |18:00
-5+^|Lightning Talks
+5+^|Lightning Talks (1 hour)
 
 |19:00
 5+^|Bloomberg ACCUChess17 (at Zerodegrees via coaches)
 |===
+
+
+<<<
 
 == Friday 2017-04-28
 
@@ -260,7 +275,12 @@ link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizati
 link:presenters.html#XElliot_Goodrich[Elliot Goodrich] +
  +
 
-|link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
+|link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
+ +
+link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
+ +
+ +
+link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
  +
 link:presenters.html#XJon_Jagger[Jon Jagger] +
  +
@@ -274,11 +294,6 @@ link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/{cpp} compiler frontend
  +
 link:presenters.html#XPetr_Kudriavtsev[Petr Kudriavtsev] +
 link:presenters.html#XVladimir_Voskresensky[Vladimir Voskresensky] +
- +
- +
-link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
- +
-link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
  +
 
 |link:sessions.html#XContractsprogrammingafterC17[Contracts programming after {cpp}17] +
@@ -331,12 +346,15 @@ link:presenters.html#XIngve_Vormestrand[Ingve Vormestrand]
 |17:30
 5+^|Break
 
-|18:00
-5+^|Lightning Talks
+|17:35
+5+^|Lightning Talks (40 mins)
 
 |19:30
-5+^|Conference Supper
+5+^|Conference Supper (19:30 for drinks, 20:00 service)
 |===
+
+
+<<<
 
 == Saturday 2017-04-29
 

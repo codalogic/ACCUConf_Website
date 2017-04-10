@@ -34,6 +34,4 @@ class Room(Enum):
     bristol_3 = 'bristol_3'
     empire = 'empire'
     great_britain = 'great_britain'
-
-
-
+    wallace = 'wallace'

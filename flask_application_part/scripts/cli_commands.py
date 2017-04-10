@@ -463,7 +463,7 @@ _The schedule is subject to change without notice until 2017-04-29._
 '''.format(start_date.year))
 
         def heading(text):
-            return '\n== {}\n\n'.format(text)
+            return '\n\n<<<\n\n== {}\n\n'.format(text)
 
         def table(cols, *args):
             return '[cols="{}*^", options="header"]\n|===\n{}\n|===\n'.format(cols, '\n\n'.join(args))
@@ -494,14 +494,24 @@ _The schedule is subject to change without notice until 2017-04-29._
         def schedule_write(text):
             schedule_file.write(text.replace('C++', '{cpp}'))
 
-        workshop_data = tuple(single_column_entry(*session_and_presenters(item)) for item in workshops)
-        schedule_write(
-            heading(day_names[start_date.weekday()] + ' ' + start_date.isoformat()) +
-            table(len(workshop_data) + 1,
-                row(first_column(''), all_columns_entry(4, '')),
-                row(first_column('10:00'), *workshop_data),
+        def create_workshops_day():
+            workshop_data = tuple(single_column_entry(*session_and_presenters(item)) for item in workshops)
+            schedule_write(
+                heading(day_names[start_date.weekday()] + ' ' + start_date.isoformat()) +
+                table(len(workshop_data) + 1,
+                    row(first_column(''),
+                        single_column_entry('Bristol 3'),
+                        single_column_entry('Empire'),
+                        single_column_entry('SS Great Britain'),
+                        single_column_entry('Wallace')),
+                    row(first_column('10:00'),
+                        single_column_entry(*session_and_presenters(tuple(p for p in workshops if p.room == Room.bristol_3)[0])),
+                        single_column_entry(*session_and_presenters(tuple(p for p in workshops if p.room == Room.empire)[0])),
+                        single_column_entry(*session_and_presenters(tuple(p for p in workshops if p.room == Room.great_britain)[0])),
+                        single_column_entry(*session_and_presenters(tuple(p for p in workshops if p.room is None)[0])), # TODO Fix this after schema change.
+                    )
+                )
             )
-        )
 
         def get_keynote(day):
             possibles = tuple(p for p in sessions if p.session_type == SessionType.keynote and p.day == day)
@@ -546,11 +556,14 @@ _The schedule is subject to change without notice until 2017-04-29._
                     row(first_column('15:30'), all_columns_entry(cols, 'Break')),
                     row(first_column('16:00'), *get_sessions(id, SessionSlot.session_3)),
                     row(first_column('17:30'), all_columns_entry(cols, 'Break')),
-                    row(first_column('18:00'), all_columns_entry(cols, 'Lightning Talks')),
+                    (
+                        row(first_column('18:00'), all_columns_entry(cols, 'Lightning Talks (1 hour)')) if i == 1 or i == 2 else
+                        row(first_column('17:35'), all_columns_entry(cols, 'Lightning Talks (40 mins)'))
+                    ),
                     (
                         row(first_column('19:00'), all_columns_entry(cols, 'Welcome Reception')) if i == 1 else
                         row(first_column('19:00'), all_columns_entry(cols, 'Bloomberg ACCUChess17 (at Zerodegrees via coaches)')) if i == 2 else
-                        row(first_column('19:30'), all_columns_entry(cols, 'Conference Supper')) if i == 3 else
+                        row(first_column('19:30'), all_columns_entry(cols, 'Conference Supper (19:30 for drinks, 20:00 service)')) if i == 3 else
                         ''
                     ),
                 )
@@ -576,6 +589,7 @@ _The schedule is subject to change without notice until 2017-04-29._
                 )
             )
 
+        create_workshops_day()
         create_conference_day(1, ConferenceDay.day_1)
         create_conference_day(2, ConferenceDay.day_2)
         create_conference_day(3, ConferenceDay.day_3)

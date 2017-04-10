@@ -560,14 +560,12 @@ problem.
 
 
 
-[[XPeter_Smith]]
-== Peter Smith
+[[XPeter_Sommerlad]]
+== Peter Sommerlad
 
-link:sessions.html#XThelinkfromobjecttoexecutabletheroleoflinkerinadevelopmenttoolchain[The link from object to executable - the role of linker in a development toolchain]
+link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
 
-Peter is a software engineer at ARM and Linaro, he has been working on software development tools for over
-16 years, specialising in non-compiler tools. He has been the maintainer of the ARM Compiler toolchain
-linker armlink and is currently adding ARM support to the LLVM linker lld.
+Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
 
 
 
@@ -581,12 +579,14 @@ Peter Hilton is a software developer, writer, speaker, trainer, and musician. Pe
 Peter’s software development interests include web applications, service architecture, software development methodology and practices, and web-based collaboration. Peter has presented at several European developer conferences, including ACCU, Scala eXchange, Devoxx, Øredev, Jfokus, Javazone, geecon and TopConf. Peter co-authored ‘Play for Scala’ (Manning Publications) and has taught ‘Fast Track to Play with Scala’.
 
 
-[[XPeter_Sommerlad]]
-== Peter Sommerlad
+[[XPeter_Smith]]
+== Peter Smith
 
-link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
+link:sessions.html#XThelinkfromobjecttoexecutabletheroleoflinkerinadevelopmenttoolchain[The link from object to executable - the role of linker in a development toolchain]
 
-Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
+Peter is a software engineer at ARM and Linaro, he has been working on software development tools for over
+16 years, specialising in non-compiler tools. He has been the maintainer of the ARM Compiler toolchain
+linker armlink and is currently adding ARM support to the LLVM linker lld.
 
 
 
@@ -606,14 +606,6 @@ link:sessions.html#XFunctionalCForFunAndProfit[Functional C++ For Fun And Profit
 Phil is a Developer Advocate for {cpp}, Objective-C and Swift tools at JetBrains. Prior to that he worked in as diverse fields as finance, agile coaching and iOS development. A long time {cpp} developer he also has his feet in C#, F#, Objective-C and Swift - as well as dabbling in other languages. He is the author of several open source projects - most notably Catch: a {cpp}-native test framework.
 
 
-[[XRobert_Chatley]]
-== Robert Chatley
-
-link:sessions.html#XCCountdownPubQuiz[C++ Countdown Pub Quiz]
-
-Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperial College London. Commercially he works as a consultant, coach and trainer with a focus on agile development. Robert has worked in many companies from startups to multinationals, including working as an engineer at Google, and also as a technical lead at Kizoom, one of the earliest companies in the UK employing XP at scale. He has chaired the XPDay conference, and acted as programme chair for the SPA conference. Robert holds an MEng degree in Information Systems Engineering and PhD in Software Engineering from Imperial College London.
-
-
 [[XRobert_Smallshire]]
 == Robert Smallshire
 
@@ -621,6 +613,14 @@ link:sessions.html#XLiberatingWirelessSensorData[Liberating Wireless Sensor Data
 
 Robert Smallshire is a founding director of Sixty North, a technology product and consulting business in Norway providing services throughout Europe. Robert has worked in senior software architecture and technical management roles in the energy sector, and is currently embarking on a new Internet-of-Things venture for solar power prediction and monitoring.
 He has dealt with understanding, designing, advocating and implementing effective architectures for sophisticated scientific, enterprise and embedded software in Python, {cpp} and on the .NET stack. He holds a Ph.D. in a natural science.
+
+
+[[XRobert_Chatley]]
+== Robert Chatley
+
+link:sessions.html#XCCountdownPubQuiz[C++ Countdown Pub Quiz]
+
+Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperial College London. Commercially he works as a consultant, coach and trainer with a focus on agile development. Robert has worked in many companies from startups to multinationals, including working as an engineer at Google, and also as a technical lead at Kizoom, one of the earliest companies in the UK employing XP at scale. He has chaired the XPDay conference, and acted as programme chair for the SPA conference. Robert holds an MEng degree in Information Systems Engineering and PhD in Software Engineering from Imperial College London.
 
 
 [[XRoger_Orr]]
@@ -692,20 +692,20 @@ practice (Java, C#, Haskell, SQL, and so on), {cpp} is his primary and favourite
 
 
 
-[[XSergey_Ignatchenko]]
-== Sergey Ignatchenko
-
-link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
-
-Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
-
-
 [[XSergey_Nepomnyachiy]]
 == Sergey Nepomnyachiy
 
 link:sessions.html#XEasyHighConstancy[Easy High Constancy]
 
 Worked for Intel and IBM, now working for Bloomberg
+
+
+[[XSergey_Ignatchenko]]
+== Sergey Ignatchenko
+
+link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
+
+Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
 
 
 [[XStephen_Kelly]]
