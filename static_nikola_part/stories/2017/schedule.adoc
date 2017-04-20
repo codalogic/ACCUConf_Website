@@ -239,12 +239,7 @@ link:presenters.html#XFran_Buontempo[Fran Buontempo]
 5+^|Break
 
 |11:00
-|link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
- +
-link:presenters.html#XGreg_Law[Greg Law] +
- +
- +
-link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
+|link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
  +
 link:presenters.html#XDirk_Haun[Dirk Haun] +
  +
@@ -257,6 +252,11 @@ link:presenters.html#XDom_Davis[Dom Davis] +
 link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees] +
  +
 link:presenters.html#XAhto_Truu[Ahto Truu] +
+ +
+ +
+link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
+ +
+link:presenters.html#XGreg_Law[Greg Law] +
  +
 
 |link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
