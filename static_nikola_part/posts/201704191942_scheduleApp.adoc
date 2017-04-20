@@ -9,3 +9,6 @@ https://sixty-north.com/[Sixty North AS] has put together a
 https://sixty-north.com/c/accu-2017/[new web-based schedule app] for ACCU 2017.
 The app lets you search for topics and speakers, see the daily schedules, and
 build a personal conference agenda.
+
+Interested in Elm? You can find the project's source and get involved in its
+development at https://github.com/abingham/accu-2017-elm-app/[the github repository].
