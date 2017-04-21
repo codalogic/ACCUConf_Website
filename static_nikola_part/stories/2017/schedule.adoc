@@ -176,7 +176,7 @@ link:presenters.html#XPeter_Sommerlad[Peter Sommerlad]
 |link:sessions.html#XAnOverviewofProgramOptimizationTechniques[An Overview of Program Optimization Techniques] +
  +
 link:presenters.html#XMathias_Gaunard[Mathias Gaunard]
-|link:sessions.html#XLiberatingWirelessSensorData[Liberating Wireless Sensor Data] +
+|link:sessions.html#XStandardisedCoroutineConcurrencyinPython3[Standardised Coroutine Concurrency in Python 3] +
  +
 link:presenters.html#XRobert_Smallshire[Robert Smallshire]
 |link:sessions.html#XAnintroductiontoKotlinbyexample[An introduction to Kotlin by example] +
@@ -239,7 +239,12 @@ link:presenters.html#XFran_Buontempo[Fran Buontempo]
 5+^|Break
 
 |11:00
-|link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
+|link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
+ +
+link:presenters.html#XGreg_Law[Greg Law] +
+ +
+ +
+link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
  +
 link:presenters.html#XDirk_Haun[Dirk Haun] +
  +
@@ -253,11 +258,6 @@ link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggr
  +
 link:presenters.html#XAhto_Truu[Ahto Truu] +
  +
- +
-link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
- +
-link:presenters.html#XGreg_Law[Greg Law] +
- +
 
 |link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
  +
@@ -265,17 +265,22 @@ link:presenters.html#XChristopher_Simons[Christopher Simons] +
 link:presenters.html#XPedro_Ferreira[Pedro Ferreira] +
  +
  +
-link:sessions.html#XNamedparameters[Named parameters] +
- +
-link:presenters.html#XOdin_Holmes[Odin Holmes] +
- +
- +
 link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizations on Node-based Containers] +
  +
 link:presenters.html#XElliot_Goodrich[Elliot Goodrich] +
  +
+ +
+link:sessions.html#XNamedparameters[Named parameters] +
+ +
+link:presenters.html#XOdin_Holmes[Odin Holmes] +
+ +
 
-|link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
+|link:sessions.html#XIntrotoTDDandBDD[Intro to TDD and BDD] +
+ +
+link:presenters.html#XSeb_Rose[Seb Rose] +
+ +
+ +
+link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
  +
 link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
  +
@@ -283,11 +288,6 @@ link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
 link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
  +
 link:presenters.html#XJon_Jagger[Jon Jagger] +
- +
- +
-link:sessions.html#XIntrotoTDDandBDD[Intro to TDD and BDD] +
- +
-link:presenters.html#XSeb_Rose[Seb Rose] +
  +
  +
 link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/{cpp} compiler frontend in Java] +

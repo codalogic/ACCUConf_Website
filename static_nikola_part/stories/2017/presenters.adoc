@@ -560,15 +560,6 @@ problem.
 
 
 
-[[XPeter_Sommerlad]]
-== Peter Sommerlad
-
-link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
-
-Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
-
-
-
 [[XPeter_Smith]]
 == Peter Smith
 
@@ -577,6 +568,15 @@ link:sessions.html#XThelinkfromobjecttoexecutabletheroleoflinkerinadevelopmentto
 Peter is a software engineer at ARM and Linaro, he has been working on software development tools for over
 16 years, specialising in non-compiler tools. He has been the maintainer of the ARM Compiler toolchain
 linker armlink and is currently adding ARM support to the LLVM linker lld.
+
+
+
+[[XPeter_Sommerlad]]
+== Peter Sommerlad
+
+link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[C++ Core Guidelines - Modernize your C++ Code Base]
+
+Prof. Peter Sommerlad is director of IFS Institute for Software at FHO/HSR Rapperswil, Switzerland. Peter is co-author of the books POSA Vol.1 and Security Patterns and contributed to "97 things every programmer should know". His goal is to make software simpler by Decremental Development: Refactoring software down to 10% its size with better architecture, testability and quality and functionality. To reach that goal his team and students created the {cpp} IDE Cevelop (based on Eclipse). Peter is a member of Hillside, ACM, IEEE Computer Society, SI, ACCU, and the ISO {cpp} standardization committee.
 
 
 
@@ -617,7 +617,7 @@ Robert Chatley is a Principal Teaching Fellow in Software Engineering at Imperia
 [[XRobert_Smallshire]]
 == Robert Smallshire
 
-link:sessions.html#XLiberatingWirelessSensorData[Liberating Wireless Sensor Data]
+link:sessions.html#XStandardisedCoroutineConcurrencyinPython3[Standardised Coroutine Concurrency in Python 3]
 
 Robert Smallshire is a founding director of Sixty North, a technology product and consulting business in Norway providing services throughout Europe. Robert has worked in senior software architecture and technical management roles in the energy sector, and is currently embarking on a new Internet-of-Things venture for solar power prediction and monitoring.
 He has dealt with understanding, designing, advocating and implementing effective architectures for sophisticated scientific, enterprise and embedded software in Python, {cpp} and on the .NET stack. He holds a Ph.D. in a natural science.

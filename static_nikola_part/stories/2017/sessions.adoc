@@ -299,9 +299,14 @@ _Each team will need a laptop_ with wifi and a modern browser.
 All programs will be written in the browser using a customized cyber-dojo [2]
 which will automatically tell you your program's size, and your score.
 
+*NB Although scheduled in a conference room, this session will take place
+in the hotel bar – how else could it be a "pub quiz" if not held in a
+"pub".*
+
 [1] http://www.channel4.com/programmes/countdown
 
 [2] http://cyber-dojo.org
+
 
 
 [[XConcurrencyParallelismandCoroutines]]
@@ -723,19 +728,6 @@ The complexity of the {cpp} language, which allows for versatility and good perf
 The session discusses these challenges and then analyses the different information resources at our disposal, like books and different kinds of online content.
 
 
-[[XLiberatingWirelessSensorData]]
-== Liberating Wireless Sensor Data
-=== link:presenters.html#XRobert_Smallshire[Robert Smallshire]
-
-Wireless sensors networks are a central feature of the Internet of Things. Unfortunately, many useful sensors are proprietary designs which use undocumented wireless protocols, locking our data into the vendor’s devices or services. The closed nature of these protocols inhibits interoperability of these devices within larger systems, and might even be considered ethically dubious.
-
-I will tell the story of a small-scale, industrial reverse engineering effort to liberate our data from a proprietary solar irradiance meter which transmits measurements over a wireless link to an equally proprietary remote base-station.  By combining protocol analysers developed in Python and Excel with a logic analyser, oscilloscope and a large measure of obstinate tenacity, we illustrate how the signal protocol was ultimately figured out. This information was used to inform an open-source protocol implementation in {cpp}, designed to run on a simple open-source hardware device comprising an 8-bit microcontroller and a radio receiver connected to a Raspberry Pi.
-
-Curiously, the forensic process revealed several design flaws in the upstream proprietary sensor software, one of which results in silent correctness failures of the system, calling into question reliance on unpublished proprietary protocols in areas where there may be safety implications.
-
-This session should be of interest to anybody interested in the Internet of Things, wireless sensors, embedded systems, hardware hacking, openness and puzzle solving.
-
-
 [[XLocalarenaMemoryAllocators]]
 == Local (arena) Memory Allocators
 === link:presenters.html#XJohn_Lakos[John Lakos]
@@ -953,6 +945,43 @@ brand-new talk of material I've never given before, in which I'll present one (o
 I'm personally working on to further improve {cpp} post-{cpp}17. All follow a common theme – adding a strategic
 language and/or library feature to {cpp} that leads to significant, and sometimes dramatic, simplification of
 real-world {cpp} code. I'll pick which one (or more) of those topics to present sometime in March.
+
+
+
+[[XStandardisedCoroutineConcurrencyinPython3]]
+== Standardised Coroutine Concurrency in Python 3
+=== link:presenters.html#XRobert_Smallshire[Robert Smallshire]
+
+Coroutines are an old idea undergoing a resurgence in popularity as they
+facilitate highly concurrent applications without recourse to the
+complications and intricacies of threads and locks.  After many years of
+third-party support for coroutine-based concurrency in Python, the popular
+Python language has recently introduced first-class support with many new
+language features together with a supporting standard library called
+_asyncio_.
+
+Coroutines are threads-of-execution implemented via resumable functions
+which, when combined with a suitable scheduler, can be used to support
+concurrency in the style of cooperative multitasking which can be simpler
+to reason about, and easier to debug, than the alternatives.
+
+In the first part of this session we demonstrate the simplicity and
+essential qualities of coroutine-based concurrency by building a simple
+concurrency framework from scratch, in Python 3. This efficiently removes
+any notion that there is any hidden magic in how coroutines work in
+practice.  We then, by a series of simple, mechanical transformations,
+convert our home-grown example into real Python 3 code using the recently
+introduced _async_ and _await_ language features, together with the _asyncio_
+library.  In the final part of the talk we explore some of the abstractions
+Python 3 builds on top of coroutines such as futures, tasks, transports and
+asynchronous streams, and demonstrate how to use these in a practical
+application.
+
+This session can serve as an introduction to coroutine-based concurrency
+for those new to the idea irrespective of programming language, and window
+into how asynchronous programming in Python works in theory and in
+practice.  Around 80% of the session is code and live demonstration, with
+20% supporting material.
 
 
 
