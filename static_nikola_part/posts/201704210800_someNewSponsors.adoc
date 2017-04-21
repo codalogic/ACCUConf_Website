@@ -1,0 +1,31 @@
+////
+.. title: Some New Sponsors: Riverblade, SNSystems, and Steema
+.. date: 2017-04-21T08:00+01:00
+.. type: text
+////
+
+Three new sponsors of ACCU 2017 to note.
+
+The first is https://www.riverblade.co.uk[Riverblade], a company deeply committed to making software
+developers' lives better with good development tools. In fact Riverblade signed up as a sponsor a while
+back, but due to failure on the part of the wetware running this website, their logo was not added to the
+list of sponsors, and blog entry not posted. This is particularly bad as Riverblade have been a staunch
+supporter of ACCU conferences for many years. I hope the good folk at Riverblade accept the wetware's
+apologies for this error.
+
+image::/assets/images/2017_SponsorLogos/riverblade_logo.png[Riverblade, align="center", link="https://www.riverblade.co.uk"]
+
+
+
+The first of our actually newly signed up sponsors is http://snsystems.com/[SNSystems]. It is great to have
+this games-oriented company on board. Games may be fun (mostly), but software that implements the games, and
+perhaps more importantly, the software that implements the tools and frameworks programmers used to write the
+games software are important bits of software. ACCU members like good software.
+
+image::/assets/images/2017_SponsorLogos/snsystems.png[SNSystems, align="center", link="http://snsystems.com/"]
+
+Our second new sponsor is https://www.steema.com/[Steema]. Anyone involved with data is aware that
+visualisation of that data is a critical part of finding information from that data. Steema contribute to
+visualisation by making charting software. Expect prizes from them at ACCU 2017.
+
+image::/assets/images/2017_SponsorLogos/Steema_logo.png[Steema, width="40%", align="center", link="https://www.steema.com/"]
