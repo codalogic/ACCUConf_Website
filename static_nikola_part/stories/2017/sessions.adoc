@@ -935,19 +935,6 @@ Job ads often ask for creativity as one of the skills for software developers. B
 This talk introduces a simple method to help you trigger your creativity when under stress.
 
 
-[[XSomethingsNewincpp]]
-== Something(s) New in {cpp}
-=== link:presenters.html#XHerb_Sutter[Herb Sutter]
-
-By the time the ACCU 2017 conference begins, {cpp}17 is expected to be technically complete and in its final
-approval ballot. What comes next? Will {cpp} continue growing forever? Can {cpp} code be simplified? This is a
-brand-new talk of material I've never given before, in which I'll present one (or more) of three proposals
-I'm personally working on to further improve {cpp} post-{cpp}17. All follow a common theme – adding a strategic
-language and/or library feature to {cpp} that leads to significant, and sometimes dramatic, simplification of
-real-world {cpp} code. I'll pick which one (or more) of those topics to present sometime in March.
-
-
-
 [[XStandardisedCoroutineConcurrencyinPython3]]
 == Standardised Coroutine Concurrency in Python 3
 === link:presenters.html#XRobert_Smallshire[Robert Smallshire]
@@ -1193,6 +1180,23 @@ Sooner than later we will fall into the deep darkness of universal references an
 Ask programmers what comes to mind when you say concurrency and most are likely to say threads. Ask what comes to mind when you say threads and most are likely to say locks or synchronisation. These assumptions are so deeply held that they define and constrain how programmers are taught and think about concurrency: thread safety is almost synonymous with the avoidance of race conditions and the guarded protection of mutable state. But this is only one quadrant of four possibilities, a quadrant diagram partitioned by mutable–immutable along one axis and shared–unshared along another.
 
 Whether {cpp}, C# or Java, many mainstream languages support programmers in all four quadrants, not just the synchronisation quadrant. From immutability to actors, this talk will take a look at patterns and practices that encourage thinking and coding outside the locked box.
+
+
+[[XThoughtsonMetaclasses]]
+== Thoughts on Metaclasses
+=== link:presenters.html#XHerb_Sutter[Herb Sutter]
+
+Will {cpp} continue growing forever? Can {cpp} code be simplified? The current {cpp} reflection proposals
+are game-changers in themselves, but talk assumes them and asks the question: What could be the next step
+beyond that, that is enabled once we have reflection? Can it help us to simplify future {cpp} code? progress
+more future {cpp} language feature proposals as just ordinary libraries instead without always requiring a
+new compiler? replace widely-used but nonportable vendor extensions? … or perhaps all of the above?
+
+This is a brand-new talk of material I’ve never given before, in which I’ll present one of potential future
+proposals I’m personally working on to further improve {cpp} post-{cpp}17, all of which follow a common
+theme – adding a strategic language and/or library feature to {cpp} that leads to significant, and sometimes
+dramatic, simplification of real-world {cpp} code.
+
 
 
 [[XTimegentlemenplease]]
