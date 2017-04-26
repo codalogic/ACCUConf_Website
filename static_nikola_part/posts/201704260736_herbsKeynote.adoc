@@ -1,0 +1,14 @@
+////
+.. title: Herb's Keynote
+.. date: 2017-04-26T07:36+01:00
+.. type: text
+////
+
+The original title and blurb for Herb's keynote closing ACCU 2017 left room for one of many actual
+presentations. Herb has now sent in the choice he has made. So the printed materials now have the
+wrong title and blurb. The selected title is:
+
+link:/stories/2017/sessions.html#XThoughtsonMetaclasses[Thoughts on Metaclasses]
+
+which is a link through to the blurb on the website. The website and the Web application have the correct
+title and blurb even if the printed materials have been overtaken by events.
