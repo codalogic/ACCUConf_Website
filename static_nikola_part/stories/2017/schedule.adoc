@@ -239,7 +239,12 @@ link:presenters.html#XFran_Buontempo[Fran Buontempo]
 5+^|Break
 
 |11:00
-|link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
+|link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
+ +
+link:presenters.html#XGreg_Law[Greg Law] +
+ +
+ +
+link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
  +
 link:presenters.html#XDirk_Haun[Dirk Haun] +
  +
@@ -252,11 +257,6 @@ link:presenters.html#XDom_Davis[Dom Davis] +
 link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees] +
  +
 link:presenters.html#XAhto_Truu[Ahto Truu] +
- +
- +
-link:sessions.html#XThemissingpieceofthecontinuousintegrationpuzzlewhattodowithallthosetestfailures[The missing piece of the continuous integration puzzle - what to do with all those test failures?] +
- +
-link:presenters.html#XGreg_Law[Greg Law] +
  +
 
 |link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
@@ -274,13 +274,13 @@ link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizati
  +
 link:presenters.html#XElliot_Goodrich[Elliot Goodrich] +
  +
+ +
+link:sessions.html#XIntroductiontoIntelSGX[Introduction to Intel SGX] +
+ +
+link:presenters.html#XSamathy_Barratt[Samathy Barratt] +
+ +
 
-|link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
- +
-link:presenters.html#XJon_Jagger[Jon Jagger] +
- +
- +
-link:sessions.html#XIntrotoTDDandBDD[Intro to TDD and BDD] +
+|link:sessions.html#XIntrotoTDDandBDD[Intro to TDD and BDD] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose] +
  +
@@ -294,6 +294,11 @@ link:presenters.html#XVladimir_Voskresensky[Vladimir Voskresensky] +
 link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
  +
 link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
+ +
+ +
+link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
+ +
+link:presenters.html#XJon_Jagger[Jon Jagger] +
  +
 
 |link:sessions.html#XContractsprogrammingafterC17[Contracts programming after {cpp}17] +

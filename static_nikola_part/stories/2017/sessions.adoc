@@ -698,6 +698,17 @@ This session will give you an overview of the fundamental concepts behind blockc
 
 
 
+[[XIntroductiontoIntelSGX]]
+== Introduction to Intel SGX
+=== link:presenters.html#XSamathy_Barratt[Samathy Barratt]
+
+
+An  introduction to Intel Security Guard Extensions which is a new
+hardware security feature allowing encrypting *running* code
+and data in RAM.
+
+
+
 [[XIntroductiontoQt3D]]
 == Introduction to Qt 3D
 === link:presenters.html#XJames_Turner[James Turner], link:presenters.html#XGiuseppe_DAngelo[Giuseppe D'Angelo]

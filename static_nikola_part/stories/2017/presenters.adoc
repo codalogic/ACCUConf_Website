@@ -660,6 +660,18 @@ of _Antifragile Software_, which is available on LeanPub.com.
 
 
 
+[[XSamathy_Barratt]]
+== Samathy Barratt
+
+link:sessions.html#XIntroductiontoIntelSGX[Introduction to Intel SGX]
+
+
+Samathy is a magical code fairy with a passion for low level and
+highly technical software. She works on HPC systems and loves
+talking to people and good coffee.
+
+
+
 [[XSeb_Rose]]
 == Seb Rose
 
@@ -692,20 +704,20 @@ practice (Java, C#, Haskell, SQL, and so on), {cpp} is his primary and favourite
 
 
 
-[[XSergey_Nepomnyachiy]]
-== Sergey Nepomnyachiy
-
-link:sessions.html#XEasyHighConstancy[Easy High Constancy]
-
-Worked for Intel and IBM, now working for Bloomberg
-
-
 [[XSergey_Ignatchenko]]
 == Sergey Ignatchenko
 
 link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation]
 
 Sergey Ignatchenko has 20+ years of industry experience, and his first large system as a (co-)architect was a stock exchange  of a G20 country back in 1996. One of systems he architected is processing over 100 billion user transactions/year (and over 10 billion DB transactions/year). He's also known for his 30+ articles in industry journals (starting from articles in CUJ and {cpp} Report in 1998, and now writing for Overload on regular basis). Currently he's working on a book "Development & Deployment of Multiplayer Online Games (from social games to MMOFPS, with stock exchanges in between)", which has got well over 500 backers on Kickstarter. 
+
+
+[[XSergey_Nepomnyachiy]]
+== Sergey Nepomnyachiy
+
+link:sessions.html#XEasyHighConstancy[Easy High Constancy]
+
+Worked for Intel and IBM, now working for Bloomberg
 
 
 [[XStephen_Kelly]]
