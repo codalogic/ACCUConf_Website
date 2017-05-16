@@ -54,7 +54,9 @@ link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
 |09:30
 5+^|link:sessions.html#XTohellandbackOneguitaristsjourneythroughmodernsoftwaredevelopment[To hell and back: One guitarist's journey through modern software development] +
  +
-link:presenters.html#XRuss_Miles[Russ Miles]
+link:presenters.html#XRuss_Miles[Russ Miles] +
+ +
+link:https://www.youtube.com/watch?v=mFO7vALe9bg[video]
 
 |10:30
 5+^|Break
