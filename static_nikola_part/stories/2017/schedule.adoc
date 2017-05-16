@@ -67,13 +67,17 @@ link:https://www.youtube.com/watch?v=mFO7vALe9bg[video]
 link:presenters.html#XDietmar_Kühl[Dietmar Kühl]
 |link:sessions.html#XLockfreeprogrammingwithmodernC[Lock-free programming with modern {cpp}] +
  +
-link:presenters.html#XTimur_Doumler[Timur Doumler]
+link:presenters.html#XTimur_Doumler[Timur Doumler] +
+ +
+link:https://www.youtube.com/watch?v=qdrp6k4rcP4[video]
 |link:sessions.html#XThenightmareofMoveSemanticsforSimpleClasses[The nightmare of Move Semantics for Simple Classes] +
  +
 link:presenters.html#XNicolai_Josuttis[Nicolai Josuttis]
 |link:sessions.html#XATestofStrength[A Test of Strength] +
  +
-link:presenters.html#XChris_Oldwood[Chris Oldwood]
+link:presenters.html#XChris_Oldwood[Chris Oldwood] +
+ +
+link:https://www.youtube.com/watch?v=C4Se7DeIY48[video]
 |link:sessions.html#XThelinkfromobjecttoexecutabletheroleoflinkerinadevelopmenttoolchain[The link from object to executable - the role of linker in a development toolchain] +
  +
 link:presenters.html#XPeter_Smith[Peter Smith]
@@ -84,16 +88,24 @@ link:presenters.html#XPeter_Smith[Peter Smith]
 |14:00
 |link:sessions.html#XTheDetectionIdiomasimplerwaytoSFINAE[The Detection Idiom - a simpler way to SFINAE] +
  +
-link:presenters.html#XMarshall_Clow[Marshall Clow]
+link:presenters.html#XMarshall_Clow[Marshall Clow] +
+ +
+link:https://www.youtube.com/watch?v=o1ekBpEFcPc[video]
 |link:sessions.html#XAtomicsmemoryorderswhatfor[Atomic's memory orders, what for?] +
  +
-link:presenters.html#XFrank_Birbacher[Frank Birbacher]
+link:presenters.html#XFrank_Birbacher[Frank Birbacher] +
+ +
+link:https://www.youtube.com/watch?v=A_vAG6LIHwQ[video]
 |link:sessions.html#XBluffyourwayinx64assembler[Bluff your way in x64 assembler] +
  +
-link:presenters.html#XRoger_Orr[Roger Orr]
+link:presenters.html#XRoger_Orr[Roger Orr] +
+ +
+link:https://www.youtube.com/watch?v=RI7VL-g6J7g[video]
 |link:sessions.html#XThinkingOutsidetheSynchronisationQuadrant[Thinking Outside the Synchronisation Quadrant] +
  +
-link:presenters.html#XKevlin_Henney[Kevlin Henney]
+link:presenters.html#XKevlin_Henney[Kevlin Henney] +
+ +
+link:https://www.youtube.com/watch?v=UJrmee7o68A[video]
 |link:sessions.html#XTheMirALStory[The MirAL Story] +
  +
 link:presenters.html#XAlan_Griffiths[Alan Griffiths]
@@ -104,16 +116,22 @@ link:presenters.html#XAlan_Griffiths[Alan Griffiths]
 |16:00
 |link:sessions.html#XAlookatCthroughtheglassesofalanguagetool[A look at {cpp} through the glasses of a language tool] +
  +
-link:presenters.html#XAnastasia_Kazakova[Anastasia Kazakova]
+link:presenters.html#XAnastasia_Kazakova[Anastasia Kazakova] +
+ +
+link:https://www.youtube.com/watch?v=4giOynD7Emg[video]
 |link:sessions.html#XMetaprogramminginC14[Metaprogramming in {cpp}14] +
  +
-link:presenters.html#XLouis_Dionne[Louis Dionne]
+link:presenters.html#XLouis_Dionne[Louis Dionne] +
+ +
+link:https://www.youtube.com/watch?v=Oc4enqNH-Mc[video]
 |link:sessions.html#XTimegentlemenplease[Time gentlemen please] +
  +
 link:presenters.html#XNeil_Horlock[Neil Horlock]
 |link:sessions.html#XHowtowriteaprogramminglanguage[How to write a programming language] +
  +
-link:presenters.html#XAndy_Balaam[Andy Balaam]
+link:presenters.html#XAndy_Balaam[Andy Balaam] +
+ +
+link:https://www.youtube.com/watch?v=82-XjMzKaC8[video]
 |link:sessions.html#XCCountdownPubQuiz[{cpp} Countdown Pub Quiz] +
  +
 link:presenters.html#XRobert_Chatley[Robert Chatley] +
