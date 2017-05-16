@@ -458,13 +458,17 @@ link:presenters.html#XIngve_Vormestrand[Ingve Vormestrand]
 link:presenters.html#XArjan_vanLeeuwen[Arjan van Leeuwen]
 |link:sessions.html#XImplementingvariantvisitationusinglambdas[Implementing `variant` visitation using lambdas] +
  +
-link:presenters.html#XVittorio_Romeo[Vittorio Romeo]
+link:presenters.html#XVittorio_Romeo[Vittorio Romeo] +
+ +
+link:https://www.youtube.com/watch?v=mqei4JJRQ7s[video]
 |link:sessions.html#XWritinggoodBDDscenarios[Writing good BDD scenarios] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose]
 |link:sessions.html#XMongrelMonadsDirtyDirtyDirty[Mongrel Monads, Dirty, Dirty, Dirty] +
  +
-link:presenters.html#XNiall_Douglas[Niall Douglas]
+link:presenters.html#XNiall_Douglas[Niall Douglas] +
+ +
+link:https://www.youtube.com/watch?v=XVofgKH-uu4[video]
 |link:sessions.html#Xah64Amemoryanalyzerforuninstrumentedcores[ah64: A memory analyzer for un-instrumented cores] +
  +
 link:presenters.html#XTim_Boddy[Tim Boddy]
@@ -475,16 +479,22 @@ link:presenters.html#XTim_Boddy[Tim Boddy]
 |11:30
 |link:sessions.html#XGrilltheCcommittee[Grill the {cpp} committee] +
  +
-link:presenters.html#XRoger_Orr[Roger Orr]
+link:presenters.html#XRoger_Orr[Roger Orr] +
+ +
+link:https://www.youtube.com/watch?v=TZs8b3FGo5A[video]
 |link:sessions.html#XConcurrencyParallelismandCoroutines[Concurrency, Parallelism and Coroutines] +
  +
-link:presenters.html#XAnthony_Williams[Anthony Williams]
+link:presenters.html#XAnthony_Williams[Anthony Williams] +
+ +
+link:https://www.youtube.com/watch?v=UhrIKqDADX8[video]
 |link:sessions.html#XHowtopresenteffectivelyinameeting[How to present effectively in a meeting] +
  +
 link:presenters.html#XDirk_Haun[Dirk Haun]
 |link:sessions.html#XFunctionalCForFunAndProfit[Functional {cpp} For Fun And Profit] +
  +
-link:presenters.html#XPhil_Nash[Phil Nash]
+link:presenters.html#XPhil_Nash[Phil Nash] +
+ +
+link:https://www.youtube.com/watch?v=8hW-LT8qFT0[video]
 |link:sessions.html#XKnuthAmdahlIspurnthee[Knuth, Amdahl: I spurn thee!] +
  +
 link:presenters.html#XJason_McGuiness[Jason McGuiness]
@@ -501,17 +511,23 @@ link:presenters.html#XJason_McGuiness[Jason McGuiness]
 |14:30
 |link:sessions.html#XModernCDesignreloaded[Modern {cpp} Design reloaded] +
  +
-link:presenters.html#XOdin_Holmes[Odin Holmes]
+link:presenters.html#XOdin_Holmes[Odin Holmes] +
+ +
+link:https://www.youtube.com/watch?v=jkjXIh3E9v0[video]
 |link:sessions.html#XIntroductiontoQt3D[Introduction to Qt 3D] +
  +
 link:presenters.html#XJames_Turner[James Turner] +
-link:presenters.html#XGiuseppe_DAngelo[Giuseppe D'Angelo]
+link:presenters.html#XGiuseppe_DAngelo[Giuseppe D'Angelo] +
+ +
+link:https://www.youtube.com/watch?v=1S_AVHaVsLA[video]
 |link:sessions.html#XPracticalCodeReviewusingtools[Practical Code Review using tools] +
  +
 link:presenters.html#XSven_Rosvall[Sven Rosvall]
 |link:sessions.html#XABrowseThroughES2016[A Browse Through ES2016] +
  +
-link:presenters.html#XJez_Higgins[Jez Higgins]
+link:presenters.html#XJez_Higgins[Jez Higgins] +
+ +
+link:https://www.youtube.com/watch?v=Px4_gglU-e4[video]
 |link:sessions.html#XGotToTestThemAll[Got To Test Them All] +
  +
 link:presenters.html#XSteve_Love[Steve Love]
