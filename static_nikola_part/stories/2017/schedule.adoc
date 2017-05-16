@@ -164,7 +164,9 @@ link:presenters.html#XJon_Jagger[Jon Jagger]
 |09:30
 5+^|link:sessions.html#XTheAudacityofChapelScalableParallelProgrammingDoneRight[The Audacity of Chapel: Scalable Parallel Programming Done Right] +
  +
-link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
+link:presenters.html#XBrad_Chamberlain[Brad Chamberlain] +
+ +
+link:https://www.youtube.com/watch?v=4HfeuJAJKmM[video]
 
 |10:30
 5+^|Break
@@ -172,16 +174,22 @@ link:presenters.html#XBrad_Chamberlain[Brad Chamberlain]
 |11:00
 |link:sessions.html#XWritinggamesinverymodernC[Writing games in very modern {cpp}] +
  +
-link:presenters.html#XGuy_Davidson[Guy  Davidson ]
+link:presenters.html#XGuy_Davidson[Guy  Davidson ] +
+ +
+link:https://www.youtube.com/watch?v=2RsLObr_Q2c[video]
 |link:sessions.html#XLocalarenaMemoryAllocators[Local (arena) Memory Allocators] +
  +
-link:presenters.html#XJohn_Lakos[John Lakos]
+link:presenters.html#XJohn_Lakos[John Lakos] +
+ +
+link:https://www.youtube.com/watch?v=d1DpVR0tw0U[video]
 |link:sessions.html#XDocumentationforsoftwaredevelopers[Documentation for software developers] +
  +
 link:presenters.html#XPeter_Hilton[Peter Hilton]
 |link:sessions.html#XFunctionalProgrammingfortheWebwithElm[Functional Programming for the Web with Elm] +
  +
-link:presenters.html#XAustin_Bingham[Austin Bingham]
+link:presenters.html#XAustin_Bingham[Austin Bingham] +
+ +
+link:https://www.youtube.com/watch?v=u3lUh1x72ao[video]
 |link:sessions.html#XTheProgrammerCEOandhowtodoasoftwarestartup[The Programmer CEO, and how to do a software startup] +
  +
 link:presenters.html#XGreg_Law[Greg Law]
@@ -192,16 +200,24 @@ link:presenters.html#XGreg_Law[Greg Law]
 |14:00
 |link:sessions.html#XCCoreGuidelinesModernizeyourCCodeBase[{cpp} Core Guidelines - Modernize your {cpp} Code Base] +
  +
-link:presenters.html#XPeter_Sommerlad[Peter Sommerlad]
+link:presenters.html#XPeter_Sommerlad[Peter Sommerlad] +
+ +
+link:https://www.youtube.com/watch?v=fQ926v4ZzAM[video]
 |link:sessions.html#XAnOverviewofProgramOptimizationTechniques[An Overview of Program Optimization Techniques] +
  +
-link:presenters.html#XMathias_Gaunard[Mathias Gaunard]
+link:presenters.html#XMathias_Gaunard[Mathias Gaunard] +
+ +
+link:https://www.youtube.com/watch?v=pEvm5NNc6ko[video]
 |link:sessions.html#XStandardisedCoroutineConcurrencyinPython3[Standardised Coroutine Concurrency in Python 3] +
  +
-link:presenters.html#XRobert_Smallshire[Robert Smallshire]
+link:presenters.html#XRobert_Smallshire[Robert Smallshire] +
+ +
+link:https://www.youtube.com/watch?v=tS08IP5ibTs[video]
 |link:sessions.html#XAnintroductiontoKotlinbyexample[An introduction to Kotlin by example] +
  +
-link:presenters.html#XDmitry_Kandalov[Dmitry Kandalov]
+link:presenters.html#XDmitry_Kandalov[Dmitry Kandalov] +
+ +
+link:https://www.youtube.com/watch?v=uZqo21geUa0[video]
 |link:sessions.html#XDeterministicComponentsforInteractiveDistributedSystemsBenefitsandImplementation[Deterministic Components for Interactive Distributed Systems: Benefits and Implementation] +
  +
 link:presenters.html#XSergey_Ignatchenko[Sergey Ignatchenko]
@@ -212,16 +228,22 @@ link:presenters.html#XSergey_Ignatchenko[Sergey Ignatchenko]
 |16:00
 |link:sessions.html#XLearningandteachingmodernCChallengesandResources[Learning (and teaching) modern {cpp} - Challenges and Resources] +
  +
-link:presenters.html#XArne_Mertz[Arne Mertz]
+link:presenters.html#XArne_Mertz[Arne Mertz] +
+ +
+link:https://www.youtube.com/watch?v=dlh-UnmCARk[video]
 |link:sessions.html#XTheCTypeSystemIsYourFriend[The {cpp} Type System Is Your Friend] +
  +
-link:presenters.html#XHubert_Matthews[Hubert Matthews]
+link:presenters.html#XHubert_Matthews[Hubert Matthews] +
+ +
+link:https://www.youtube.com/watch?v=MCiVdu7gScs[video]
 |link:sessions.html#XWhylimitingyourworkinprogresswillspeedupyourproject[Why limiting your work in progress will speed up your project] +
  +
 link:presenters.html#XMichel_Grootjans[Michel Grootjans]
 |link:sessions.html#XDNSat30[DNS at 30] +
  +
-link:presenters.html#XJim_Hague[Jim Hague]
+link:presenters.html#XJim_Hague[Jim Hague] +
+ +
+link:https://www.youtube.com/watch?v=TwXJ9-dQDsY[video]
 |link:sessions.html#XEmbracingModernCMake[Embracing Modern CMake] +
  +
 link:presenters.html#XStephen_Kelly[Stephen Kelly]
