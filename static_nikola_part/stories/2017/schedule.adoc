@@ -275,7 +275,9 @@ link:presenters.html#XStephen_Kelly[Stephen Kelly]
 |09:30
 5+^|link:sessions.html#XAIActualIntelligence[AI: Actual Intelligence] +
  +
-link:presenters.html#XFran_Buontempo[Fran Buontempo]
+link:presenters.html#XFran_Buontempo[Fran Buontempo] +
+ +
+link:https://www.youtube.com/watch?v=t5YuuLMyKpc[video]
 
 |10:30
 5+^|Break
@@ -285,26 +287,36 @@ link:presenters.html#XFran_Buontempo[Fran Buontempo]
  +
 link:presenters.html#XGreg_Law[Greg Law] +
  +
+link:https://www.youtube.com/watch?v=jNGjAas532I[video] +
+ +
  +
 link:sessions.html#XRequirementCreativity[Requirement: Creativity] +
  +
 link:presenters.html#XDirk_Haun[Dirk Haun] +
+ +
+link:https://www.youtube.com/watch?v=zYEQEtdkf6M[video] +
  +
  +
 link:sessions.html#XPasswordsAreNotHard[Passwords. Are. Not. Hard!] +
  +
 link:presenters.html#XDom_Davis[Dom Davis] +
  +
+link:https://www.youtube.com/watch?v=Sea1LMCZYt8[video] +
+ +
  +
 link:sessions.html#XEfficientdataaggregationwithFenwicktrees[Efficient data aggregation with Fenwick trees] +
  +
 link:presenters.html#XAhto_Truu[Ahto Truu] +
+ +
+link:https://www.youtube.com/watch?v=-tkl8UYVFT4[video] +
  +
 
 |link:sessions.html#XMachineLearningwithPythonCaseStudy[Machine Learning with Python Case Study] +
  +
 link:presenters.html#XChristopher_Simons[Christopher Simons] +
 link:presenters.html#XPedro_Ferreira[Pedro Ferreira] +
+ +
+link:https://www.youtube.com/watch?v=yAUBhohV9yc[video] +
  +
  +
 link:sessions.html#XNamedparameters[Named parameters] +
@@ -316,6 +328,8 @@ link:sessions.html#XMissingOptimizationsonNodebasedContainers[Missing Optimizati
  +
 link:presenters.html#XElliot_Goodrich[Elliot Goodrich] +
  +
+link:https://www.youtube.com/watch?v=iRILTuGbyEg[video] +
+ +
  +
 link:sessions.html#XIntroductiontoIntelSGX[Introduction to Intel SGX] +
  +
@@ -326,26 +340,36 @@ link:presenters.html#XSamathy_Barratt[Samathy Barratt] +
  +
 link:presenters.html#XSeb_Rose[Seb Rose] +
  +
+link:https://www.youtube.com/watch?v=l95DsKm5fbY[video] +
+ +
  +
 link:sessions.html#XLLVMCCcompilerfrontendinJava[ LLVM C/{cpp} compiler frontend in Java] +
  +
 link:presenters.html#XPetr_Kudriavtsev[Petr Kudriavtsev] +
 link:presenters.html#XVladimir_Voskresensky[Vladimir Voskresensky] +
  +
+link:https://www.youtube.com/watch?v=HVn5sghEjAA[video]
+ +
  +
 link:sessions.html#XEasyHighConstancy[Easy High Constancy] +
  +
 link:presenters.html#XSergey_Nepomnyachiy[Sergey Nepomnyachiy] +
+ +
+link:https://www.youtube.com/watch?v=0KuKuW-HzzE[video] +
  +
  +
 link:sessions.html#XDesignandEvolutionofcyberdojo[Design and Evolution of cyber-dojo] +
  +
 link:presenters.html#XJon_Jagger[Jon Jagger] +
  +
+link:https://www.youtube.com/watch?v=eR_RENdIIzw[video] +
+ +
 
 |link:sessions.html#XContractsprogrammingafterC17[Contracts programming after {cpp}17] +
  +
-link:presenters.html#XJDaniel_Garcia[J Daniel Garcia]
+link:presenters.html#XJDaniel_Garcia[J Daniel Garcia] +
+ +
+link:https://www.youtube.com/watch?v=IBas3S2HtdU[video]
 |link:sessions.html#XACCUTheViewFromTheConference[ACCU - The View From The Conference] +
  +
 link:presenters.html#XNigel_Lester[Nigel Lester]
@@ -356,16 +380,24 @@ link:presenters.html#XNigel_Lester[Nigel Lester]
 |14:00
 |link:sessions.html#XAutomaticCsourcecodegenerationwithclang[Automatic {cpp} source code generation with clang] +
  +
-link:presenters.html#XSergei_Sadovnikov[Sergei Sadovnikov]
+link:presenters.html#XSergei_Sadovnikov[Sergei Sadovnikov] +
+ +
+link:https://www.youtube.com/watch?v=aPTyatTI42k[video]
 |link:sessions.html#XUsingTrompeloeilamockingframeworkformodernC[Using Trompeloeil, a mocking framework for modern {cpp}] +
  +
-link:presenters.html#XBjörn_Fahller[Björn Fahller]
+link:presenters.html#XBjörn_Fahller[Björn Fahller] +
+ +
+link:https://www.youtube.com/watch?v=HCh6cs9nXt0[video]
 |link:sessions.html#XMasteringGitsindex[Mastering Git's index] +
  +
-link:presenters.html#XCharles_Bailey[Charles Bailey]
+link:presenters.html#XCharles_Bailey[Charles Bailey] +
+ +
+link:https://www.youtube.com/watch?v=lFBW2qBAcaU[video]
 |link:sessions.html#XHistoryofTimeAsynchronousC[History of Time: Asynchronous {cpp}] +
  +
-link:presenters.html#XSteven_Simpson[Steven Simpson]
+link:presenters.html#XSteven_Simpson[Steven Simpson] +
+ +
+link:https://www.youtube.com/watch?v=Z8tbjyZFAVQ[video]
 |link:sessions.html#XIntroductiontoBlockchaintechnologyandhowtobuildsomethingusefulwithit[Introduction to Blockchain technology, and how to build something useful with it] +
  +
 link:presenters.html#XPaul_Cunnell[Paul Cunnell]
@@ -379,13 +411,19 @@ link:presenters.html#XPaul_Cunnell[Paul Cunnell]
 link:presenters.html#XDiego_RodriguezLosada[Diego Rodriguez-Losada]
 |link:sessions.html#XCoroutinesandCDSLsforHumanScaleConcurrency[Coroutines and {cpp} DSLs for Human Scale Concurrency] +
  +
-link:presenters.html#XDominic_Robinson[Dominic Robinson]
+link:presenters.html#XDominic_Robinson[Dominic Robinson] +
+ +
+link:https://www.youtube.com/watch?v=d76cJ_RBGbY[video]
 |link:sessions.html#XTheEthicsofSoftwaresomepracticalconsiderations[The Ethics of Software - some practical considerations] +
  +
-link:presenters.html#XBurkhard_Kloss[Burkhard Kloss]
+link:presenters.html#XBurkhard_Kloss[Burkhard Kloss] +
+ +
+link:https://www.youtube.com/watch?v=jR2AMNdK7Do[video]
 |link:sessions.html#XImprovingSenseofSmellforLowLevelDebugging[Improving Sense of Smell for Low-Level Debugging] +
  +
-link:presenters.html#XMatthew_Dodkins[Matthew Dodkins]
+link:presenters.html#XMatthew_Dodkins[Matthew Dodkins] +
+ +
+link:https://www.youtube.com/watch?v=BuyQowqngTk[video]
 |link:sessions.html#XPOSIXviolatescoreguidelinesAnewtakeontheoperatingsysteminterface[POSIX violates core guidelines: A new take on the operating system interface] +
  +
 link:presenters.html#XIngve_Vormestrand[Ingve Vormestrand]
