@@ -35,7 +35,7 @@ from accuconf.proposals.utils.proposals import SessionType, ProposalState, Sessi
 from accuconf.proposals.utils.schedule import ConferenceDay, SessionSlot, QuickieSlot, Track, Room
 from accuconf.proposals.utils.roles import Role
 
-start_date = date(2017, 4, 25)  # The day of the full-day pre-conference workshops
+start_date = date(2018, 4, 10)  # The day of the full-day pre-conference workshops
 
 @app.cli.command()
 def create_database():
@@ -458,9 +458,9 @@ def generate_pages():
 .. type: text
 ////
 
-_The schedule is subject to change without notice until 2017-04-29._
+_The schedule is subject to change without notice until {}._
 
-'''.format(start_date.year))
+'''.format(start_date.year, start_date + timedelta(days=4)))
 
         def heading(text):
             return '\n\n<<<\n\n== {}\n\n'.format(text)
@@ -718,36 +718,6 @@ def edit(selector, values):
 
 
 @app.cli.command()
-@click.argument('amendment_file_name')
-def replace_proposal_abstract(amendment_file_name):
-    """
-    Read an amendment file and replace the proposal abstract specified with the given text.
-    An amendment file comprises two sections separated by a line with just four dashes.
-    The upper half is metadata specifying the proposer (email address) and title, the lower
-    half is the text to replace what is currently in the database.
-    """
-    with open(amendment_file_name) as amendment_file:
-        amendment_metadata, amendment_text = [x.strip() for x in amendment_file.read().split('----')]
-        amendment_metadata = {k.strip(): v.strip() for k, v in [item.split(':') for item in amendment_metadata.splitlines()]}
-        if 'Email' not in amendment_metadata or len(amendment_metadata['Email']) == 0:
-            print('Email of proposer not specified.')
-            return
-        if 'Title' not in amendment_metadata or len(amendment_metadata['Title']) == 0:
-            print('Title of proposal not specified.')
-            return
-        if len(amendment_text) == 0:
-            print('Replacement text not specified')
-            return
-        proposals = Proposal.query.filter_by(proposer=amendment_metadata['Email'], title=amendment_metadata['Title']).all()
-        if len(proposals) != 1:
-            print('Query delivers no or more than one proposal object.')
-            return
-        proposals[0].text = amendment_text
-        db.session.commit()
-        print('Update apparently completed.')
-
-
-@app.cli.command()
 @click.argument('person')
 def replace_presenter_of_proposal(person):
     """
@@ -822,6 +792,7 @@ def replace_presenter_of_proposal(person):
     #db.session.commit()
 
 
+# TODO Remove this when data model is correct.
 @app.cli.command()
 @click.argument('email_address')
 def expunge_user(email_address):
@@ -834,7 +805,7 @@ def expunge_user(email_address):
     and can just be deleted. proposals is a list and each elements has presenters, status, scores,
     comments, category – only status is not a list.
     """
-    user = User.query.filter_by(user_id=email_address).all()
+    user = User.query.filter_by(email=email_address).all()
     if len(user) == 0:
         print('Identifier {} not found.'.format(email_address))
         return
