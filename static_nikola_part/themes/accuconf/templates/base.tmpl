@@ -9,17 +9,15 @@
 {#  Leave this block alone. #}
 {% endblock %}
 {{ template_hooks['extra_head']() }}
-<link rel="icon"  type="image/png" href="/assets/images/accu2017_32x32.png">
+<link rel="icon"  type="image/png" href="/assets/images/accu2018_32x32.png">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">{{ messages("Skip to main content") }}</a>
 <!--  Banner -->
 <div class="container-fluid banner">
-    <a href="/"><img class="img-responsive" src="/assets/images/accu2017_363x124.png" align="left" alt="ACCUConf 2017 Logo"/></a>
+    <a href="/"><img class="img-responsive" src="/assets/images/accu2018_369x124.png" align="left" alt="ACCUConf 2018 Logo"/></a>
     <a href="http://www.accu.org"><img class="img-responsive" src="/assets/images/accu_logo.png" align="right" alt="ACCU Logo"/></a>
 </div>
-<!-- End of banner -->
-<!-- Banner logo -->
 <div class="row">
     <!-- Menubar -->
     <div class="col-sm-3 col-md-3 col-lg-3">
@@ -141,17 +139,6 @@
     </div>
 </div> <!--  End of div.row -->
 {{ base.late_load_js() }}
-    <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <script type="text/template" id="navlinks-template">
-        <li> <a href="<%= href %>"><%= title %></a> </li>
-    </script>
-    <!-- fancy dates -->
-    <script>
-    moment.locale("{{ momentjs_locales[lang] }}");
-    fancydates({{ date_fanciness }}, {{ js_date_format }});
-    $('.carousel').carousel()
-    </script>
-    <!-- end fancy dates -->
     {% block extra_js %}{% endblock %}
     {% if annotations and post and not post.meta('noannotations') %}
         {{ notes.code() }}
@@ -160,33 +147,5 @@
     {% endif %}
 {{ body_end }}
 {{ template_hooks['body_end']() }}
-    <script type="text/javascript">
-     $(document).ready(function() {
-         $("#greeter-row").hide();
-         var navlinksTemplate = _.template($("#navlinks-template").html());
-         $.ajax({
-             url: "/proposals/navlinks",
-             method: "GET",
-             contentType: "application/json",
-             success: function(jsonData) {
-                 $.each(jsonData, function(idx, item) {
-                     if (item[2]) { $("#navigation-links").append(navlinksTemplate({"href": item[1], "title": item[0]})); }
-                 });
-             }
-         });
-         $.ajax({
-             url: "/proposals/currentuser",
-             method: "GET",
-             contentType: "application/json",
-             success: function(data) {
-                 if (data.user_id.length) {
-                     $("#greeter").text("Hello " + data.first_name + " " + data.last_name);
-                     // Uncomment this when needed.
-                     // $("#greeter-row").show();
-                 }
-             }
-         });
-     });
-    </script>
 </body>
 </html>

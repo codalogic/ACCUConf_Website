@@ -144,7 +144,7 @@ THEME = "accuconf"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
-THEME_COLOR = '#5670d4'
+THEME_COLOR = '#363e6d'
 
 # POSTS and PAGES contains (wildcard, destination, template) tuples.
 #
@@ -554,7 +554,7 @@ DEPLOY_COMMANDS = {
     ],
     'testconference': [
         'chmod -R go+rX output',
-        'rsync -rav --delete output/ conference@dennis.accu.org:/srv/testconference.accu.org/public/htdocs/accuconf/static/',
+        'rsync -rav --delete output/ conference@dennis.accu.org:/srv/testconference.accu.org/public/htdocs/',
     ],
 }
 
