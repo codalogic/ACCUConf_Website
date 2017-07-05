@@ -550,7 +550,7 @@ REDIRECTIONS = []
 DEPLOY_COMMANDS = {
     'conference': [
         'chmod -R go+rX output',
-        'rsync -rav --delete --exclude stats --exclude .well-known output/ conference@dennis.accu.org:/srv/conference.accu.org/public/htdocs/accuconf/static',
+        'rsync -rav --delete --exclude stats --exclude .well-known output/ conference@dennis.accu.org:/srv/conference.accu.org/public/htdocs/',
     ],
     'testconference': [
         'chmod -R go+rX output',
