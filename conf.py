@@ -554,7 +554,7 @@ DEPLOY_COMMANDS = {
     ],
     'testconference': [
         'chmod -R go+rX output',
-        'rsync -rav --delete output/ conference@dennis.accu.org:/srv/testconference.accu.org/public/htdocs/',
+        'rsync -rav --delete --exclude stats --exclude .well-known output/ conference@dennis.accu.org:/srv/testconference.accu.org/public/htdocs/',
     ],
 }
 
