@@ -848,7 +848,7 @@ src="https://i.creativecommons.org/l/by-nd-nc/1.0/88x31.png"></a>"""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date} <a href="mailto:{email}">{author}</a>  {license} – Powered by <a href="http://flask.pocoo.org/" rel="nofollow">Flask</a> and <a href="https://getnikola.com" rel="nofollow">Nikola</a> – Hosting donated by <a href="http://www.bytemark.co.uk/r/accu" rel="nofollow">Bytemark</a>.</a>'
+CONTENT_FOOTER = 'Contents &copy; {date} <a href="mailto:{email}">{author}</a>  {license} – Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> – Hosting donated by <a href="http://www.bytemark.co.uk/r/accu" rel="nofollow">Bytemark</a>.'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
