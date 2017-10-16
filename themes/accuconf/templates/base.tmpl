@@ -35,11 +35,7 @@
               <a class="navbar-brand" href="/"> {{blog_title|e }} </a>
             </span>
           </div>
-          <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav" id="navigation-links">
-              <!-- This is the attachment point for the dynamically constructed menu -->
-            </ul>
-          </div>
+          {{ accuconf.current_menu() }}
           {{ accuconf.previous_conferences() }}
         </nav>
       </div> <!-- End div.row for nav -->
