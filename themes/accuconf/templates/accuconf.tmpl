@@ -158,3 +158,39 @@
 	</script>
 </div>
 {% endmacro %}
+
+{% macro first_page_overview() %}
+<div id='first-page-only'>
+<h1 class='p-name entry-title'>ACCU Conference 2018</h1>
+<p>
+The ACCU Conference is looking for material that is interesting to people who create
+software.
+<p>
+The ACCU Conference is put on by ACCU (<a href='https://accu.org'>https://accu.org</a>), 
+but is open to anyone who wishes to attend. 
+<p>
+ACCU is a membership organisation for people involved in software creation. The members are
+interested in programming, programming languages, testing, the tools of developing software, the process of
+developing software, and all related things. The tag line for the organisation is <em>Professionalism in
+Programming</em>.
+<p>
+Historically, ACCU has a lot of C++ and C content, and is proud of that: ACCU is the foremost
+annual conference for people interested in C++ and C, at least in and around the UK. But it is not just a
+C++ and C conference, ACCU is about programming in whatever language people are using, with whatever tools
+and processes people are using: D, Chapel, Java, Kotlin, C#, F#, Groovy, Rust, Go, Python, Ruby, Lisp, to
+name just a few programming languages about which there have been sessions at ACCU conferences.
+<p>
+The call for session proposals is now open. If you have an idea for a session do submit it. If you want
+to chat an idea over with someone before submitting, please email the conference chair 
+<a href='mailto:conference@accu.org'>conference@accu.org</a>.
+<p>
+As details of the conference are crystallised, they will be presented on this site.
+</p>
+</div>
+<script>
+  // Hide the 'first-page-only' content if we're showing the first page
+  if( window.location.pathname != '' && window.location.pathname != '/' ) {
+    document.getElementById('first-page-only').style.display = 'none';
+  }
+</script>
+{% endmacro %}

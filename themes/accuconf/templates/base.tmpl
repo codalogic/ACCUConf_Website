@@ -73,6 +73,7 @@
           <!--Body content-->
           <div class="row">
             {{ template_hooks['page_header']() }}
+            {{ accuconf.first_page_overview() }}
             {% block content %}{% endblock %}
           </div>
           <!--End of body content-->
